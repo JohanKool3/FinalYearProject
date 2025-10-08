@@ -27,12 +27,12 @@
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         private static void ValidateInput(int stringNumber, int fretNumber, double startTime, double duration)
         {
-            if (stringNumber < 0 || stringNumber > 6)
+            if (stringNumber <= 0 || stringNumber > 6)
             {
                 throw new ArgumentOutOfRangeException(nameof(stringNumber), "String number must be between 1 and 6, or null for a rest.");
             }
 
-            if (fretNumber < 0 || fretNumber > 30)
+            if (fretNumber <= 0 || fretNumber > 30)
             {
                 throw new ArgumentOutOfRangeException(nameof(fretNumber), "Fret number must be between 0 and 24.");
             }

@@ -45,6 +45,7 @@ namespace FinalYearProject.Shared.Test.Models.TabRepresentation
 
         [Theory]
         [InlineData(-1)]  // Invalid fret number (negative)
+        [InlineData(0)]  // Invalid fret number (negative)
         [InlineData(31)]  // Invalid fret number (too high)
         public void TabNote_Constructor_InvalidFretNumber_ThrowsArgumentOutOfRangeException(int invalidFretNumber)
         {
