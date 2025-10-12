@@ -1,9 +1,11 @@
 @* This is the main widget that will display Guitar Tab *@
 
 <div class="tab-widget">
-    <div class="top-section">
+    @* Top Toolbar *@
+    <div class="toolbar">
         <TabToolbar>
-            <label>Guitar Tab Top Toolbar</label>
+            <label class="toolbar-widget">Guitar Tab Top Toolbar</label>
+            <label class="toolbar-widget">This will be a widget</label>
         </TabToolbar>
     </div>
 
@@ -11,9 +13,11 @@
         <TabView />
     </div>
 
+    @* Bottom Toolbar *@
     <div class="toolbar">
         <TabToolbar>
-            <label>Guitar Tab Bottom Toolbar</label>
+            <label class="toolbar-widget">Guitar Bottom Top Toolbar</label>
+            <label class="toolbar-widget">This will be a widget</label>
         </TabToolbar>
     </div>
 </div>
