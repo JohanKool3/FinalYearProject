@@ -68,6 +68,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
+      <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>
 
 </Project>

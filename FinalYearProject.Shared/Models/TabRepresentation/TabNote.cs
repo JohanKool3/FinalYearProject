@@ -29,22 +29,26 @@
         {
             if (stringNumber <= 0 || stringNumber > 6)
             {
-                throw new ArgumentOutOfRangeException(nameof(stringNumber), "String number must be between 1 and 6, or null for a rest.");
+                throw new ArgumentOutOfRangeException(nameof(stringNumber), 
+                    "String number must be between 1 and 6, or null for a rest.");
             }
 
             if (fretNumber <= 0 || fretNumber > 30)
             {
-                throw new ArgumentOutOfRangeException(nameof(fretNumber), "Fret number must be between 0 and 24.");
+                throw new ArgumentOutOfRangeException(nameof(fretNumber), 
+                    "Fret number must be between 0 and 24.");
             }
 
             if (startTime < 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(startTime), "Start time must be greater than or equal to 0.");
+                throw new ArgumentOutOfRangeException(nameof(startTime),
+                    "Start time must be greater than or equal to 0.");
             }
 
             if (duration <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(duration), "Duration must be greater than 0.");
+                throw new ArgumentOutOfRangeException(nameof(duration),
+                    "Duration must be greater than 0.");
             }
         }
 
