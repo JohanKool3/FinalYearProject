@@ -1,4 +1,9 @@
 ﻿<div class="tab-toolbar">
-
-    <label>This is a Toolbar</label>
+    @ChildContent
 </div>
+
+@code{
+
+    [Parameter, EditorRequired]
+    public required RenderFragment ChildContent { get; set; }
+}
