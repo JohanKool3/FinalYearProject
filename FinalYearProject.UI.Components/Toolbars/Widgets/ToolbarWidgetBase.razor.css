@@ -1,0 +1,27 @@
+.toolbar-widget-normal {
+    width: 2em;
+    height: 2em;
+    border: solid;
+    border-width: 0.1em;
+    align-content: center;
+    border-radius: 0.5em;
+}
+
+    .toolbar-widget-normal:hover {
+        background-color: rgb(67, 230, 250, 0.29);
+        cursor: pointer;
+    }
+
+.toolbar-widget-double {
+    width: 4em;
+    height: 2em;
+    border: solid;
+    border-width: 0.1em;
+    align-content: center;
+    border-radius: 0.5em;
+}
+
+    .toolbar-widget-double:hover {
+        background-color: rgb(67, 230, 250, 0.29);
+        cursor: pointer;
+    }
