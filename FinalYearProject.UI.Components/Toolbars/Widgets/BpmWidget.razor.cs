@@ -1,9 +1,10 @@
+using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.Toolbars.Widgets
 {
-    public partial class BpmWidget : ComponentBase
+    public partial class BpmWidget(TabPlaybackService playbackService) : ComponentBase
     {
 
         /// <summary>
@@ -13,10 +14,11 @@ namespace FinalYearProject.UI.Components.Toolbars.Widgets
         public int InitialBpm { get; set; } = 120;
 
         /// <summary>
-        /// Event Handler that is invoked when the BPM changes.
+        /// Notify the parent component that a change has occurred.
         /// </summary>
-        [Parameter]
-        public EventCallback<int> OnBpmChanged { get; set; }
+        [Parameter, EditorRequired]
+        public Func<Task> NotifyParentOfChange { get; set; } = null!;
+        public TabPlaybackService PlaybackService { get; set; } = playbackService;
 
         /// <summary>
         /// Display value for the current BPM.
@@ -25,7 +27,7 @@ namespace FinalYearProject.UI.Components.Toolbars.Widgets
 
         protected override void OnInitialized()
         {
-            // TODO: Load BPM from service.
+            InitialBpm = PlaybackService.Bpm;
             _currentBpmReadout = InitialBpm.ToString();
             base.OnInitialized();
         }
@@ -41,8 +43,9 @@ namespace FinalYearProject.UI.Components.Toolbars.Widgets
                 // Clamp the value between 20 and 300 BPM.
                 newBpm = Math.Clamp(newBpm, 20, 300);
                 _currentBpmReadout = newBpm.ToString();
+                PlaybackService.SetBpm(newBpm);
 
-                OnBpmChanged.InvokeAsync(newBpm);
+                InvokeAsync(NotifyParentOfChange);
             }
             else
             {
@@ -73,7 +76,9 @@ namespace FinalYearProject.UI.Components.Toolbars.Widgets
                 // Clamp the value between 20 and 300 BPM.
                 newBpm = Math.Clamp(newBpm, 20, 300);
                 _currentBpmReadout = newBpm.ToString();
-                OnBpmChanged.InvokeAsync(newBpm);
+
+                // Set the new BPM
+                PlaybackService.SetBpm(newBpm);
             }
         }
     }

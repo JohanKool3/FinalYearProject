@@ -9,8 +9,11 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public bool IsPlaying { get; private set; }
 
+        public int Bpm { get; private set; }
+
         public TabPlaybackService()
         {
+            Bpm = 120;
             IsPlaying = false;
         }
 
@@ -28,6 +31,11 @@ namespace FinalYearProject.UI.Components.Services
         public void StopPlayback()
         {
             IsPlaying = false;
+        }
+
+        public void SetBpm(int bpm)
+        {
+            Bpm = Math.Clamp(bpm, 20, 300);
         }
     }
 }
