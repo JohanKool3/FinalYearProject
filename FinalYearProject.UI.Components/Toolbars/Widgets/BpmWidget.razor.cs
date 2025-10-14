@@ -18,6 +18,7 @@ namespace FinalYearProject.UI.Components.Toolbars.Widgets
         /// </summary>
         [Parameter, EditorRequired]
         public Func<Task> NotifyParentOfChange { get; set; } = null!;
+
         public TabPlaybackService PlaybackService { get; set; } = playbackService;
 
         /// <summary>
