@@ -14,5 +14,16 @@
         /// How big a beat is, e.g. 4 = quarter note in 4/4, 8 = eighth note in 6/8
         /// </summary>
         public int BeatUnit { get; set; } = beatUnit;
+
+
+        public override bool Equals(object? obj)
+        {
+            if(obj is TimeSignature other)
+            {
+                return BeatsPerMeasure == other.BeatsPerMeasure && BeatUnit == other.BeatUnit;
+            }
+
+            return base.Equals(obj);
+        }
     }
 }

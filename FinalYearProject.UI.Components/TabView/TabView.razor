@@ -1,6 +1,7 @@
+@using FinalYearProject.Shared.Models.TabRepresentation
 <div class="tab-view">
-    
-    @if(!IsTabLoaded())
+
+    @if (!IsTabLoaded())
     {
         <p>No Tab Loaded</p>
     }
@@ -8,11 +9,27 @@
     {
         @* Iterate over each bar and render it *@
         <div class="tab-bars-container">
-            @foreach(var bar in GetCurrentTab()?.Bars ?? [])
-            {
-                <TabBar 
-                    Bar="bar"/>
+            @{
+                TimeSignature? currentTimeSignature = null;
+                foreach (var bar in GetCurrentTab()?.Bars ?? [])
+                {
+                    if (currentTimeSignature is null || !bar.TimeSignature.Equals(currentTimeSignature))
+                    {
+                        currentTimeSignature = bar.TimeSignature;
+                        <TabBar Bar="bar"
+                                ShowTimeSignature="true" />
+                    }
+                    else
+                    {
+                        // Clear time signature to avoid redundant rendering
+                        <TabBar Bar="bar"
+                                ShowTimeSignature="false" />
+                    }
+
+
+                }
             }
+
         </div>
     }
 </div>

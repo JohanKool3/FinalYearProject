@@ -29,13 +29,13 @@
         {
             if (stringNumber <= 0 || stringNumber > 6)
             {
-                throw new ArgumentOutOfRangeException(nameof(stringNumber), 
+                throw new ArgumentOutOfRangeException(nameof(stringNumber),
                     "String number must be between 1 and 6, or null for a rest.");
             }
 
             if (fretNumber < 0 || fretNumber > 30)
             {
-                throw new ArgumentOutOfRangeException(nameof(fretNumber), 
+                throw new ArgumentOutOfRangeException(nameof(fretNumber),
                     "Fret number must be between 0 and 24.");
             }
 
@@ -63,13 +63,21 @@
         public int FretNumber { get; private set; }
 
         /// <summary>
-        /// When the note started in Beats
+        /// When the note started in the unit of Beats
         /// </summary>
+        /// <remarks>
+        /// So for 4/4 [1, 2, 3, 4] are the whole beats
+        /// For 6/8 [1, 2, 3, 4, 5, 6] are the whole beats
+        /// </remarks>
         public double StartTime { get; private set; }
 
         /// <summary>
-        /// How long the note will last in Beats
+        /// How long the note will last in the lowest division
         /// </summary>
+        /// <remarks>
+        /// For 4 /4 this is a Crotchet (quarter note) = 1
+        /// For 6/ 8 this is a Quaver (eighth note) = 1
+        /// </remarks>
         public double Duration { get; private set; }
 
         //  TODO: Implement Articulation and Note Qualities

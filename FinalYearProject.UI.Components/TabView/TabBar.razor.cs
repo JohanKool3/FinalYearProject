@@ -47,6 +47,14 @@ namespace FinalYearProject.UI.Components.TabView
         [Parameter]
         public int FretNumberSize { get; set; } = 14;
 
+        [Parameter, EditorRequired]
+        public required bool ShowTimeSignature { get; set; }
+
+        /// <summary>
+        /// Space allocated for the time signature display
+        /// </summary>
+        private double _timeSignatureWidth = 40;
+
         /// <summary>
         /// Defines the fill color for the fret number circles
         /// </summary>
@@ -79,7 +87,14 @@ namespace FinalYearProject.UI.Components.TabView
         /// </summary>
         private int _innerHeight => Height - (2 * Padding);
 
-        private int _innerWidth => Width - (int)StringStroke;
+        private int _innerWidth => (Width + (int)GetTimeSignatureAllocatedSpace()) - (int)StringStroke * 2;
+
+        /// <summary>
+        /// Space available for notes, accounting for padding
+        /// </summary>
+        private int _innerNoteWidth => (ShowTimeSignature)
+                ?   _innerWidth - (2*(int)_notePadding)
+                :   _innerWidth;
 
         private List<NoteMarker> _noteMarkers = [];
 
@@ -105,15 +120,19 @@ namespace FinalYearProject.UI.Components.TabView
         /// <param name="posFraction"></param>
         /// <returns></returns>
         private double NoteXCoordinate(double posFraction)
-            => _notePadding + Math.Clamp(posFraction, 0.0, 1.0) * _innerWidth;
+            => 
+            GetTimeSignatureAllocatedSpace() // Account for Time Sig
+            + (_notePadding + (Math.Clamp(posFraction, 0.0, 1.0) * _innerNoteWidth));
 
         protected override void OnInitialized()
         {
             // Convert the notes in into NoteMarkers
+            var timeSignature = Bar.TimeSignature;
 
+            //TODO: Fix bug where when top number is smaller than bottom,
+            // Leads to weird spacing such as for 6/8
             // Calculate how long each beat is in the bar
-            var beatDuration = 1.0 / Bar
-                .TimeSignature
+            var unitDuration = 1.0 / timeSignature
                 .BeatsPerMeasure;
 
             foreach (var note in Bar.Notes)
@@ -123,15 +142,24 @@ namespace FinalYearProject.UI.Components.TabView
                 NoteMarker marker = new()
                 {
                     StringIndex = note.StringNumber - 1,
-                    Position = beatDuration * note.StartTime,
+                    Position = unitDuration * note.StartTime,
                     Fret = note.FretNumber
                 };
 
                 _noteMarkers.Add(marker);
             }
+            Console.WriteLine();
         }
 
         private double GetCircleRadius()
             => Math.Clamp((FretNumberSize / 2) + _freRadiuspadding, 1.0, double.MaxValue);
+    
+        private string GetTimeSignatureString()
+            => $"{Bar.TimeSignature.BeatsPerMeasure}";
+
+        private double GetTimeSignatureAllocatedSpace()
+            => (ShowTimeSignature)
+            ? Padding + _timeSignatureWidth / 2 
+            : 0;
     }
 }
