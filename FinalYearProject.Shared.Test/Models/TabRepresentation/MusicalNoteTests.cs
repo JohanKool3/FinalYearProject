@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace FinalYearProject.Shared.Test.Models.TabRepresentation
 {
-    public class TabNoteTests
+    public class MusicalNoteTests
     {
 
-        [Fact]
-        public void TabNote_Constructor_SetsPropertiesCorrectly()
+        [Theory]
+        [InlineData(3, 5, 0, 4)]
+        [InlineData(1, 0, 2, 1)]
+        public void MusicalNote_Constructor_SetsPropertiesCorrectly
+            (int stringNumber,
+            int fretNumber,
+            int startTime,
+            int duration
+            )
         {
-            // Arrange
-            int stringNumber = 3;
-            int fretNumber = 5;
-            int startTime = 0;
-            int duration = 4;
-            
             // Act
-            var tabNote = new TabNote(stringNumber, fretNumber,startTime, duration);
-            
+            var tabNote = new MusicalNote(stringNumber, fretNumber, startTime, duration);
+
             // Assert
             Assert.Equal(stringNumber, tabNote.StringNumber);
             Assert.Equal(fretNumber, tabNote.FretNumber);
@@ -31,7 +32,7 @@ namespace FinalYearProject.Shared.Test.Models.TabRepresentation
         [Theory]
         [InlineData(0)]  // Invalid string number (too low)
         [InlineData(7)]  // Invalid string number (too high)
-        public void TabNote_Constructor_InvalidStringNumber_ThrowsArgumentOutOfRangeException(int invalidStringNumber)
+        public void MusicalNote_Constructor_InvalidStringNumber_ThrowsArgumentOutOfRangeException(int invalidStringNumber)
         {
             // Arrange
             int fretNumber = 5;
@@ -39,27 +40,26 @@ namespace FinalYearProject.Shared.Test.Models.TabRepresentation
             int duration = 4;
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() 
-                => new TabNote(invalidStringNumber, fretNumber, startTime, duration));
+            Assert.Throws<ArgumentOutOfRangeException>(()
+                => new MusicalNote(invalidStringNumber, fretNumber, startTime, duration));
         }
 
         [Theory]
         [InlineData(-1)]  // Invalid fret number (negative)
-        [InlineData(0)]  // Invalid fret number (negative)
         [InlineData(31)]  // Invalid fret number (too high)
-        public void TabNote_Constructor_InvalidFretNumber_ThrowsArgumentOutOfRangeException(int invalidFretNumber)
+        public void MusicalNote_Constructor_InvalidFretNumber_ThrowsArgumentOutOfRangeException(int invalidFretNumber)
         {
             // Arrange
             int stringNumber = 3;
             int startTime = 0;
             int duration = 4;
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() 
-                => new TabNote(stringNumber, invalidFretNumber, startTime, duration));
+            Assert.Throws<ArgumentOutOfRangeException>(()
+                => new MusicalNote(stringNumber, invalidFretNumber, startTime, duration));
         }
 
         [Fact]
-        public void TabNote_Constructor_NegativeStartTime_ThrowsArgumentOutOfRangeException()
+        public void MusicalNote_Constructor_NegativeStartTime_ThrowsArgumentOutOfRangeException()
         {
             // Arrange
             int stringNumber = 3;
@@ -67,14 +67,14 @@ namespace FinalYearProject.Shared.Test.Models.TabRepresentation
             int invalidStartTime = -1;
             int duration = 4;
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() 
-                => new TabNote(stringNumber, fretNumber, invalidStartTime, duration));
+            Assert.Throws<ArgumentOutOfRangeException>(()
+                => new MusicalNote(stringNumber, fretNumber, invalidStartTime, duration));
         }
 
         [Theory]
         [InlineData(0)]  // Invalid duration (zero)
         [InlineData(-2)] // Invalid duration (negative)
-        public void TabNote_Constructor_InvalidDuration_ThrowsArgumentOutOfRangeException(int invalidDuration)
+        public void MusicalNote_Constructor_InvalidDuration_ThrowsArgumentOutOfRangeException(int invalidDuration)
         {
             // Arrange
             int stringNumber = 3;
@@ -82,8 +82,8 @@ namespace FinalYearProject.Shared.Test.Models.TabRepresentation
             int startTime = 0;
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() 
-                => new TabNote(stringNumber, fretNumber, startTime, invalidDuration));
+            Assert.Throws<ArgumentOutOfRangeException>(()
+                => new MusicalNote(stringNumber, fretNumber, startTime, invalidDuration));
         }
     }
 }

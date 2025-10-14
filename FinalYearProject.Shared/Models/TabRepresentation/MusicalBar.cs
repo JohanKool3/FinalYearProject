@@ -5,7 +5,7 @@ namespace FinalYearProject.Shared.Models.TabRepresentation
     /// <summary>
     /// Representation of a Bar of music in a tablature format
     /// </summary>
-    public class TabBar
+    public class MusicalBar
     {
         /// <summary>
         /// The total number of beats in this bar
@@ -20,6 +20,6 @@ namespace FinalYearProject.Shared.Models.TabRepresentation
         /// <summary>
         /// Collection of all the notes in this bar
         /// </summary>
-        public required List<TabNote> Notes { get; set; } = [];
+        public required List<MusicalNote> Notes { get; set; } = [];
     }
 }

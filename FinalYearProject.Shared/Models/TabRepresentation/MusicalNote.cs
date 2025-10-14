@@ -3,9 +3,9 @@
     /// <summary>
     /// A single note in a tablature representation
     /// </summary>
-    public class TabNote
+    public class MusicalNote
     {
-        public TabNote(int stringNumber, int fretNumber, double startTime, double duration)
+        public MusicalNote(int stringNumber, int fretNumber, double startTime, double duration)
         {
             // TODO: Allow user to customize this to allow for 7 string guitars etc.
             // Most likely this will need to be done through DI and a settings service
@@ -33,7 +33,7 @@
                     "String number must be between 1 and 6, or null for a rest.");
             }
 
-            if (fretNumber <= 0 || fretNumber > 30)
+            if (fretNumber < 0 || fretNumber > 30)
             {
                 throw new ArgumentOutOfRangeException(nameof(fretNumber), 
                     "Fret number must be between 0 and 24.");

@@ -13,7 +13,7 @@ namespace FinalYearProject.UI.Components.Services
 
         public int Bpm { get; private set; }
 
-        public FullTab? CurrentTab {get; private set;}
+        public FullPiece? CurrentPiece {get; private set;}
 
         public TabPlaybackService()
         {
@@ -47,12 +47,20 @@ namespace FinalYearProject.UI.Components.Services
         }
 
         /// <summary>
-        /// Loads a new piece into the playback service
+        /// Loads a new piece into the tab playback service
         /// </summary>
         /// <param name="piece"></param>
-        public void LoadPiece(FullTab piece)
+        public void LoadPiece(FullPiece piece)
         {
-            CurrentTab = piece;
+            //TODO: Extend validation
+            // Check for invalid piece
+            if (piece.Bars.Count == 0)
+            {
+                // TODO: Log the exception
+                return;
+            }
+
+            CurrentPiece = piece;
         }
     }
 }

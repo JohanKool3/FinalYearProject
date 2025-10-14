@@ -14,8 +14,8 @@ namespace FinalYearProject.UI.Components.TabView
         /// Returns the current loaded tab from the playback service
         /// </summary>
         /// <returns></returns>
-        private FullTab? GetCurrentTab()
-            => PlaybackService.CurrentTab;
+        private FullPiece? GetCurrentTab()
+            => PlaybackService.CurrentPiece;
 
 
         /// <summary>

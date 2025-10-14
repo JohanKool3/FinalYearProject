@@ -3,17 +3,16 @@
     /// <summary>
     /// Representation of a Time Signature in music, e.g. 4/4, 3/4, 6/8
     /// </summary>
-    public class TimeSignature
+    public class TimeSignature(int beatsPerMeasure, int beatUnit)
     {
-
         /// <summary>
         /// How many beats are in a measure, e.g. 4 in 4/4, 3 in 3/4
         /// </summary>
-        public int BeatsPerMeasure { get; set; }
+        public int BeatsPerMeasure { get; set; } = beatsPerMeasure;
 
         /// <summary>
         /// How big a beat is, e.g. 4 = quarter note in 4/4, 8 = eighth note in 6/8
         /// </summary>
-        public int BeatUnit { get; set; }
+        public int BeatUnit { get; set; } = beatUnit;
     }
 }
