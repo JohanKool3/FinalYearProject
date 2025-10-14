@@ -1,0 +1,31 @@
+﻿@* Represents a single bar *@
+
+<svg class="tabbar-svg" width="@Width" height="@Height" viewBox="0 0 @Width @Height" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Guitar tab bar">
+
+    <!-- Outer bar background -->
+    <rect x="0" y="0" width="@Width" height="@Height"
+           fill="#fbfbfb" stroke="@BarStroke" stroke-width="2" />
+
+    <!-- Inner area border (optional, visually the 'bar' area) -->
+    <rect x="@StringStroke" y="@StringStroke" width="@_innerWidth" height="@_innerHeight"
+           fill="none" stroke="transparent" />
+
+    <!-- Strings (lines) -->
+    @for (int i = 0; i < StringCount; i++)
+    {
+        var y = YForString(i);
+        <line x1="@StringStroke" y1="@y" x2="@_innerWidth" y2="@y"
+              stroke="@StringColor" stroke-width="@StringStroke" stroke-linecap="round" />
+    }
+
+    <!-- Bar Lines -->
+    <line x1="@StringStroke" y1="@YForString(0)" x2="@StringStroke" y2="@YForString(StringCount - 1)"
+          stroke="@StringColor" stroke-width="@StringStroke" stroke-linecap="round" />
+
+    <line x1="@_innerWidth" y1="@YForString(0)" x2="@_innerWidth" y2="@YForString(StringCount - 1)"
+          stroke="@StringColor" stroke-width="@StringStroke" stroke-linecap="round" />
+
+
+</svg>
+
+

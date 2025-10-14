@@ -5,3 +5,9 @@
     border: solid;
     border-width: 0.1em;
 }
+
+.tab-bars-container {
+    display: inline-flex;
+    padding: 1em;
+    flex-wrap: wrap;
+}

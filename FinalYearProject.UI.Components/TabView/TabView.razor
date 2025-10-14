@@ -6,7 +6,14 @@
     }
     else
     {
-        <p>Tab is Loaded</p>
+        @* Iterate over each bar and render it *@
+        <div class="tab-bars-container">
+            @foreach(var bar in GetCurrentTab()?.Bars ?? [])
+            {
+                <TabBar 
+                    Bar="bar"/>
+            }
+        </div>
     }
 </div>
 
