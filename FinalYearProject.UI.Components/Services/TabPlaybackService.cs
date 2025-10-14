@@ -1,4 +1,6 @@
 ﻿
+using FinalYearProject.Shared.Models.TabRepresentation;
+
 namespace FinalYearProject.UI.Components.Services
 {
     public class TabPlaybackService
@@ -10,6 +12,8 @@ namespace FinalYearProject.UI.Components.Services
         public bool IsPlaying { get; private set; }
 
         public int Bpm { get; private set; }
+
+        public FullTab? CurrentTab {get; private set;}
 
         public TabPlaybackService()
         {
@@ -33,9 +37,22 @@ namespace FinalYearProject.UI.Components.Services
             IsPlaying = false;
         }
 
+        /// <summary>
+        /// Sets the BPM for playback, clamped between 20BPM and 300BPM
+        /// </summary>
+        /// <param name="bpm"></param>
         public void SetBpm(int bpm)
         {
             Bpm = Math.Clamp(bpm, 20, 300);
+        }
+
+        /// <summary>
+        /// Loads a new piece into the playback service
+        /// </summary>
+        /// <param name="piece"></param>
+        public void LoadPiece(FullTab piece)
+        {
+            CurrentTab = piece;
         }
     }
 }
