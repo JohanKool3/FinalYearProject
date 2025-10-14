@@ -1,0 +1,25 @@
+<ToolbarWidgetBase>
+    <button class="play-button"
+            @onclick="StartPlayAsync"
+            title="Pause"
+            disabled="@false">
+        <img src="images/play.svg" />
+    </button>
+</ToolbarWidgetBase>
+
+
+@code {
+
+    [Parameter]
+    public Func<Task>? OnPlayAsync { get; set; } = null;
+
+    private Task StartPlayAsync(MouseEventArgs args)
+    {
+        if (OnPlayAsync is null)
+        {
+            return Task.CompletedTask;
+        }
+
+        return OnPlayAsync.Invoke();
+    }
+}

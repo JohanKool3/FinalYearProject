@@ -1,0 +1,18 @@
+.play-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+    .play-button:disabled {
+        background-color: grey;
+        border: inherit;
+    }
+
+    .play-button:hover:where(:not(:disabled)) {
+        background-color: lightgreen;
+    }
+
+    .play-button:active:where(:not(:disabled)) {
+        background-color: green;
+    }

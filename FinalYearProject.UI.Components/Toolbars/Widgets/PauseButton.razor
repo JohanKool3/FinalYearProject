@@ -1,3 +1,26 @@
 ﻿<ToolbarWidgetBase>
-    <img src="images/pause.svg" />
+    <button class="pause-button" 
+        @onclick="PausePlayAsync" 
+        title="Pause"
+        disabled="@true">
+        <img src="images/pause.svg" />
+    </button>
 </ToolbarWidgetBase>
+
+@code {
+    /// <summary>
+    /// Action that is invoked when the pause button is clicked
+    /// </summary>
+    [Parameter]
+    public Func<Task>? OnPauseAsync { get; set; } = null;
+
+    private Task PausePlayAsync(MouseEventArgs args)
+    {
+        if(OnPauseAsync is null)
+        {
+            return Task.CompletedTask;
+        }
+
+        return OnPauseAsync.Invoke();
+    }
+}

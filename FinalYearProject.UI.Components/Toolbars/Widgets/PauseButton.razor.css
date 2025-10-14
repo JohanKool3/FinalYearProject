@@ -1,0 +1,20 @@
+.pause-button{
+    width:100%;
+    height:100%;
+    justify-content: center;
+    padding: 0em;
+    border: none;
+}
+
+.pause-button:disabled{
+    background-color: grey;
+    border: inherit;
+}
+
+    .pause-button:hover:where(:not(:disabled)) {
+        background-color: lightgreen;
+    }
+
+    .pause-button:active:where(:not(:disabled)) {
+        background-color: green;
+    }

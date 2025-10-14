@@ -4,7 +4,6 @@
     border: solid;
     border-width: 0.1em;
     align-content: center;
-    border-radius: 0.5em;
 }
 
     .toolbar-widget-normal:hover {
@@ -18,7 +17,6 @@
     border: solid;
     border-width: 0.1em;
     align-content: center;
-    border-radius: 0.5em;
 }
 
     .toolbar-widget-double:hover {
@@ -32,7 +30,6 @@
     border: solid;
     border-width: 0.1em;
     align-content: center;
-    border-radius: 0.5em;
 }
 
     .toolbar-widget-triple:hover {
