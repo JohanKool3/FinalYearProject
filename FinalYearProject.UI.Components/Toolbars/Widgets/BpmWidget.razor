@@ -1,5 +1,13 @@
-﻿<ToolbarWidgetBase IsDoubleWidth=true>
+﻿@using FinalYearProject.UI.Components.Enums
+@using Microsoft.AspNetCore.Components.Forms
+
+<ToolbarWidgetBase WidgetWidth=WidgetWidth.Triple>
     <div class="bpm-widget">
-        <label for="bpm-input">BPM: 120</label>
+        <label>BPM:</label>
+        <input maxlength="3" class="bpm-input"
+               @bind="@_currentBpmReadout"
+               @bind:after="ValidateInput" />
     </div>
 </ToolbarWidgetBase>
+
+

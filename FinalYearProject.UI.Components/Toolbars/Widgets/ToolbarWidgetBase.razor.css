@@ -25,3 +25,17 @@
         background-color: rgb(67, 230, 250, 0.29);
         cursor: pointer;
     }
+
+.toolbar-widget-triple {
+    width: 6em;
+    height: 2em;
+    border: solid;
+    border-width: 0.1em;
+    align-content: center;
+    border-radius: 0.5em;
+}
+
+    .toolbar-widget-triple:hover {
+        background-color: rgb(67, 230, 250, 0.29);
+        cursor: pointer;
+    }

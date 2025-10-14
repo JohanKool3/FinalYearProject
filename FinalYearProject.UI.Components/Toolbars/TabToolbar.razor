@@ -1,9 +1,8 @@
 ﻿<div class="tab-toolbar">
-    @ChildContent
+    @if(ChildContent is not null)
+    {
+        @ChildContent
+    }
 </div>
 
-@code{
 
-    [Parameter, EditorRequired]
-    public required RenderFragment ChildContent { get; set; }
-}

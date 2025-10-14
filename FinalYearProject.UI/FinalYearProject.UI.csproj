@@ -61,6 +61,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="..\FinalYearProject.UI.Components\Toolbars\TabToolbar.razor.cs" Link="TabToolbar.razor.cs" />
+      <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\BpmWidget.razor.cs" Link="BpmWidget.razor.cs" />
+      <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\ToolbarWidgetBase.razor.cs" Link="ToolbarWidgetBase.razor.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />

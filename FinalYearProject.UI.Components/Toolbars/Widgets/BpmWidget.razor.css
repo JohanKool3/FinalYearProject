@@ -1,6 +1,15 @@
 .bpm-widget {
+    display:inline-flex;
     font-size:0.85em;
     justify-content:center;
-    font-weight: bold;
+    text-align: center;
+    padding:0.25em;
+}
+
+.bpm-input{
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 1em;
     text-align: center;
 }

@@ -2,17 +2,3 @@
     @ChildContent
 </div>
 
-@code{
-    [Parameter, EditorRequired]
-    public required RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public bool IsDoubleWidth { get; set; } = false;
-
-    private string GetClass()
-    {
-        return IsDoubleWidth 
-        ? "toolbar-widget-double" 
-        : "toolbar-widget-normal";
-    }
-}
