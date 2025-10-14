@@ -55,7 +55,7 @@
         /// <summary>
         /// 1 = high E, 6 = low E, If null then it is a rest
         /// </summary>
-        public int? StringNumber { get; private set; }
+        public int StringNumber { get; private set; }
 
         /// <summary>
         /// The fret for this note

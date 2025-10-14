@@ -1,9 +1,10 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.TabView
 {
-    public partial class TabBar
+    public partial class TabBar : ComponentBase
     {
 
         /// <summary>
@@ -43,6 +44,26 @@ namespace FinalYearProject.UI.Components.TabView
         [Parameter, EditorRequired]
         public required MusicalBar Bar { get; set; }
 
+        [Parameter]
+        public int FretNumberSize { get; set; } = 14;
+
+        /// <summary>
+        /// Defines the fill color for the fret number circles
+        /// </summary>
+        private string _noteFill = "#fff";
+
+        /// <summary>
+        /// Defines the stroke color for the fret number circles
+        /// </summary>
+        private string _noteStroke = "#222";
+
+        /// <summary>
+        /// Defines the amount of space around a fret number circle
+        /// </summary>
+        private double _freRadiuspadding = 1.0;
+
+        private double _notePadding => Padding * 2;
+
         /// <summary>
         /// What color should the strings be
         /// </summary>
@@ -60,6 +81,8 @@ namespace FinalYearProject.UI.Components.TabView
 
         private int _innerWidth => Width - (int)StringStroke;
 
+        private List<NoteMarker> _noteMarkers = [];
+
         /// <summary>
         /// Gets the Y Coordinate for a given string
         /// </summary>
@@ -75,5 +98,40 @@ namespace FinalYearProject.UI.Components.TabView
             double spacing = _innerHeight / (StringCount - 1);
             return Padding + index * spacing;
         }
+
+        /// <summary>
+        /// Gets the X Coordinate for a given position in the bar
+        /// </summary>
+        /// <param name="posFraction"></param>
+        /// <returns></returns>
+        private double NoteXCoordinate(double posFraction)
+            => _notePadding + Math.Clamp(posFraction, 0.0, 1.0) * _innerWidth;
+
+        protected override void OnInitialized()
+        {
+            // Convert the notes in into NoteMarkers
+
+            // Calculate how long each beat is in the bar
+            var beatDuration = 1.0 / Bar
+                .TimeSignature
+                .BeatsPerMeasure;
+
+            foreach (var note in Bar.Notes)
+            {
+
+
+                NoteMarker marker = new()
+                {
+                    StringIndex = note.StringNumber - 1,
+                    Position = beatDuration * note.StartTime,
+                    Fret = note.FretNumber
+                };
+
+                _noteMarkers.Add(marker);
+            }
+        }
+
+        private double GetCircleRadius()
+            => Math.Clamp((FretNumberSize / 2) + _freRadiuspadding, 1.0, double.MaxValue);
     }
 }
