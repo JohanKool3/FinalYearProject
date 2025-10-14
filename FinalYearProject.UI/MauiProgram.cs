@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FinalYearProject.UI.Components.Services;
+using Microsoft.Extensions.Logging;
 
 namespace FinalYearProject.UI
 {
@@ -16,8 +17,11 @@ namespace FinalYearProject.UI
 
             builder.Services.AddMauiBlazorWebView();
 
+            // Register User Interface Services
+            builder.Services.AddSingleton<TabPlaybackService>();
+
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 

@@ -63,7 +63,13 @@
     <ItemGroup>
       <Compile Include="..\FinalYearProject.UI.Components\Toolbars\TabToolbar.razor.cs" Link="TabToolbar.razor.cs" />
       <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\BpmWidget.razor.cs" Link="BpmWidget.razor.cs" />
+      <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\PauseButton.razor.cs" Link="PauseButton.razor.cs" />
+      <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\PlayButton.razor.cs" Link="PlayButton.razor.cs" />
       <Compile Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\ToolbarWidgetBase.razor.cs" Link="ToolbarWidgetBase.razor.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\FinalYearProject.UI.Components\Toolbars\Widgets\Component.razor" Link="Component.razor" />
     </ItemGroup>
 
     <ItemGroup>

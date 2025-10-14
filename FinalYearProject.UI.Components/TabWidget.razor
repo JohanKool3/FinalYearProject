@@ -14,9 +14,15 @@
     @* Bottom Toolbar *@
     <div class="toolbar">
         <TabToolbar>
-            <PlayButton />
-            <PauseButton />
+            <PlayButton 
+                NotifyParentOfChange="PlaybackStateChanged"/>
+            <PauseButton 
+                NotifyParentOfChange="PlaybackStateChanged"/>
             <BpmWidget />
         </TabToolbar>
     </div>
 </div>
+@code {
+    private Task PlaybackStateChanged()
+        => InvokeAsync(StateHasChanged);
+}
