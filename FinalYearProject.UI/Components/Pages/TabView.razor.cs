@@ -81,7 +81,7 @@ namespace FinalYearProject.UI.Components.Pages
                         new MusicalNote(3, 3, 3, 1),
                         new MusicalNote(2, 4, 4, 1),
                     ],
-                    BarNumber = 4,
+                    BarNumber = 5,
                     TimeSignature = new TimeSignature(5,4)
                 },
 

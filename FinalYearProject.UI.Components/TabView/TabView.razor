@@ -9,25 +9,11 @@
     {
         @* Iterate over each bar and render it *@
         <div class="tab-bars-container">
-            @{
-                TimeSignature? currentTimeSignature = null;
-                foreach (var bar in GetCurrentTab()?.Bars ?? [])
-                {
-                    if (currentTimeSignature is null || !bar.TimeSignature.Equals(currentTimeSignature))
-                    {
-                        currentTimeSignature = bar.TimeSignature;
-                        <TabBar Bar="bar"
-                                ShowTimeSignature="true" />
-                    }
-                    else
-                    {
-                        // Clear time signature to avoid redundant rendering
-                        <TabBar Bar="bar"
-                                ShowTimeSignature="false" />
-                    }
+            <p>Tab Has Been Loaded</p>
 
-
-                }
+            @foreach (var bar in GetCurrentTab()?.Bars ?? [])
+            {
+                <p>@bar.BarNumber</p>
             }
 
         </div>
