@@ -7,6 +7,8 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
     public partial class StringsAndNotes : ComponentBase
     {
 
+        #region Parameters
+
         /// <summary>
         /// The Musical Information for this Bar
         /// </summary>
@@ -28,12 +30,15 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// <summary>
         /// The Width of the Bar
         /// </summary>
-        public int Width { get; private set; } = 0;
+
+        [Parameter, EditorRequired]
+        public int Width { get; set; } = 0;
 
         /// <summary>
         /// Holds how many different start positions there are
         /// </summary>
-        private int _uniqueStartPositions = 0;
+        [Parameter, EditorRequired]
+        public int UniqueStartPositions { get; set; } = 0;
 
         /// <summary>
         /// How Much Space to leave for the Time Signature, defaults to 0
@@ -65,20 +70,7 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         [Parameter]
         public int NotePadding { get; set; } = 10;
 
-
-        protected override void OnInitialized()
-        {
-            _uniqueStartPositions =
-                BarInformationHelper
-                .CalculateUniqueStartPositions(Bar);
-
-            Width =
-                BarInformationHelper.CalculateBarWidth(
-                    TimeSignatureSpacing,
-                    _uniqueStartPositions,
-                    NoteSize,
-                    NotePadding);
-        }
+        #endregion
 
         /// <summary>
         /// Gets the X Coordinate for a Note.
@@ -86,12 +78,15 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXCoordinate(MusicalNote note)
-            => TimeSignatureSpacing
+            => StartX +
+            TimeSignatureSpacing
             + NotePadding
             // Must convert _uniqueStartPositions to (n-1) as the first note is at position 0
-            + (int)(note.StartTime * (_uniqueStartPositions-1) * NoteSize);
+            + (int)(note.StartTime * (UniqueStartPositions - 1) * NoteSize);
 
         private int GetNoteYCoordinate(MusicalNote note)
-            => ((note.StringNumber - 1) * StringSpacing) + TopPadding;
+            => StartY
+            + ((note.StringNumber - 1) * StringSpacing)
+            + TopPadding;
     }
 }

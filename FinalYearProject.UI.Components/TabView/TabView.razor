@@ -1,4 +1,5 @@
 @using FinalYearProject.Shared.Models.TabRepresentation
+@using FinalYearProject.UI.Components.Helpers
 @using FinalYearProject.UI.Components.TabView.TabElements
 <div class="tab-view">
 
@@ -12,16 +13,21 @@
         <div class="tab-bars-container">
             <p>Tab Has Been Loaded</p>
 
-            <svg width="100%" height="100%">
+            <svg width="1000" height="100%">
                 @{
                     TimeSignature? currentTimeSignature = null;
+                    var previousBarX = 0;
+                }
 
+                @{
                     foreach (var bar in GetCurrentTab()?.Bars ?? [])
                     {
                         var newTimeSignature = bar.TimeSignature;
-                        var timeSignatureSpacing = 0;
+                        var timeSignatureSpacing = 20;
+                        var noteSize = 8;
+                        var notePadding = 10;
 
-                        var previousBarX = 0;
+                        
 
                         @if (currentTimeSignature is null || newTimeSignature != currentTimeSignature)
                         {
@@ -29,16 +35,32 @@
                             currentTimeSignature = newTimeSignature;
 
                             <BarTimeSignature TimeSignature="currentTimeSignature"
-                                              XPosition="0"
+                                              XPosition="previousBarX"
                                               YPosition="17" />
 
                             timeSignatureSpacing = 12;
                         }
+                        var uniqueStartPositions = BarInformationHelper.CalculateUniqueStartPositions(bar);
+
+                        var width = BarInformationHelper
+                        .CalculateBarWidth(
+                        timeSignatureSpacing,
+                        uniqueStartPositions,
+                        noteSize,
+                        notePadding
+                        );
 
                         // Render the Strings and the Notes on the Strings
                         <StringsAndNotes TopPadding="2"
                                          Bar="bar"
-                                         TimeSignatureSpacing="timeSignatureSpacing" />
+                                         TimeSignatureSpacing="timeSignatureSpacing"
+                                         NoteSize="noteSize"
+                                         NotePadding="notePadding"
+                                         Width="width"
+                                         UniqueStartPositions="uniqueStartPositions"
+                                         StartX="previousBarX" />
+
+                        previousBarX += width;
                     }
                 }
             </svg>

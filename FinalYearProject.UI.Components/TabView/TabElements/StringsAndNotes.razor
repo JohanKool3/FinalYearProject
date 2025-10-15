@@ -5,7 +5,7 @@
         // Draw each string line
         <line x1="@StartX"
               y1="@(StartY + (i * StringSpacing) + TopPadding)"
-              x2="@Width"
+              x2="@(StartX + Width)"
               y2="@((i * StringSpacing) + TopPadding)"
               stroke="black" stroke-width="1" />
     }
