@@ -1,0 +1,35 @@
+@using FinalYearProject.Shared.Models.TabRepresentation
+<g>
+
+    <!-- Top number (numerator) -->
+    <text x="@XPosition"
+          y="@YPosition"
+          dominant-baseline="middle"
+          font-size="24">
+        @TimeSignature.BeatsPerMeasure
+    </text>
+
+    <!-- Bottom number (denominator) -->
+    <text x="@XPosition"
+          y="@(YPosition + FontSize)"
+          dominant-baseline="middle"
+          font-size="@FontSize">
+        @TimeSignature.BeatUnit
+    </text>
+
+</g>
+
+
+@code{
+    [Parameter, EditorRequired]
+    public TimeSignature TimeSignature { get; set; }
+
+    [Parameter]
+    public int XPosition { get; set; } = 0;
+
+    [Parameter]
+    public int YPosition { get; set; } = 0;
+
+    [Parameter]
+    public int FontSize { get; set; } = 24;
+}

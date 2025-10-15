@@ -1,4 +1,5 @@
 @using FinalYearProject.Shared.Models.TabRepresentation
+@using FinalYearProject.UI.Components.TabView.TabElements
 <div class="tab-view">
 
     @if (!IsTabLoaded())
@@ -11,10 +12,29 @@
         <div class="tab-bars-container">
             <p>Tab Has Been Loaded</p>
 
-            @foreach (var bar in GetCurrentTab()?.Bars ?? [])
-            {
-                <p>@bar.BarNumber</p>
-            }
+            <svg width="100%" height="100%">
+                @{
+                    TimeSignature? currentTimeSignature = null;
+
+                    foreach (var bar in GetCurrentTab()?.Bars ?? [])
+                    {
+                        var newTimeSignature = bar.TimeSignature;
+
+                        @if (currentTimeSignature is null || newTimeSignature != currentTimeSignature)
+                        {
+                            // Render the new Time Signature
+                            currentTimeSignature = newTimeSignature;
+
+                            <BarTimeSignature TimeSignature="currentTimeSignature"
+                                              XPosition="0"
+                                              YPosition="17" />
+                        }
+
+                        // Render the Strings and the Notes on the Strings
+                        <StringsAndNotes TopPadding="2" />
+                    }
+                }
+            </svg>
 
         </div>
     }

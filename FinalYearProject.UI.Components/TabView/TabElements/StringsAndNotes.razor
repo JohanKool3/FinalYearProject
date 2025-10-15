@@ -1,0 +1,30 @@
+<g>
+    @for (int i = 0; i < 6; i++)
+    {
+        <line x1="0"
+              y1="@((i * StringSpacing) + TopPadding)"
+              x2="@Width"
+              y2="@((i * StringSpacing) + TopPadding)"
+              stroke="black" stroke-width="1" />
+    }
+</g>
+
+@code {
+    /// <summary>
+    /// The Width of the Bar
+    /// </summary>
+    [Parameter]
+    public int Width { get; set; } = 300;
+
+    /// <summary>
+    /// How much space between each string
+    /// </summary>
+    [Parameter]
+    public int StringSpacing { get; set; } = 10;
+
+    /// <summary>
+    /// How much space to leave at the top
+    /// </summary>
+    [Parameter]
+    public int TopPadding { get; set; } = 10;
+}
