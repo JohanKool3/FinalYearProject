@@ -1,0 +1,19 @@
+<g>
+    <line x1="@XPosition"
+          y1="@StartYPosition"
+          x2="@XPosition"
+          y2="@EndYPosition"
+          stroke="black" stroke-width="1" />
+</g>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public int XPosition { get; set; }
+
+    [Parameter, EditorRequired]
+    public int StartYPosition { get; set; }
+
+    [Parameter, EditorRequired]
+    public int EndYPosition { get; set; }
+}

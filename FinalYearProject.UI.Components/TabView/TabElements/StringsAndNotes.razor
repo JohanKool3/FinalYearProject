@@ -1,30 +1,27 @@
+@using FinalYearProject.Shared.Models.TabRepresentation
 <g>
     @for (int i = 0; i < 6; i++)
     {
-        <line x1="0"
-              y1="@((i * StringSpacing) + TopPadding)"
+        // Draw each string line
+        <line x1="@StartX"
+              y1="@(StartY + (i * StringSpacing) + TopPadding)"
               x2="@Width"
               y2="@((i * StringSpacing) + TopPadding)"
               stroke="black" stroke-width="1" />
     }
+
+    @foreach(var note in Bar.Notes)
+    {
+        // Draw each note as a circle on the appropriate string line
+        <circle cx="@GetNoteXCoordinate(note)"
+                cy="@GetNoteYCoordinate(note)"
+                r="@(NoteSize/2)"
+                fill="black" />
+    }
+)
 </g>
 
-@code {
-    /// <summary>
-    /// The Width of the Bar
-    /// </summary>
-    [Parameter]
-    public int Width { get; set; } = 300;
-
-    /// <summary>
-    /// How much space between each string
-    /// </summary>
-    [Parameter]
-    public int StringSpacing { get; set; } = 10;
-
-    /// <summary>
-    /// How much space to leave at the top
-    /// </summary>
-    [Parameter]
-    public int TopPadding { get; set; } = 10;
-}
+<BarLine 
+    StartYPosition="TopPadding"
+    EndYPosition="(5 * StringSpacing) + TopPadding"
+    XPosition="Width"/>

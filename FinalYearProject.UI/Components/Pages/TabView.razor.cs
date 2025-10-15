@@ -28,20 +28,20 @@ namespace FinalYearProject.UI.Components.Pages
                         BarNumber = 1,
                         TimeSignature = new TimeSignature(4,4)
                     },
-                //    new MusicalBar(){
-                //            Notes = [
-                //                new MusicalNote(6, 1, 0, 0.5),
-                //                new MusicalNote(6, 1, 0.5, 0.5),
-                //                new MusicalNote(6, 1, 1, 0.5),
-                //                new MusicalNote(6, 1, 1.5, 0.5),
-                //                new MusicalNote(6, 1, 2, 0.5),
-                //                new MusicalNote(6, 1, 2.5, 0.5),
-                //                new MusicalNote(6, 1, 3, 0.5),
-                //                new MusicalNote(6, 1, 3.5, 0.5),
-                //            ],
-                //            BarNumber = 2,
-                //            TimeSignature = new TimeSignature(4,4)
-                //        },
+                    new MusicalBar(){
+                            Notes = [
+                                new MusicalNote(6, 1, 0, 0.5),
+                                new MusicalNote(6, 1, 0.5, 0.5),
+                                new MusicalNote(6, 1, 1, 0.5),
+                                new MusicalNote(6, 1, 1.5, 0.5),
+                                new MusicalNote(6, 1, 2, 0.5),
+                                new MusicalNote(6, 1, 2.5, 0.5),
+                                new MusicalNote(6, 1, 3, 0.5),
+                                new MusicalNote(6, 1, 3.5, 0.5),
+                            ],
+                            BarNumber = 2,
+                            TimeSignature = new TimeSignature(4,4)
+                        },
                 //new MusicalBar(){
                 //        Notes = [
                 //            new MusicalNote(6, 3, 0, 1),

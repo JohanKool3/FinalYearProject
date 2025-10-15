@@ -19,6 +19,9 @@
                     foreach (var bar in GetCurrentTab()?.Bars ?? [])
                     {
                         var newTimeSignature = bar.TimeSignature;
+                        var timeSignatureSpacing = 0;
+
+                        var previousBarX = 0;
 
                         @if (currentTimeSignature is null || newTimeSignature != currentTimeSignature)
                         {
@@ -28,10 +31,14 @@
                             <BarTimeSignature TimeSignature="currentTimeSignature"
                                               XPosition="0"
                                               YPosition="17" />
+
+                            timeSignatureSpacing = 12;
                         }
 
                         // Render the Strings and the Notes on the Strings
-                        <StringsAndNotes TopPadding="2" />
+                        <StringsAndNotes TopPadding="2"
+                                         Bar="bar"
+                                         TimeSignatureSpacing="timeSignatureSpacing" />
                     }
                 }
             </svg>
