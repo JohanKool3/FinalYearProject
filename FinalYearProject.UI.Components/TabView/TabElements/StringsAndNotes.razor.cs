@@ -1,4 +1,5 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Helpers;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.TabView.TabElements
@@ -67,20 +68,16 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
 
         protected override void OnInitialized()
         {
-            // Calculate how many unique start positions there are
-            var uniquePositions = Bar
-                .Notes.Select(n => n.StartTime).Distinct().Count();
-
-            // Ensures there is at least enough space for each beat in the bar,
-            // allows for rests
             _uniqueStartPositions =
-                Math.Max(uniquePositions,
-                Bar.TimeSignature.BeatsPerMeasure);
+                BarInformationHelper
+                .CalculateUniqueStartPositions(Bar);
 
             Width =
-                TimeSignatureSpacing +
-                (_uniqueStartPositions
-                * (NoteSize + 2 * NotePadding));
+                BarInformationHelper.CalculateBarWidth(
+                    TimeSignatureSpacing,
+                    _uniqueStartPositions,
+                    NoteSize,
+                    NotePadding);
         }
 
         /// <summary>
