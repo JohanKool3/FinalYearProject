@@ -1,9 +1,11 @@
+using FinalYearProject.UI.Components.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.TabView.TabElements
 {
     public partial class Notes
     {
+        #region Parameters
 
         /// <summary>
         /// The Total Height of the Notes Section
@@ -35,5 +37,19 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// </summary>
         [Parameter]
         public int NoteCutoutRadius { get; set; } = 7;
+
+        /// <summary>
+        /// Holds the list of notes to display.
+        /// </summary>
+        [Parameter, EditorRequired]
+        public List<NoteDisplayInformation> NotesToDisplay { get; set; }
+
+        #endregion
+    
+        private int GetNotePosition(NoteDisplayInformation note)
+        {
+            // Calculate the position based on the BarPercentage and Width
+            return (int)((note.BarPercentage / 100.0) * Width) + LeftPadding;
+        }
     }
 }

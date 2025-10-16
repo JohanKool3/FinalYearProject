@@ -1,15 +1,27 @@
 <g>
 
-    <circle cx="@(LeftPadding)"
-            cy="@(TopPadding - (NoteCutoutRadius / 2))"
-            r="@NoteCutoutRadius"
-            fill="white" />
 
-    <text x="@LeftPadding"
-          y="@TopPadding"
-          font-family="Arial"
-          font-size="12"
-          fill="black"
-          text-anchor="middle">3</text>
+
+    @foreach (var note in NotesToDisplay)
+    {
+        <svg>
+            <circle cx="@(LeftPadding + GetNotePosition(note))"
+                    cy="@(TopPadding - (NoteCutoutRadius / 2))"
+                    r="@NoteCutoutRadius"
+                    fill="white" />
+
+            <text x="@(LeftPadding
+                  + GetNotePosition(note)
+                  - NoteCutoutRadius / 2)"
+              y="@TopPadding"
+              font-family="Arial"
+              font-size="12"
+              fill="black">
+            @note.FretNumber
+        </text>
+
+        </svg>
+        }
+
 </g>
 

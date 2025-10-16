@@ -1,5 +1,6 @@
 @using FinalYearProject.Shared.Models.TabRepresentation
 @using FinalYearProject.UI.Components.Helpers
+@using FinalYearProject.UI.Components.Models
 @using FinalYearProject.UI.Components.TabView.TabElements
 <div class="tab-view">
 
@@ -11,14 +12,41 @@
     {
         <div class="tab-bars-container">
 
+            @{
+                // Simulate Notes to be Rendered
+                var notes = new List<NoteDisplayInformation>
+                {
+                new()
+                {
+                BarPercentage = 0,
+                FretNumber = 3,
+                },
+                new()
+                {
+                BarPercentage = 25,
+                FretNumber = 2,
+                },
+
+                new()
+                {
+                BarPercentage = 50,
+                FretNumber = 0,
+                },
+                new()
+                {
+                BarPercentage = 75,
+                FretNumber = 0,
+                }
+                };
+            }
+
             @* Simulate Rendering 10 Bars *@
             @for (var i = 0; i < 10; i++)
             {
                 <svg width="300" height="75">
 
                     @* Information Placed over the bar *@
-                    <TopBarInformation 
-                        BarNumber="@(i + 1)" />
+                    <TopBarInformation BarNumber="@(i + 1)" />
 
                     @* Renders the String Representation *@
                     <Strings Height="75"
@@ -26,11 +54,11 @@
                              TopPadding="15" />
 
                     @* Renders the Notes on the String *@
-                    <Notes 
-                        Height="75"
-                        Width="300"
-                        TopPadding="20"
-                        LeftPadding="20"/>
+                    <Notes Height="75"
+                           Width="300"
+                           TopPadding="20"
+                           LeftPadding="20"
+                           NotesToDisplay="notes" />
                 </svg>
             }
 
