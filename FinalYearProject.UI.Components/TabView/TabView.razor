@@ -11,17 +11,22 @@
     {
         <div class="tab-bars-container">
 
-            @{
-                for (var i = 0; i < 10; i++)
-                {
-                    <svg width="300" height="75">
-                        <Strings Height="75"
-                                 Width="300"
-                                 TopPadding="15" />
-                    </svg>
-                }
 
+            @for (var i = 0; i < 10; i++)
+            {
+                <svg width="300" height="75">
+
+                    <TopBarInformation 
+                        BarNumber="@(i + 1)" />
+
+                    @* Renders the String Representation *@
+                    <Strings Height="75"
+                             Width="300"
+                             TopPadding="15" />
+                </svg>
             }
+
+
         </div>
     }
 </div>
