@@ -19,6 +19,7 @@ namespace FinalYearProject.UI
 
             // Register User Interface Services
             builder.Services.AddSingleton<TabPlaybackService>();
+            builder.Services.AddSingleton<GuitarSettingsService>();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
