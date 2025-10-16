@@ -10,14 +10,9 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
 
         #region Parameters
 
-        /// <summary>
-        /// Where the Bar starts on the X Axis
-        /// </summary>
-        [Parameter]
-        public int StartX { get; set; } = 0;
 
         /// <summary>
-        /// Where the Bar starts on the Y Axis
+        /// Defines a Y Offset for the Start of the Bar
         /// </summary>
         [Parameter]
         public int StartY { get; set; } = 0;
@@ -25,7 +20,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// <summary>
         /// The Width of the Bar
         /// </summary>
-
         [Parameter, EditorRequired]
         public int Width { get; set; } = 0;
 

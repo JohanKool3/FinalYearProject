@@ -4,15 +4,15 @@
     @for (int i = 0; i < 6; i++)
     {
         // Draw each string line
-        <line x1="@StartX"
+        <line x1="0"
               y1="@(StartY + (i * StringSpacing) + TopPadding)"
-              x2="@(StartX + Width)"
+              x2="@(Width)"
               y2="@((i * StringSpacing) + TopPadding)"
               stroke="black" stroke-width="1" />
     }
 </g>
 
 <BarLine 
-    StartYPosition="TopPadding"
+    StartYPosition="StartY + TopPadding"
     EndYPosition="(5 * StringSpacing) + TopPadding"
     XPosition="Width"/>

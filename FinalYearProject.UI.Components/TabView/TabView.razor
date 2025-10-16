@@ -9,18 +9,20 @@
     }
     else
     {
-        // Render the Tab here
-        var bar = GetCurrentTab()?.Bars[0];
-        <svg width="1000" height="100%">
-            if (bar is not null)
-            {
-            <Strings StartX="0"
-                     StartY="0"
-                     Height="75"
-                     Width="300"
-                     TopPadding="15" />
+        <div class="tab-bars-container">
+
+            @{
+                for (var i = 0; i < 10; i++)
+                {
+                    <svg width="300" height="75">
+                        <Strings Height="75"
+                                 Width="300"
+                                 TopPadding="15" />
+                    </svg>
+                }
+
             }
-        </svg>
+        </div>
     }
 </div>
 
