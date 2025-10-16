@@ -16,6 +16,7 @@
             {
                 <svg width="300" height="75">
 
+                    @* Information Placed over the bar *@
                     <TopBarInformation 
                         BarNumber="@(i + 1)" />
 
@@ -23,6 +24,13 @@
                     <Strings Height="75"
                              Width="300"
                              TopPadding="15" />
+
+                    @* Renders the Notes on the String *@
+                    <Notes 
+                        Height="75"
+                        Width="300"
+                        TopPadding="20"
+                        LeftPadding="20"/>
                 </svg>
             }
 
