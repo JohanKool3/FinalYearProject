@@ -1,21 +1,5 @@
 <g>
+    @* Bar Number Representation *@
     <text x="@LeftPadding" y="@TopPadding" font-family="Arial" font-size="@FontSize" fill="black">@BarNumber</text>
 </g>
 
-@code{
-
-    /// <summary>
-    /// The Number of the bar to display.
-    /// </summary>
-    [Parameter]
-    public int BarNumber { get; set; } = 0;
-
-    [Parameter]
-    public int LeftPadding { get; set; } = 5;
-
-    [Parameter]
-    public int TopPadding { get; set; } = 10;
-
-    [Parameter]
-    public int FontSize { get; set; } = 12;
-}
