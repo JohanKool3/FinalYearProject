@@ -35,9 +35,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         private int _width
             => RepresentationSettingsService.GetBarWidth(NotesToDisplay);
 
-        private int _height
-            => RepresentationSettingsService.GetBarHeight();
-
         private int _stringSpacing
             => RepresentationSettingsService
                 .NoteDisplaySettings

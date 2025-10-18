@@ -37,8 +37,8 @@ namespace FinalYearProject.UI.Components.Services
                 .Distinct().Count();
 
             var leftPadding = NoteDisplaySettings.LeftPadding;
-            // Multiply by 3 for start, between notes and  the end padding
-            return 3 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
+            // Multiply by 2 for start and  the end padding
+            return 2 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
         }
 
         public int GetBarHeight()
