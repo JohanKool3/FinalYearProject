@@ -43,21 +43,19 @@
             @for (var i = 0; i < 10; i++)
             {
 
-                var width = RespresentationService.GetBarWidth(notes);
+                var width = RepresentationService.GetBarWidth(notes);
+                var height = RepresentationService.GetBarHeight();
 
-                <svg width="@width" height="75">
+                <svg width="@width" height="@height">
 
                     @* Information Placed over the bar *@
-                    <TopBarInformation 
-                        BarNumber="@(i + 1)" />
+                    <TopBarInformation BarNumber="@(i + 1)" />
 
                     @* Renders the String Representation *@
-                    <Strings Height="75"
-                             Notes="notes" />
+                    <Strings Notes="notes" />
 
                     @* Renders the Notes on the String *@
-                    <Notes Height="75"
-                           NotesToDisplay="notes" />
+                    <Notes NotesToDisplay="notes" />
                 </svg>
             }
 

@@ -10,7 +10,8 @@ namespace FinalYearProject.UI.Components.TabView
     {
         public TabPlaybackService PlaybackService { get; set; }
             = playbackService;
-        public TabRepresentationSettingsService RespresentationService { get; }
+        
+        public TabRepresentationSettingsService RepresentationService { get; }
             = respresentationService;
 
         /// <summary>

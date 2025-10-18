@@ -19,9 +19,8 @@ namespace FinalYearProject.UI.Components.Services
                 TopPadding = 20,
                 LeftPadding = 20,
                 NoteSpacing = 40,
+                StringSpacing = 10
             };
-
-
 
         public void SetStringCount(int count)
         {
@@ -41,5 +40,9 @@ namespace FinalYearProject.UI.Components.Services
             // Multiply by 3 for start, between notes and  the end padding
             return 3 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
         }
+
+        public int GetBarHeight()
+            => NoteDisplaySettings.TopPadding * 2 +
+               (StringCount - 1) * NoteDisplaySettings.StringSpacing;
     }
 }

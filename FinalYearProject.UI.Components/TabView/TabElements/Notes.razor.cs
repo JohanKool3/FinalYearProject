@@ -13,13 +13,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         #region Parameters
 
         /// <summary>
-        /// The Total Height of the Notes Section
-        /// </summary>
-        [Parameter]
-        public int Height { get; set; } = 0;
-
-
-        /// <summary>
         /// How much of the string should be cutout when there is a
         /// note over it. This is a radius for a circle.
         /// </summary>
@@ -48,6 +41,9 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
 
         private int _width
             => RepresentationSettingsService.GetBarWidth(NotesToDisplay);
+
+        private int _height
+            => RepresentationSettingsService.GetBarHeight();
 
         private int GetNotePosition(NoteDisplayInformation note)
         {

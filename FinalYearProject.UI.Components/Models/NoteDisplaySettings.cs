@@ -26,5 +26,10 @@ namespace FinalYearProject.UI.Components.Models
         /// How much space to leave between each note
         /// </summary>
         public int NoteSpacing { get; set; }
+
+        /// <summary>
+        /// How much space to leave between each string
+        /// </summary>
+        public int StringSpacing { get; set; }
     }
 }

@@ -16,21 +16,18 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         [Parameter, EditorRequired]
         public List<NoteDisplayInformation> Notes { get; set; } = [];
 
-        /// <summary>
-        /// The Height of the Bar
-        /// </summary>
-        [Parameter, EditorRequired]
-        public int Height { get; set; } = 0;
-
         #endregion
 
         private readonly int StringAmount = settingsService.StringCount;
+
+        private int _height =>
+            settingsService.GetBarHeight();
 
         /// <summary>
         /// Calculates the spacing between each string
         /// </summary>
         private int StringSpacing
-            => (Height - _topPadding) / StringAmount ;
+            => (_height - _topPadding) / StringAmount ;
 
         /// <summary>
         /// How much space to leave to the top of the strings
