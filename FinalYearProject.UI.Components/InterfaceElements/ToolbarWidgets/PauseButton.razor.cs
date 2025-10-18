@@ -2,7 +2,7 @@ using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace FinalYearProject.UI.Components.Toolbars.Widgets
+namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
     public partial class PauseButton(TabPlaybackService playbackService) : ComponentBase
     {

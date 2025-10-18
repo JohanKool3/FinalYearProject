@@ -1,7 +1,7 @@
 using FinalYearProject.UI.Components.Enums;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.Toolbars.Widgets
+namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
     public partial class ToolbarWidgetBase
     {

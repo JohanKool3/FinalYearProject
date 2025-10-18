@@ -2,7 +2,7 @@ using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.TabView
+namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class TabView(TabPlaybackService playbackService,
         TabRepresentationSettingsService respresentationService)

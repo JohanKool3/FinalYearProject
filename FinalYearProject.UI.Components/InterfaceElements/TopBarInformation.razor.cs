@@ -1,7 +1,7 @@
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.TabView.TabElements
+namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class TopBarInformation(TabRepresentationSettingsService settingsService)
     {
@@ -36,6 +36,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// Bar number is two thirds the size of the string spacing
         /// </summary>
         private int _barNumberFontSize
-            => (2* SettingsService.NoteDisplaySettings.StringSpacing) / 3;
+            => 2* SettingsService.NoteDisplaySettings.StringSpacing / 3;
     }
 }

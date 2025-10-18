@@ -1,9 +1,8 @@
-using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.TabView.TabElements
+namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 {
     public partial class Strings(TabRepresentationSettingsService settingsService) : ComponentBase
     {

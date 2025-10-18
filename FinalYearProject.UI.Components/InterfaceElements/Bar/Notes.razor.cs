@@ -2,7 +2,7 @@ using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.TabView.TabElements
+namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 {
     public partial class Notes(TabRepresentationSettingsService representationSettingsService)
     {
@@ -43,7 +43,7 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         private int GetNoteXPosition(NoteDisplayInformation note)
         {
             // Calculate the position based on the BarPercentage and Width
-            return _leftPadding + (int)((note.BarPercentage / 100.0) * _width);
+            return _leftPadding + (int)(note.BarPercentage / 100.0 * _width);
         }
 
         private int GetNoteYPosition(NoteDisplayInformation note)
@@ -53,7 +53,7 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
             var stringIndex = note.StringNumber - 1;
 
             // Put Note on string, add spacing for each string
-            return _topPadding  + (_stringSpacing * stringIndex);
+            return _topPadding  + _stringSpacing * stringIndex;
         }
     }
 }
