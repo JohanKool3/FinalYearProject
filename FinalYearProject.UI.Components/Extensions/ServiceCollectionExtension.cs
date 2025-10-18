@@ -1,4 +1,6 @@
-﻿using FinalYearProject.UI.Components.Services;
+﻿using FinalYearProject.UI.Components.Interfaces;
+using FinalYearProject.UI.Components.Services;
+using FinalYearProject.UI.Components.Services.TabLoaders;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,9 @@ namespace FinalYearProject.UI.Components.Extensions
         /// <returns></returns>
         public static IServiceCollection AddUiServices(this IServiceCollection services)
         {
+
+            // Register Tab Display Loader
+            services.AddSingleton<ITabDisplayLoaderService, BasicTabDisplayLoaderService>();
 
             // Register Playback Service
             services.AddSingleton<TabPlaybackService>();

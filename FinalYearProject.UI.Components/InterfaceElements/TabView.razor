@@ -11,66 +11,11 @@
     else
     {
         <div class="tab-bars-container">
-
-            @{
-                // Simulate Notes to be Rendered
-                var notes = new List<NoteDisplayInformation>
-                {
-                new()
-                {
-                BarPercentage = 0,
-                FretNumber = 5,
-                StringNumber = 6
-                },
-                new()
-                {
-                BarPercentage = 0,
-                FretNumber = 8,
-                StringNumber = 5
-                },
-                new()
-                {
-                BarPercentage = 16,
-                FretNumber = 5,
-                StringNumber = 5,
-                },
-
-                new()
-                {
-                BarPercentage = 32,
-                FretNumber = 5,
-                StringNumber = 4
-                },
-                new()
-                {
-                BarPercentage = 48,
-                FretNumber = 5,
-                StringNumber = 3
-                },
-                new()
-                {
-                BarPercentage = 64,
-                FretNumber = 5,
-                StringNumber = 2
-                },
-                new(){
-                BarPercentage = 80,
-                FretNumber = 5,
-                StringNumber = 1
-                }
-                };
-            }
-
-            @* Simulate Rendering 10 Bars *@
-            @for (var i = 0; i < 10; i++)
+            @foreach (var (bar, index) in (GetCurrentTab()?.Bars ?? [])
+                    .Select((bar, index) => (bar, index)))
             {
-
-                var width = RepresentationService.GetBarWidth(notes);
-                var height = RepresentationService.GetBarHeight();
-
-                <TabBar BarNumber="i+1"
-                        Notes="notes" />
-
+                <TabBar BarNumber="index + 1"
+                        Notes="bar.Notes" />
             }
         </div>
     }

@@ -1,25 +1,29 @@
 ﻿
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Interfaces;
+using FinalYearProject.UI.Components.Models;
 
 namespace FinalYearProject.UI.Components.Services
 {
     public class TabPlaybackService
     {
-
+        public TabPlaybackService(ITabDisplayLoaderService displayLoaderService)
+        {
+            //Pull Display Loader Service from Dependency Injection
+            DisplayLoaderService = displayLoaderService;
+            
+            // Load the Initial Piece
+            LoadPiece();
+        }
         /// <summary>
         /// Returns whether the tab is currently being played.
         /// </summary>
-        public bool IsPlaying { get; private set; }
+        public bool IsPlaying { get; private set; } = false;
 
-        public int Bpm { get; private set; }
+        public int Bpm { get; private set; } = 120;
 
-        public FullPiece? CurrentPiece {get; private set;}
-
-        public TabPlaybackService()
-        {
-            Bpm = 120;
-            IsPlaying = false;
-        }
+        public TabDisplayInformation? CurrentTab {get; private set;}
+        public ITabDisplayLoaderService DisplayLoaderService { get; }
 
         /// <summary>
         /// Starts playback of tab
@@ -47,20 +51,17 @@ namespace FinalYearProject.UI.Components.Services
         }
 
         /// <summary>
-        /// Loads a new piece into the tab playback service
+        /// Loads a new tab into the playback service from Loader Service
         /// </summary>
-        /// <param name="piece"></param>
-        public void LoadPiece(FullPiece piece)
+        public void LoadPiece()
         {
-            //TODO: Extend validation
-            // Check for invalid piece
-            if (piece.Bars.Count == 0)
-            {
-                // TODO: Log the exception
-                return;
-            }
+            // Load the tab from the display loader service
+            var tab = DisplayLoaderService.GetCurrentTab();
 
-            CurrentPiece = piece;
+            CurrentTab = tab;
+            Bpm = tab?.Bpm ?? 120;
         }
+
+        // TODO: Add Overload that allows loading of a specific tab
     }
 }

@@ -1,4 +1,5 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -18,8 +19,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// Returns the current loaded tab from the playback service
         /// </summary>
         /// <returns></returns>
-        private FullPiece? GetCurrentTab()
-            => PlaybackService.CurrentPiece;
+        private TabDisplayInformation? GetCurrentTab()
+            => PlaybackService.CurrentTab;
 
 
         /// <summary>
