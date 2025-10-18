@@ -13,13 +13,15 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public int StringCount { get; private set; } = 6;
 
-        public NoteDisplaySettings DisplaySettings { get; private set; }
+        public NoteDisplaySettings NoteDisplaySettings { get; private set; }
             = new NoteDisplaySettings
             {
                 TopPadding = 20,
                 LeftPadding = 20,
-                NoteSpacing = 40
+                NoteSpacing = 40,
             };
+
+
 
         public void SetStringCount(int count)
         {
@@ -35,9 +37,9 @@ namespace FinalYearProject.UI.Components.Services
                 .Select(n => n.BarPercentage)
                 .Distinct().Count();
 
-            var leftPadding = DisplaySettings.LeftPadding;
+            var leftPadding = NoteDisplaySettings.LeftPadding;
             // Multiply by 3 for start, between notes and  the end padding
-            return 3 * leftPadding + (distinctPositions * DisplaySettings.NoteSpacing);
+            return 3 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
         }
     }
 }

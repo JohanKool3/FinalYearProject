@@ -18,11 +18,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         [Parameter]
         public int Height { get; set; } = 0;
 
-        /// <summary>
-        /// The Total Width of the Notes Section
-        /// </summary>
-        [Parameter]
-        public int Width { get; set; } = 0;
 
         /// <summary>
         /// How much of the string should be cutout when there is a
@@ -43,18 +38,21 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         /// Space to leave at the left of the notes area
         /// </summary>
         private int _leftPadding 
-            => RepresentationSettingsService.DisplaySettings.LeftPadding;
+            => RepresentationSettingsService.NoteDisplaySettings.LeftPadding;
 
         /// <summary>
         /// Space to leave at the top of the notes area
         /// </summary>
         private int _topPadding 
-            => RepresentationSettingsService.DisplaySettings.TopPadding;
+            => RepresentationSettingsService.NoteDisplaySettings.TopPadding;
+
+        private int _width
+            => RepresentationSettingsService.GetBarWidth(NotesToDisplay);
 
         private int GetNotePosition(NoteDisplayInformation note)
         {
             // Calculate the position based on the BarPercentage and Width
-            return (int)((note.BarPercentage / 100.0) * Width);
+            return (int)((note.BarPercentage / 100.0) * _width);
         }
     }
 }

@@ -5,15 +5,14 @@
     {
         // Draw each string line
         <line x1="0"
-              y1="@(StartY + (i * StringSpacing) + TopPadding)"
-              x2="@(Width)"
-              y2="@((i * StringSpacing) + TopPadding)"
+              y1="@(i* StringSpacing + _topPadding)"
+              x2="@(_width)"
+              y2="@((i * StringSpacing) + _topPadding)"
               stroke="black" stroke-width="1" />
     }
 </g>
 
 @* Show the End of the Bar *@
-<BarLine 
-    StartYPosition="StartY + TopPadding"
-    EndYPosition="(5 * StringSpacing) + TopPadding"
-    XPosition="Width"/>
+<BarLine StartYPosition="_topPadding"
+         EndYPosition="@(5 * StringSpacing + _topPadding)"
+         XPosition="_width" />

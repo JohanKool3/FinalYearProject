@@ -1,4 +1,5 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -8,19 +9,12 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
     {
 
         #region Parameters
-
-
+        
         /// <summary>
-        /// Defines a Y Offset for the Start of the Bar
-        /// </summary>
-        [Parameter]
-        public int StartY { get; set; } = 0;
-
-        /// <summary>
-        /// The Width of the Bar
+        /// The notes to display on the tab
         /// </summary>
         [Parameter, EditorRequired]
-        public int Width { get; set; } = 0;
+        public List<NoteDisplayInformation> Notes { get; set; } = [];
 
         /// <summary>
         /// The Height of the Bar
@@ -28,22 +22,27 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         [Parameter, EditorRequired]
         public int Height { get; set; } = 0;
 
-        /// <summary>
-        /// How much space to leave at the top
-        /// </summary>
-        [Parameter]
-        public int TopPadding { get; set; } = 10;
-
         #endregion
 
-        // TODO: Load this from a settings service
-        private int StringAmount = settingsService.StringCount;
+        private readonly int StringAmount = settingsService.StringCount;
 
         /// <summary>
         /// Calculates the spacing between each string
         /// </summary>
         private int StringSpacing
-            => (Height - TopPadding) / StringAmount ;
+            => (Height - _topPadding) / StringAmount ;
+
+        /// <summary>
+        /// How much space to leave to the top of the strings
+        /// </summary>
+        private int _topPadding 
+            => SettingsService.NoteDisplaySettings.TopPadding;
+
+        /// <summary>
+        /// How Wide the Bar will be
+        /// </summary>
+        private int _width =>
+            settingsService.GetBarWidth(Notes);
 
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
     }

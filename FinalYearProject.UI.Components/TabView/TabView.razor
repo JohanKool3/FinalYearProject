@@ -48,16 +48,15 @@
                 <svg width="@width" height="75">
 
                     @* Information Placed over the bar *@
-                    <TopBarInformation BarNumber="@(i + 1)" />
+                    <TopBarInformation 
+                        BarNumber="@(i + 1)" />
 
                     @* Renders the String Representation *@
                     <Strings Height="75"
-                             Width="@width"
-                             TopPadding="15" />
+                             Notes="notes" />
 
                     @* Renders the Notes on the String *@
                     <Notes Height="75"
-                           Width="@width"
                            NotesToDisplay="notes" />
                 </svg>
             }
