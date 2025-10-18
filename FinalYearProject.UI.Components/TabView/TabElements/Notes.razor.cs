@@ -13,13 +13,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         #region Parameters
 
         /// <summary>
-        /// How much of the string should be cutout when there is a
-        /// note over it. This is a radius for a circle.
-        /// </summary>
-        [Parameter]
-        public int NoteCutoutRadius { get; set; } = 7;
-
-        /// <summary>
         /// Holds the list of notes to display.
         /// </summary>
         [Parameter, EditorRequired]
@@ -45,6 +38,11 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         private int _height
             => RepresentationSettingsService.GetBarHeight();
 
+        private int _stringSpacing
+            => RepresentationSettingsService
+                .NoteDisplaySettings
+                .StringSpacing;
+
         private int GetNoteXPosition(NoteDisplayInformation note)
         {
             // Calculate the position based on the BarPercentage and Width
@@ -53,16 +51,12 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
 
         private int GetNoteYPosition(NoteDisplayInformation note)
         {
-            // Calculate the position based on the StringNumber and StringSpacing
-            int stringSpacing = RepresentationSettingsService
-                .NoteDisplaySettings
-                .StringSpacing;
 
             // Convert to zero based index
             var stringIndex = note.StringNumber - 1;
 
             // Put Note on string, add spacing for each string
-            return _topPadding + (stringSpacing / 2) + (stringSpacing * stringIndex);
+            return _topPadding + (_stringSpacing / 2) + (_stringSpacing * stringIndex);
         }
     }
 }

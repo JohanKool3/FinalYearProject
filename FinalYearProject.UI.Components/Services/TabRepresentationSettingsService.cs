@@ -19,7 +19,7 @@ namespace FinalYearProject.UI.Components.Services
                 TopPadding = 20,
                 LeftPadding = 20,
                 NoteSpacing = 40,
-                StringSpacing = 10
+                StringSpacing = 12
             };
 
         public void SetStringCount(int count)
