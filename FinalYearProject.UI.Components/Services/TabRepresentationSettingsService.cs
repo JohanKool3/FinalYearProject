@@ -42,7 +42,7 @@ namespace FinalYearProject.UI.Components.Services
         }
 
         public int GetBarHeight()
-            => NoteDisplaySettings.TopPadding * 2 +
-               (StringCount - 1) * NoteDisplaySettings.StringSpacing;
+            => NoteDisplaySettings.TopPadding +
+               (StringCount * NoteDisplaySettings.StringSpacing);
     }
 }
