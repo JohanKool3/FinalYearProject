@@ -68,20 +68,10 @@
                 var width = RepresentationService.GetBarWidth(notes);
                 var height = RepresentationService.GetBarHeight();
 
-                <svg width="@width" height="@height">
+                <TabBar BarNumber="i+1"
+                        Notes="notes" />
 
-                    @* Information Placed over the bar *@
-                    <TopBarInformation BarNumber="@(i + 1)" />
-
-                    @* Renders the String Representation *@
-                    <Strings Notes="notes" />
-
-                    @* Renders the Notes on the String *@
-                    <Notes NotesToDisplay="notes" />
-                </svg>
             }
-
-
         </div>
     }
 </div>

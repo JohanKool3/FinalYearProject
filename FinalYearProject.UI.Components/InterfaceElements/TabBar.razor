@@ -1,0 +1,15 @@
+﻿@using FinalYearProject.UI.Components.InterfaceElements.Bar
+@using FinalYearProject.UI.Components.Models
+
+<svg width="@_width" height="@_height">
+
+    @* Information Placed over the bar *@
+    <TopBarInformation BarNumber="@BarNumber" />
+
+    @* Renders the String Representation *@
+    <Strings Notes="Notes" />
+
+    @* Renders the Notes on the String *@
+    <Notes NotesToDisplay="Notes" />
+</svg>
+
