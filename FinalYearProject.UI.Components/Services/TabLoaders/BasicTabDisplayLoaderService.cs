@@ -1,12 +1,7 @@
 ﻿using FinalYearProject.UI.Components.InterfaceElements.Bar;
 using FinalYearProject.UI.Components.Interfaces;
 using FinalYearProject.UI.Components.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using FinalYearProject.UI.Components.Enums;
 namespace FinalYearProject.UI.Components.Services.TabLoaders
 {
     /// <summary>
@@ -81,6 +76,13 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             BarPercentage = 48,
                             FretNumber = 0,
                             StringNumber = 5,
+                        },
+                        new()
+                        {
+                            BarPercentage = 60,
+                            FretNumber = 0,
+                            StringNumber = 5,
+                            NoteType = NoteType.Grace
                         },
                         new()
                         {

@@ -1,0 +1,24 @@
+@using FinalYearProject.UI.Components.Models
+
+<svg>
+
+    @if (DrawOutline)
+    {
+        @* Note Background *@
+        <circle cx="@(XPosition)"
+                cy="@YPosition"
+                r="@(Size / 2)"
+                fill="white" />
+    }
+
+    @* Note Fret Number *@
+    <text x="@XPosition"
+          y="@(YPosition + (Size * 0.1))"
+          font-family="Arial"
+          font-size="@(Size)"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          fill="black">
+        @Note.FretNumber
+    </text>
+</svg>

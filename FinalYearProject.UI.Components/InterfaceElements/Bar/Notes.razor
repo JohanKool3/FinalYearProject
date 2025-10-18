@@ -1,25 +1,23 @@
+
 <g>
     @foreach (var note in NotesToDisplay)
     {
-        <svg>
-            @* Note Background *@
-            <circle cx="@(GetNoteXPosition(note))"
-                    cy="@GetNoteYPosition(note)"
-                    r="@(_stringSpacing / 2)"
-                    fill="white" />
-
-            @* Note Fret Number *@
-            <text x="@GetNoteXPosition(note)"
-                  y="@(GetNoteYPosition(note) + (_stringSpacing * 0.1))"
-                  font-family="Arial"
-                  font-size="@(_stringSpacing)"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                  fill="black">
-                @note.FretNumber
-            </text>
-
-        </svg>
+        @if (note.NoteType == NoteType.Normal)
+        {
+            <NormalNote Note="note"
+                        XPosition="GetNoteXPosition(note)"
+                        YPosition="GetNoteYPosition(note)"
+                        Size="_stringSpacing" />
+        }
+        else if (note.NoteType == NoteType.Grace)
+        {
+            @* Same representation as a normal note only smaller *@
+            <NormalNote Note="note"
+                        XPosition="GetNoteXPosition(note)"
+                        YPosition="GetNoteYPosition(note)"
+                        Size="(2 * _stringSpacing) / 3" />
+        }
+        // TODO: Implement other note types here
     }
 </g>
 

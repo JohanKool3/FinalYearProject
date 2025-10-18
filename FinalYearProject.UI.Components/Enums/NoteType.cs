@@ -11,7 +11,19 @@ namespace FinalYearProject.UI.Components.Enums
     /// </summary>
     public enum NoteType
     {
+        /// <summary>
+        /// Normal Playing Note
+        /// </summary>
         Normal,
-        Rest
+
+        /// <summary>
+        /// A Rest from playing
+        /// </summary>
+        Rest,
+
+        /// <summary>
+        /// Defines a quick before note
+        /// </summary>
+        Grace
     }
 }
