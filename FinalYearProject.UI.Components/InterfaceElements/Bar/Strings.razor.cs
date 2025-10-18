@@ -8,7 +8,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
     {
 
         #region Parameters
-        
+
         /// <summary>
         /// The notes to display on the tab
         /// </summary>
@@ -17,7 +17,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 
         #endregion
 
-        private readonly int StringAmount = settingsService.StringCount;
+        private int _stringAmount => settingsService.StringCount;
 
         private int _height =>
             settingsService.GetBarHeight();
@@ -26,12 +26,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// Calculates the spacing between each string
         /// </summary>
         private int StringSpacing
-            => (_height - _topPadding) / StringAmount ;
+            => (_height - _topPadding) / _stringAmount;
 
         /// <summary>
         /// How much space to leave to the top of the strings
         /// </summary>
-        private int _topPadding 
+        private int _topPadding
             => SettingsService.NoteDisplaySettings.TopPadding;
 
         /// <summary>
