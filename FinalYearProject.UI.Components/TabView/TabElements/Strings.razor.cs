@@ -1,11 +1,10 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
-using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.TabView.TabElements
 {
-    public partial class Strings(GuitarSettingsService settingsService) : ComponentBase
+    public partial class Strings(TabRepresentationSettingsService settingsService) : ComponentBase
     {
 
         #region Parameters
@@ -46,6 +45,6 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         private int StringSpacing
             => (Height - TopPadding) / StringAmount ;
 
-        public GuitarSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
     }
 }

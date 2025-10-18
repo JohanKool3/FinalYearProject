@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace FinalYearProject.UI.Components.Services
 {
     /// <summary>
-    /// Holds settings related to the Guitar display
+    /// Holds settings related to the display
     /// </summary>
-    public class GuitarSettingsService
+    public class TabRepresentationSettingsService
     {
         /// <summary>
         /// The number of strings to display on the guitar
