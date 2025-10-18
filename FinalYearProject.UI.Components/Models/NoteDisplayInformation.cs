@@ -1,4 +1,6 @@
 ﻿
+using FinalYearProject.UI.Components.Enums;
+
 namespace FinalYearProject.UI.Components.Models
 {
     public class NoteDisplayInformation
@@ -17,6 +19,11 @@ namespace FinalYearProject.UI.Components.Models
         /// Which String the note is on (1-6)
         /// </summary>
         public int StringNumber { get; set; } = 6;
+
+        /// <summary>
+        /// The Type of note being displayed
+        /// </summary>
+        public NoteType NoteType { get; set; } = NoteType.Normal;
 
     }
 }
