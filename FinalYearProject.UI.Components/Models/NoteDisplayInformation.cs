@@ -23,7 +23,14 @@ namespace FinalYearProject.UI.Components.Models
         /// <summary>
         /// The Type of note being displayed
         /// </summary>
-        public NoteType NoteType { get; set; } = NoteType.Normal;
+        public NoteType NoteType { get; set; } 
+            = NoteType.Normal;
+
+        /// <summary>
+        /// How the note is articulated
+        /// </summary>
+        public ArticulationType ArticulationType { get; set; } 
+            = ArticulationType.None;
 
     }
 }
