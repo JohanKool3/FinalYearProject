@@ -45,10 +45,24 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
         private int _height
             => RepresentationSettingsService.GetBarHeight();
 
-        private int GetNotePosition(NoteDisplayInformation note)
+        private int GetNoteXPosition(NoteDisplayInformation note)
         {
             // Calculate the position based on the BarPercentage and Width
-            return (int)((note.BarPercentage / 100.0) * _width);
+            return _leftPadding + (int)((note.BarPercentage / 100.0) * _width);
+        }
+
+        private int GetNoteYPosition(NoteDisplayInformation note)
+        {
+            // Calculate the position based on the StringNumber and StringSpacing
+            int stringSpacing = RepresentationSettingsService
+                .NoteDisplaySettings
+                .StringSpacing;
+
+            // Convert to zero based index
+            var stringIndex = note.StringNumber - 1;
+
+            // Put Note on string, add spacing for each string
+            return _topPadding + (stringSpacing / 2) + (stringSpacing * stringIndex);
         }
     }
 }
