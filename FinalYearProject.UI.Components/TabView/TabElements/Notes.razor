@@ -8,9 +8,11 @@
                     fill="white" /> *@
 
             <text x="@GetNoteXPosition(note)"
-                  y="@GetNoteYPosition(note)"
+                  y="@(GetNoteYPosition(note))"
                   font-family="Arial"
                   font-size="@(_stringSpacing)"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
                   fill="black">
                 @note.FretNumber
             </text>

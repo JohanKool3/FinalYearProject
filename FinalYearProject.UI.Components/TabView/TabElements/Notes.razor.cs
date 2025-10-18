@@ -56,7 +56,7 @@ namespace FinalYearProject.UI.Components.TabView.TabElements
             var stringIndex = note.StringNumber - 1;
 
             // Put Note on string, add spacing for each string
-            return _topPadding + (_stringSpacing / 2) + (_stringSpacing * stringIndex);
+            return _topPadding  + (_stringSpacing * stringIndex);
         }
     }
 }
