@@ -2,13 +2,13 @@
     @foreach (var note in NotesToDisplay)
     {
         <svg>
-            @* <circle cx="@(_leftPadding + GetNoteXPosition(note))"
+            <circle cx="@(GetNoteXPosition(note))"
                     cy="@GetNoteYPosition(note)"
-                    r="@NoteCutoutRadius"
-                    fill="white" /> *@
+                    r="@(_stringSpacing / 2)"
+                    fill="white" />
 
             <text x="@GetNoteXPosition(note)"
-                  y="@(GetNoteYPosition(note))"
+                  y="@(GetNoteYPosition(note) + (_stringSpacing * 0.1))"
                   font-family="Arial"
                   font-size="@(_stringSpacing)"
                   text-anchor="middle"
