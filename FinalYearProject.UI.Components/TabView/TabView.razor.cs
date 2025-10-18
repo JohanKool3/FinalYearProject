@@ -4,11 +4,14 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.TabView
 {
-    public partial class TabView(TabPlaybackService playbackService) 
+    public partial class TabView(TabPlaybackService playbackService,
+        TabRepresentationSettingsService respresentationService)
         : ComponentBase
     {
-        public TabPlaybackService PlaybackService { get; set; } 
+        public TabPlaybackService PlaybackService { get; set; }
             = playbackService;
+        public TabRepresentationSettingsService RespresentationService { get; }
+            = respresentationService;
 
         /// <summary>
         /// Returns the current loaded tab from the playback service

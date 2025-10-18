@@ -42,21 +42,22 @@
             @* Simulate Rendering 10 Bars *@
             @for (var i = 0; i < 10; i++)
             {
-                <svg width="300" height="75">
+
+                var width = RespresentationService.GetBarWidth(notes);
+
+                <svg width="@width" height="75">
 
                     @* Information Placed over the bar *@
                     <TopBarInformation BarNumber="@(i + 1)" />
 
                     @* Renders the String Representation *@
                     <Strings Height="75"
-                             Width="300"
+                             Width="@width"
                              TopPadding="15" />
 
                     @* Renders the Notes on the String *@
                     <Notes Height="75"
-                           Width="300"
-                           TopPadding="20"
-                           LeftPadding="20"
+                           Width="@width"
                            NotesToDisplay="notes" />
                 </svg>
             }
