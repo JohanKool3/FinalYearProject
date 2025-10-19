@@ -6,7 +6,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 {
     public partial class BarTimeSignature(TabRepresentationSettingsService settingsService)
     {
-
+        #region Parameters
         /// <summary>
         /// Logical Representation of the Time Signature to display
         /// </summary>
@@ -30,6 +30,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// </summary>
         [Parameter]
         public int FontSize { get; set; } = 24;
+
+        #endregion
+       
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
         private int _width
@@ -46,6 +49,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 
         private int _stringSpacing
             => SettingsService.NoteDisplaySettings.StringSpacing;
+
+        private int _stringAmount
+            => SettingsService.StringCount;
 
         #endregion
 

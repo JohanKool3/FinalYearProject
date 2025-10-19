@@ -1,7 +1,7 @@
 @* Component for Rendering Guitar Strings *@
 @using FinalYearProject.Shared.Models.TabRepresentation
 <g>
-    @for (int i = 0; i < 6; i++)
+    @for (int i = 0; i < _stringAmount; i++)
     {
         // Draw each string line
         <line x1="0"
