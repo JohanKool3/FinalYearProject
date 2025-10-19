@@ -1,6 +1,12 @@
 ﻿@using FinalYearProject.UI.Components.InterfaceElements.Bar
 @using FinalYearProject.UI.Components.Models
 
+@if (ShowTuning)
+{
+    @* Render the Tuning before the Time Signature *@
+    <Tuning />
+}
+
 @if (ShowTimeSignature)
 {
     @* Render the Time Signature before the Bar *@

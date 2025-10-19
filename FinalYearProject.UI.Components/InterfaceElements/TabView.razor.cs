@@ -52,5 +52,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                 GetCurrentTab()!.Bars[previousIndex],
                 GetCurrentTab()!.Bars[currentIndex]);
         }
+
+        private bool RenderTuningForBar(int index)
+            => index == 0;
     }
 }

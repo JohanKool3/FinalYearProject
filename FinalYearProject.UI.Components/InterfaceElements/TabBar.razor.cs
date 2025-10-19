@@ -26,6 +26,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public bool ShowTimeSignature { get; set; } = false;
 
+        [Parameter]
+        public bool ShowTuning { get; set; } = false;
+
         #endregion
 
         /// <summary>
