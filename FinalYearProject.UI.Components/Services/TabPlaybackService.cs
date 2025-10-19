@@ -1,6 +1,4 @@
-﻿
-using FinalYearProject.Shared.Models.TabRepresentation;
-using FinalYearProject.UI.Components.Interfaces;
+﻿using FinalYearProject.UI.Components.Interfaces;
 using FinalYearProject.UI.Components.Models;
 
 namespace FinalYearProject.UI.Components.Services
@@ -11,7 +9,7 @@ namespace FinalYearProject.UI.Components.Services
         {
             //Pull Display Loader Service from Dependency Injection
             DisplayLoaderService = displayLoaderService;
-            
+
             // Load the Initial Piece
             LoadPiece();
         }
@@ -20,9 +18,24 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public bool IsPlaying { get; private set; } = false;
 
+        /// <summary>
+        /// The current Beats Per Minute (BPM) for playback
+        /// </summary>
         public int Bpm { get; private set; } = 120;
 
-        public TabDisplayInformation? CurrentTab {get; private set;}
+        /// <summary>
+        /// Who authored the current tab
+        /// </summary>
+        public string Author
+            => CurrentTab?.Author ?? "Unknown Author";
+
+        /// <summary>
+        /// The title of the current tab
+        /// </summary>
+        public string Title
+            => CurrentTab?.Title ?? "Unknown Title";
+
+        public TabDisplayInformation? CurrentTab { get; private set; }
         public ITabDisplayLoaderService DisplayLoaderService { get; }
 
         /// <summary>

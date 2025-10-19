@@ -183,6 +183,8 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
             {
                 Bpm = 120,  
                 Bars = exampleBars,
+                Author = "John Doe",
+                Title = "Sample Tab"
             };
         }
 

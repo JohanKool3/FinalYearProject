@@ -17,6 +17,16 @@ namespace FinalYearProject.UI.Components.Models
         public int Bpm { get; set; } = 120;
 
         /// <summary>
+        /// The name of this tab
+        /// </summary>
+        public string Title { get; set; } = "Unknown Title";
+
+        /// <summary>
+        /// The author of this tab
+        /// </summary>
+        public string Author { get; set; } = "Unknown Author";
+
+        /// <summary>
         /// Holds the Bars of this tab
         /// </summary>
         public List<BarDisplayInformation> Bars { get; set; } = [];
