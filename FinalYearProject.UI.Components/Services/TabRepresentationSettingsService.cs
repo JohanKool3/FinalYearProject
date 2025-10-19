@@ -68,5 +68,11 @@ namespace FinalYearProject.UI.Components.Services
         public int GetBarHeight()
             => NoteDisplaySettings.TopPadding +
                (StringCount * NoteDisplaySettings.StringSpacing);
+    
+        public void LoadNewTuningScheme(TuningScheme newScheme)
+        {
+            // TODO: Add Validation to ensure the scheme is good
+            TuningScheme = newScheme;
+        }
     }
 }
