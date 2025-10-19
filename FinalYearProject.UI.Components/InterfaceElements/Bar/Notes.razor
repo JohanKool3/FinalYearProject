@@ -11,8 +11,7 @@
         }
         else if (note.NoteType == NoteType.Grace)
         {
-            @* Same representation as a normal note only smaller *@
-            <NormalNote Note="note"
+            <GraceNote Note="note"
                         XPosition="GetNoteXPosition(note)"
                         YPosition="GetNoteYPosition(note)"
                         Size="(2 * _stringSpacing) / 3" />
