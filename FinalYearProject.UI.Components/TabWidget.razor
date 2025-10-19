@@ -6,20 +6,18 @@
     @* Top Toolbar *@
 
     <div class="tab-view">
-        <TabView />
+        <TabHeader />
+        <TabBody />
     </div>
 
     @* Bottom Toolbar *@
     <div class="toolbar">
         <TabToolbar>
-            <PlayButton 
-                NotifyParentOfChange="PlaybackStateChanged" />
+            <PlayButton NotifyParentOfChange="PlaybackStateChanged" />
 
-            <PauseButton 
-                NotifyParentOfChange="PlaybackStateChanged" />
+            <PauseButton NotifyParentOfChange="PlaybackStateChanged" />
 
-            <BpmWidget 
-                NotifyParentOfChange="PlaybackStateChanged" />
+            <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
         </TabToolbar>
     </div>
 </div>

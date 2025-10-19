@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class TabView(TabPlaybackService playbackService,
+    public partial class TabBody(TabPlaybackService playbackService,
         TabRepresentationSettingsService respresentationService)
         : ComponentBase
     {
