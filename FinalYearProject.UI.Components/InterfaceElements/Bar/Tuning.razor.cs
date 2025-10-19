@@ -2,15 +2,9 @@ using FinalYearProject.UI.Components.Services;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 {
-    public partial class Tuning
+    public partial class Tuning(TabRepresentationSettingsService settingsService)
     {
-
-        public Tuning(TabRepresentationSettingsService settingsService)
-        {
-            SettingsService = settingsService;
-        }
-
-        public TabRepresentationSettingsService SettingsService { get; }
+        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
         private int _height => SettingsService.GetBarHeight();
 
