@@ -9,9 +9,16 @@ namespace FinalYearProject.UI.Components.Services
     public class TabRepresentationSettingsService
     {
         /// <summary>
+        /// Holds the Tuning Scheme for this Tab Representation
+        /// </summary>
+        public TuningScheme TuningScheme { get; private set; }
+            = TuningScheme.SixStringStandard;
+
+        /// <summary>
         /// The number of strings to display on the guitar
         /// </summary>
-        public int StringCount { get; private set; } = 6;
+        public int StringCount 
+            => TuningScheme.StringTunings.Count;
 
         /// <summary>
         /// Settings related to the Strings and Notes display
@@ -27,7 +34,7 @@ namespace FinalYearProject.UI.Components.Services
 
 
         /// <summary>
-        /// 
+        /// The Settings that relate to the display of the PreBar section
         /// </summary>
         public PreBarDisplaySettings PreBarDisplaySettings { get; private set; }
             = new()
@@ -36,18 +43,6 @@ namespace FinalYearProject.UI.Components.Services
                 TuningFontSize = 14,
                 TuningWidth = 5
             };
-
-        /// <summary>
-        /// Sets the number of strings to display
-        /// </summary>
-        /// <param name="count"></param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void SetStringCount(int count)
-        {
-            if (count < 0 || count > 18)
-                throw new ArgumentOutOfRangeException(nameof(count), "String count must be between 0 and 18.");
-            StringCount = count;
-        }
 
         /// <summary>
         /// Returns the dynamic width of a bar based on the notes it contains
