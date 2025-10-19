@@ -29,6 +29,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public bool ShowTuning { get; set; } = false;
 
+        [Parameter]
+        public bool ShowBpmMarking { get; set; } = false;
+
         #endregion
 
         /// <summary>

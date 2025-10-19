@@ -16,6 +16,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         [Parameter]
         public int BarNumber { get; set; } = 0;
 
+        /// <summary>
+        /// Whether to show the time Bpm Marking
+        /// </summary>
+        [Parameter]
+        public bool ShowBpmMarking { get; set; } = false;
+
         #endregion
 
         /// <summary>

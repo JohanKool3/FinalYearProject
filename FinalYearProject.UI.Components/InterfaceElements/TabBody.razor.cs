@@ -53,7 +53,28 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                 GetCurrentTab()!.Bars[currentIndex]);
         }
 
-        private bool RenderTuningForBar(int index)
+        /// <summary>
+        /// Determines whether the BPM should be rendered for the current bar
+        /// </summary>
+        /// <param name="previousIndex"></param>
+        /// <param name="currentIndex"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// This is done when the BPM changes from the previous bar to the current bar, or if it is the first bar
+        /// </remarks>
+        private bool RenderBpmForBar(int previousIndex, int currentIndex)
+        {
+            // Must be the First Bar, Render the BPM
+            if (previousIndex < 0)
+            {
+                return true;
+            }
+            return BarConditionalRenderingHelper.RenderBpm(
+                GetCurrentTab()!.Bars[previousIndex],
+                GetCurrentTab()!.Bars[currentIndex]);
+        }
+
+        private static bool RenderTuningForBar(int index)
             => index == 0;
     }
 }
