@@ -184,7 +184,8 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 Bpm = 120,  
                 Bars = exampleBars,
                 Author = "John Doe",
-                Title = "Sample Tab"
+                Title = "Sample Tab",
+                Description = "This is a sample tab for testing purposes. The limit of this desription must never exceed 400"
             };
         }
 

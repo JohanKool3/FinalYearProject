@@ -5,6 +5,11 @@
     @* Who Wrote the Tab *@
     <div>
         <h3 class="tab-subheader">@_author</h3>
+
+        @if (_tabDescription != string.Empty)
+        {
+            <p class="tab-description">@_tabDescription</p>
+        }
     </div>
 </div>
 

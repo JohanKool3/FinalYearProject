@@ -35,6 +35,9 @@ namespace FinalYearProject.UI.Components.Services
         public string Title
             => CurrentTab?.Title ?? "Unknown Title";
 
+        public string Description
+            => CurrentTab?.Description ?? "No Description";
+
         public TabDisplayInformation? CurrentTab { get; private set; }
         public ITabDisplayLoaderService DisplayLoaderService { get; }
 

@@ -11,3 +11,9 @@
     text-align: right;
     width: 100%;
 }
+
+.tab-description {
+    text-align: center;
+    width: 100%;
+    font-style: italic;
+}

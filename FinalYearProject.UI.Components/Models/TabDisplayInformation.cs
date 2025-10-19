@@ -27,8 +27,21 @@ namespace FinalYearProject.UI.Components.Models
         public string Author { get; set; } = "Unknown Author";
 
         /// <summary>
+        /// Short optional description of this tab
+        /// </summary>
+        public string Description
+        {
+            get => _description.Length > 400 ? _description[..400] : _description;
+            internal set => _description = value;
+        }
+
+        private string _description = string.Empty;
+
+
+        /// <summary>
         /// Holds the Bars of this tab
         /// </summary>
         public List<BarDisplayInformation> Bars { get; set; } = [];
+
     }
 }

@@ -17,5 +17,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// </summary>
         private string _title
             => PlaybackService.Title;
+
+        private string _tabDescription
+                        => PlaybackService.Description;
     }
 }
