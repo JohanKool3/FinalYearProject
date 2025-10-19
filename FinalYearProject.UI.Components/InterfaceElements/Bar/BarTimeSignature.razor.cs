@@ -14,16 +14,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         public required TimeSignature TimeSignature { get; set; }
 
         /// <summary>
-        /// Top Left X Position of the Time Signature
+        /// Middle X Position of the Time Signature
         /// </summary>
-        [Parameter]
-        public int XPosition { get; set; } = 0;
+        public int _xPosition 
+            => _width / 2;
 
         /// <summary>
-        /// Top Left Y Position of the Time Signature
+        /// Middle Y Position of the Time Signature
         /// </summary>
-        [Parameter]
-        public int YPosition { get; set; } = 0;
+        public int _yPosition
+            => _height / 2;
 
         /// <summary>
         /// How Large the Time Signature should be rendered
@@ -37,6 +37,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 
         private int _width
             => SettingsService.PreBarDisplaySettings.TimeSignatureWidth;
+
+        private int _height
+            => SettingsService.GetBarHeight();
 
         #region Notes Display Settings
 
@@ -60,13 +63,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// </summary>
         /// <returns></returns>
         private int GetAdjustedXPosition()
-            => XPosition - (FontSize / 3);
+            => _xPosition - (FontSize / 3);
 
         /// <summary>
         /// Adjusts the Y Position so that the Time Signature is centered
         /// </summary>
         /// <returns></returns>
         private int GetAdjustedYPosition()
-            => YPosition - (FontSize / 3);
+            => _yPosition - (FontSize / 3);
     }
 }

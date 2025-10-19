@@ -11,9 +11,7 @@
 {
     @* Render the Time Signature before the Bar *@
     <svg width="@(_timeSignatureWidth)" height="@_height">
-        <BarTimeSignature TimeSignature="BarInformation.TimeSignature"
-                          XPosition="_timeSignatureWidth / 2"
-                          YPosition="_height / 2" />
+        <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
     </svg>
 }
 
