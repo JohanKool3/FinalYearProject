@@ -25,7 +25,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// <summary>
         /// Calculates the spacing between each string
         /// </summary>
-        private int StringSpacing
+        private int _stringSpacing
             => (_height - _topPadding) / _stringAmount;
 
         /// <summary>

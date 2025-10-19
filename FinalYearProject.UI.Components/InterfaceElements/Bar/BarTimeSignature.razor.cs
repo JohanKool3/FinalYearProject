@@ -36,7 +36,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
         private int _width
-            => SettingsService.TimeSignatureDisplaySettings.Width;
+            => SettingsService.PreBarDisplaySettings.TimeSignatureWidth;
 
         #region Notes Display Settings
 

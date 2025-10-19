@@ -45,7 +45,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _height => SettingsService.GetBarHeight();
 
         private int _timeSignatureWidth
-            => SettingsService.TimeSignatureDisplaySettings.Width;
+            => SettingsService.PreBarDisplaySettings.TimeSignatureWidth;
 
         #endregion
     }

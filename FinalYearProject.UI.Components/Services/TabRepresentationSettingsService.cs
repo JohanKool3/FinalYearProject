@@ -25,10 +25,16 @@ namespace FinalYearProject.UI.Components.Services
                 StringSpacing = 15
             };
 
-        public TimeSignatureDisplaySettings TimeSignatureDisplaySettings { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PreBarDisplaySettings PreBarDisplaySettings { get; private set; }
             = new()
             {
-                Width = 20
+                TimeSignatureWidth = 20,
+                TuningFontSize = 14,
+                TuningWidth = 5
             };
 
         /// <summary>

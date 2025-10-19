@@ -1,3 +1,15 @@
 ﻿@* Shows the Tuning for the given tab *@
 <svg height="@_height" width="@_width">
+    <g>
+        @for (int i = 0; i < _stringAmount; i++)
+        {
+            @* Remind the compiler that it is dealing with svg *@
+            <svg>
+                <text x="0"
+                      y="@(i* _stringSpacing + _topPadding)"
+                      dominant-baseline="middle"
+                      fill="black" font-size="@_fontSize" font-family="Arial">a</text>
+            </svg>
+        }
+    </g>
 </svg>
