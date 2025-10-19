@@ -1,32 +1,34 @@
 ﻿@using FinalYearProject.UI.Components.InterfaceElements.Bar
 @using FinalYearProject.UI.Components.Models
 
+
 @if (ShowTuning)
 {
-    @* Render the Tuning before the Time Signature *@
+    @* Render the Tuning once before the Time Signature of the first
+       bar*@
     <Tuning />
 }
+<svg width="@_width" height="@_tabBarHeight">
+    @if (ShowTimeSignature)
+    {
+        @* Render the Time Signature before the Bar *@
 
-@if (ShowTimeSignature)
-{
-    @* Render the Time Signature before the Bar *@
+        <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
 
-    <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
+    }
 
-}
+    @* Renders Strings and Notes Representation *@
+    <svg width="@_width" height="@_height">
 
-@* Renders Strings and Notes Representation *@
-<svg width="@_width" height="@_height">
+        @* Information Placed over the bar *@
+        <TopBarInformation BarNumber="@BarNumber"
+                           ShowBpmMarking="ShowBpmMarking"
+                           BarInformation="BarInformation" />
 
-    @* Information Placed over the bar *@
-    <TopBarInformation BarNumber="@BarNumber"
-                       ShowBpmMarking="ShowBpmMarking"
-                       BarInformation="BarInformation" />
+        @* Renders the String Representation *@
+        <Strings Notes="_notes" />
 
-    @* Renders the String Representation *@
-    <Strings Notes="_notes" />
-
-    @* Renders the Notes on the String *@
-    <Notes NotesToDisplay="_notes" />
+        @* Renders the Notes on the String *@
+        <Notes NotesToDisplay="_notes" />
+    </svg>
 </svg>
-

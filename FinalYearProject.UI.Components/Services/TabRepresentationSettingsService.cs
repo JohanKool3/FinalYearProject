@@ -26,7 +26,7 @@ namespace FinalYearProject.UI.Components.Services
             = new()
             {
                 TopPadding = 20,
-                LeftPadding = 20,
+                LeftPadding = 40,
                 NoteSpacing = 40,
                 StringSpacing = 15
             };
@@ -41,6 +41,15 @@ namespace FinalYearProject.UI.Components.Services
                 TimeSignatureWidth = 20,
                 TuningFontSize = 14,
                 TuningWidth = 5
+            };
+
+        public TopBarDisplaySettings TopBarDisplaySettings { get; private set; }
+            = new()
+            {
+                Height = 50,
+                Rows = 3,
+                TopPadding = 10,
+                LeftPadding = 5
             };
 
         /// <summary>
@@ -67,6 +76,16 @@ namespace FinalYearProject.UI.Components.Services
         public int GetBarHeight()
             => NoteDisplaySettings.TopPadding +
                (StringCount * NoteDisplaySettings.StringSpacing);
+
+        /// <summary>
+        /// Get the height of both the bar and the top bar
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalBarHeight()
+            => GetBarHeight() 
+            + TopBarDisplaySettings.Height;
+        //TODO : Add Height of the Sub Bar (Section holding note lengths)
+        //as well
 
         public void LoadNewTuningScheme(TuningScheme newScheme)
         {
