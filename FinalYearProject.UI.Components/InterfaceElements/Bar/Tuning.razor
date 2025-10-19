@@ -1,14 +1,16 @@
 ﻿@* Shows the Tuning for the given tab *@
 <svg height="@_height" width="@_width">
     <g>
-        @for (int i = 0; i < _stringAmount; i++)
+        @for (int stringNumber = 1; stringNumber <= _stringAmount; stringNumber++)
         {
             @* Remind the compiler that it is dealing with svg *@
             <svg>
                 <text x="0"
-                      y="@(i* _stringSpacing + _topPadding)"
+                      y="@GetAdjustedYPosition(stringNumber)"
                       dominant-baseline="middle"
-                      fill="black" font-size="@_fontSize" font-family="Arial">a</text>
+                      fill="black" font-size="@_fontSize" font-family="Arial">
+                  @GetStringTuning(stringNumber)
+                  </text>
             </svg>
         }
     </g>

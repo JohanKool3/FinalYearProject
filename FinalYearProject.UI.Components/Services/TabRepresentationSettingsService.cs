@@ -1,5 +1,4 @@
-﻿
-using FinalYearProject.UI.Components.Models;
+﻿using FinalYearProject.UI.Components.Models;
 
 namespace FinalYearProject.UI.Components.Services
 {
@@ -17,7 +16,7 @@ namespace FinalYearProject.UI.Components.Services
         /// <summary>
         /// The number of strings to display on the guitar
         /// </summary>
-        public int StringCount 
+        public int StringCount
             => TuningScheme.StringTunings.Count;
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace FinalYearProject.UI.Components.Services
         public int GetBarHeight()
             => NoteDisplaySettings.TopPadding +
                (StringCount * NoteDisplaySettings.StringSpacing);
-    
+
         public void LoadNewTuningScheme(TuningScheme newScheme)
         {
             // TODO: Add Validation to ensure the scheme is good
