@@ -1,0 +1,13 @@
+.header-container{
+    padding: 1em;
+}
+
+.tab-header {
+    text-align: center;
+    width: 100%;
+}
+
+.tab-subheader {
+    text-align: right;
+    width: 100%;
+}
