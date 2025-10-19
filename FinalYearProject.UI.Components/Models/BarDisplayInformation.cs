@@ -1,4 +1,6 @@
 ﻿
+using FinalYearProject.Shared.Models.TabRepresentation;
+
 namespace FinalYearProject.UI.Components.Models
 {
     /// <summary>
@@ -6,7 +8,11 @@ namespace FinalYearProject.UI.Components.Models
     /// </summary>
     public class BarDisplayInformation
     {
-        //TODO: Add Time Singature here
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSignature TimeSignature { get; set; } 
+            = TimeSignature.Default;
 
         /// <summary>
         /// The Notes in this bar

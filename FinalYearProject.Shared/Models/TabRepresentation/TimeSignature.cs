@@ -15,7 +15,11 @@
         /// </summary>
         public int BeatUnit { get; set; } = beatUnit;
 
-
+        /// <summary>
+        /// Equality check based on BeatsPerMeasure and BeatUnit
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             if(obj is TimeSignature other)
@@ -25,5 +29,13 @@
 
             return base.Equals(obj);
         }
+
+        /// <summary>
+        /// Generates a default TimeSignature of 4/4
+        /// </summary>
+        /// <returns></returns>
+        public static TimeSignature Default
+            => new(4, 4);
+            
     }
 }

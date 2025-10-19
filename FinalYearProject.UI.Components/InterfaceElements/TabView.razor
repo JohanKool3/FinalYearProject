@@ -15,7 +15,8 @@
                     .Select((bar, index) => (bar, index)))
             {
                 <TabBar BarNumber="index + 1"
-                        Notes="bar.Notes" />
+                        BarInformation="bar"
+                        ShowTimeSignature="RenderTimeSignatureForBar(index - 1, index)"/>
             }
         </div>
     }

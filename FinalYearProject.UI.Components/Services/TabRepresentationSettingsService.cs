@@ -13,8 +13,11 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public int StringCount { get; private set; } = 6;
 
+        /// <summary>
+        /// Settings related to the Strings and Notes display
+        /// </summary>
         public NoteDisplaySettings NoteDisplaySettings { get; private set; }
-            = new NoteDisplaySettings
+            = new()
             {
                 TopPadding = 20,
                 LeftPadding = 20,
@@ -22,6 +25,17 @@ namespace FinalYearProject.UI.Components.Services
                 StringSpacing = 15
             };
 
+        public TimeSignatureDisplaySettings TimeSignatureDisplaySettings { get; private set; }
+            = new()
+            {
+                Width = 20
+            };
+
+        /// <summary>
+        /// Sets the number of strings to display
+        /// </summary>
+        /// <param name="count"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void SetStringCount(int count)
         {
             if (count < 0 || count > 18)
@@ -29,6 +43,11 @@ namespace FinalYearProject.UI.Components.Services
             StringCount = count;
         }
 
+        /// <summary>
+        /// Returns the dynamic width of a bar based on the notes it contains
+        /// </summary>
+        /// <param name="notes"></param>
+        /// <returns></returns>
         public int GetBarWidth(List<NoteDisplayInformation> notes)
         {
             // Calculate how many different start positions there are
@@ -41,6 +60,10 @@ namespace FinalYearProject.UI.Components.Services
             return 2 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
         }
 
+        /// <summary>
+        /// Returns how tall the bar should be based on string count and Padding
+        /// </summary>
+        /// <returns></returns>
         public int GetBarHeight()
             => NoteDisplaySettings.TopPadding +
                (StringCount * NoteDisplaySettings.StringSpacing);

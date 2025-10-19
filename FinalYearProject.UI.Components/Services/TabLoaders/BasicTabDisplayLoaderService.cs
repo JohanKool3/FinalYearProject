@@ -21,6 +21,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
             {
                 new()
                 {
+                    TimeSignature = new(4,4),
                     Notes =
                     [
                         new()
@@ -51,6 +52,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 },
                 new()
                 {
+                    TimeSignature = new(6,8),
                     Notes =
                     [
                         new()
@@ -100,6 +102,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 },
                 new()
                 {
+                    TimeSignature = new(4,4),
                     Notes =
                     [
                         new()
@@ -130,6 +133,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 },
                 new()
                 {
+                    TimeSignature = new(4,4),
                     Notes =
                     [
                         new()
