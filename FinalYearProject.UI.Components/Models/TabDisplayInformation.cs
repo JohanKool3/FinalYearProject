@@ -12,11 +12,6 @@ namespace FinalYearProject.UI.Components.Models
     public class TabDisplayInformation
     {
         /// <summary>
-        /// The Beats Per Minute (BPM) of this tab
-        /// </summary>
-        public int Bpm { get; set; } = 120;
-
-        /// <summary>
         /// The name of this tab
         /// </summary>
         public string Title { get; set; } = "Unknown Title";

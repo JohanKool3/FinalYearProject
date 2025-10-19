@@ -75,7 +75,9 @@ namespace FinalYearProject.UI.Components.Services
             var tab = DisplayLoaderService.GetCurrentTab();
 
             CurrentTab = tab;
-            Bpm = tab?.Bpm ?? 120;
+
+            // Get the BPM for the first bar, or default to 120 if not available
+            Bpm = tab?.Bars[0].Bpm ?? 120;
         }
 
         // TODO: Add Overload that allows loading of a specific tab

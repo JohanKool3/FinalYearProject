@@ -21,6 +21,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
             {
                 new()
                 {
+                    Bpm = 160,
                     TimeSignature = new(4,4),
                     Notes =
                     [
@@ -52,6 +53,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 },
                 new()
                 {
+                    Bpm = 90,
                     TimeSignature = new(6,8),
                     Notes =
                     [
@@ -102,6 +104,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 },
                 new()
                 {
+                    Bpm = 150,
                     TimeSignature = new(4,4),
                     Notes =
                     [
@@ -181,7 +184,6 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
             
             _currentTab = new TabDisplayInformation()
             {
-                Bpm = 120,  
                 Bars = exampleBars,
                 Author = "John Doe",
                 Title = "Sample Tab",

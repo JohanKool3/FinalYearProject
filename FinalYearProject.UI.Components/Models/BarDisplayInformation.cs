@@ -9,10 +9,15 @@ namespace FinalYearProject.UI.Components.Models
     public class BarDisplayInformation
     {
         /// <summary>
-        /// 
+        /// The time signature of this bar
         /// </summary>
         public TimeSignature TimeSignature { get; set; } 
             = TimeSignature.Default;
+
+        /// <summary>
+        /// The BPM of this bar
+        /// </summary>
+        public int Bpm { get; set; } = 120;
 
         /// <summary>
         /// The Notes in this bar
