@@ -1,3 +1,4 @@
+using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -5,16 +6,22 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
 {
     public partial class TopBarInformation(TabRepresentationSettingsService settingsService)
     {
-        public TabRepresentationSettingsService SettingsService { get; } 
+        public TabRepresentationSettingsService SettingsService { get; }
             = settingsService;
 
         #region Parameters
-        
+
         /// <summary>
         /// The Number of the bar to display.
         /// </summary>
         [Parameter]
         public int BarNumber { get; set; } = 0;
+
+        /// <summary>
+        /// Information about the bar
+        /// </summary>
+        [Parameter, EditorRequired]
+        public required BarDisplayInformation BarInformation { get; set; }
 
         /// <summary>
         /// Whether to show the time Bpm Marking
@@ -42,6 +49,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// Bar number is two thirds the size of the string spacing
         /// </summary>
         private int _barNumberFontSize
-            => 2* SettingsService.NoteDisplaySettings.StringSpacing / 3;
+            => 2 * SettingsService.NoteDisplaySettings.StringSpacing / 3;
+
+
+        private int _width
+            => SettingsService.GetBarWidth(BarInformation.Notes);
     }
 }

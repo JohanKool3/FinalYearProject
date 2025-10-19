@@ -1,9 +1,25 @@
-<g>
-    @* Bar Number Representation *@
-    <text x="@_leftPadding" 
-        y="@_topPadding" 
-        font-family="Arial" 
-        font-size="@_barNumberFontSize" 
-        fill="black">@BarNumber</text>
-</g>
 
+<svg height="@(2 * _topPadding)" width="@_width">
+    <g>
+        @* Bar Number Representation *@
+        <text x="@_leftPadding)"
+              y="@_topPadding"
+              font-family="Arial"
+              font-size="@_barNumberFontSize"
+              fill="black">@BarNumber</text>
+
+        @if (ShowBpmMarking)
+        {
+            <svg>
+                @* BPM Marking Representation *@
+                <text x="@(_leftPadding + _barNumberFontSize)"
+                      y="@_topPadding"
+                      font-family="Arial"
+                      font-style="oblique"
+                      font-size="@_barNumberFontSize"
+                      fill="black">@BarInformation.Bpm BPM</text>
+            </svg>
+        }
+        )
+    </g>
+</svg>
