@@ -10,9 +10,9 @@
 @if (ShowTimeSignature)
 {
     @* Render the Time Signature before the Bar *@
-    <svg width="@(_timeSignatureWidth)" height="@_height">
-        <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
-    </svg>
+
+    <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
+
 }
 
 @* Renders Strings and Notes Representation *@
