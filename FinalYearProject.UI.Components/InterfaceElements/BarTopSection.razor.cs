@@ -35,6 +35,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public bool ShowBpmMarking { get; set; } = false;
 
+
+        /// <summary>
+        /// How much to offset to be in line with the notes on the X Axis
+        /// </summary>
+        [Parameter]
+        public int XOffset { get; set; } = 0;
+
         #endregion
 
         private int _height 
@@ -69,15 +76,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             // Calculate height of each row
             var rowHeight = _height / rowAmount;
 
-            // How much to remove off the Y Position to center text
-            var offset = 0;
-
-            if (rowNumber > 0)
-            {
-                offset = _barNumberFontSize;
-            }
-            return (rowHeight * rowNumber) 
-                - offset;
+            return rowHeight * rowNumber;
         }
     }
 }

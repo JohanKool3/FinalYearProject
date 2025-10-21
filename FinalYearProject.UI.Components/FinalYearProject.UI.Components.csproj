@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="InterfaceElements\Bar\NoteElements\" />
-    <Folder Include="InterfaceElements\TopBar\" />
   </ItemGroup>
 
 </Project>

@@ -83,5 +83,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <returns></returns>
         private int GetTopBarWidth()
             => _barWidth + GetMainBodyOffset();
+
+        /// <summary>
+        /// How much to offset the Prebar section
+        /// </summary>
+        /// <returns></returns>
+        private int GetPrebarOffset()
+            => (ShowTuning ? _preBarWidth : 0) + 
+               (ShowTimeSignature ? _preBarWidth : 0);
     }
 }

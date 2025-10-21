@@ -211,7 +211,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             StringNumber = 4,
                         },
 
-                    ]
+                    ],
                     Chords =
                     [
                         new()
