@@ -1,7 +1,11 @@
 using FinalYearProject.UI.Components.Services;
 
-namespace FinalYearProject.UI.Components.InterfaceElements
+namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
+    /// <summary>
+    /// Header and Title information for the Tab being displayed
+    /// </summary>
+    /// <param name="playbackService"></param>
     public partial class TabHeader(TabPlaybackService playbackService)
     {
         public TabPlaybackService PlaybackService { get; set; } = playbackService;

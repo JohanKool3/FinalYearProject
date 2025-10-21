@@ -4,7 +4,7 @@ using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements
+namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
     public partial class TabBody(TabPlaybackService playbackService,
         TabRepresentationSettingsService respresentationService)

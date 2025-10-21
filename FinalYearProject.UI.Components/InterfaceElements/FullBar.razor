@@ -5,10 +5,10 @@
 
     @* Header of the bar *@
     <g transform="translate(0, 0)">
-        <TabTopBar BarNumber="@BarNumber"
-                   ShowBpmMarking="ShowBpmMarking"
-                   BarInformation="BarInformation"
-                   Width = "GetTopBarWidth()"/>
+        <BarTopSection BarNumber="@BarNumber"
+                       ShowBpmMarking="ShowBpmMarking"
+                       BarInformation="BarInformation"
+                       Width="GetTopBarWidth()" />
 
     </g>
 
@@ -31,12 +31,12 @@
 
         <svg width="@_barWidth" height="@_barHeight">
             @* Renders the String Representation *@
-            <Strings Notes="_notes" 
-                Width="_mainContentWidth"/>
+            <Strings Notes="_notes"
+                     Width="_mainContentWidth" />
 
             @* Renders the Notes on the String *@
-            <Notes NotesToDisplay="_notes" 
-                Width="_mainContentWidth"/>
+            <Notes NotesToDisplay="_notes"
+                   Width="_mainContentWidth" />
         </svg>
     </g>
 

@@ -11,7 +11,7 @@
             @foreach (var (bar, index) in (GetCurrentTab()?.Bars ?? [])
                     .Select((bar, index) => (bar, index)))
             {
-                <TabBar BarNumber="index + 1"
+                <FullBar BarNumber="index + 1"
                         BarInformation="bar"
                         ShowTimeSignature="RenderTimeSignatureForBar(index - 1, index)"
                         ShowTuning="RenderTuningForBar(index)"

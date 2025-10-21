@@ -46,7 +46,7 @@ namespace FinalYearProject.UI.Components.Services
         public TopBarDisplaySettings TopBarDisplaySettings { get; private set; }
             = new()
             {
-                Height = 120,
+                Height = 60,
                 Rows = 3,
                 TopPadding = 15,
                 LeftPadding = 5,

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class TabTopBar(TabRepresentationSettingsService settingsService)
+    public partial class BarTopSection(TabRepresentationSettingsService settingsService)
     {
         public TabRepresentationSettingsService SettingsService { get; }
             = settingsService;
