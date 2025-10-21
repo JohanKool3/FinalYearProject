@@ -2,9 +2,9 @@ using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class TopBarInformation(TabRepresentationSettingsService settingsService)
+    public partial class TabTopBar(TabRepresentationSettingsService settingsService)
     {
         public TabRepresentationSettingsService SettingsService { get; }
             = settingsService;
