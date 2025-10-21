@@ -12,33 +12,21 @@
 
     </g>
 
+    @* Pre Bar Section *@
     @if (ShowTuning)
     {
         <g transform="translate(0, @_topBarHeight)">
-            @* Render the Tuning once before the Time Signature of the first bar*@
             <Tuning />
         </g>
     }
 
     @* Main Body *@
     <g transform="translate(@GetMainBodyOffset(), @(_topBarHeight))">
-        @if (ShowTimeSignature)
-        {
-            @* Render the Time Signature before the Bar *@
-            <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
 
-        }
-
-        <svg width="@_barWidth" height="@_barHeight">
-            @* Renders the String Representation *@
-            <Strings Notes="_notes"
-                     Width="_mainContentWidth" />
-
-            @* Renders the Notes on the String *@
-            <Notes NotesToDisplay="_notes"
-                   Width="_mainContentWidth" />
-        </svg>
-    </g>
+        <BarMainBody ShowTimeSignature="ShowTimeSignature"
+                     BarInformation="BarInformation"
+                     ShowTuning="ShowTuning" />
+    </g>>
 
     @* TODO: Add Footer section to the bar *@
 

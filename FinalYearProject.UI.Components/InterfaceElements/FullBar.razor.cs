@@ -61,19 +61,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             .Height;
 
         /// <summary>
-        /// How wide the Time Signature section is
+        /// How wide the Tuning section is
         /// </summary>
         private int _preBarWidth
             => SettingsService
             .PreBarDisplaySettings
             .TimeSignatureWidth;
-
-        /// <summary>
-        /// Gets the space available for the main body of the bar, once 
-        /// the PreBar section is accounted for
-        /// </summary>
-        private int _mainContentWidth
-                => _barWidth - GetMainBodyOffset();
 
         #endregion
 

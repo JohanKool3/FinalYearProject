@@ -1,0 +1,18 @@
+@using FinalYearProject.UI.Components.InterfaceElements.Bar
+@if (ShowTimeSignature)
+{
+    @* Render the Time Signature before the Bar *@
+    <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
+
+}
+
+<svg width="@_barWidth" height="@_barHeight">
+    @* Renders the String Representation *@
+    <Strings Notes="_notes"
+             Width="_mainContentWidth" />
+
+    @* Renders the Notes on the String *@
+    <Notes NotesToDisplay="_notes"
+           Width="_mainContentWidth" />
+</svg>
+
