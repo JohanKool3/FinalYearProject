@@ -1,9 +1,11 @@
 <svg>
     @* BPM Marking Representation *@
-    <text x="@(_leftPadding + _barNumberFontSize)"
-          y="@_topPadding"
+    <text x="@GetAdjustedXPosition()"
+          y="@GetAdjustedYPosition()"
           font-family="Arial"
           font-style="oblique"
+          dominant-baseline="hanging"
+          text-anchor="start"
           font-size="@_barNumberFontSize"
           fill="black">@BarInformation.Bpm BPM</text>
 </svg>

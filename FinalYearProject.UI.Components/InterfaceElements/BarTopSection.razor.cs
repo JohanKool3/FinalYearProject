@@ -41,5 +41,43 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => SettingsService
             .TopBarDisplaySettings
             .Height;
+
+        private int _barNumberFontSize
+            => SettingsService
+            .TopBarDisplaySettings
+            .BarNumberFontSize;
+
+
+        /// <summary>
+        /// Returns the Y Position for a given row number
+        /// </summary>
+        /// <param name="rowNumber"></param>
+        /// <returns></returns>
+        private int GetYPosition(int rowNumber)
+        {
+            // Divide height by row amount
+            var rowAmount = SettingsService
+                .TopBarDisplaySettings
+                .Rows;
+
+            // Need to ensure row number is valid
+            if (rowNumber < 0 || rowNumber > rowAmount - 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowNumber), "Row number is out of range.");
+            }
+
+            // Calculate height of each row
+            var rowHeight = _height / rowAmount;
+
+            // How much to remove off the Y Position to center text
+            var offset = 0;
+
+            if (rowNumber > 0)
+            {
+                offset = _barNumberFontSize;
+            }
+            return (rowHeight * rowNumber) 
+                - offset;
+        }
     }
 }

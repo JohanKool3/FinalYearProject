@@ -6,16 +6,31 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
     public partial class BarNumber(TabRepresentationSettingsService settingsService)
     {
         #region Parameters
-        
+
+        /// <summary>
+        /// Value to be displayed as the Bar Number
+        /// </summary>
         [Parameter]
         public int BarNumberValue { get; set; }
 
+        /// <summary>
+        /// The X Position of the Bar Number
+        /// </summary>
+        [Parameter]
+        public int XPosition { get; set; }
+
+        /// <summary>
+        /// The Y Position of the Bar Number
+        /// </summary>
+        [Parameter]
+        public int YPosition { get; set; }
+
         #endregion
-        
+
         public TabRepresentationSettingsService SettingsService { get; set; } = settingsService;
 
         #region Settings
-        
+
         private int _leftPadding =>
             SettingsService
             .TopBarDisplaySettings
@@ -33,5 +48,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
             .BarNumberFontSize;
 
         #endregion
+
+
+        private int GetAdjustedXPosition()
+        {
+            return XPosition + _leftPadding;
+        }
+
+        private int GetAdjustedYPosition()
+        {
+            return YPosition + _topPadding;
+        }
     }
 }

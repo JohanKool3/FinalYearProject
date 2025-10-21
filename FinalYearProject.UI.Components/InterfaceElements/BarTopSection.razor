@@ -2,14 +2,18 @@
 
 <svg height="@_height" width="@Width">
     <g>
-        <rect x="0" y="0" width="@Width" height="@_height" fill="green" opacity="0.1" stroke="black" stroke-width="2"/>
+        <rect x="0" y="0" width="@Width" height="@_height" fill="green" opacity="0.1" stroke="black" stroke-width="2" />
 
         @* Bar Number Representation *@
-        <BarNumber BarNumberValue="BarNumber" />
+        <BarNumber BarNumberValue="BarNumber"
+                   XPosition="0"
+                   YPosition="GetYPosition(0)" />
 
         @if (ShowBpmMarking)
         {
-            <BpmMarking BarInformation="BarInformation" />
+            <BpmMarking BarInformation="BarInformation"
+                        XPosition="_barNumberFontSize"
+                        YPosition="GetYPosition(1)" />
         }
     </g>
 </svg>
