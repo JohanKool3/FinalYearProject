@@ -8,7 +8,7 @@
        bar*@
     <Tuning />
 }
-<svg width="@_width" height="@_tabBarHeight">
+<svg width="@_barWidth" height="@_totalComponentHeight">
     @if (ShowTimeSignature)
     {
         @* Render the Time Signature before the Bar *@
@@ -17,18 +17,19 @@
 
     }
 
-    @* Renders Strings and Notes Representation *@
-    <svg width="@_width" height="@_height">
+    @* Header of the bar *@
+    <TabTopBar BarNumber="@BarNumber"
+               ShowBpmMarking="ShowBpmMarking"
+               BarInformation="BarInformation" />
 
-        @* Information Placed over the bar *@
-        <TopBarInformation BarNumber="@BarNumber"
-                           ShowBpmMarking="ShowBpmMarking"
-                           BarInformation="BarInformation" />
-
+    @* Main Body *@
+    <svg width="@_barWidth" height="@_barHeight">
         @* Renders the String Representation *@
         <Strings Notes="_notes" />
 
         @* Renders the Notes on the String *@
         <Notes NotesToDisplay="_notes" />
     </svg>
+
+    @* TODO: Add Footer section to the bar *@
 </svg>

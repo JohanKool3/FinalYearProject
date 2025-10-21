@@ -67,5 +67,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private int _width => SettingsService
             .GetBarWidth(BarInformation.Notes);
+
+        private int _height => SettingsService
+            .TopBarDisplaySettings
+            .Height;
     }
 }

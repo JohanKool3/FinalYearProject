@@ -48,7 +48,7 @@ namespace FinalYearProject.UI.Components.Services
             {
                 Height = 50,
                 Rows = 3,
-                TopPadding = 10,
+                TopPadding = 15,
                 LeftPadding = 5
             };
 

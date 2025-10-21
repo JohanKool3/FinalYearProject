@@ -1,12 +1,9 @@
+@using FinalYearProject.UI.Components.InterfaceElements.TopBar
 
-<svg height="@(2 * _topPadding)" width="@_width">
+<svg height="@_height" width="@_width">
     <g>
         @* Bar Number Representation *@
-        <text x="@_leftPadding"
-              y="@_topPadding"
-              font-family="Arial"
-              font-size="@_barNumberFontSize"
-              fill="black">@BarNumber</text>
+        <BarNumber BarNumberValue="BarNumber" />
 
         @if (ShowBpmMarking)
         {

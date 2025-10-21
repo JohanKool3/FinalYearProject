@@ -43,10 +43,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #region Rendering Settings
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
-        private int _width => SettingsService.GetBarWidth(_notes);
+        private int _barWidth => SettingsService.GetBarWidth(_notes);
 
-        private int _height => SettingsService.GetBarHeight();
-        private int _tabBarHeight
+        private int _barHeight => SettingsService.GetBarHeight();
+        private int _totalComponentHeight
             => SettingsService.GetTotalBarHeight();
 
         #endregion
