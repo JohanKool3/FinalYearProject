@@ -10,7 +10,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
     /// </summary>
     public class BasicTabDisplayLoaderService : ITabDisplayLoaderService
     {
-        private TabDisplayInformation _currentTab = null!;
+        private readonly TabDisplayInformation _currentTab = null!;
 
         public BasicTabDisplayLoaderService()
         {
@@ -48,6 +48,20 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             BarPercentage = 50,
                             FretNumber = 3,
                             StringNumber = 5,
+                        },
+                    ],
+                
+                    Chords =
+                    [
+                        new()
+                        {
+                            BarPercentage = 0,
+                            ChordName = "E5"
+                        },
+                        new()
+                        {
+                            BarPercentage = 50,
+                            ChordName = "F5"
                         },
                     ]
                 },
@@ -100,7 +114,15 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             FretNumber = 3,
                             StringNumber = 5,
                         },
-                    ]
+                    ],
+
+                    Chords = [
+                        new()
+                        {
+                            BarPercentage = 0,
+                            ChordName = "E5"
+                        }
+                        ]
                 },
                 new()
                 {
@@ -131,6 +153,19 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             BarPercentage = 50,
                             FretNumber = 3,
                             StringNumber = 5,
+                        },
+                    ],
+                    Chords =
+                    [
+                        new()
+                        {
+                            BarPercentage = 0,
+                            ChordName = "E5"
+                        },
+                        new()
+                        {
+                            BarPercentage = 50,
+                            ChordName = "F5"
                         },
                     ]
                 },
@@ -176,6 +211,24 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             StringNumber = 4,
                         },
 
+                    ]
+                    Chords =
+                    [
+                        new()
+                        {
+                            BarPercentage = 0,
+                            ChordName = "E5"
+                        },
+                        new()
+                        {
+                            BarPercentage = 33,
+                            ChordName = "F5"
+                        },
+                        new()
+                        {
+                            BarPercentage = 66,
+                            ChordName = "G5"
+                        },
                     ]
                 },
             };

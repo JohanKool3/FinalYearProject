@@ -6,7 +6,7 @@ namespace FinalYearProject.UI.Components.Models
     public class NoteDisplayInformation
     {
         /// <summary>
-        /// How far accross the bar the note is (0-100)
+        /// How far accross the bar the note is (0-100) in %
         /// </summary>
         public int BarPercentage { get; set; }
 

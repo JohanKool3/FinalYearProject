@@ -23,5 +23,10 @@ namespace FinalYearProject.UI.Components.Models
         /// The Notes in this bar
         /// </summary>
         public List<NoteDisplayInformation> Notes { get; set; } = [];
+
+        /// <summary>
+        /// The Chords for this bar
+        /// </summary>
+        public List<ChordDisplayInformation> Chords { get; set; } = [];
     }
 }
