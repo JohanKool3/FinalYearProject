@@ -18,6 +18,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         public int BarNumber { get; set; } = 0;
 
         /// <summary>
+        /// The Width of the Top Bar
+        /// </summary>
+        [Parameter]
+        public int Width { get; set; } = 0;
+
+        /// <summary>
         /// Information about the bar
         /// </summary>
         [Parameter, EditorRequired]
@@ -31,44 +37,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
-        /// <summary>
-        /// Top padding is half that of the notes area to indicate,
-        /// seperation
-        /// </summary>
-        private int _topPadding =>
-            SettingsService
-            .TopBarDisplaySettings
-            .TopPadding;
-
-        /// <summary>
-        /// Left padding is a quarter that of the notes area to indicate,
-        /// seperation
-        /// </summary>
-        private int _leftPadding =>
-            SettingsService
-            .TopBarDisplaySettings
-            .LeftPadding;
-
-        /// <summary>
-        /// The font size of the Bar Number
-        /// </summary>
-        private int _barNumberFontSize =>
-            SettingsService
-            .TopBarDisplaySettings
-            .BarNumberFontSize;
-
-        /// <summary>
-        /// The font size of the BPM readout
-        /// </summary>
-        private int _bpmReadoutFontSize =>
-            SettingsService
-            .TopBarDisplaySettings
-            .BpmReadoutFontSize;
-
-        private int _width => SettingsService
-            .GetBarWidth(BarInformation.Notes);
-
-        private int _height => SettingsService
+        private int _height 
+            => SettingsService
             .TopBarDisplaySettings
             .Height;
     }

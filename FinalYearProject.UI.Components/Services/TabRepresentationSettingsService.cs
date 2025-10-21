@@ -46,10 +46,12 @@ namespace FinalYearProject.UI.Components.Services
         public TopBarDisplaySettings TopBarDisplaySettings { get; private set; }
             = new()
             {
-                Height = 50,
+                Height = 120,
                 Rows = 3,
                 TopPadding = 15,
-                LeftPadding = 5
+                LeftPadding = 5,
+                BarNumberFontSize = 14,
+                BpmReadoutFontSize = 12
             };
 
         /// <summary>
@@ -65,6 +67,7 @@ namespace FinalYearProject.UI.Components.Services
                 .Distinct().Count();
 
             var leftPadding = NoteDisplaySettings.LeftPadding;
+            
             // Multiply by 2 for start and  the end padding
             return 2 * leftPadding + (distinctPositions * NoteDisplaySettings.NoteSpacing);
         }

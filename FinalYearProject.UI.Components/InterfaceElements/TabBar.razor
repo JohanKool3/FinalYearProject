@@ -1,35 +1,45 @@
 ﻿@using FinalYearProject.UI.Components.InterfaceElements.Bar
 @using FinalYearProject.UI.Components.Models
 
-
-@if (ShowTuning)
-{
-    @* Render the Tuning once before the Time Signature of the first
-       bar*@
-    <Tuning />
-}
 <svg width="@_barWidth" height="@_totalComponentHeight">
-    @if (ShowTimeSignature)
-    {
-        @* Render the Time Signature before the Bar *@
-
-        <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
-
-    }
 
     @* Header of the bar *@
-    <TabTopBar BarNumber="@BarNumber"
-               ShowBpmMarking="ShowBpmMarking"
-               BarInformation="BarInformation" />
+    <g transform="translate(0, 0)">
+        <TabTopBar BarNumber="@BarNumber"
+                   ShowBpmMarking="ShowBpmMarking"
+                   BarInformation="BarInformation"
+                   Width = "GetTopBarWidth()"/>
+
+    </g>
+
+    @if (ShowTuning)
+    {
+        <g transform="translate(0, @_topBarHeight)">
+            @* Render the Tuning once before the Time Signature of the first bar*@
+            <Tuning />
+        </g>
+    }
 
     @* Main Body *@
-    <svg width="@_barWidth" height="@_barHeight">
-        @* Renders the String Representation *@
-        <Strings Notes="_notes" />
+    <g transform="translate(@GetMainBodyOffset(), @(_topBarHeight))">
+        @if (ShowTimeSignature)
+        {
+            @* Render the Time Signature before the Bar *@
+            <BarTimeSignature TimeSignature="BarInformation.TimeSignature" />
 
-        @* Renders the Notes on the String *@
-        <Notes NotesToDisplay="_notes" />
-    </svg>
+        }
+
+        <svg width="@_barWidth" height="@_barHeight">
+            @* Renders the String Representation *@
+            <Strings Notes="_notes" 
+                Width="_mainContentWidth"/>
+
+            @* Renders the Notes on the String *@
+            <Notes NotesToDisplay="_notes" 
+                Width="_mainContentWidth"/>
+        </svg>
+    </g>
 
     @* TODO: Add Footer section to the bar *@
+
 </svg>

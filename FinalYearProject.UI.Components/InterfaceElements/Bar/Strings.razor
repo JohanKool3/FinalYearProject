@@ -6,7 +6,7 @@
         // Draw each string line
         <line x1="0"
               y1="@(i* _stringSpacing + _topPadding)"
-              x2="@(_width)"
+              x2="@(Width)"
               y2="@((i * _stringSpacing) + _topPadding)"
               stroke="black" stroke-width="1" />
     }
@@ -15,6 +15,6 @@
 @* Show the End of the Bar *@
 <BarLine StartYPosition="_topPadding"
          EndYPosition="@(5 * _stringSpacing + _topPadding)"
-         XPosition="_width" />
+         XPosition="Width" />
 
          

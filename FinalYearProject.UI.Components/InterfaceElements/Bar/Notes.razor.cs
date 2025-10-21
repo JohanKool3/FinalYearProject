@@ -18,8 +18,17 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         [Parameter, EditorRequired]
         public List<NoteDisplayInformation> NotesToDisplay { get; set; }
 
+        /// <summary>
+        /// The Width of the Notes Area
+        /// </summary>
+        [Parameter, EditorRequired]
+        public int Width { get; set; }
+
         #endregion
 
+
+        #region Settings
+        
         /// <summary>
         /// Space to leave at the left of the notes area
         /// </summary>
@@ -32,20 +41,29 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         private int _topPadding 
             => RepresentationSettingsService.NoteDisplaySettings.TopPadding;
 
-        private int _width
-            => RepresentationSettingsService.GetBarWidth(NotesToDisplay);
-
         private int _stringSpacing
             => RepresentationSettingsService
                 .NoteDisplaySettings
                 .StringSpacing;
 
+        #endregion
+
+        /// <summary>
+        /// Get the X Coordinate for the Note
+        /// </summary>
+        /// <param name="note"></param>
+        /// <returns></returns>
         private int GetNoteXPosition(NoteDisplayInformation note)
         {
             // Calculate the position based on the BarPercentage and Width
-            return _leftPadding + (int)(note.BarPercentage / 100.0 * _width);
+            return _leftPadding + (int)(note.BarPercentage / 100.0 * Width);
         }
 
+        /// <summary>
+        /// Get the Y Coordinate for the Note
+        /// </summary>
+        /// <param name="note"></param>
+        /// <returns></returns>
         private int GetNoteYPosition(NoteDisplayInformation note)
         {
 

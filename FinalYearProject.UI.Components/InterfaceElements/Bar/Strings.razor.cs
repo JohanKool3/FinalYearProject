@@ -15,8 +15,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         [Parameter, EditorRequired]
         public List<NoteDisplayInformation> Notes { get; set; } = [];
 
+        /// <summary>
+        /// How Wide the Bar will be
+        /// </summary>
+        [Parameter, EditorRequired]
+        public int Width { get; set; } = 0;
+
         #endregion
 
+        #region Settings
+        
         private int _stringAmount => settingsService.StringCount;
 
         private int _height =>
@@ -34,11 +42,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         private int _topPadding
             => SettingsService.NoteDisplaySettings.TopPadding;
 
-        /// <summary>
-        /// How Wide the Bar will be
-        /// </summary>
-        private int _width =>
-            settingsService.GetBarWidth(Notes);
+        #endregion
 
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
     }

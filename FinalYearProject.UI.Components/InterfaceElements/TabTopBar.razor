@@ -1,7 +1,9 @@
 @using FinalYearProject.UI.Components.InterfaceElements.TopBar
 
-<svg height="@_height" width="@_width">
+<svg height="@_height" width="@Width">
     <g>
+        <rect x="0" y="0" width="@Width" height="@_height" fill="green" opacity="0.1"/>
+
         @* Bar Number Representation *@
         <BarNumber BarNumberValue="BarNumber" />
 

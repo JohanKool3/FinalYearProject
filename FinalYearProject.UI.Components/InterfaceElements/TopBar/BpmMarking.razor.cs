@@ -25,7 +25,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         private int _barNumberFontSize
             => SettingsService
             .TopBarDisplaySettings
-            .BarNumberFontSize;
+            .BpmReadoutFontSize;
 
         #endregion
     }
