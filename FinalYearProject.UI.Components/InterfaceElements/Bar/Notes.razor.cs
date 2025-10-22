@@ -1,3 +1,4 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
@@ -54,10 +55,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXPosition(NoteDisplayInformation note)
-        {
-            // Calculate the position based on the BarPercentage and Width
-            return _leftPadding + (int)(note.BarPercentage / 100.0 * Width);
-        }
+            => BarElementPositioningHelper
+                .GetNoteXPosition(note, _leftPadding, Width);
 
         /// <summary>
         /// Get the Y Coordinate for the Note

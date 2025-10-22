@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalYearProject.UI.Components.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace FinalYearProject.UI.Components.Models
 {
-    public class ChordDisplayInformation
-    {
+    public class ChordDisplayInformation : IPositionedElement
+    { 
         /// <summary>
         /// How far accross the bar the chord starts (0-100) in %
         /// </summary>

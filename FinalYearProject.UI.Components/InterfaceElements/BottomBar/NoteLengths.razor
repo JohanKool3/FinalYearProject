@@ -1,4 +1,8 @@
 @using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 @* Here will be the note lengths *@
 
-<CrotchetDuration />
+@{
+    var note = BarInformation.Notes[0];
+}
+
+<CrotchetDuration XPosition="@GetNoteXPosition(note)" />

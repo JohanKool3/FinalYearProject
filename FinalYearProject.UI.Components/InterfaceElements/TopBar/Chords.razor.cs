@@ -1,3 +1,4 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
@@ -65,7 +66,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         /// </summary>
         /// <returns></returns>
         private int GetWidth()
-            => Width - XOffset;
+            => Width;
 
         #region Settings
         
@@ -94,16 +95,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         #endregion
 
         private int GetChordPosition(ChordDisplayInformation chord)
-        {
-            // Account for the bar percentage
-            var xPosition = (int)((chord.BarPercentage / 100.00) * Width);
-
-            // Already accounted for XOffset, don't need to do it again
-            var offset = _notePadding - XOffset;
-
-            return xPosition + offset;
-
-        }
+            => BarElementPositioningHelper
+                .GetNoteXPosition(chord, _notePadding, GetWidth());
         // TODO: Adjust this so that it takes into account the note offset
         // so that chords are aligned with notes properly
     }
