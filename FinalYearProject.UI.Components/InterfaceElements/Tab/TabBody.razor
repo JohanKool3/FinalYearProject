@@ -1,3 +1,4 @@
+@using FinalYearProject.UI.Components.InterfaceElements.Bar
 @* Purely used for Displaying Tablature Information *@
 <div class="tab-body">
 
@@ -8,14 +9,17 @@
     else
     {
         <div class="tab-bars-container">
+
+            @* TODO: Place Tuning at the start of the piece*@
+            <Tuning />
+
             @foreach (var (bar, index) in (GetCurrentTab()?.Bars ?? [])
                     .Select((bar, index) => (bar, index)))
             {
                 <FullBar BarNumber="index + 1"
-                        BarInformation="bar"
-                        ShowTimeSignature="RenderTimeSignatureForBar(index - 1, index)"
-                        ShowTuning="RenderTuningForBar(index)"
-                        ShowBpmMarking="RenderBpmForBar(index - 1, index)" />
+                         BarInformation="bar"
+                         ShowTimeSignature="RenderTimeSignatureForBar(index - 1, index)"
+                         ShowBpmMarking="RenderBpmForBar(index - 1, index)" />
             }
         </div>
     }

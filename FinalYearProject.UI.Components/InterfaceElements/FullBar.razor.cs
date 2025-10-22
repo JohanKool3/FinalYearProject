@@ -27,9 +27,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         public bool ShowTimeSignature { get; set; } = false;
 
         [Parameter]
-        public bool ShowTuning { get; set; } = false;
-
-        [Parameter]
         public bool ShowBpmMarking { get; set; } = false;
 
         #endregion
@@ -41,13 +38,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => BarInformation.Notes;
 
         #region Settings
-        
+
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
         private int _barWidth
             => SettingsService.GetBarWidth(_notes);
 
-        private int _barHeight => SettingsService.GetBarHeight();
+        private int _barHeight
+            => SettingsService.GetBarHeight();
 
         private int _totalComponentHeight
             => SettingsService.GetTotalBarHeight();
@@ -76,26 +74,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #endregion
 
         /// <summary>
-        /// Offset for the main body if Tuning is shown
-        /// </summary>
-        /// <returns></returns>
-        private int GetMainBodyOffset()
-            => ShowTuning ? _preBarWidth : 0;
-
-        /// <summary>
-        /// Gets how wide the Top Bar should be
-        /// </summary>
-        /// <returns></returns>
-        private int GetTopBarWidth()
-            => _barWidth + GetMainBodyOffset();
-
-        /// <summary>
         /// How much to offset the Prebar section
         /// </summary>
         /// <returns></returns>
         private int GetPrebarOffset()
-            => (ShowTuning ? _preBarWidth : 0) + 
-               (ShowTimeSignature ? _preBarWidth : 0);
+            => ShowTimeSignature ? _preBarWidth : 0;
 
         private int GetBottomBarYOffset()
             => _topBarHeight + _barHeight + _bottomBarYPadding;

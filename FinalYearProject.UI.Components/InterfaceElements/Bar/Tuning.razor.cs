@@ -49,8 +49,19 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         private TuningScheme _tuningScheme
             => SettingsService.TuningScheme;
 
+        /// <summary>
+        /// How tall the Top Bar is
+        /// </summary>
+        private int _topBarHeight
+            => SettingsService
+            .TopBarDisplaySettings
+            .Height;
+
+        private int _totalBarHeight
+            => SettingsService.GetTotalBarHeight();
+
         #endregion
-    
+
         /// <summary>
         /// Converts string number to 0 indexed string index
         /// </summary>

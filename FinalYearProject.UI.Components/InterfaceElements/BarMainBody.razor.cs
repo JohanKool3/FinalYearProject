@@ -9,11 +9,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
     {
 
         #region Parameters
-        /// <summary>
-        /// Whether the Tuning is being shown for this bar.
-        /// </summary>
-        [Parameter, EditorRequired]
-        public bool ShowTuning { get; set; } = false;
 
         /// <summary>
         /// Whether the Time Signature is being shown for this bar.
@@ -42,20 +37,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => SettingsService.GetBarWidth(_notes);
 
         private int _barHeight => SettingsService.GetBarHeight();
-
-        /// <summary>
-        /// Gets the space available for the main body of the bar, once 
-        /// the PreBar section is accounted for
-        /// </summary>
-        private int _mainContentWidth
-                => _barWidth - GetMainBodyOffset();
-
-        /// <summary>
-        /// Offset for the main body if Tuning is shown
-        /// </summary>
-        /// <returns></returns>
-        private int GetMainBodyOffset()
-            => ShowTuning ? _preBarWidth : 0;
 
 
         /// <summary>

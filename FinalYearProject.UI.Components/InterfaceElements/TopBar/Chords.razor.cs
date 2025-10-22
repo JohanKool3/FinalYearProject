@@ -61,13 +61,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
             return (height / rowAmount);
         }
 
-        /// <summary>
-        /// Gets the Width available for Chord Display
-        /// </summary>
-        /// <returns></returns>
-        private int GetWidth()
-            => Width;
-
         #region Settings
         
         /// <summary>
@@ -96,8 +89,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         private int GetChordPosition(ChordDisplayInformation chord)
             => BarElementPositioningHelper
-                .GetNoteXPosition(chord, _notePadding, GetWidth());
-        // TODO: Adjust this so that it takes into account the note offset
-        // so that chords are aligned with notes properly
+                .GetNoteXPosition(chord, _notePadding, Width);
     }
 }

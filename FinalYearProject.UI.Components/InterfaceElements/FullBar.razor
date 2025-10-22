@@ -8,30 +8,21 @@
         <BarTopSection BarNumber="@BarNumber"
                        ShowBpmMarking="ShowBpmMarking"
                        BarInformation="BarInformation"
-                       Width="GetTopBarWidth()"
+                       Width="_barWidth"
                        XOffset="GetPrebarOffset()" />
 
     </g>
 
-    @* Pre Bar Section *@
-    @if (ShowTuning)
-    {
-        <g transform="translate(0, @_topBarHeight)">
-            <Tuning />
-        </g>
-    }
-
     @* Main Body *@
-    <g transform="translate(@GetMainBodyOffset(), @(_topBarHeight))">
+    <g transform="translate(0, @(_topBarHeight))">
 
         <BarMainBody ShowTimeSignature="ShowTimeSignature"
-                     BarInformation="BarInformation"
-                     ShowTuning="ShowTuning" />
+                     BarInformation="BarInformation" />
     </g>>
 
     @* Footer Section *@
-    <g transform="translate(@GetMainBodyOffset(), @GetBottomBarYOffset())">
-        <BarBottomSection Width="@GetTopBarWidth()"
+    <g transform="translate(0, @GetBottomBarYOffset())">
+        <BarBottomSection Width="@_barWidth"
                           BarInformation="BarInformation" />
     </g>
 

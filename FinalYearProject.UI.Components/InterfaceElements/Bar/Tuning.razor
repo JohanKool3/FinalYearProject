@@ -1,6 +1,6 @@
 ﻿@* Shows the Tuning for the given tab *@
-<svg height="@_height" width="@_width">
-    <g>
+<svg height="@_totalBarHeight" width="@_width">
+    <g transform="translate(0, @_topBarHeight)">
         @for (int stringNumber = 1; stringNumber <= _stringAmount; stringNumber++)
         {
             @* Remind the compiler that it is dealing with svg *@
