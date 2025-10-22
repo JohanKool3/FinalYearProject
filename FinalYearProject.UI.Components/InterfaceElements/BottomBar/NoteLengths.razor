@@ -3,5 +3,13 @@
 
 @foreach (var note in BarInformation.Notes)
 {
-    <CrotchetDuration XPosition="@GetNoteXPosition(note)" />
+    @if (note.NoteType == NoteType.Grace)
+    {
+        @* Indicate a grace note *@
+        <GraceNoteDuration XPosition="@GetNoteXPosition(note)" />
+    }
+    else
+    {
+        <CrotchetDuration XPosition="@GetNoteXPosition(note)" />
+    }
 }
