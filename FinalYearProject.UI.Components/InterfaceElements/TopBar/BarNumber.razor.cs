@@ -35,13 +35,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
             SettingsService
             .TopBarDisplaySettings
             .LeftPadding;
-
-        private int _topPadding =>
-            SettingsService
-            .TopBarDisplaySettings
-            .TopPadding;
-
-
         private int _barNumberFontSize =>
             SettingsService
             .TopBarDisplaySettings
