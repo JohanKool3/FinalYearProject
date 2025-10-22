@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="InterfaceElements\Bar\NoteElements\" />
+    <Folder Include="InterfaceElements\BottomBar\NoteDuration\" />
   </ItemGroup>
 
 </Project>

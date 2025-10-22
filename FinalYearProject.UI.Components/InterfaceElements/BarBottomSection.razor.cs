@@ -1,3 +1,4 @@
+using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -15,10 +16,17 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// </summary>
         [Parameter, EditorRequired]
         public int Width { get; set; }
-        #endregion 
+
+        /// <summary>
+        /// Information to be shown in the Bar Bottom Section
+        /// </summary>
+        [Parameter, EditorRequired]
+        public BarDisplayInformation BarInformation { get; set; }
+
+        #endregion
 
         #region Settings
-        
+
         private int _height => SettingsService.BottomBarDisplaySettings.Height;
 
         private bool _debugMode => SettingsService.DebugMode;

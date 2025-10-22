@@ -1,10 +1,14 @@
-﻿@* This is the bottom section of the bar *@
+﻿@using FinalYearProject.UI.Components.InterfaceElements.BottomBar
+@* This is the bottom section of the bar *@
 <svg width="@Width" height="@_height">
     <g>
         @if (_debugMode)
         {
             <rect x="0" y="0" width="@Width" height="@_height" fill="orange" opacity="0.1" stroke="black" stroke-width="2" />
         }
+
+        @* Render the Note Lengths *@
+        <NoteLengths BarInformation="BarInformation" />
     </g>
 </svg>
 

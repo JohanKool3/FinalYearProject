@@ -14,7 +14,7 @@ namespace FinalYearProject.UI.Components.Extensions
     {
 
         /// <summary>
-        /// Register the UI Services.
+        /// Register the UI Services
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
