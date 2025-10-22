@@ -2,18 +2,21 @@
 
 <svg height="@_height" width="@Width">
     <g>
-        <rect x="0" y="0" width="@Width" height="@_height" fill="green" opacity="0.1" stroke="black" stroke-width="2" />
 
+        @if (_debugMode)
+        {
+            <rect x="0" y="0" width="@Width" height="@_height" fill="green" opacity="0.1" stroke="black" stroke-width="2" />
+        }
         @* Bar Number Representation *@
         <BarNumber BarNumberValue="BarNumber"
                    XPosition="0"
-                   YPosition="GetYPosition(0)" />
+                   YPosition="GetYPosition(3)" />
 
         @if (ShowBpmMarking)
         {
             <BpmMarking BarInformation="BarInformation"
                         XPosition="_barNumberFontSize"
-                        YPosition="GetYPosition(1)" />
+                        YPosition="GetYPosition(3)" />
         }
 
         @* Chord Display *@
@@ -22,6 +25,6 @@
                 YPosition="GetYPosition(2)"
                 Width="Width"
                 XOffset="XOffset"
-                RowNumber="1"/>
+                RowNumber="1" />
     </g>
 </svg>

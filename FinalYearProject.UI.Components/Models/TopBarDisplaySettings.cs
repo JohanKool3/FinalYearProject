@@ -37,5 +37,10 @@ namespace FinalYearProject.UI.Components.Models
         /// The Size of the font to use for the BPM Readout display.
         /// </summary>
         public int BpmReadoutFontSize { get; set; } = 14;
+
+        /// <summary>
+        /// How large the font should be for the Chord Readout display.
+        /// </summary>
+        public int ChordReadoutFontSize { get; set; } = 10;
     }
 }

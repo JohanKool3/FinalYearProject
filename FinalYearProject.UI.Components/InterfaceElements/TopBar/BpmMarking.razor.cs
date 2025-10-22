@@ -60,7 +60,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         /// <returns></returns>
         private int GetAdjustedYPosition()
         {
-            return YPosition + _topPadding;
+            return (YPosition + _topPadding)- _barNumberFontSize;
         }
     }
 }

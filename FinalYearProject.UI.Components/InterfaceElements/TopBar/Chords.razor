@@ -1,5 +1,22 @@
 
 <g transform="translate(@XOffset, @YPosition)">
-    <rect x="0" y="0"
-          width="@GetWidth()" height="@GetHeight()" fill="blue" opacity="0.1" stroke="black" stroke-width="2" />
+
+    @if (_debugMode)
+    {
+        <rect x="0" y="0"
+              width="@GetWidth()" height="@GetHeight()" fill="blue" opacity="0.1" stroke="black" stroke-width="2" />
+    }
+
+    @for (int i = 0; i < BarInformation.Chords.Count; i++)
+    {
+        var chord = BarInformation.Chords[i];
+        <svg>
+            <text x="@GetChordPosition(chord)" y="@(GetHeight() / 3)" font-family="Arial" font-size="@_fontSize" fill="black"
+                  dominant-baseline="hanging"
+                  text-anchor="start"
+                  font-style="italic">
+                @chord.ChordName
+            </text>
+        </svg>
+    }
 </g>

@@ -60,8 +60,51 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
             return (height / rowAmount);
         }
 
+        /// <summary>
+        /// Gets the Width available for Chord Display
+        /// </summary>
+        /// <returns></returns>
         private int GetWidth()
             => Width - XOffset;
+
+        #region Settings
         
+        /// <summary>
+        /// The Font Size for the Chord Readout
+        /// </summary>
+        private int _fontSize
+            => SettingsService
+                .TopBarDisplaySettings
+                .ChordReadoutFontSize;
+
+        /// <summary>
+        /// How much space to leave on the left of each note
+        /// </summary>
+        private int _notePadding
+            => SettingsService
+                .NoteDisplaySettings
+                .LeftPadding;
+
+        /// <summary>
+        /// Whether to show the bounding box
+        /// </summary>
+        private bool _debugMode
+            => SettingsService.DebugMode;
+
+        #endregion
+
+        private int GetChordPosition(ChordDisplayInformation chord)
+        {
+            // Account for the bar percentage
+            var xPosition = (int)((chord.BarPercentage / 100.00) * Width);
+
+            // Already accounted for XOffset, don't need to do it again
+            var offset = _notePadding - XOffset;
+
+            return xPosition + offset;
+
+        }
+        // TODO: Adjust this so that it takes into account the note offset
+        // so that chords are aligned with notes properly
     }
 }

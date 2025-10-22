@@ -44,6 +44,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
+        #region Settings
+
         private int _height 
             => SettingsService
             .TopBarDisplaySettings
@@ -54,6 +56,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             .TopBarDisplaySettings
             .BarNumberFontSize;
 
+        private bool _debugMode
+            => SettingsService
+                .DebugMode;
+
+        #endregion
 
         /// <summary>
         /// Returns the Y Position for a given row number

@@ -54,10 +54,5 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         {
             return XPosition + _leftPadding;
         }
-
-        private int GetAdjustedYPosition()
-        {
-            return YPosition + _topPadding;
-        }
     }
 }

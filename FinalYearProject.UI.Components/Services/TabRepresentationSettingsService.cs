@@ -20,6 +20,12 @@ namespace FinalYearProject.UI.Components.Services
             => TuningScheme.StringTunings.Count;
 
         /// <summary>
+        /// Whether to show bounding boxes for each component for debugging and
+        /// design purposes
+        /// </summary>
+        public bool DebugMode { get; set; } = false;
+
+        /// <summary>
         /// Settings related to the Strings and Notes display
         /// </summary>
         public NoteDisplaySettings NoteDisplaySettings { get; private set; }
@@ -46,12 +52,13 @@ namespace FinalYearProject.UI.Components.Services
         public TopBarDisplaySettings TopBarDisplaySettings { get; private set; }
             = new()
             {
-                Height = 80,
-                Rows = 3,
+                Height = 70,
+                Rows = 4,
                 TopPadding = 15,
                 LeftPadding = 5,
-                BarNumberFontSize = 14,
-                BpmReadoutFontSize = 12
+                BarNumberFontSize = 12,
+                BpmReadoutFontSize = 10,
+                ChordReadoutFontSize = 10
             };
 
         /// <summary>
