@@ -23,7 +23,7 @@ namespace FinalYearProject.UI.Components.Services
         /// Whether to show bounding boxes for each component for debugging and
         /// design purposes
         /// </summary>
-        public bool DebugMode { get; set; } = false;
+        public bool DebugMode { get; set; } = true;
 
         /// <summary>
         /// Settings related to the Strings and Notes display
@@ -61,6 +61,13 @@ namespace FinalYearProject.UI.Components.Services
                 ChordReadoutFontSize = 10
             };
 
+        public BottomBarDisplaySettings BottomBarDisplaySettings { get; private set; }
+            = new()
+            {
+                Height = 60,
+                TopPadding = 5
+            };
+
         /// <summary>
         /// Returns the dynamic width of a bar based on the notes it contains
         /// </summary>
@@ -93,9 +100,11 @@ namespace FinalYearProject.UI.Components.Services
         /// <returns></returns>
         public int GetTotalBarHeight()
             => GetBarHeight() 
-            + TopBarDisplaySettings.Height;
-        //TODO : Add Height of the Sub Bar (Section holding note lengths)
-        //as well
+            + TopBarDisplaySettings.Height
+
+            // Account for the Bottom Bar too
+            + BottomBarDisplaySettings.Height
+            + BottomBarDisplaySettings.TopPadding;
 
         public void LoadNewTuningScheme(TuningScheme newScheme)
         {

@@ -68,6 +68,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             .PreBarDisplaySettings
             .TimeSignatureWidth;
 
+        private int _bottomBarYPadding
+          => SettingsService
+            .BottomBarDisplaySettings
+            .TopPadding;
+
         #endregion
 
         /// <summary>
@@ -91,5 +96,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int GetPrebarOffset()
             => (ShowTuning ? _preBarWidth : 0) + 
                (ShowTimeSignature ? _preBarWidth : 0);
+
+        private int GetBottomBarYOffset()
+            => _topBarHeight + _barHeight + _bottomBarYPadding;
     }
 }
