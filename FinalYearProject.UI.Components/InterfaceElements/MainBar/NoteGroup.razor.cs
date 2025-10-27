@@ -55,7 +55,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXPosition(NoteInformation note)
-            => BarElementPositioningHelper
+            => PositionedElementHelper
                 .GetElementXPosition(note, _leftPadding, Width);
 
         /// <summary>

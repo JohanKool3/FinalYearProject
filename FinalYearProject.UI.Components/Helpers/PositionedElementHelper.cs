@@ -2,7 +2,7 @@
 
 namespace FinalYearProject.UI.Components.Helpers
 {
-    internal static class BarElementPositioningHelper
+    internal static class PositionedElementHelper
     {
         /// <summary>
         /// Get the X Coordinate for the positioned Element

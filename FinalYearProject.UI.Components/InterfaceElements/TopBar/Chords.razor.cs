@@ -89,7 +89,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         #endregion
 
         private int GetChordPosition(ChordInformation chord)
-            => BarElementPositioningHelper
+            => PositionedElementHelper
                 .GetElementXPosition(chord, _notePadding, Width);
     }
 }

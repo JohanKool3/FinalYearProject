@@ -20,7 +20,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         public int Width { get; set; }
 
         private int GetNoteXPosition(NoteInformation note)
-            => BarElementPositioningHelper.GetElementXPosition(
+            => PositionedElementHelper.GetElementXPosition(
                 note,
                 _leftPadding,
                 Width);
