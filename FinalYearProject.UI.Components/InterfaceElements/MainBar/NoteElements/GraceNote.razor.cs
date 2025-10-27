@@ -1,7 +1,7 @@
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar.NoteElements
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar.NoteElements
 {
     public partial class GraceNote
     {
@@ -9,7 +9,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar.NoteElements
         /// The Note to display.
         /// </summary>
         [Parameter, EditorRequired]
-        public required NoteDisplayInformation Note { get; set; }
+        public required NoteInformation Note { get; set; }
 
         /// <summary>
         /// The X Position of the Note

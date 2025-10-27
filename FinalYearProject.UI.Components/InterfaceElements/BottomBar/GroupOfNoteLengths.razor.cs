@@ -1,5 +1,5 @@
 using FinalYearProject.UI.Components.Helpers;
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -19,7 +19,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         [Parameter, EditorRequired]
         public int Width { get; set; }
 
-        private int GetNoteXPosition(NoteDisplayInformation note)
+        private int GetNoteXPosition(NoteInformation note)
             => BarElementPositioningHelper.GetElementXPositionInBar(
                 note,
                 _leftPadding,

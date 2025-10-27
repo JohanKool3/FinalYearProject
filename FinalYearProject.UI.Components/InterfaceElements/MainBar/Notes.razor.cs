@@ -1,7 +1,7 @@
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class Notes
     {

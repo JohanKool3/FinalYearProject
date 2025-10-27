@@ -1,7 +1,7 @@
 using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class Tuning(TabRepresentationSettingsService settingsService)
     {
@@ -71,7 +71,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         {
             var stringIndex = stringNumber - 1;
 
-            return _topPadding + (stringIndex * _stringSpacing);
+            return _topPadding + stringIndex * _stringSpacing;
         }
 
         /// <summary>

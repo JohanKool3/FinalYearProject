@@ -1,7 +1,7 @@
-﻿using FinalYearProject.UI.Components.InterfaceElements.Bar;
-using FinalYearProject.UI.Components.Interfaces;
-using FinalYearProject.UI.Components.Models;
+﻿using FinalYearProject.UI.Components.Interfaces;
 using FinalYearProject.UI.Components.Enums;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
 namespace FinalYearProject.UI.Components.Services.TabLoaders
 {
     /// <summary>
@@ -10,14 +10,14 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
     /// </summary>
     public class BasicTabDisplayLoaderService : ITabDisplayLoaderService
     {
-        private readonly TabDisplayInformation _currentTab = null!;
+        private readonly TabInformation _currentTab = null!;
 
         public BasicTabDisplayLoaderService()
         {
             #region Example Data Creation
             // In the Future, this can be loaded from a file or 
             // another source
-            var exampleBars = new List<BarDisplayInformation>()
+            var exampleBars = new List<BarInformation>()
             {
                 new()
                 {
@@ -63,7 +63,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
 
             #endregion
 
-            _currentTab = new TabDisplayInformation()
+            _currentTab = new TabInformation()
             {
                 Bars = exampleBars,
                 Author = "John Doe",
@@ -73,14 +73,14 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
         }
 
         /// <inheritdoc />
-        public TabDisplayInformation? GetCurrentTab()
+        public TabInformation? GetCurrentTab()
             => _currentTab;
 
         /// <inheritdoc />
         public bool IsTabLoaded()
             => _currentTab is not null;
 
-        public void LoadTabDisplayInformation(TabDisplayInformation information)
+        public void LoadTabDisplayInformation(TabInformation information)
         {
             throw new NotImplementedException();
         }

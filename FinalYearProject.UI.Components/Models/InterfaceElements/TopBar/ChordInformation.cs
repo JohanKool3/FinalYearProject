@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
 {
-    public class ChordDisplayInformation : IPositionedElement
+    public class ChordInformation : IPositionedElement
     { 
         /// <summary>
         /// How far accross the bar the chord starts (0-100) in %

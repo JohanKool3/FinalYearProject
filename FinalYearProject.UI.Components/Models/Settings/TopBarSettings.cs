@@ -1,11 +1,11 @@
 ﻿using System;
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.Settings
 {
     /// <summary>
     /// Holds settings related to the rendering of the above
     /// bar information in the UI.
     /// </summary>
-    public class TopBarDisplaySettings
+    public class TopBarSettings
     {
         /// <summary>
         /// The height of the top bar in pixels.

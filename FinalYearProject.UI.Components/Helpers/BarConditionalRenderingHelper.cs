@@ -1,4 +1,4 @@
-﻿using FinalYearProject.UI.Components.Models;
+﻿using FinalYearProject.UI.Components.Models.InterfaceElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +18,8 @@ namespace FinalYearProject.UI.Components.Helpers
         /// <param name="previousBar"></param>
         /// <param name="currentBar"></param>
         /// <returns></returns>
-        internal static bool RenderTimeSignature(BarDisplayInformation? previousBar,
-            BarDisplayInformation currentBar)
+        internal static bool RenderTimeSignature(BarInformation? previousBar,
+            BarInformation currentBar)
         {
             // Always render if there is no previous bar
             if (previousBar == null)
@@ -41,8 +41,8 @@ namespace FinalYearProject.UI.Components.Helpers
         /// Will only render the Bpm marking if it is different from the previous bar's Bpm 
         /// or if there is no previous bar.
         /// </remarks>
-        internal static bool RenderBpm(BarDisplayInformation? previousBar,
-            BarDisplayInformation currentBar)
+        internal static bool RenderBpm(BarInformation? previousBar,
+            BarInformation currentBar)
         {
             // Always render if there is no previous bar
             if (previousBar == null)

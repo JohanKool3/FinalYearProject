@@ -1,5 +1,5 @@
 ﻿using FinalYearProject.UI.Components.Interfaces;
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
 
 namespace FinalYearProject.UI.Components.Services
 {
@@ -38,7 +38,7 @@ namespace FinalYearProject.UI.Components.Services
         public string Description
             => CurrentTab?.Description ?? "No Description";
 
-        public TabDisplayInformation? CurrentTab { get; private set; }
+        public TabInformation? CurrentTab { get; private set; }
         public ITabDisplayLoaderService DisplayLoaderService { get; }
 
         /// <summary>

@@ -1,4 +1,4 @@
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -21,7 +21,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// Information to be shown in the Bar Bottom Section
         /// </summary>
         [Parameter, EditorRequired]
-        public BarDisplayInformation BarInformation { get; set; }
+        public BarInformation BarInformation { get; set; }
 
         #endregion
 

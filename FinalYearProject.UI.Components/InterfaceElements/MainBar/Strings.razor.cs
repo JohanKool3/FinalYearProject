@@ -2,7 +2,7 @@ using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class Strings(TabRepresentationSettingsService settingsService) : ComponentBase
     {

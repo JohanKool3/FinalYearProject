@@ -1,4 +1,5 @@
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -18,7 +19,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// Holds the information needed to display this Bar
         /// </summary>
         [Parameter]
-        public BarDisplayInformation BarInformation { get; set; } = new();
+        public BarInformation BarInformation { get; set; } = new();
 
         /// <summary>
         /// Determines whether the Time Signature should be displayed for this Bar

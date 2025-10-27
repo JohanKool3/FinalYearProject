@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.UI.Components.Interfaces;
 using System;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
 {
     /// <summary>
     /// Represents a Grouping of Notes
@@ -11,7 +11,7 @@ namespace FinalYearProject.UI.Components.Models
         /// <summary>
         /// The Notes that are assigned to this group
         /// </summary>
-        public List<NoteDisplayInformation> Notes { get; set; } = [];
+        public List<NoteInformation> Notes { get; set; } = [];
 
         /// <summary>
         /// Where this Group Starts Relative to the Bar (0-100%)

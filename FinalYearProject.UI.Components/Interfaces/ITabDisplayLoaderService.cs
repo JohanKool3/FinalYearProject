@@ -1,4 +1,4 @@
-﻿using FinalYearProject.UI.Components.Models;
+﻿using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +16,12 @@ namespace FinalYearProject.UI.Components.Interfaces
         /// Get the Currently loaded Tab Display Information
         /// </summary>
         /// <returns></returns>
-        public TabDisplayInformation? GetCurrentTab();
+        public TabInformation? GetCurrentTab();
 
         /// <summary>
         /// Loads Tab Display Information
         /// </summary>
-        public void LoadTabDisplayInformation(TabDisplayInformation information);
+        public void LoadTabDisplayInformation(TabInformation information);
 
         /// <summary>
         /// Returns whether a tab is currently loaded

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.Settings
 {
-    public class BottomBarDisplaySettings
+    public class BottomBarSettings
     {
         /// <summary>
         /// The Height of the Bottom Bar Section

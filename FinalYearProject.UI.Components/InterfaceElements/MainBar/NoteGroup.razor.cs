@@ -1,9 +1,9 @@
 using FinalYearProject.UI.Components.Helpers;
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class NoteGroup(TabRepresentationSettingsService representationSettingsService)
     {
@@ -54,7 +54,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        private int GetNoteXPosition(NoteDisplayInformation note)
+        private int GetNoteXPosition(NoteInformation note)
             => BarElementPositioningHelper
                 .GetElementXPositionInBar(note, _leftPadding, Width);
 
@@ -63,7 +63,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        private int GetNoteYPosition(NoteDisplayInformation note)
+        private int GetNoteYPosition(NoteInformation note)
         {
 
             // Convert to zero based index

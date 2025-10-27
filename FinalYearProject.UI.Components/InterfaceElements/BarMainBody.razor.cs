@@ -1,5 +1,6 @@
-using FinalYearProject.UI.Components.InterfaceElements.Bar;
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.InterfaceElements.MainBar;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -20,7 +21,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// The information being shown for this bar.
         /// </summary>
         [Parameter, EditorRequired]
-        public required BarDisplayInformation BarInformation { get; set; }
+        public required BarInformation BarInformation { get; set; }
 
 
 

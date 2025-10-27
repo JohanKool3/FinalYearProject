@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class BarLine
     {

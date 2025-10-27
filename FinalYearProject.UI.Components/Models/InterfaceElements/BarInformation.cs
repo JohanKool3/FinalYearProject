@@ -1,12 +1,13 @@
-﻿
-using FinalYearProject.Shared.Models.TabRepresentation;
+﻿using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.InterfaceElements.TopBar;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.InterfaceElements
 {
     /// <summary>
     /// Holds information about a single bar in the tab
     /// </summary>
-    public class BarDisplayInformation
+    public class BarInformation
     {
         /// <summary>
         /// The time signature of this bar
@@ -27,6 +28,6 @@ namespace FinalYearProject.UI.Components.Models
         /// <summary>
         /// The Chords for this bar
         /// </summary>
-        public List<ChordDisplayInformation> Chords { get; set; } = [];
+        public List<ChordInformation> Chords { get; set; } = [];
     }
 }

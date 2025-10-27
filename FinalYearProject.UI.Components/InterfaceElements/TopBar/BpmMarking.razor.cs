@@ -1,4 +1,4 @@
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -11,7 +11,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         #region Parameters
 
         [Parameter, EditorRequired]
-        public required BarDisplayInformation BarInformation { get; set; }
+        public required BarInformation BarInformation { get; set; }
 
         /// <summary>
         /// The X Position of the BPM Marking

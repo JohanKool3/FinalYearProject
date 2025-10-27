@@ -2,7 +2,7 @@ using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Bar
+namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class BarTimeSignature(TabRepresentationSettingsService settingsService)
     {
@@ -63,13 +63,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         /// </summary>
         /// <returns></returns>
         private int GetAdjustedXPosition()
-            => _xPosition - (FontSize / 3);
+            => _xPosition - FontSize / 3;
 
         /// <summary>
         /// Adjusts the Y Position so that the Time Signature is centered
         /// </summary>
         /// <returns></returns>
         private int GetAdjustedYPosition()
-            => _yPosition - (FontSize / 3);
+            => _yPosition - FontSize / 3;
     }
 }

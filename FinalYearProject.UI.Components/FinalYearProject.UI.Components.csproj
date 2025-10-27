@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -17,10 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="InterfaceElements\Bar\NoteElements\" />
   </ItemGroup>
 
 </Project>

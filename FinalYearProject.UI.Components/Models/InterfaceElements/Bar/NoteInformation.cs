@@ -1,10 +1,9 @@
-﻿
-using FinalYearProject.UI.Components.Enums;
+﻿using FinalYearProject.UI.Components.Enums;
 using FinalYearProject.UI.Components.Interfaces;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
 {
-    public class NoteDisplayInformation : IPositionedElement
+    public class NoteInformation : IPositionedElement
     {
 
         /// <summary>

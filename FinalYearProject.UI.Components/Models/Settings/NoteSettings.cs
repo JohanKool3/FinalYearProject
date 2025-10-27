@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalYearProject.UI.Components.Models
+namespace FinalYearProject.UI.Components.Models.Settings
 {
     /// <summary>
     /// Holds settings related to the display of notes
     /// </summary>
-    public class NoteDisplaySettings
+    public class NoteSettings
     {
         /// <summary>
         /// How much space to leave at the top

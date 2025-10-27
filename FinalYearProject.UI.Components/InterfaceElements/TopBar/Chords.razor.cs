@@ -1,5 +1,6 @@
 using FinalYearProject.UI.Components.Helpers;
-using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.InterfaceElements;
+using FinalYearProject.UI.Components.Models.InterfaceElements.TopBar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -13,7 +14,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         /// The Information about the Bar to display
         /// </summary>
         [Parameter, EditorRequired]
-        public required BarDisplayInformation BarInformation { get; set; }
+        public required BarInformation BarInformation { get; set; }
 
         /// <summary>
         /// Where to start the Chord display on the X Axis
@@ -87,7 +88,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         #endregion
 
-        private int GetChordPosition(ChordDisplayInformation chord)
+        private int GetChordPosition(ChordInformation chord)
             => BarElementPositioningHelper
                 .GetElementXPositionInBar(chord, _notePadding, Width);
     }
