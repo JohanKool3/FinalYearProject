@@ -13,5 +13,15 @@ namespace FinalYearProject.UI.Components.Models
         /// </summary>
         public List<NoteDisplayInformation> Notes { get; set; } = [];
 
+        /// <summary>
+        /// Where this Group Starts Relative to the Bar (0-100%)
+        /// </summary>
+        public int BarStartPercentage { get; set; }
+
+        /// <summary>
+        /// Where this Groups Ends Relative to the Bar (0-100%)
+        /// </summary>
+        public int BarEndPercentage { get; set; }
+
     }
 }
