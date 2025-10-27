@@ -10,12 +10,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Bar
         #region Parameters
 
         /// <summary>
-        /// The notes to display on the tab
-        /// </summary>
-        [Parameter, EditorRequired]
-        public List<NoteDisplayInformation> Notes { get; set; } = [];
-
-        /// <summary>
         /// How Wide the Bar will be
         /// </summary>
         [Parameter, EditorRequired]

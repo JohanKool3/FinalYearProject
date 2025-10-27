@@ -34,15 +34,15 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <summary>
         /// Notes for this Bar
         /// </summary>
-        private List<NoteDisplayInformation> _notes
-            => BarInformation.Notes;
+        private List<NoteGroupDisplayInformation> _noteGroups
+            => BarInformation.NoteGroups;
 
         #region Settings
 
         public TabRepresentationSettingsService SettingsService { get; } = settingsService;
 
         private int _barWidth
-            => SettingsService.GetBarWidth(_notes);
+            => SettingsService.GetBarWidth(_noteGroups);
 
         private int _barHeight
             => SettingsService.GetBarHeight();

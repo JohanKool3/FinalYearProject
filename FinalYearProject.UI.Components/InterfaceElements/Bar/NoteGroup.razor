@@ -1,0 +1,22 @@
+
+<g>
+    @foreach (var note in NoteGroupInformation.Notes)
+    {
+        @if (note.NoteType == NoteType.Normal)
+        {
+            <NormalNote Note="note"
+                        XPosition="GetNoteXPosition(note)"
+                        YPosition="GetNoteYPosition(note)"
+                        Size="_stringSpacing" />
+        }
+        else if (note.NoteType == NoteType.Grace)
+        {
+            <GraceNote Note="note"
+                       XPosition="GetNoteXPosition(note)"
+                       YPosition="GetNoteYPosition(note)"
+                       Size="(2 * _stringSpacing) / 3" />
+        }
+        // TODO: Implement other note types here
+    }
+</g>
+

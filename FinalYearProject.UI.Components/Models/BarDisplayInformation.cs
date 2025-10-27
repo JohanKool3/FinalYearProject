@@ -20,9 +20,9 @@ namespace FinalYearProject.UI.Components.Models
         public int Bpm { get; set; } = 120;
 
         /// <summary>
-        /// The Notes in this bar
+        /// The Note Groups for this Bar
         /// </summary>
-        public List<NoteDisplayInformation> Notes { get; set; } = [];
+        public List<NoteGroupDisplayInformation> NoteGroups { get; set; } = [];
 
         /// <summary>
         /// The Chords for this bar

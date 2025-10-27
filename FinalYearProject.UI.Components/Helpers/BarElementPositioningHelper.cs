@@ -1,21 +1,15 @@
 ﻿using FinalYearProject.UI.Components.Interfaces;
-using FinalYearProject.UI.Components.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalYearProject.UI.Components.Helpers
 {
     internal static class BarElementPositioningHelper
     {
         /// <summary>
-        /// Get the X Coordinate for the Note
+        /// Get the X Coordinate for the positioned Element
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        public static int GetNoteXPosition(IPositionedElement note, 
+        public static int GetElementXPositionInBar(IPositionedElement note, 
             int leftPadding,
             int width)
         {

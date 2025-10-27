@@ -30,11 +30,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        private List<NoteDisplayInformation> _notes
-            => BarInformation.Notes;
+        private List<NoteGroupDisplayInformation> _noteGroups
+            => BarInformation.NoteGroups;
 
         private int _barWidth
-            => SettingsService.GetBarWidth(_notes);
+            => SettingsService.GetBarWidth(_noteGroups);
 
         private int _barHeight => SettingsService.GetBarHeight();
 

@@ -1,0 +1,38 @@
+using FinalYearProject.UI.Components.Helpers;
+using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Services;
+using Microsoft.AspNetCore.Components;
+
+namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
+{
+    public partial class GroupOfNoteLengths(TabRepresentationSettingsService settingsService)
+    {
+        /// <summary>
+        /// The Note Group that this Element is displaying
+        /// </summary>
+        [Parameter, EditorRequired]
+        public NoteGroupDisplayInformation NoteGroupInformation { get; set; }
+
+        /// <summary>
+        /// Width of the Total Notes Area
+        /// </summary>
+        [Parameter, EditorRequired]
+        public int Width { get; set; }
+
+        private int GetNoteXPosition(NoteDisplayInformation note)
+            => BarElementPositioningHelper.GetElementXPositionInBar(
+                note,
+                _leftPadding,
+                Width);
+
+
+        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+
+        #region Settings
+
+        private int _leftPadding
+            => SettingsService.NoteDisplaySettings.LeftPadding;
+
+        #endregion
+    }
+}

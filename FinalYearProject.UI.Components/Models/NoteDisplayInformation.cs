@@ -6,8 +6,9 @@ namespace FinalYearProject.UI.Components.Models
 {
     public class NoteDisplayInformation : IPositionedElement
     {
+
         /// <summary>
-        /// How far accross the bar the note is (0-100) in %
+        /// How far accross the bar the note starts  (0-100) %
         /// </summary>
         public int BarPercentage { get; set; }
 

@@ -23,218 +23,46 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                 {
                     Bpm = 160,
                     TimeSignature = new(4,4),
-                    Notes =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 0,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 2,
-                            StringNumber = 5,
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            FretNumber = 1,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            FretNumber = 3,
-                            StringNumber = 5,
-                        },
-                    ],
-                
-                    Chords =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            ChordName = "E5"
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            ChordName = "F5"
-                        },
-                    ]
-                },
-                new()
-                {
-                    Bpm = 90,
-                    TimeSignature = new(6,8),
-                    Notes =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 0,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 16,
-                            FretNumber = 1,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 32,
-                            FretNumber = 3,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 48,
-                            FretNumber = 0,
-                            StringNumber = 5,
-                        },
-                        new()
-                        {
-                            BarPercentage = 60,
-                            FretNumber = 0,
-                            StringNumber = 5,
-                            NoteType = NoteType.Grace
-                        },
-                        new()
-                        {
-                            BarPercentage = 64,
-                            FretNumber = 2,
-                            StringNumber = 5,
-                        },
-                        new()
-                        {
-                            BarPercentage = 80,
-                            FretNumber = 3,
-                            StringNumber = 5,
-                        },
-                    ],
+                    NoteGroups = [
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    BarPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
 
-                    Chords = [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            ChordName = "E5"
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    BarPercentage = 6,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    BarPercentage = 12,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    BarPercentage = 18,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ]
                         }
                         ]
-                },
-                new()
-                {
-                    Bpm = 150,
-                    TimeSignature = new(4,4),
-                    Notes =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 0,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 2,
-                            StringNumber = 5,
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            FretNumber = 1,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            FretNumber = 3,
-                            StringNumber = 5,
-                        },
-                    ],
-                    Chords =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            ChordName = "E5"
-                        },
-                        new()
-                        {
-                            BarPercentage = 50,
-                            ChordName = "F5"
-                        },
-                    ]
-                },
-                new()
-                {
-                    TimeSignature = new(4,4),
-                    Notes =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 0,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 0,
-                            FretNumber = 2,
-                            StringNumber = 4,
-                        },
-                        new()
-                        {
-                            BarPercentage = 33,
-                            FretNumber = 1,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 33,
-                            FretNumber = 3,
-                            StringNumber = 4,
-                        },
-                        new()
-                        {
-                            BarPercentage = 66,
-                            FretNumber = 3,
-                            StringNumber = 6,
-                        },
-                        new()
-                        {
-                            BarPercentage = 66,
-                            FretNumber = 5,
-                            StringNumber = 4,
-                        },
-
-                    ],
-                    Chords =
-                    [
-                        new()
-                        {
-                            BarPercentage = 0,
-                            ChordName = "E5"
-                        },
-                        new()
-                        {
-                            BarPercentage = 33,
-                            ChordName = "F5"
-                        },
-                        new()
-                        {
-                            BarPercentage = 66,
-                            ChordName = "G5"
-                        },
-                    ]
-                },
+                }
             };
-            
+
             #endregion
-            
+
             _currentTab = new TabDisplayInformation()
             {
                 Bars = exampleBars,

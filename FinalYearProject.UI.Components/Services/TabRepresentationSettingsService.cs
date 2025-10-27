@@ -71,10 +71,14 @@ namespace FinalYearProject.UI.Components.Services
         /// <summary>
         /// Returns the dynamic width of a bar based on the notes it contains
         /// </summary>
-        /// <param name="notes"></param>
+        /// <param name="noteGroups"></param>
         /// <returns></returns>
-        public int GetBarWidth(List<NoteDisplayInformation> notes)
+        public int GetBarWidth(List<NoteGroupDisplayInformation> noteGroups)
         {
+            // Get all the notes in each note Group
+            var notes = noteGroups
+                .SelectMany(x => x.Notes);
+
             // Calculate how many different start positions there are
             var distinctPositions = notes
                 .Select(n => n.BarPercentage)

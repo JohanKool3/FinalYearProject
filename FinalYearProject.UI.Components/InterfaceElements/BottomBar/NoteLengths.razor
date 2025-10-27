@@ -1,15 +1,10 @@
 @using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 @* Here will be the note lengths *@
 
-@foreach (var note in BarInformation.Notes)
-{
-    @if (note.NoteType == NoteType.Grace)
+<g>
+    @foreach (var noteGroup in BarInformation.NoteGroups)
     {
-        @* Indicate a grace note *@
-        <GraceNoteDuration XPosition="@GetNoteXPosition(note)" />
+        <GroupOfNoteLengths NoteGroupInformation="noteGroup"
+                            Width="Width" />
     }
-    else
-    {
-        <CrotchetDuration XPosition="@GetNoteXPosition(note)" />
-    }
-}
+</g>
