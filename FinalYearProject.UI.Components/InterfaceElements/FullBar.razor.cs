@@ -35,7 +35,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <summary>
         /// Notes for this Bar
         /// </summary>
-        private List<NoteGroupDisplayInformation> _noteGroups
+        private List<NoteGroupInformation> _noteGroups
             => BarInformation.NoteGroups;
 
         #region Settings

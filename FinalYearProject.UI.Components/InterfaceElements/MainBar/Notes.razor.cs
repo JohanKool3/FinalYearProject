@@ -9,7 +9,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// The Groups of Notes to be rendered
         /// </summary>
         [Parameter, EditorRequired]
-        public List<NoteGroupDisplayInformation> NoteGroupsToDisplay { get; set; }
+        public List<NoteGroupInformation> NoteGroupsToDisplay { get; set; }
 
         /// <summary>
         /// The Total Area of the Notes Area

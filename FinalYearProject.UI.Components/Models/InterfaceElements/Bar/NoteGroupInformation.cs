@@ -6,7 +6,7 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
     /// <summary>
     /// Represents a Grouping of Notes
     /// </summary>
-    public class NoteGroupDisplayInformation
+    public class NoteGroupInformation
     {
         /// <summary>
         /// The Notes that are assigned to this group

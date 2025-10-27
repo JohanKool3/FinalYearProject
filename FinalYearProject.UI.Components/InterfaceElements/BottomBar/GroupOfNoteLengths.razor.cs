@@ -11,7 +11,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         /// The Note Group that this Element is displaying
         /// </summary>
         [Parameter, EditorRequired]
-        public NoteGroupDisplayInformation NoteGroupInformation { get; set; }
+        public NoteGroupInformation NoteGroupInformation { get; set; }
 
         /// <summary>
         /// Width of the Total Notes Area

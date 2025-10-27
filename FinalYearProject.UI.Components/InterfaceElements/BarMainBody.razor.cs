@@ -31,7 +31,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        private List<NoteGroupDisplayInformation> _noteGroups
+        private List<NoteGroupInformation> _noteGroups
             => BarInformation.NoteGroups;
 
         private int _barWidth

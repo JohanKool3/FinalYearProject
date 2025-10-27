@@ -23,7 +23,7 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements
         /// <summary>
         /// The Note Groups for this Bar
         /// </summary>
-        public List<NoteGroupDisplayInformation> NoteGroups { get; set; } = [];
+        public List<NoteGroupInformation> NoteGroups { get; set; } = [];
 
         /// <summary>
         /// The Chords for this bar

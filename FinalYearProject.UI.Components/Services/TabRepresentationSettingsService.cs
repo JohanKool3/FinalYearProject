@@ -75,7 +75,7 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         /// <param name="noteGroups"></param>
         /// <returns></returns>
-        public int GetBarWidth(List<NoteGroupDisplayInformation> noteGroups)
+        public int GetBarWidth(List<NoteGroupInformation> noteGroups)
         {
             // Get all the notes in each note Group
             var notes = noteGroups

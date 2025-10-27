@@ -17,7 +17,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Holds the list of notes to display.
         /// </summary>
         [Parameter, EditorRequired]
-        public NoteGroupDisplayInformation NoteGroupInformation { get; set; }
+        public NoteGroupInformation NoteGroupInformation { get; set; }
 
         /// <summary>
         /// The Width of the Notes Area
