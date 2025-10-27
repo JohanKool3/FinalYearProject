@@ -21,13 +21,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuratio
         private int _height 
             => RepresentationService
                 .Settings
-                .BottomBarDisplaySettings
+                .BottomBar
                 .Height;
 
         private int _noteSpacing 
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .NoteSpacing;
 
         #endregion

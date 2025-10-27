@@ -30,7 +30,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _height 
             => RepresentationService
                     .Settings
-                    .BottomBarDisplaySettings
+                    .BottomBar
                     .Height;
 
       private bool _debugMode 

@@ -55,12 +55,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         {
             var height = RepresentationService
                             .Settings
-                            .TopBarDisplaySettings
+                            .TopBar
                             .Height;
 
             var rowAmount = RepresentationService
                                 .Settings
-                                .TopBarDisplaySettings
+                                .TopBar
                                 .Rows;
 
             return (height / rowAmount);
@@ -74,7 +74,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         private int _fontSize
             => RepresentationService
                     .Settings
-                    .TopBarDisplaySettings
+                    .TopBar
                     .ChordReadoutFontSize;
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         private int _notePadding
             => RepresentationService
                     .Settings
-                    .NoteDisplaySettings
+                    .Notes
                     .LeftPadding;
 
         /// <summary>

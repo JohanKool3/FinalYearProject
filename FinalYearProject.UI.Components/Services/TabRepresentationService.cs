@@ -28,10 +28,10 @@ namespace FinalYearProject.UI.Components.Services
     .Select(n => n.StartPercentage)
                 .Distinct().Count();
 
-  var leftPadding = Settings.NoteDisplaySettings.LeftPadding;
+  var leftPadding = Settings.Notes.LeftPadding;
             
   // Multiply by 2 for start and  the end padding
-         return 2 * leftPadding + (distinctPositions * Settings.NoteDisplaySettings.NoteSpacing);
+         return 2 * leftPadding + (distinctPositions * Settings.Notes.NoteSpacing);
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace FinalYearProject.UI.Components.Services
      /// </summary>
         /// <returns></returns>
         public int GetBarHeight()
-  => Settings.NoteDisplaySettings.TopPadding +
-       (Settings.StringCount * Settings.NoteDisplaySettings.StringSpacing);
+  => Settings.Notes.TopPadding +
+       (Settings.StringCount * Settings.Notes.StringSpacing);
 
   /// <summary>
         /// Get the height of both the bar and the top bar
@@ -48,11 +48,11 @@ namespace FinalYearProject.UI.Components.Services
      /// <returns></returns>
         public int GetTotalBarHeight()
             => GetBarHeight() 
-            + Settings.TopBarDisplaySettings.Height
+            + Settings.TopBar.Height
 
    // Account for the Bottom Bar too
-      + Settings.BottomBarDisplaySettings.Height
-    + Settings.BottomBarDisplaySettings.TopPadding;
+      + Settings.BottomBar.Height
+    + Settings.BottomBar.TopPadding;
 
         public void LoadNewTuningScheme(TuningScheme newScheme)
     {

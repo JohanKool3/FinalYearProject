@@ -38,7 +38,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _width
             => RepresentationService
                 .Settings
-                .PreBarDisplaySettings
+                .PreBar
                 .TimeSignatureWidth;
 
         private int _height
@@ -53,13 +53,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _topPadding
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .TopPadding;
 
         private int _stringSpacing
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .StringSpacing;
 
         private int _stringAmount

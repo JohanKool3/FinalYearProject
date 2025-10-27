@@ -33,7 +33,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         private int _leftPadding
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .LeftPadding;
 
         #endregion

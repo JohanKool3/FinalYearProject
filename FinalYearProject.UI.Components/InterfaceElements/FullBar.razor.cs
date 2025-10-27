@@ -60,7 +60,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _topBarHeight
             => RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .Height;
 
         /// <summary>
@@ -69,13 +69,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _preBarWidth
             => RepresentationService
                 .Settings
-                .PreBarDisplaySettings
+                .PreBar
                 .TimeSignatureWidth;
 
         private int _bottomBarYPadding
           => RepresentationService
                 .Settings
-                .BottomBarDisplaySettings
+                .BottomBar
                 .TopPadding;
 
         #endregion

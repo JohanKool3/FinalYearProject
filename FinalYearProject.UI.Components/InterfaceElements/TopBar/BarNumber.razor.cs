@@ -34,12 +34,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
         private int _leftPadding =>
             RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .LeftPadding;
         private int _barNumberFontSize =>
             RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .BarNumberFontSize;
 
         #endregion

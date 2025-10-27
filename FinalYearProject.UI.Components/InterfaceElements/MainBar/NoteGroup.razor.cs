@@ -36,7 +36,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _leftPadding
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .LeftPadding;
 
         /// <summary>
@@ -44,13 +44,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// </summary>
         private int _topPadding
             => RepresentationService.Settings
-                .NoteDisplaySettings
+                .Notes
                 .TopPadding;
 
         private int _stringSpacing
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .StringSpacing;
 
         #endregion

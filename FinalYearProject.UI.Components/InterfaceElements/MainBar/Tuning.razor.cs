@@ -30,7 +30,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _topPadding
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings
+                .Notes
                 .TopPadding;
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _width
             => RepresentationService
                 .Settings
-                .PreBarDisplaySettings
+                .PreBar
                 .TimeSignatureWidth;
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _fontSize
             => RepresentationService
                 .Settings
-                .PreBarDisplaySettings
+                .PreBar
                 .TuningFontSize;
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _topBarHeight
             => RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .Height;
 
         private int _totalBarHeight

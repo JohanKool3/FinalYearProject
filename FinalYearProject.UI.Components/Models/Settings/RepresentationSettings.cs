@@ -33,7 +33,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
         /// <summary>
         /// Settings related to the Strings and Notes display
         /// </summary>
-        public NoteSettings NoteDisplaySettings { get; private set; }
+        public NoteSettings Notes { get; private set; }
             = new()
             {
                 TopPadding = 20,
@@ -46,7 +46,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
         /// <summary>
         /// The Settings that relate to the display of the PreBar section
         /// </summary>
-        public PreBarSettings PreBarDisplaySettings { get; private set; }
+        public PreBarSettings PreBar { get; private set; }
             = new()
             {
                 TimeSignatureWidth = 20,
@@ -54,7 +54,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
                 TuningWidth = 5
             };
 
-        public TopBarSettings TopBarDisplaySettings { get; private set; }
+        public TopBarSettings TopBar { get; private set; }
             = new()
             {
                 Height = 70,
@@ -66,7 +66,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
                 ChordReadoutFontSize = 10
             };
 
-        public BottomBarSettings BottomBarDisplaySettings { get; private set; }
+        public BottomBarSettings BottomBar { get; private set; }
             = new()
             {
                 Height = 60,

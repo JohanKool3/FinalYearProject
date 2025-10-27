@@ -39,7 +39,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         private int _topPadding
             => RepresentationService
                 .Settings
-                .NoteDisplaySettings.TopPadding;
+                .Notes.TopPadding;
 
         #endregion
 

@@ -49,13 +49,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _height
             => RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .Height;
 
         private int _barNumberFontSize
             => RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .BarNumberFontSize;
 
         private bool _debugMode
@@ -75,7 +75,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             // Divide height by row amount
             var rowAmount = RepresentationService
                 .Settings
-                .TopBarDisplaySettings
+                .TopBar
                 .Rows;
 
             // Need to ensure row number is valid
