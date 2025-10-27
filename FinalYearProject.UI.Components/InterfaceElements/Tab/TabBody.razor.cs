@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Components;
 namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
     public partial class TabBody(TabPlaybackService playbackService,
-        TabRepresentationSettingsService respresentationService)
+        TabRepresentationService representationService)
         : ComponentBase
     {
         public TabPlaybackService PlaybackService { get; set; }
             = playbackService;
         
-        public TabRepresentationSettingsService RepresentationService { get; }
-            = respresentationService;
+        public TabRepresentationService RepresentationService { get; }
+            = representationService;
 
         /// <summary>
         /// Returns the current loaded tab from the playback service

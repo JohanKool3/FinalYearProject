@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarBottomSection(TabRepresentationSettingsService settingsService)
+    public partial class BarBottomSection(TabRepresentationService representationService)
     {
-        public TabRepresentationSettingsService SettingsService { get; } 
-            = settingsService;
+        public TabRepresentationService RepresentationService { get; } 
+            = representationService;
 
         #region Parameters
 
@@ -27,9 +27,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        private int _height => SettingsService.BottomBarDisplaySettings.Height;
+        private int _height 
+            => RepresentationService
+                    .Settings
+                    .BottomBarDisplaySettings
+                    .Height;
 
-        private bool _debugMode => SettingsService.DebugMode;
+      private bool _debugMode 
+            => RepresentationService
+                    .Settings
+                    .DebugMode;
         #endregion
 
 

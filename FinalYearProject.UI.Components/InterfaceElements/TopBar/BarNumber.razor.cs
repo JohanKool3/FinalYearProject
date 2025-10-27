@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 {
-    public partial class BarNumber(TabRepresentationSettingsService settingsService)
+    public partial class BarNumber(TabRepresentationService representationService)
     {
         #region Parameters
 
@@ -27,18 +27,20 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         #endregion
 
-        public TabRepresentationSettingsService SettingsService { get; set; } = settingsService;
+        public TabRepresentationService RepresentationService { get; set; } = representationService;
 
         #region Settings
 
         private int _leftPadding =>
-            SettingsService
-            .TopBarDisplaySettings
-            .LeftPadding;
+            RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .LeftPadding;
         private int _barNumberFontSize =>
-            SettingsService
-            .TopBarDisplaySettings
-            .BarNumberFontSize;
+            RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .BarNumberFontSize;
 
         #endregion
 

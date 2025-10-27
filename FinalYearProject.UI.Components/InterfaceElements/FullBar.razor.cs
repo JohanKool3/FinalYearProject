@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class FullBar(TabRepresentationSettingsService settingsService)
+    public partial class FullBar(TabRepresentationService representationService)
     {
         #region Parameters
 
@@ -40,37 +40,43 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         private int _barWidth
-            => SettingsService.GetBarWidth(_noteGroups);
+            => RepresentationService
+            .GetBarWidth(_noteGroups);
 
         private int _barHeight
-            => SettingsService.GetBarHeight();
+            => RepresentationService
+            .GetBarHeight();
 
         private int _totalComponentHeight
-            => SettingsService.GetTotalBarHeight();
+            => RepresentationService
+            .GetTotalBarHeight();
 
         /// <summary>
         /// How tall the Top Bar is
         /// </summary>
         private int _topBarHeight
-            => SettingsService
-            .TopBarDisplaySettings
-            .Height;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .Height;
 
         /// <summary>
         /// How wide the Tuning section is
         /// </summary>
         private int _preBarWidth
-            => SettingsService
-            .PreBarDisplaySettings
-            .TimeSignatureWidth;
+            => RepresentationService
+                .Settings
+                .PreBarDisplaySettings
+                .TimeSignatureWidth;
 
         private int _bottomBarYPadding
-          => SettingsService
-            .BottomBarDisplaySettings
-            .TopPadding;
+          => RepresentationService
+                .Settings
+                .BottomBarDisplaySettings
+                .TopPadding;
 
         #endregion
 

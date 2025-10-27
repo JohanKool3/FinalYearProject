@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
 {
-    public partial class NoteLengths(TabRepresentationSettingsService settingsService)
+    public partial class NoteLengths
     {
         #region Parameters
         

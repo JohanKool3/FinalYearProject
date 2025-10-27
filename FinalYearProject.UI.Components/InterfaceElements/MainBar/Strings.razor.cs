@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class Strings(TabRepresentationSettingsService settingsService) : ComponentBase
+    public partial class Strings(TabRepresentationService representationService) : ComponentBase
     {
 
         #region Parameters
@@ -19,10 +19,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
         #region Settings
         
-        private int _stringAmount => settingsService.StringCount;
+        private int _stringAmount 
+            => RepresentationService
+                .Settings
+                .StringCount;
 
         private int _height =>
-            settingsService.GetBarHeight();
+            RepresentationService.GetBarHeight();
 
         /// <summary>
         /// Calculates the spacing between each string
@@ -34,10 +37,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// How much space to leave to the top of the strings
         /// </summary>
         private int _topPadding
-            => SettingsService.NoteDisplaySettings.TopPadding;
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings.TopPadding;
 
         #endregion
 
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalYearProject.UI.Components.Models.Settings
+namespace FinalYearProject.UI.Components.Models.Settings.SubSettings
 {
     public class BottomBarSettings
     {

@@ -3,27 +3,35 @@ using FinalYearProject.UI.Components.Services;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class Tuning(TabRepresentationSettingsService settingsService)
+
+    public partial class Tuning(TabRepresentationService representationService)
     {
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         #region Fields Loaded from Settings
 
         /// <summary>
         /// The Height of the Tuning Section
         /// </summary>
-        private int _height => SettingsService.GetBarHeight();
+        private int _height 
+            => RepresentationService.GetBarHeight();
 
         /// <summary>
         /// How many strings need to have tuning displayed
         /// </summary>
-        private int _stringAmount => SettingsService.StringCount;
+        private int _stringAmount
+            => RepresentationService
+                .Settings
+                .StringCount;
 
         /// <summary>
         /// Space to leave at the top of the strings
         /// </summary>
         private int _topPadding
-            => SettingsService.NoteDisplaySettings.TopPadding;
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings
+                .TopPadding;
 
         /// <summary>
         /// Space between each string
@@ -35,30 +43,39 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Total space before the time signature
         /// </summary>
         private int _width
-            => SettingsService.PreBarDisplaySettings.TimeSignatureWidth;
+            => RepresentationService
+                .Settings
+                .PreBarDisplaySettings
+                .TimeSignatureWidth;
 
         /// <summary>
         /// How large each character is
         /// </summary>
         private int _fontSize
-            => SettingsService.PreBarDisplaySettings.TuningFontSize;
+            => RepresentationService
+                .Settings
+                .PreBarDisplaySettings
+                .TuningFontSize;
 
         /// <summary>
         /// Gets the Tuning used for the current Tab Representation
         /// </summary>
         private TuningScheme _tuningScheme
-            => SettingsService.TuningScheme;
+            => RepresentationService
+                .Settings
+                .TuningScheme;
 
         /// <summary>
         /// How tall the Top Bar is
         /// </summary>
         private int _topBarHeight
-            => SettingsService
-            .TopBarDisplaySettings
-            .Height;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .Height;
 
         private int _totalBarHeight
-            => SettingsService.GetTotalBarHeight();
+            => RepresentationService.GetTotalBarHeight();
 
         #endregion
 

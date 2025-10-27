@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 {
-    public partial class Chords(TabRepresentationSettingsService settingsService)
+    public partial class Chords(TabRepresentationService representationService)
     {
         #region Parameters
 
@@ -48,43 +48,51 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         #endregion
 
-        public TabRepresentationSettingsService SettingsService { get; }
-            = settingsService;
+        public TabRepresentationService RepresentationService { get; }
+            = representationService;
 
         private int GetHeight()
         {
-            var height = SettingsService
-            .TopBarDisplaySettings
-            .Height;
+            var height = RepresentationService
+                            .Settings
+                            .TopBarDisplaySettings
+                            .Height;
 
-            var rowAmount = SettingsService.TopBarDisplaySettings.Rows;
+            var rowAmount = RepresentationService
+                                .Settings
+                                .TopBarDisplaySettings
+                                .Rows;
 
             return (height / rowAmount);
         }
 
         #region Settings
-        
+
         /// <summary>
         /// The Font Size for the Chord Readout
         /// </summary>
         private int _fontSize
-            => SettingsService
-                .TopBarDisplaySettings
-                .ChordReadoutFontSize;
+            => RepresentationService
+                    .Settings
+                    .TopBarDisplaySettings
+                    .ChordReadoutFontSize;
 
         /// <summary>
         /// How much space to leave on the left of each note
         /// </summary>
         private int _notePadding
-            => SettingsService
-                .NoteDisplaySettings
-                .LeftPadding;
+            => RepresentationService
+                    .Settings
+                    .NoteDisplaySettings
+                    .LeftPadding;
 
         /// <summary>
         /// Whether to show the bounding box
         /// </summary>
         private bool _debugMode
-            => SettingsService.DebugMode;
+            => RepresentationService
+                    .Settings
+                    .DebugMode;
 
         #endregion
 

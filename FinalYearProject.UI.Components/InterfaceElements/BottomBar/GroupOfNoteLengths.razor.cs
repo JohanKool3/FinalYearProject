@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
 {
-    public partial class GroupOfNoteLengths(TabRepresentationSettingsService settingsService)
+    public partial class GroupOfNoteLengths(TabRepresentationService representationService)
     {
         /// <summary>
         /// The Note Group that this Element is displaying
@@ -26,12 +26,15 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
                 Width);
 
 
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         #region Settings
 
         private int _leftPadding
-            => SettingsService.NoteDisplaySettings.LeftPadding;
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings
+                .LeftPadding;
 
         #endregion
     }

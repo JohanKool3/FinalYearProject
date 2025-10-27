@@ -1,5 +1,5 @@
 ﻿using System;
-namespace FinalYearProject.UI.Components.Models.Settings
+namespace FinalYearProject.UI.Components.Models.Settings.SubSettings
 {
     /// <summary>
     /// Holds settings related to the rendering of the above

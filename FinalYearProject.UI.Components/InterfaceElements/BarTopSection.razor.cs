@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarTopSection(TabRepresentationSettingsService settingsService)
+    public partial class BarTopSection(TabRepresentationService representationService)
     {
-        public TabRepresentationSettingsService SettingsService { get; }
-            = settingsService;
+        public TabRepresentationService RepresentationService { get; }
+            = representationService;
 
         #region Parameters
 
@@ -46,18 +46,21 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        private int _height 
-            => SettingsService
-            .TopBarDisplaySettings
-            .Height;
+        private int _height
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .Height;
 
         private int _barNumberFontSize
-            => SettingsService
-            .TopBarDisplaySettings
-            .BarNumberFontSize;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .BarNumberFontSize;
 
         private bool _debugMode
-            => SettingsService
+            => RepresentationService
+                .Settings
                 .DebugMode;
 
         #endregion
@@ -70,7 +73,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int GetYPosition(int rowNumber)
         {
             // Divide height by row amount
-            var rowAmount = SettingsService
+            var rowAmount = RepresentationService
+                .Settings
                 .TopBarDisplaySettings
                 .Rows;
 

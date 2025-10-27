@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class NoteGroup(TabRepresentationSettingsService representationSettingsService)
+    public partial class NoteGroup(TabRepresentationService representationService)
     {
 
-        public TabRepresentationSettingsService RepresentationSettingsService { get; } 
-            = representationSettingsService;
+        public TabRepresentationService RepresentationService { get; }
+            = representationService;
 
         #region Parameters
 
@@ -29,21 +29,27 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
 
         #region Settings
-        
+
         /// <summary>
         /// Space to leave at the left of the notes area
         /// </summary>
-        private int _leftPadding 
-            => RepresentationSettingsService.NoteDisplaySettings.LeftPadding;
+        private int _leftPadding
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings
+                .LeftPadding;
 
         /// <summary>
         /// Space to leave at the top of the notes area
         /// </summary>
-        private int _topPadding 
-            => RepresentationSettingsService.NoteDisplaySettings.TopPadding;
+        private int _topPadding
+            => RepresentationService.Settings
+                .NoteDisplaySettings
+                .TopPadding;
 
         private int _stringSpacing
-            => RepresentationSettingsService
+            => RepresentationService
+                .Settings
                 .NoteDisplaySettings
                 .StringSpacing;
 
@@ -70,7 +76,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
             var stringIndex = note.StringNumber - 1;
 
             // Put Note on string, add spacing for each string
-            return _topPadding  + _stringSpacing * stringIndex;
+            return _topPadding + _stringSpacing * stringIndex;
         }
     }
 }

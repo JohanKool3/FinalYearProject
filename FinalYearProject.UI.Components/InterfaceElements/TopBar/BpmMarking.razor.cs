@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 {
-    public partial class BpmMarking(TabRepresentationSettingsService settingsService)
+    public partial class BpmMarking(TabRepresentationService representationService)
     {
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         #region Parameters
 
@@ -29,19 +29,22 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         #region Settings
         private int _topPadding
-            => SettingsService
-            .TopBarDisplaySettings
-            .TopPadding;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .TopPadding;
 
         private int _leftPadding
-            => SettingsService
-            .TopBarDisplaySettings
-            .LeftPadding;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .LeftPadding;
 
         private int _barNumberFontSize
-            => SettingsService
-            .TopBarDisplaySettings
-            .BpmReadoutFontSize;
+            => RepresentationService
+                .Settings
+                .TopBarDisplaySettings
+                .BpmReadoutFontSize;
 
         #endregion
 

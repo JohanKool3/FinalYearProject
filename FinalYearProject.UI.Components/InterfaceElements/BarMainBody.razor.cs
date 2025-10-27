@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarMainBody(TabRepresentationSettingsService settingsService)
+    public partial class BarMainBody(TabRepresentationService representationService)
     {
 
         #region Parameters
@@ -27,7 +27,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         #region Settings
 
@@ -35,18 +35,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => BarInformation.NoteGroups;
 
         private int _barWidth
-            => SettingsService.GetBarWidth(_noteGroups);
+            => RepresentationService.GetBarWidth(_noteGroups);
 
-        private int _barHeight => SettingsService.GetBarHeight();
-
-
-        /// <summary>
-        /// How wide the Tuning section is
-        /// </summary>
-        private int _preBarWidth
-            => SettingsService
-            .PreBarDisplaySettings
-            .TimeSignatureWidth;
+        private int _barHeight 
+            => RepresentationService.GetBarHeight();
 
         #endregion
     }

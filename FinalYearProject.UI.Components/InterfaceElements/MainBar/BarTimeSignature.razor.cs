@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class BarTimeSignature(TabRepresentationSettingsService settingsService)
+    public partial class BarTimeSignature(TabRepresentationService representationService)
     {
         #region Parameters
         /// <summary>
@@ -33,13 +33,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
         #endregion
        
-        public TabRepresentationSettingsService SettingsService { get; } = settingsService;
+        public TabRepresentationService RepresentationService { get; } = representationService;
 
         private int _width
-            => SettingsService.PreBarDisplaySettings.TimeSignatureWidth;
+            => RepresentationService
+                .Settings
+                .PreBarDisplaySettings
+                .TimeSignatureWidth;
 
         private int _height
-            => SettingsService.GetBarHeight();
+            => RepresentationService.GetBarHeight();
 
         #region Notes Display Settings
 
@@ -48,13 +51,21 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         // part of the bar area, even though it is rendered
         // separately.
         private int _topPadding
-            => SettingsService.NoteDisplaySettings.TopPadding;
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings
+                .TopPadding;
 
         private int _stringSpacing
-            => SettingsService.NoteDisplaySettings.StringSpacing;
+            => RepresentationService
+                .Settings
+                .NoteDisplaySettings
+                .StringSpacing;
 
         private int _stringAmount
-            => SettingsService.StringCount;
+            => RepresentationService
+                .Settings
+                .StringCount;
 
         #endregion
 
