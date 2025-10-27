@@ -7,9 +7,9 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
     {
 
         /// <summary>
-        /// How far accross the bar the note starts  (0-100) %
+        /// Where this Note Starts Relative to the Note Group (0-100%)
         /// </summary>
-        public int BarPercentage { get; set; }
+        public int StartPercentage { get; set; }
 
         /// <summary>
         /// Which Fret the note is on

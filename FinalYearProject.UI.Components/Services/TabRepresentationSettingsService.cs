@@ -83,7 +83,7 @@ namespace FinalYearProject.UI.Components.Services
 
             // Calculate how many different start positions there are
             var distinctPositions = notes
-                .Select(n => n.BarPercentage)
+                .Select(n => n.StartPercentage)
                 .Distinct().Count();
 
             var leftPadding = NoteDisplaySettings.LeftPadding;

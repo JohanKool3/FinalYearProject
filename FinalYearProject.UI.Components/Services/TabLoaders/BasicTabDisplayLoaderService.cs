@@ -30,7 +30,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     NoteType = NoteType.Normal,
                                     FretNumber = 0,
                                     StringNumber = 6,
-                                    BarPercentage = 0,
+                                    StartPercentage = 0,
                                     ArticulationType= ArticulationType.None,
                                     },
 
@@ -38,21 +38,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     NoteType = NoteType.Normal,
                                     FretNumber = 1,
                                     StringNumber = 6,
-                                    BarPercentage = 6,
+                                    StartPercentage = 6,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
                                     NoteType = NoteType.Normal,
                                     FretNumber = 3,
                                     StringNumber = 6,
-                                    BarPercentage = 12,
+                                    StartPercentage = 12,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
                                     NoteType = NoteType.Normal,
                                     StringNumber = 5,
                                     FretNumber = 0,
-                                    BarPercentage = 18,
+                                    StartPercentage = 18,
                                     ArticulationType= ArticulationType.None,
                                     },
                                 ]

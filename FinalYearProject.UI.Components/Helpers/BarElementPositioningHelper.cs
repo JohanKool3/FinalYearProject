@@ -9,12 +9,12 @@ namespace FinalYearProject.UI.Components.Helpers
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        public static int GetElementXPositionInBar(IPositionedElement note, 
+        public static int GetElementXPosition(IPositionedElement note, 
             int leftPadding,
             int width)
         {
-            // Calculate the position based on the BarPercentage and Width
-            return leftPadding + (int)(note.BarPercentage / 100.0 * width);
+            // Calculate the position based on the Start Percentage and Width
+            return leftPadding + (int)(note.StartPercentage / 100.0 * width);
         }
     }
 }

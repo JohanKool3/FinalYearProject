@@ -9,8 +9,8 @@ namespace FinalYearProject.UI.Components.Interfaces
     public interface IPositionedElement
     {
         /// <summary>
-        /// Defines the position of the element within the bar as a percentage
+        /// Defines the start position of the element within the bar as a percentage
         /// </summary>
-        public int BarPercentage { get; set; }
+        public int StartPercentage { get; set; }
     }
 }

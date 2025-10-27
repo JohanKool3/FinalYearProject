@@ -56,7 +56,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// <returns></returns>
         private int GetNoteXPosition(NoteInformation note)
             => BarElementPositioningHelper
-                .GetElementXPositionInBar(note, _leftPadding, Width);
+                .GetElementXPosition(note, _leftPadding, Width);
 
         /// <summary>
         /// Get the Y Coordinate for the Note

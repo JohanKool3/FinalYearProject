@@ -12,7 +12,7 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
         /// <summary>
         /// How far accross the bar the chord starts (0-100) in %
         /// </summary>
-        public int BarPercentage { get; set; }
+        public int StartPercentage { get; set; }
 
         /// <summary>
         /// The Chord Name to display
