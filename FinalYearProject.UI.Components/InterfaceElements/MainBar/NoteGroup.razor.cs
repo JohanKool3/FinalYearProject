@@ -58,7 +58,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// </summary>
         private int _groupWidth
             => NoteGroupHelper
-            .GetNoteGroupWidth(ParentBarWidth, NoteGroupInformation);
+            .GetNoteGroupWidth(Settings, NoteGroupInformation);
 
         /// <summary>
         /// Whether Debug Mode is enabled

@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,15 @@ namespace FinalYearProject.UI.Components.Helpers
         /// <summary>
         /// Gets the Width of the Note Group
         /// </summary>
-        /// <param name="parentBarWidth">The Width of the container</param>
+        /// <param name="settings">The settings</param>
         /// <param name="noteGroup">The Note Group for which width is being calculated</param>
         /// <returns></returns>
-        public static int GetNoteGroupWidth(int parentBarWidth
-            , NoteGroupInformation noteGroup)
+        public static int GetNoteGroupWidth(RepresentationSettings settings,
+             NoteGroupInformation noteGroup)
         {
-            // Calculate the percentage width of the note group
-            var percentageWidth = Math.Abs(noteGroup.BarEndPercentage - noteGroup.BarStartPercentage);
-
-            return (int)(parentBarWidth * (percentageWidth / 100.0));
+            // Note Spacing, multiplied by the number of notes, plus padding on either side
+            return (settings.Notes.NoteSpacing * noteGroup.Notes.Count)
+                + (settings.Notes.LeftPadding * 2);
         }
     }
 }

@@ -21,21 +21,16 @@ namespace FinalYearProject.UI.Components.Helpers
         public static int GetBarWidth(List<NoteGroupInformation> noteGroups, 
             RepresentationSettings settings)
         {
-            // Get all the notes in each note Group
-            var notes = 
-                noteGroups
-                   .SelectMany(x => x.Notes);
+            // Get the width of each note group, and sum them together
+            int totalWidth = 0;
 
-            // Calculate how many different start positions there are
-            var distinctPositions = 
-                notes
-                    .Select(n => n.StartPercentage)
-                                .Distinct().Count();
+            foreach (var group in noteGroups)
+            {
+                totalWidth += NoteGroupHelper
+                    .GetNoteGroupWidth(settings, group);
+            }
 
-            var leftPadding = settings.Notes.LeftPadding;
-
-            // Multiply by 2 for start and  the end padding
-            return 2 * leftPadding + (distinctPositions * settings.Notes.NoteSpacing);
+            return totalWidth + (2*settings.Notes.LeftPadding);
         }
 
         /// <summary>
