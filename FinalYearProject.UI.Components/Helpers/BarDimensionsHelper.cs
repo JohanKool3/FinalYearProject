@@ -30,7 +30,7 @@ namespace FinalYearProject.UI.Components.Helpers
                     .GetNoteGroupWidth(settings, group);
             }
 
-            return totalWidth + (2*settings.Notes.LeftPadding);
+            return totalWidth;
         }
 
         /// <summary>

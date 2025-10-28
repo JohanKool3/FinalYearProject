@@ -1,5 +1,6 @@
 using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -13,26 +14,21 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         [Parameter, EditorRequired]
         public NoteGroupInformation NoteGroupInformation { get; set; }
 
-        /// <summary>
-        /// Width of the Total Notes Area
-        /// </summary>
-        [Parameter, EditorRequired]
-        public int Width { get; set; }
 
         private int GetNoteXPosition(NoteInformation note)
             => PositionedElementHelper.GetElementXPosition(
                 note,
                 _leftPadding,
-                Width);
+                NoteGroupHelper.GetNoteGroupWidth(Settings,
+                    NoteGroupInformation));
 
 
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Settings
 
         private int _leftPadding
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .LeftPadding;
 

@@ -67,12 +67,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
             => Settings
                 .DebugMode;
 
-
-        private int _xOffset
-            => Settings
-                .Notes
-                .LeftPadding;
-
         //TODO: Calculate this based on the Percentage in the 
         // NoteGroupInformation Model
         private int _startX
@@ -90,9 +84,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXPosition(NoteInformation note)
-            => PositionedElementHelper //TODO: Rework this to be related
-                                       // to This Groups Width
-                .GetElementXPosition(note, _leftPadding, ParentBarWidth);
+            => PositionedElementHelper
+                .GetElementXPosition(note, _leftPadding, _groupWidth);
 
         /// <summary>
         /// Get the Y Coordinate for the Note
