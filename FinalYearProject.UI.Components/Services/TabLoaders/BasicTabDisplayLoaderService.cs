@@ -55,7 +55,9 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     StartPercentage = 75,
                                     ArticulationType= ArticulationType.None,
                                     },
-                                ]
+                                ],
+                            BarStartPercentage = 0,
+                            BarEndPercentage = 25
                         }
                         ]
                 }

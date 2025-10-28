@@ -58,7 +58,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// The Width of this Note Group
         /// </summary>
         private int _groupWidth
-            => ParentBarWidth;
+            => NoteGroupHelper
+            .GetNoteGroupWidth(ParentBarWidth, NoteGroupInformation);
 
         /// <summary>
         /// Whether Debug Mode is enabled
@@ -67,6 +68,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
             => RepresentationService
                     .Settings
                     .DebugMode;
+
+
+        private int _xOffset
+            => RepresentationService
+                .Settings
+                .Notes
+                .LeftPadding;
 
         //TODO: Calculate this based on the Percentage in the 
         // NoteGroupInformation Model
