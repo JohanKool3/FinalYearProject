@@ -1,5 +1,6 @@
 using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -8,8 +9,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
     public partial class NoteGroup(TabRepresentationService representationService)
     {
 
-        public TabRepresentationService RepresentationService { get; }
-            = representationService;
+        public RepresentationSettings Settings { get; }
+            = representationService.Settings;
 
         #region Parameters
 
@@ -33,8 +34,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Space to leave at the left of the notes area
         /// </summary>
         private int _leftPadding
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .LeftPadding;
 
@@ -42,13 +42,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Space to leave at the top of the notes area
         /// </summary>
         private int _topPadding
-            => RepresentationService.Settings
+            => Settings
                 .Notes
                 .TopPadding;
 
         private int _stringSpacing
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .StringSpacing;
 
@@ -65,14 +64,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Whether Debug Mode is enabled
         /// </summary>
         private bool _debugMode
-            => RepresentationService
-                    .Settings
-                    .DebugMode;
+            => Settings
+                .DebugMode;
 
 
         private int _xOffset
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .LeftPadding;
 
@@ -85,7 +82,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
             => _groupWidth;
 
         private int _barHeight
-            => RepresentationService.GetBarHeight();
+            => BarDimensionsHelper.GetBarHeight(Settings);
 
         /// <summary>
         /// Get the X Coordinate for the Note

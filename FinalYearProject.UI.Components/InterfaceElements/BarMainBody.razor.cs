@@ -1,6 +1,8 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.InterfaceElements.MainBar;
 using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -27,7 +29,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Settings
 
@@ -35,10 +37,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => BarInformation.NoteGroups;
 
         private int _barWidth
-            => RepresentationService.GetBarWidth(_noteGroups);
+            => BarDimensionsHelper.GetBarWidth(_noteGroups, Settings);
 
         private int _barHeight 
-            => RepresentationService.GetBarHeight();
+            => BarDimensionsHelper.GetBarHeight(Settings);
 
         #endregion
     }

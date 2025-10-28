@@ -1,4 +1,6 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.UI.Components.Helpers;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -33,16 +35,15 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
         #endregion
        
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public RepresentationSettings Settings { get; } = representationService.Settings;
 
         private int _width
-            => RepresentationService
-                .Settings
+            => Settings
                 .PreBar
                 .TimeSignatureWidth;
 
         private int _height
-            => RepresentationService.GetBarHeight();
+            => BarDimensionsHelper.GetBarHeight(Settings);
 
         #region Notes Display Settings
 
@@ -51,20 +52,17 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         // part of the bar area, even though it is rendered
         // separately.
         private int _topPadding
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .TopPadding;
 
         private int _stringSpacing
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .StringSpacing;
 
         private int _stringAmount
-            => RepresentationService
-                .Settings
+            => Settings
                 .StringCount;
 
         #endregion

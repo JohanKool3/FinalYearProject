@@ -1,4 +1,6 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -6,6 +8,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
     public partial class Strings(TabRepresentationService representationService) : ComponentBase
     {
+
+        public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Parameters
 
@@ -18,14 +22,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         #endregion
 
         #region Settings
-        
-        private int _stringAmount 
-            => RepresentationService
-                .Settings
+
+        private int _stringAmount
+            => Settings
                 .StringCount;
 
         private int _height =>
-            RepresentationService.GetBarHeight();
+            BarDimensionsHelper.GetBarHeight(Settings);
 
         /// <summary>
         /// Calculates the spacing between each string
@@ -37,12 +40,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// How much space to leave to the top of the strings
         /// </summary>
         private int _topPadding
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes.TopPadding;
 
         #endregion
-
-        public TabRepresentationService RepresentationService { get; } = representationService;
     }
 }

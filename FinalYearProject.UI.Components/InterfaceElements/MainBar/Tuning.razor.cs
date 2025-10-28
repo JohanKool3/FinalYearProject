@@ -1,4 +1,6 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
@@ -6,7 +8,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
     public partial class Tuning(TabRepresentationService representationService)
     {
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Fields Loaded from Settings
 
@@ -14,22 +16,20 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// The Height of the Tuning Section
         /// </summary>
         private int _height 
-            => RepresentationService.GetBarHeight();
+            => BarDimensionsHelper.GetBarHeight(Settings);
 
         /// <summary>
         /// How many strings need to have tuning displayed
         /// </summary>
         private int _stringAmount
-            => RepresentationService
-                .Settings
+            => Settings
                 .StringCount;
 
         /// <summary>
         /// Space to leave at the top of the strings
         /// </summary>
         private int _topPadding
-            => RepresentationService
-                .Settings
+            => Settings
                 .Notes
                 .TopPadding;
 
@@ -43,8 +43,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Total space before the time signature
         /// </summary>
         private int _width
-            => RepresentationService
-                .Settings
+            => Settings
                 .PreBar
                 .TimeSignatureWidth;
 
@@ -52,8 +51,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// How large each character is
         /// </summary>
         private int _fontSize
-            => RepresentationService
-                .Settings
+            => Settings
                 .PreBar
                 .TuningFontSize;
 
@@ -61,21 +59,19 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// Gets the Tuning used for the current Tab Representation
         /// </summary>
         private TuningScheme _tuningScheme
-            => RepresentationService
-                .Settings
+            => Settings
                 .TuningScheme;
 
         /// <summary>
         /// How tall the Top Bar is
         /// </summary>
         private int _topBarHeight
-            => RepresentationService
-                .Settings
+            => Settings
                 .TopBar
                 .Height;
 
         private int _totalBarHeight
-            => RepresentationService.GetTotalBarHeight();
+            => BarDimensionsHelper.GetTotalBarHeight(Settings);
 
         #endregion
 

@@ -1,5 +1,7 @@
+using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -40,26 +42,26 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Settings
 
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public RepresentationSettings Settings { get; } 
+            = representationService.Settings;
 
         private int _barWidth
-            => RepresentationService
-            .GetBarWidth(_noteGroups);
+            => BarDimensionsHelper
+            .GetBarWidth(_noteGroups, Settings);
 
         private int _barHeight
-            => RepresentationService
-            .GetBarHeight();
+            => BarDimensionsHelper
+            .GetBarHeight(Settings);
 
         private int _totalComponentHeight
-            => RepresentationService
-            .GetTotalBarHeight();
+            => BarDimensionsHelper
+            .GetTotalBarHeight(Settings);
 
         /// <summary>
         /// How tall the Top Bar is
         /// </summary>
         private int _topBarHeight
-            => RepresentationService
-                .Settings
+            => Settings
                 .TopBar
                 .Height;
 
@@ -67,14 +69,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// How wide the Tuning section is
         /// </summary>
         private int _preBarWidth
-            => RepresentationService
-                .Settings
+            => Settings
                 .PreBar
                 .TimeSignatureWidth;
 
         private int _bottomBarYPadding
-          => RepresentationService
-                .Settings
+            => Settings
                 .BottomBar
                 .TopPadding;
 
