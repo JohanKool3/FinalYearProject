@@ -94,6 +94,223 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                             BarStartPercentage = 25,
                             BarEndPercentage = 50
                         },
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 50,
+                            BarEndPercentage = 75
+                        },
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 75,
+                            BarEndPercentage = 100
+                        },
+                        ]
+                },
+                new()
+                {
+                    Bpm = 160,
+                    TimeSignature = new(4,4),
+                    NoteGroups = [
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 0,
+                            BarEndPercentage = 25
+                        },
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 25,
+                            BarEndPercentage = 50
+                        },
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 50,
+                            BarEndPercentage = 75
+                        },
+                        new(){
+                            Notes = [
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 0,
+                                    StringNumber = 6,
+                                    StartPercentage = 0,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+
+                                new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 1,
+                                    StringNumber = 6,
+                                    StartPercentage = 25,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    FretNumber = 3,
+                                    StringNumber = 6,
+                                    StartPercentage = 50,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                    new(){
+                                    NoteType = NoteType.Normal,
+                                    StringNumber = 5,
+                                    FretNumber = 0,
+                                    StartPercentage = 75,
+                                    ArticulationType= ArticulationType.None,
+                                    },
+                                ],
+                            BarStartPercentage = 75,
+                            BarEndPercentage = 100
+                        },
                         ]
                 }
             };

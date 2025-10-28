@@ -29,8 +29,7 @@ namespace FinalYearProject.UI.Components.Helpers
                 totalWidth += NoteGroupHelper
                     .GetNoteGroupWidth(settings, group);
             }
-
-            return totalWidth;
+            return  totalWidth;
         }
 
         /// <summary>

@@ -32,8 +32,8 @@ namespace FinalYearProject.UI.Components.Models.Settings
             = new()
             {
                 TopPadding = 20,
-                LeftPadding = 40,
-                NoteSpacing = 40,
+                LeftPadding = 20,
+                NoteSpacing = 20,
                 StringSpacing = 15
             };
 
