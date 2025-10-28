@@ -21,10 +21,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         public NoteGroupInformation NoteGroupInformation { get; set; }
 
         /// <summary>
-        /// The Width of the Bar this Note Group is in
+        /// The Width of this Note Group
         /// </summary>
         [Parameter, EditorRequired]
-        public int ParentBarWidth { get; set; }
+        public int Width { get; set; }
+
+        [Parameter, EditorRequired]
+        public int XPosition { get; set; }
 
         #endregion
 
@@ -53,12 +56,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 
         #endregion
 
-        /// <summary>
-        /// The Width of this Note Group
-        /// </summary>
-        private int _groupWidth
-            => NoteGroupHelper
-            .GetNoteGroupWidth(Settings, NoteGroupInformation);
 
         /// <summary>
         /// Whether Debug Mode is enabled
@@ -73,7 +70,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
             => 0;
 
         private int _endX
-            => _groupWidth;
+            => Width;
 
         private int _barHeight
             => BarDimensionsHelper.GetBarHeight(Settings);
@@ -84,8 +81,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXPosition(NoteInformation note)
-            => PositionedElementHelper
-                .GetElementXPosition(note, _leftPadding, _groupWidth);
+        {
+            var positionWithinGroup = PositionedElementHelper
+                .GetElementXPosition(note, _leftPadding, Width);
+
+            return XPosition + positionWithinGroup;
+        }
 
         /// <summary>
         /// Get the Y Coordinate for the Note

@@ -1,7 +1,18 @@
+@using FinalYearProject.UI.Components.Helpers
 <g>
+
+    @{
+        var currentXPosition = 0;
+    }
     @foreach (var noteGroup in NoteGroupsToDisplay)
     {
+        var width = NoteGroupHelper.GetNoteGroupWidth(Settings, noteGroup);
+
         <NoteGroup NoteGroupInformation="noteGroup"
-                   ParentBarWidth="Width" />
+                   Width="width"
+                   XPosition="currentXPosition"/>
+
+
+        currentXPosition += width;
     }
 </g>

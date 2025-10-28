@@ -3,7 +3,7 @@
     @if (_debugMode)
     {
         @* Indicate Bounding Box for this Note Group *@
-        <rect x="0" y="4" width="@_groupWidth" height="@(_barHeight-8)" fill="none" opacity="0.5" stroke="black" stroke-width="4" />
+        <rect x="@XPosition" y="4" width="@Width" height="@(_barHeight-8)" fill="none" opacity="0.5" stroke="black" stroke-width="4" />
     }
 
     @foreach (var note in NoteGroupInformation.Notes)
