@@ -20,13 +20,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         public NoteGroupInformation NoteGroupInformation { get; set; }
 
         /// <summary>
-        /// The Width of the Notes Area
+        /// The Width of the Bar this Note Group is in
         /// </summary>
         [Parameter, EditorRequired]
-        public int Width { get; set; }
+        public int ParentBarWidth { get; set; }
 
         #endregion
-
 
         #region Settings
 
@@ -56,13 +55,39 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
         #endregion
 
         /// <summary>
+        /// The Width of this Note Group
+        /// </summary>
+        private int _groupWidth
+            => ParentBarWidth;
+
+        /// <summary>
+        /// Whether Debug Mode is enabled
+        /// </summary>
+        private bool _debugMode
+            => RepresentationService
+                    .Settings
+                    .DebugMode;
+
+        //TODO: Calculate this based on the Percentage in the 
+        // NoteGroupInformation Model
+        private int _startX
+            => 0;
+
+        private int _endX
+            => _groupWidth;
+
+        private int _barHeight
+            => RepresentationService.GetBarHeight();
+
+        /// <summary>
         /// Get the X Coordinate for the Note
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
         private int GetNoteXPosition(NoteInformation note)
-            => PositionedElementHelper
-                .GetElementXPosition(note, _leftPadding, Width);
+            => PositionedElementHelper //TODO: Rework this to be related
+                                       // to This Groups Width
+                .GetElementXPosition(note, _leftPadding, ParentBarWidth);
 
         /// <summary>
         /// Get the Y Coordinate for the Note

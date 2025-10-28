@@ -1,5 +1,11 @@
 
 <g>
+    @if (_debugMode)
+    {
+        @* Indicate Bounding Box for this Note Group *@
+        <rect x="4" y="4" width="@(_groupWidth - 8)" height="@(_barHeight - 8)" fill="none" opacity="0.5" stroke="black" stroke-width="4" />
+    }
+
     @foreach (var note in NoteGroupInformation.Notes)
     {
         @if (note.NoteType == NoteType.Normal)
