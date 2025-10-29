@@ -1,19 +1,51 @@
 @using FinalYearProject.Shared.Enums
 @using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 
-@foreach (var note in NoteGroupInformation.Notes)
+
+
+@for (int index = 0; index < NoteGroupInformation.Notes.Count; index++)
 {
-    // TODO: Detect when a note is grouped
-    @if (note.Properties.Type == NoteType.Grace)
+    var note = NoteGroupInformation.Notes[index];
+
+    // Handle Grouped Notes
+    if (note.Properties.IsGrouped)
     {
-        @* Indicate a grace note *@
-        <GraceNoteDuration XPosition="@GetNoteXPosition(note)"
-                           YPosition="0" />
+        var nextNote = note;
+        // Look ahead
+        if (index < GroupLength - 1)
+        {
+            // Check the next Index
+            nextNote = NoteGroupInformation.Notes[index + 1];
+
+            if (nextNote.Properties.IsGrouped)
+            {
+                // Need to render Grouped for this
+            }
+            else
+            {
+                <SeparateDuration XPosition="@GetNoteXPosition(note)"
+                                  YPosition="0" />
+            }
+        }
+        else
+        {
+            <SeparateDuration XPosition="@GetNoteXPosition(note)"
+                              YPosition="0" />
+        }
     }
+    // Handle Separate Notes
     else
     {
-        <SeparateDuration XPosition="@GetNoteXPosition(note)"
-                          YPosition="0" />
+        @if (note.Properties.Type == NoteType.Grace)
+        {
+            @* Indicate a grace note *@
+            <GraceNoteDuration XPosition="@GetNoteXPosition(note)"
+                               YPosition="0" />
+        }
+        else
+        {
+            <SeparateDuration XPosition="@GetNoteXPosition(note)"
+                              YPosition="0" />
+        }
     }
 }
-

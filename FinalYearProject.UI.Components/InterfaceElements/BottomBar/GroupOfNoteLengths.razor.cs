@@ -8,6 +8,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
 {
     public partial class GroupOfNoteLengths(TabRepresentationService representationService)
     {
+        #region Parameters
+        
         /// <summary>
         /// The Note Group that this Element is displaying
         /// </summary>
@@ -26,6 +28,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
         [Parameter, EditorRequired]
         public int Width { get; set; }
 
+        #endregion
 
         private int GetNoteXPosition(NoteInformation note)
         {
@@ -37,6 +40,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
 
             return XPosition + groupPosition;
         }
+
+        /// <summary>
+        /// The Length of the Group of Notes
+        /// </summary>
+        private int GroupLength
+            => NoteGroupInformation.Notes.Count;
 
         public RepresentationSettings Settings { get; } = representationService.Settings;
 

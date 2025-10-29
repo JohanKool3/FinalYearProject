@@ -136,7 +136,10 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                     {
                         note.Properties = new()
                         {
-                            Length = NoteHelper.GetNoteLength(note, group)
+                            Length = NoteHelper.GetNoteLength(note, group),
+                            IsGrouped = note.Properties.IsGrouped,
+                            Articulation = note.Properties.Articulation,
+                            Type = note.Properties.Type,
                         };
 
                     }
