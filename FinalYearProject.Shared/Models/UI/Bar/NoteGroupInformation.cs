@@ -1,7 +1,4 @@
-﻿using FinalYearProject.UI.Components.Interfaces;
-using System;
-
-namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
+﻿namespace FinalYearProject.Shared.Models.UI.Bar
 {
     /// <summary>
     /// Represents a Grouping of Notes

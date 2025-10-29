@@ -1,11 +1,6 @@
-﻿using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FinalYearProject.Shared.Models.UI;
 
-namespace FinalYearProject.UI.Components.Interfaces
+namespace FinalYearProject.Services.Interfaces
 {
     /// <summary>
     /// Outlines a service for Loading Tab Display information

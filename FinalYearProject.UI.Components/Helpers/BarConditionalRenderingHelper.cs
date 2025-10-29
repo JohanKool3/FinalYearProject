@@ -1,4 +1,4 @@
-﻿using FinalYearProject.UI.Components.Models.InterfaceElements;
+﻿using FinalYearProject.Shared.Models.UI;
 
 namespace FinalYearProject.UI.Components.Helpers
 {

@@ -1,8 +1,8 @@
 ﻿using FinalYearProject.Shared.Models.TabRepresentation;
-using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.Shared.Models.UI.Bar;
 using FinalYearProject.UI.Components.Models.InterfaceElements.TopBar;
 
-namespace FinalYearProject.UI.Components.Models.InterfaceElements
+namespace FinalYearProject.Shared.Models.UI
 {
     /// <summary>
     /// Holds information about a single bar in the tab

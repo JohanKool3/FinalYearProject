@@ -1,5 +1,5 @@
-using FinalYearProject.UI.Components.Helpers;
-using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.Shared.Helpers;
+using FinalYearProject.Shared.Models.UI.Bar;
 using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;

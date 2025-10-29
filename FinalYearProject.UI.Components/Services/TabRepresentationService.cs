@@ -1,5 +1,4 @@
-using FinalYearProject.UI.Components.Models;
-using FinalYearProject.UI.Components.Models.InterfaceElements.Bar;
+using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.UI.Components.Models.Settings;
 
 namespace FinalYearProject.UI.Components.Services

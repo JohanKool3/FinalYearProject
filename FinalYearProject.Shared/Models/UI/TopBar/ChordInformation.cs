@@ -1,4 +1,4 @@
-﻿using FinalYearProject.UI.Components.Interfaces;
+﻿using FinalYearProject.Shared.Interfaces;
 
 namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
 {

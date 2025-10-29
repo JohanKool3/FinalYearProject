@@ -1,5 +1,5 @@
+using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.UI.Components.Helpers;
-using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;

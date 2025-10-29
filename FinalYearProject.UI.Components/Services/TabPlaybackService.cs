@@ -1,5 +1,5 @@
-﻿using FinalYearProject.UI.Components.Interfaces;
-using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
+﻿using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Shared.Models.UI;
 
 namespace FinalYearProject.UI.Components.Services
 {

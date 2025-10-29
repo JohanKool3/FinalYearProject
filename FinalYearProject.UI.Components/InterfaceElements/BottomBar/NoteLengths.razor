@@ -1,5 +1,6 @@
-@using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
+@using FinalYearProject.Shared.Helpers
 @using FinalYearProject.UI.Components.Helpers
+@using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 @* Here will be the note lengths *@
 
 <g>
@@ -9,7 +10,7 @@
 
     @foreach (var noteGroup in BarInformation.NoteGroups)
     {
-        var width = NoteGroupHelper.GetNoteGroupWidth(Settings, noteGroup);
+        var width = NoteGroupRenderingHelper.GetNoteGroupWidth(Settings, noteGroup);
 
         <GroupOfNoteLengths NoteGroupInformation="noteGroup"
                             XPosition=currentXPosition

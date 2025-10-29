@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FinalYearProject.UI.Components.Enums
+﻿namespace FinalYearProject.Shared.Enums
 {
     /// <summary>
     /// Defines the Type of note that is being displayed

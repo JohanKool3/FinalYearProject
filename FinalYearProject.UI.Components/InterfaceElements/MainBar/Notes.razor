@@ -1,3 +1,4 @@
+@using FinalYearProject.Shared.Helpers
 @using FinalYearProject.UI.Components.Helpers
 <g>
 
@@ -6,7 +7,7 @@
     }
     @foreach (var noteGroup in NoteGroupsToDisplay)
     {
-        var width = NoteGroupHelper.GetNoteGroupWidth(Settings, noteGroup);
+        var width = NoteGroupRenderingHelper.GetNoteGroupWidth(Settings, noteGroup);
 
         <NoteGroup NoteGroupInformation="noteGroup"
                    Width="width"

@@ -1,8 +1,8 @@
-﻿using FinalYearProject.UI.Components.Interfaces;
+﻿using FinalYearProject.Shared.Interfaces;
 
-namespace FinalYearProject.UI.Components.Helpers
+namespace FinalYearProject.Shared.Helpers
 {
-    internal static class PositionedElementHelper
+    public static class PositionedElementHelper
     {
         /// <summary>
         /// Get the X Coordinate for the positioned Element

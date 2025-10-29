@@ -1,6 +1,5 @@
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {

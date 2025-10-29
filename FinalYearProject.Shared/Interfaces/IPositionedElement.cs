@@ -1,5 +1,4 @@
-﻿
-namespace FinalYearProject.UI.Components.Interfaces
+﻿namespace FinalYearProject.Shared.Interfaces
 {
     public interface IPositionedElement
     {

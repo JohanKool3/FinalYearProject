@@ -1,9 +1,9 @@
-﻿using FinalYearProject.UI.Components.Interfaces;
-using FinalYearProject.UI.Components.Enums;
-using FinalYearProject.UI.Components.Models.InterfaceElements;
-using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
-using FinalYearProject.UI.Components.Helpers;
-namespace FinalYearProject.UI.Components.Services.TabLoaders
+﻿using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Shared.Models.UI;
+using FinalYearProject.Shared.Enums;
+using FinalYearProject.Shared.Helpers;
+
+namespace FinalYearProject.Services.UIFramework.TabLoaders
 {
     /// <summary>
     /// Basic Tab Display Loader Service for testing and development 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FinalYearProject.UI.Components.Models.InterfaceElements.Tab
+﻿namespace FinalYearProject.Shared.Models.UI
 {
     /// <summary>
     /// Holds information about the entire tab
@@ -27,11 +21,10 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Tab
         public string Description
         {
             get => _description.Length > 400 ? _description[..400] : _description;
-            internal set => _description = value;
+            set => _description = value;
         }
 
         private string _description = string.Empty;
-
 
         /// <summary>
         /// Holds the Bars of this tab

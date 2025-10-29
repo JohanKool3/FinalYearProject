@@ -1,4 +1,5 @@
-﻿using FinalYearProject.UI.Components.Models.Settings.SubSettings;
+﻿using FinalYearProject.Shared.Models.UI;
+using FinalYearProject.UI.Components.Models.Settings.SubSettings;
 
 namespace FinalYearProject.UI.Components.Models.Settings
 {

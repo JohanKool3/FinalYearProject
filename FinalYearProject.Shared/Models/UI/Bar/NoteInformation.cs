@@ -1,7 +1,7 @@
-﻿using FinalYearProject.UI.Components.Enums;
-using FinalYearProject.UI.Components.Interfaces;
+﻿using FinalYearProject.Shared.Enums;
+using FinalYearProject.Shared.Interfaces;
 
-namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
+namespace FinalYearProject.Shared.Models.UI.Bar
 {
     public class NoteInformation : IPositionedElement
     {
@@ -41,6 +41,6 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         /// <summary>
         /// How Long the note is held for (in beats)
         /// </summary>
-        public double NoteLength { get; internal set; }
+        public double NoteLength { get;  set; }
     }
 }
