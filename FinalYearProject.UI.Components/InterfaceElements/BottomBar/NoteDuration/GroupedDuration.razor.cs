@@ -29,6 +29,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuratio
         /// </summary>
         [Parameter, EditorRequired]
         public int NextNoteXPosition { get; set; }
+
+        [Parameter, EditorRequired]
+        public int Divisions { get; set; }
+
         #endregion
 
         #region Settings

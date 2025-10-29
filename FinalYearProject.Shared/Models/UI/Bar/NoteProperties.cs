@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.Shared.Enums;
+using FinalYearProject.Shared.Helpers;
 
 namespace FinalYearProject.Shared.Models.UI.Bar
 {
@@ -11,6 +12,12 @@ namespace FinalYearProject.Shared.Models.UI.Bar
         /// How Long the Note is held for (in beats)
         /// </summary>
         public double Length { get; set; }
+
+        /// <summary>
+        /// Calculated Beat Subdivisions based on Length
+        /// </summary>
+        public DurationMetadata BeatMetadata 
+            => NoteHelper.GetDurationMetadata(Length);
 
         /// <summary>
         /// The Type of note being displayed

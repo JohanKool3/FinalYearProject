@@ -19,11 +19,19 @@ namespace FinalYearProject.Shared.Helpers
             var groupLengthInBeats = noteGroupInformation.TotalGroupBeatLength;
 
             // Get the Group Percentage Length
-            var groupLengthPercentage = 
+            var groupLengthPercentage =
                GetGroupLengthPercentage(note);
 
             return groupLengthInBeats * groupLengthPercentage;
         }
+
+        public static DurationMetadata GetDurationMetadata(double lengthInBeats)
+        {
+            // TODO: Extend this for Triplet values
+            return CalculateStandardDurationMetadata(lengthInBeats);
+
+        }
+
 
         #region Helper Methods
 
@@ -31,6 +39,47 @@ namespace FinalYearProject.Shared.Helpers
             => Math.Abs(note.EndPercentage - note.StartPercentage)
                 / 100.0;
 
-        #endregion
+
+        private static DurationMetadata CalculateStandardDurationMetadata(double lengthInBeats)
+        {
+            var currentLength = lengthInBeats;
+            var division = 2.0d;
+            var dottedAmount = 0;
+
+            while (currentLength > 0.0d)
+            {
+                double fractionalValue = (1.0d / division);
+
+                if (currentLength < fractionalValue)
+                {
+                    division *= 2;
+                }
+                else
+                {
+                    // Subtract the value
+                    currentLength -= fractionalValue;
+
+                    // Check if the current length is zero
+                    while (currentLength > 0)
+                    {
+                        // Check for dotted values
+                        fractionalValue /= 2.0d;
+                        if (currentLength >= fractionalValue)
+                        {
+                            currentLength -= fractionalValue;
+                            dottedAmount++;
+                        }
+                    }
+                }
+            }
+
+            return new()
+            {
+                Subdivision = (int)division,
+                DottedAmount = 0
+            };
+
+            #endregion
+        }
     }
 }

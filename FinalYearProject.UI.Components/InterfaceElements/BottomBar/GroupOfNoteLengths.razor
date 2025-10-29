@@ -2,8 +2,6 @@
 @using FinalYearProject.Shared.Models.UI.Bar
 @using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 
-
-
 @for (int index = 0; index < NoteGroupInformation.Notes.Count; index++)
 {
     var note = NoteGroupInformation.Notes[index];
@@ -17,12 +15,20 @@
             // Check the next Index
             var nextNote = NoteGroupInformation.Notes[index + 1];
 
-            if (nextNote.Properties.IsGrouped)
+            @if (nextNote.Properties.IsGrouped)
             {
+                // TODO: Calculate the Smallest Division for Grouped Notes
+
+                var currentNoteMeta = note.Properties.BeatMetadata;
+                var nextNoteMeta = nextNote.Properties.BeatMetadata;
+
+                var smallestDivision = Math.Min(currentNoteMeta.Subdivision, nextNoteMeta.Subdivision);
+
                 // Need to render Grouped for this
                 <GroupedDuration XPosition="@GetNoteXPosition(note)"
                                  NextNoteXPosition="@GetNoteXPosition(nextNote)"
-                                 YPosition="0" />
+                                 YPosition="0"
+                                 Divisions ="smallestDivision" />
             }
             else
             {

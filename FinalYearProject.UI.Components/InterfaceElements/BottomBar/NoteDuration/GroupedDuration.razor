@@ -1,12 +1,25 @@
 <line x1="@XPosition"
-      y1="@YPosition"
+y1="@YPosition"
       x2="@XPosition"
       y2="@_noteHeight"
       stroke="black" stroke-width="2" />
 
-@* Horizontal Line Connecting Grouped Notes *@
-<line x1="@XPosition"
-      y1="@_noteHeight"
-      x2="@NextNoteXPosition"
-      y2="@_noteHeight"
-      stroke="black" stroke-width="2" />
+@{
+    var height = _noteHeight;
+}
+
+@* TODO: Perform check for Triplets *@
+
+@for (int i = 1; i <= Divisions / 2; i++)
+{
+    @* Horizontal Line Connecting Grouped Notes *@
+    <line x1="@XPosition"
+          y1="@height"
+          x2="@NextNoteXPosition"
+          y2="@height"
+          stroke="black" stroke-width="2" />
+
+    @* TODO: Add some settings for this value *@
+    height -= (_height / 10);
+}
+
