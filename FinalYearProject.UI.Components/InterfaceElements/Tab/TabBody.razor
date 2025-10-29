@@ -10,12 +10,10 @@
     else
     {
         <div class="tab-bars-container">
-
-            @* TODO: Place Tuning at the start of the piece*@
             <Tuning />
 
             @foreach (var (bar, index) in (GetCurrentTab()?.Bars ?? [])
-                    .Select((bar, index) => (bar, index)))
+                        .Select((bar, index) => (bar, index)))
             {
                 <FullBar BarNumber="index + 1"
                          BarInformation="bar"

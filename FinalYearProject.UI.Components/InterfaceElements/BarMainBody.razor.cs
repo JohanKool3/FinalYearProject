@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarMainBody(TabRepresentationService representationService)
+    public partial class BarMainBody(TabRepresentationService representationService) : ComponentBase
     {
 
         #region Parameters
@@ -25,9 +25,21 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter, EditorRequired]
         public required BarInformation BarInformation { get; set; }
 
-
-
         #endregion
+
+        protected override void OnParametersSet()
+        {
+            // Go through each note group and set its Beat Length
+            foreach (var noteGroup in _noteGroups)
+            {
+                noteGroup.TotalGroupBeatLength = NoteGroupHelper
+                    .GetNoteGroupTotalBeatLength(
+                    BarInformation.TimeSignature,
+                        noteGroup);
+            }
+
+            base.OnParametersSet();
+        }
 
         public RepresentationSettings Settings { get; } = representationService.Settings;
 
@@ -39,7 +51,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private int _barWidth
             => BarDimensionsHelper.GetBarWidth(_noteGroups, Settings);
 
-        private int _barHeight 
+        private int _barHeight
             => BarDimensionsHelper.GetBarHeight(Settings);
 
         #endregion

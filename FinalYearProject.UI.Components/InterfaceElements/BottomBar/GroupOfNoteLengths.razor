@@ -10,13 +10,17 @@
     }
     else if (note.NoteType == NoteType.Separated)
     {
-        @* Indicate a Crotchet Note *@
+        @* Indicate a Separated Note *@
         <CrotchetDuration XPosition="@GetNoteXPosition(note)"
                           YPosition="0" />
     }
     else
     {
-        // TODO: Render Beamed Notes here
+        var noteLength = GetNoteLength(note);
+        
+        // TODO: Render Beamed Notes here based on noteLength
+        <CrotchetDuration XPosition="@GetNoteXPosition(note)"
+                          YPosition="0" />
     }
 }
 

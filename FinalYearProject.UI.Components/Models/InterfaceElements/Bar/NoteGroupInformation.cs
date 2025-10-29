@@ -23,5 +23,10 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         /// </summary>
         public int BarEndPercentage { get; set; }
 
+        /// <summary>
+        /// How Long the Group is in Beats 
+        /// (e.g., 1.0 = Quarter Note, 0.5 = Eighth Note)
+        /// </summary>
+        public double TotalGroupBeatLength { get; set; }
     }
 }

@@ -12,6 +12,11 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         public int StartPercentage { get; set; }
 
         /// <summary>
+        /// When this Note Ends Relative to the Note Group (0-100%)
+        /// </summary>
+        public int EndPercentage { get; set; }
+
+        /// <summary>
         /// Which Fret the note is on
         /// </summary>
         public int FretNumber { get; set; }
