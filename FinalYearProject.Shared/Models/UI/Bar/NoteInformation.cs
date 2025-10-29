@@ -27,20 +27,8 @@ namespace FinalYearProject.Shared.Models.UI.Bar
         public int StringNumber { get; set; } = 6;
 
         /// <summary>
-        /// The Type of note being displayed
+        /// Properties for the Note
         /// </summary>
-        public NoteType NoteType { get; set; } 
-            = NoteType.Separated;
-
-        /// <summary>
-        /// How the note is articulated
-        /// </summary>
-        public ArticulationType ArticulationType { get; set; } 
-            = ArticulationType.None;
-
-        /// <summary>
-        /// How Long the note is held for (in beats)
-        /// </summary>
-        public double NoteLength { get;  set; }
+        public NoteProperties Properties { get; set; } = new();
     }
 }

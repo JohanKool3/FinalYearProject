@@ -2,6 +2,7 @@
 using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.Shared.Enums;
 using FinalYearProject.Shared.Helpers;
+using FinalYearProject.Shared.Models.UI.Bar;
 
 namespace FinalYearProject.Services.UIFramework.TabLoaders
 {
@@ -17,6 +18,51 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
         {
             #region Example Data Creation
 
+            List<NoteInformation> notes = [
+            new(){
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Grouped
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Grouped
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 50,
+                EndPercentage = 75,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Grouped
+                }
+            },
+            new()
+            {
+                StringNumber = 6,
+                FretNumber = 0,
+                StartPercentage = 75,
+                EndPercentage = 100,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Grouped
+                }
+            }];
+
             // In the Future, this can be loaded from a file or 
             // another source
             var exampleBars = new List<BarInformation>()
@@ -27,158 +73,22 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                     TimeSignature = new(4,4),
                     NoteGroups = [
                         new(){
-                            Notes = [
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 0,
-                                    EndPercentage = 25,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 25,
-                                    EndPercentage = 50,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 50,
-                                    EndPercentage = 75,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    StringNumber = 6,
-                                    FretNumber = 0,
-                                    StartPercentage = 75,
-                                    EndPercentage = 100,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                ],
+                            Notes = notes,
                             BarStartPercentage = 0,
                             BarEndPercentage = 25
                         },
                         new(){
-                            Notes = [
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 0,
-                                    EndPercentage = 25,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 25,
-                                    EndPercentage = 50,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 50,
-                                    EndPercentage = 75,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    StringNumber = 6,
-                                    FretNumber = 0,
-                                    StartPercentage = 75,
-                                    EndPercentage = 100,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                ],
+                            Notes = notes,
                             BarStartPercentage = 25,
                             BarEndPercentage = 50
                         },
                         new(){
-                            Notes = [
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 0,
-                                    EndPercentage = 25,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 25,
-                                    EndPercentage = 50,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 50,
-                                    EndPercentage = 75,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    StringNumber = 6,
-                                    FretNumber = 0,
-                                    StartPercentage = 75,
-                                    EndPercentage = 100,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                ],
+                            Notes = notes,
                             BarStartPercentage = 50,
                             BarEndPercentage = 75
                         },
                         new(){
-                            Notes = [
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 0,
-                                    EndPercentage = 25,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-
-                                new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 25,
-                                    EndPercentage = 50,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    FretNumber = 0,
-                                    StringNumber = 6,
-                                    StartPercentage = 50,
-                                    EndPercentage = 75,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                    new(){
-                                    NoteType = NoteType.Grouped,
-                                    StringNumber = 6,
-                                    FretNumber = 0,
-                                    StartPercentage = 75,
-                                    EndPercentage = 100,
-                                    ArticulationType= ArticulationType.None,
-                                    },
-                                ],
+                            Notes = notes,
                             BarStartPercentage = 75,
                             BarEndPercentage = 100
                         }
@@ -213,16 +123,18 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 foreach (var group in bar.NoteGroups)
                 {
                     // Calculate each groups Beat Duration
-                    group.TotalGroupBeatLength = 
+                    group.TotalGroupBeatLength =
                         NoteGroupHelper.GetNoteGroupTotalBeatLength(
                             timeSignature, group);
 
                     // Calculate each note within the groups Beat Duration
-                    foreach(var note in group.Notes)
+                    foreach (var note in group.Notes)
                     {
-                        note.NoteLength = 
-                            NoteHelper.GetNoteLength(
-                                note, group);
+                        note.Properties = new()
+                        {
+                            Length = NoteHelper.GetNoteLength(note, group)
+                        };
+
                     }
                 }
 

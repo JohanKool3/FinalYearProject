@@ -10,7 +10,7 @@
 
     @foreach (var note in NoteGroupInformation.Notes)
     {
-        @if (note.NoteType == NoteType.Grace)
+        @if (note.Properties.Type == NoteType.Grace)
         {
             <GraceNote Note="note"
                        XPosition="GetNoteXPosition(note)"

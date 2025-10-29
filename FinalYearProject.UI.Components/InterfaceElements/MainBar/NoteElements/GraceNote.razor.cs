@@ -5,6 +5,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar.NoteElements
 {
     public partial class GraceNote
     {
+        #region Parameters
+        
         /// <summary>
         /// The Note to display.
         /// </summary>
@@ -34,5 +36,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.MainBar.NoteElements
         /// </summary>
         [Parameter]
         public bool DrawOutline { get; set; } = true;
+
+        #endregion
     }
 }

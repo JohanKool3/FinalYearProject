@@ -3,13 +3,13 @@
 
 @foreach (var note in NoteGroupInformation.Notes)
 {
-    @if (note.NoteType == NoteType.Grace)
+    @if (note.Properties.Type == NoteType.Grace)
     {
         @* Indicate a grace note *@
         <GraceNoteDuration XPosition="@GetNoteXPosition(note)"
                            YPosition="0" />
     }
-    else if (note.NoteType == NoteType.Separated)
+    else if (note.Properties.Type == NoteType.Separated)
     {
         @* Indicate a Separated Note *@
         <CrotchetDuration XPosition="@GetNoteXPosition(note)"
@@ -17,8 +17,6 @@
     }
     else
     {
-        var noteLength = note.NoteLength;
-
         // TODO: Render Beamed Notes here based on noteLength
         <CrotchetDuration XPosition="@GetNoteXPosition(note)"
                           YPosition="0" />
