@@ -6,14 +6,9 @@
     public enum NoteType
     {
         /// <summary>
-        /// Note that is Not Grouped with any other
+        /// A Normal Note
         /// </summary>
-        Separated,
-
-        /// <summary>
-        /// Note that is Grouped with others
-        /// </summary>
-        Grouped,
+        Normal,
 
         /// <summary>
         /// A Rest from playing

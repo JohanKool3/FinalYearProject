@@ -2,6 +2,9 @@
 
 namespace FinalYearProject.Shared.Models.UI.Bar
 {
+    /// <summary>
+    /// Properties of a Note
+    /// </summary>
     public class NoteProperties
     {
         /// <summary>
@@ -13,13 +16,17 @@ namespace FinalYearProject.Shared.Models.UI.Bar
         /// The Type of note being displayed
         /// </summary>
         public NoteType Type { get; set; }
-            = NoteType.Separated;
+            = NoteType.Normal;
+
+        /// <summary>
+        /// Whether to display the note as grouped with others
+        /// </summary>
+        public bool IsGrouped { get; set; }
 
         /// <summary>
         /// How the note is articulated
         /// </summary>
         public ArticulationType Articulation { get; set; }
             = ArticulationType.None;
-
     }
 }

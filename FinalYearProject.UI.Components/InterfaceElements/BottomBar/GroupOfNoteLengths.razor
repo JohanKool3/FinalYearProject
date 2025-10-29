@@ -3,21 +3,15 @@
 
 @foreach (var note in NoteGroupInformation.Notes)
 {
+    // TODO: Detect when a note is grouped
     @if (note.Properties.Type == NoteType.Grace)
     {
         @* Indicate a grace note *@
         <GraceNoteDuration XPosition="@GetNoteXPosition(note)"
                            YPosition="0" />
     }
-    else if (note.Properties.Type == NoteType.Separated)
-    {
-        @* Indicate a Separated Note *@
-        <CrotchetDuration XPosition="@GetNoteXPosition(note)"
-                          YPosition="0" />
-    }
     else
     {
-        // TODO: Render Beamed Notes here based on noteLength
         <CrotchetDuration XPosition="@GetNoteXPosition(note)"
                           YPosition="0" />
     }

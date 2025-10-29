@@ -26,7 +26,8 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 EndPercentage = 25,
                 Properties = new(){
                     Articulation = ArticulationType.None,
-                    Type = NoteType.Grouped
+                    Type = NoteType.Normal,
+                    IsGrouped = true
                 }
             },
             new()
@@ -37,7 +38,8 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 EndPercentage = 50,
                 Properties = new(){
                     Articulation = ArticulationType.None,
-                    Type = NoteType.Grouped
+                    Type = NoteType.Normal,
+                    IsGrouped = true
                 }
             },
             new()
@@ -48,7 +50,8 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 EndPercentage = 75,
                 Properties = new(){
                     Articulation = ArticulationType.None,
-                    Type = NoteType.Grouped
+                    Type = NoteType.Normal,
+                    IsGrouped = true
                 }
             },
             new()
@@ -59,7 +62,8 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 EndPercentage = 100,
                 Properties = new(){
                     Articulation = ArticulationType.None,
-                    Type = NoteType.Grouped
+                    Type = NoteType.Normal,
+                    IsGrouped = true
                 }
             }];
 
