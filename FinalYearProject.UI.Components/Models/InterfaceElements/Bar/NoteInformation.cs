@@ -38,5 +38,9 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         public ArticulationType ArticulationType { get; set; } 
             = ArticulationType.None;
 
+        /// <summary>
+        /// How Long the note is held for (in beats)
+        /// </summary>
+        public double NoteLength { get; internal set; }
     }
 }

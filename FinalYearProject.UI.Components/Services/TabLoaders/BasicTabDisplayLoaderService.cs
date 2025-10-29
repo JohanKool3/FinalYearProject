@@ -2,6 +2,7 @@
 using FinalYearProject.UI.Components.Enums;
 using FinalYearProject.UI.Components.Models.InterfaceElements;
 using FinalYearProject.UI.Components.Models.InterfaceElements.Tab;
+using FinalYearProject.UI.Components.Helpers;
 namespace FinalYearProject.UI.Components.Services.TabLoaders
 {
     /// <summary>
@@ -15,6 +16,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
         public BasicTabDisplayLoaderService()
         {
             #region Example Data Creation
+
             // In the Future, this can be loaded from a file or 
             // another source
             var exampleBars = new List<BarInformation>()
@@ -182,7 +184,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         }
                         ],
                 },
-                
+
             };
 
             #endregion
@@ -198,7 +200,36 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
 
         /// <inheritdoc />
         public TabInformation? GetCurrentTab()
-            => _currentTab;
+        {
+            // TODO: This should be done in the future within a
+            // Convertor Service that converts from a file format
+            // To the Display Format leaving this method
+            // purely for retrieving information
+
+            foreach (var bar in _currentTab.Bars)
+            {
+                var timeSignature = bar.TimeSignature;
+
+                foreach (var group in bar.NoteGroups)
+                {
+                    // Calculate each groups Beat Duration
+                    group.TotalGroupBeatLength = 
+                        NoteGroupHelper.GetNoteGroupTotalBeatLength(
+                            timeSignature, group);
+
+                    // Calculate each note within the groups Beat Duration
+                    foreach(var note in group.Notes)
+                    {
+                        note.NoteLength = 
+                            NoteHelper.GetNoteLength(
+                                note, group);
+                    }
+                }
+
+            }
+
+            return _currentTab;
+        }
 
         /// <inheritdoc />
         public bool IsTabLoaded()

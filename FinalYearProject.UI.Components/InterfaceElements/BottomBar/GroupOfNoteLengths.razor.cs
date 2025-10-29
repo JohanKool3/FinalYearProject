@@ -38,12 +38,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
             return XPosition + groupPosition;
         }
 
-        private double GetNoteLength(NoteInformation note)
-        => NoteHelper.GetNoteLength(
-                note,
-                NoteGroupInformation);
-
-
         public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Settings

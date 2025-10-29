@@ -27,20 +27,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
-        protected override void OnParametersSet()
-        {
-            // Go through each note group and set its Beat Length
-            foreach (var noteGroup in _noteGroups)
-            {
-                noteGroup.TotalGroupBeatLength = NoteGroupHelper
-                    .GetNoteGroupTotalBeatLength(
-                    BarInformation.TimeSignature,
-                        noteGroup);
-            }
-
-            base.OnParametersSet();
-        }
-
         public RepresentationSettings Settings { get; } = representationService.Settings;
 
         #region Settings

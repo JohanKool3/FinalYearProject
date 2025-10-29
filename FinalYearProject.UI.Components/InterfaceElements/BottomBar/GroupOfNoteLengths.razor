@@ -16,8 +16,8 @@
     }
     else
     {
-        var noteLength = GetNoteLength(note);
-        
+        var noteLength = note.NoteLength;
+
         // TODO: Render Beamed Notes here based on noteLength
         <CrotchetDuration XPosition="@GetNoteXPosition(note)"
                           YPosition="0" />
