@@ -12,9 +12,14 @@ namespace FinalYearProject.UI.Components.Enums
     public enum NoteType
     {
         /// <summary>
-        /// Normal Playing Note
+        /// Note that is Not Grouped with any other
         /// </summary>
-        Normal,
+        Separated,
+
+        /// <summary>
+        /// Note that is Grouped with others
+        /// </summary>
+        Grouped,
 
         /// <summary>
         /// A Rest from playing

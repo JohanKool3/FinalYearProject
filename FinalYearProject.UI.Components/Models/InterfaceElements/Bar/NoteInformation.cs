@@ -25,7 +25,7 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         /// The Type of note being displayed
         /// </summary>
         public NoteType NoteType { get; set; } 
-            = NoteType.Normal;
+            = NoteType.Separated;
 
         /// <summary>
         /// How the note is articulated

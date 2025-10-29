@@ -27,7 +27,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -35,21 +35,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -62,7 +62,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -70,21 +70,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -97,7 +97,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -105,21 +105,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -132,7 +132,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -140,21 +140,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -174,7 +174,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -182,21 +182,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -209,7 +209,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -217,21 +217,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -244,7 +244,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -252,21 +252,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,
@@ -279,7 +279,7 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                         new(){
                             Notes = [
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 0,
                                     StringNumber = 6,
                                     StartPercentage = 0,
@@ -287,21 +287,21 @@ namespace FinalYearProject.UI.Components.Services.TabLoaders
                                     },
 
                                 new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 1,
                                     StringNumber = 6,
                                     StartPercentage = 25,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     FretNumber = 3,
                                     StringNumber = 6,
                                     StartPercentage = 50,
                                     ArticulationType= ArticulationType.None,
                                     },
                                     new(){
-                                    NoteType = NoteType.Normal,
+                                    NoteType = NoteType.Separated,
                                     StringNumber = 5,
                                     FretNumber = 0,
                                     StartPercentage = 75,

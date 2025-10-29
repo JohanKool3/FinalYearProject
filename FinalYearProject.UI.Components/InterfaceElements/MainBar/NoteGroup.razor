@@ -8,7 +8,7 @@
 
     @foreach (var note in NoteGroupInformation.Notes)
     {
-        @if (note.NoteType == NoteType.Normal)
+        @if (note.NoteType == NoteType.Separated)
         {
             <NormalNote Note="note"
                         XPosition="GetNoteXPosition(note)"

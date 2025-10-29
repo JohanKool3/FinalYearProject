@@ -2,15 +2,21 @@
 
 @foreach (var note in NoteGroupInformation.Notes)
 {
-    // TODO: Add Beams here where needed
     @if (note.NoteType == NoteType.Grace)
     {
         @* Indicate a grace note *@
-        <GraceNoteDuration XPosition="@GetNoteXPosition(note)" />
+        <GraceNoteDuration XPosition="@GetNoteXPosition(note)"
+                           YPosition="0" />
+    }
+    else if (note.NoteType == NoteType.Separated)
+    {
+        @* Indicate a Crotchet Note *@
+        <CrotchetDuration XPosition="@GetNoteXPosition(note)"
+                          YPosition="0" />
     }
     else
     {
-        <CrotchetDuration XPosition="@GetNoteXPosition(note)" />
+        // TODO: Render Beamed Notes here
     }
 }
 

@@ -10,8 +10,15 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuratio
         /// <summary>
         /// Where this note duration should be drawn on the X Axis
         /// </summary>
-        [Parameter]
+        [Parameter, EditorRequired]
         public int XPosition { get; set; }
+
+        /// <summary>
+        /// Where the this note duration should be drawn on the Y Axis (within
+        /// the bottom bar section)
+        /// </summary>
+        [Parameter]
+        public int YPosition { get; set; }
         #endregion
 
         public TabRepresentationService RepresentationService { get; }
