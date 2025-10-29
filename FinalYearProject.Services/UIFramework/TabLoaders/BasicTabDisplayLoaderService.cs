@@ -47,18 +47,6 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 FretNumber = 0,
                 StringNumber = 6,
                 StartPercentage = 50,
-                EndPercentage = 75,
-                Properties = new(){
-                    Articulation = ArticulationType.None,
-                    Type = NoteType.Normal,
-                    IsGrouped = true
-                }
-            },
-            new()
-            {
-                StringNumber = 6,
-                FretNumber = 0,
-                StartPercentage = 75,
                 EndPercentage = 100,
                 Properties = new(){
                     Articulation = ArticulationType.None,
@@ -67,43 +55,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 }
             }];
 
-            List<NoteInformation> notes2 = [
-            new()
-            {
-                StringNumber = 6,
-                FretNumber = 0,
-                StartPercentage = 0,
-                EndPercentage = 50,
-                Properties = new(){
-                    Articulation = ArticulationType.None,
-                    Type = NoteType.Normal,
-                    IsGrouped = true
-                }
-            },
-            new()
-            {
-                StringNumber = 6,
-                FretNumber = 0,
-                StartPercentage = 50,
-                EndPercentage = 75,
-                Properties = new(){
-                    Articulation = ArticulationType.None,
-                    Type = NoteType.Normal,
-                    IsGrouped = true
-                }
-            },
-            new()
-            {
-                StringNumber = 6,
-                FretNumber = 0,
-                StartPercentage = 75,
-                EndPercentage = 100,
-                Properties = new(){
-                    Articulation = ArticulationType.None,
-                    Type = NoteType.Normal,
-                    IsGrouped = true
-                }
-            },];
+            List<NoteInformation> notes2 = [];
 
             // In the Future, this can be loaded from a file or 
             // another source
@@ -115,7 +67,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                     TimeSignature = new(4,4),
                     NoteGroups = [
                         new(){
-                            Notes = notes2,
+                            Notes = notes,
                             BarStartPercentage = 0,
                             BarEndPercentage = 25
                         },

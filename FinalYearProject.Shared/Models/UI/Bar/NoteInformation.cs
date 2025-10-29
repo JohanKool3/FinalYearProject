@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Shared.Enums;
+﻿
 using FinalYearProject.Shared.Interfaces;
 
 namespace FinalYearProject.Shared.Models.UI.Bar
