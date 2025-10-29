@@ -1,6 +1,6 @@
 ﻿using FinalYearProject.Shared.Interfaces;
 
-namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
+namespace FinalYearProject.Shared.Models.UI.TopBar
 {
     public class ChordInformation : IPositionedElement
     { 

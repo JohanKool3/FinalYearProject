@@ -1,6 +1,6 @@
 using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.UI;
-using FinalYearProject.UI.Components.Models.InterfaceElements.TopBar;
+using FinalYearProject.Shared.Models.UI.TopBar;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 

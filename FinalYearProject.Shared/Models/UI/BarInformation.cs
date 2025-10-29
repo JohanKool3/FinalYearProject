@@ -1,6 +1,6 @@
 ﻿using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.Shared.Models.UI.Bar;
-using FinalYearProject.UI.Components.Models.InterfaceElements.TopBar;
+using FinalYearProject.Shared.Models.UI.TopBar;
 
 namespace FinalYearProject.Shared.Models.UI
 {
