@@ -1,4 +1,5 @@
 @using FinalYearProject.Shared.Enums
+@using FinalYearProject.Shared.Models.UI.Bar
 @using FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 
 
@@ -10,16 +11,18 @@
     // Handle Grouped Notes
     if (note.Properties.IsGrouped)
     {
-        var nextNote = note;
         // Look ahead
         if (index < GroupLength - 1)
         {
             // Check the next Index
-            nextNote = NoteGroupInformation.Notes[index + 1];
+            var nextNote = NoteGroupInformation.Notes[index + 1];
 
             if (nextNote.Properties.IsGrouped)
             {
                 // Need to render Grouped for this
+                <GroupedDuration XPosition="@GetNoteXPosition(note)"
+                                 NextNoteXPosition="@GetNoteXPosition(nextNote)"
+                                 YPosition="0" />
             }
             else
             {

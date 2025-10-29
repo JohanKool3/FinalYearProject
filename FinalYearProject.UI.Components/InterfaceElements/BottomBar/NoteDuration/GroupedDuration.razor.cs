@@ -4,8 +4,11 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 {
-    public partial class SeparateDuration(TabRepresentationService representationService)
+    public partial class GroupedDuration(TabRepresentationService representationService)
     {
+        public RepresentationSettings Settings { get; }
+           = representationService.Settings;
+
         #region Parameters
 
         /// <summary>
@@ -20,18 +23,21 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuratio
         /// </summary>
         [Parameter]
         public int YPosition { get; set; }
+
+        /// <summary>
+        /// Where the next note duration should be drawn on the X Axis
+        /// </summary>
+        [Parameter, EditorRequired]
+        public int NextNoteXPosition { get; set; }
         #endregion
 
-        public RepresentationSettings Settings { get; }
-            = representationService.Settings;
-
         #region Settings
-        private int _height 
+        private int _height
             => Settings
                 .BottomBar
                 .Height;
 
-        private int _noteSpacing 
+        private int _noteSpacing
             => Settings
                 .Notes
                 .NoteSpacing;
