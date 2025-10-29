@@ -1,9 +1,4 @@
 ﻿using FinalYearProject.UI.Components.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
 {
@@ -12,7 +7,7 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.TopBar
         /// <summary>
         /// How far accross the bar the chord starts (0-100) in %
         /// </summary>
-        public int StartPercentage { get; set; }
+        public double StartPercentage { get; set; }
 
         /// <summary>
         /// The Chord Name to display

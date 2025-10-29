@@ -9,12 +9,12 @@ namespace FinalYearProject.UI.Components.Models.InterfaceElements.Bar
         /// <summary>
         /// Where this Note Starts Relative to the Note Group (0-100%)
         /// </summary>
-        public int StartPercentage { get; set; }
+        public double StartPercentage { get; set; }
 
         /// <summary>
         /// When this Note Ends Relative to the Note Group (0-100%)
         /// </summary>
-        public int EndPercentage { get; set; }
+        public double EndPercentage { get; set; }
 
         /// <summary>
         /// Which Fret the note is on
