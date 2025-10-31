@@ -1,0 +1,11 @@
+﻿@if (_isVisible)
+{
+    <!-- Playback line -->
+    <line x1="@XPosition"
+          y1="@YPosition"
+          x2="@XPosition"
+          y2="@(YPosition + _height)"
+          stroke="@_color"
+          stroke-width="@_width"
+          class="playback-line" />
+}

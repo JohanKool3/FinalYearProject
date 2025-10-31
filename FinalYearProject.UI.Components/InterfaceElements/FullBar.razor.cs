@@ -78,6 +78,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                 .BottomBar
                 .TopPadding;
 
+        private int _mainBarTopPadding
+            => Settings
+                .Notes
+                .TopPadding;
+
         #endregion
 
         /// <summary>
@@ -89,5 +94,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private int GetBottomBarYOffset()
             => _topBarHeight + _barHeight + _bottomBarYPadding;
+
+        private int GetPlaybackIndicatorYPosition()
+            => _topBarHeight + _mainBarTopPadding/4;
     }
 }

@@ -68,5 +68,14 @@ namespace FinalYearProject.UI.Components.Models.Settings
                 Height = 60,
                 TopPadding = 5
             };
+
+
+        public PlaybackIndicatorSettings PlaybackIndicator { get; private set; }
+            = new()
+            {
+                Height = 100,
+                Width = 3,
+                Color = "#FF0000"
+            };
     }
 }
