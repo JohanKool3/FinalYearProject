@@ -30,10 +30,33 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                     IsGrouped = true
                 }
             },
+            new(){
+                FretNumber = 2,
+                StringNumber = 5,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
             new()
             {
                 FretNumber = 0,
                 StringNumber = 6,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 2,
+                StringNumber = 5,
                 StartPercentage = 25,
                 EndPercentage = 50,
                 Properties = new(){
@@ -53,9 +76,179 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                     Type = NoteType.Normal,
                     IsGrouped = true
                 }
+            },
+            new()
+            {
+                FretNumber = 2,
+                StringNumber = 5,
+                StartPercentage = 50,
+                EndPercentage = 100,
+                Properties = new(){
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
             }];
 
-            List<NoteInformation> notes2 = [];
+            List<NoteInformation> notes2 = [
+                new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 9,
+                StringNumber = 5,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 9,
+                StringNumber = 5,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 50,
+                EndPercentage = 100,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 9,
+                StringNumber = 5,
+                StartPercentage = 50,
+                EndPercentage = 100,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            }];
+
+            List<NoteInformation> notes3 = [
+                new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 10,
+                StringNumber = 5,
+                StartPercentage = 0,
+                EndPercentage = 25,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 10,
+                StringNumber = 5,
+                StartPercentage = 25,
+                EndPercentage = 50,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 0,
+                StringNumber = 6,
+                StartPercentage = 50,
+                EndPercentage = 100,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            },
+            new()
+            {
+                FretNumber = 10,
+                StringNumber = 5,
+                StartPercentage = 50,
+                EndPercentage = 100,
+                Properties = new()
+                {
+                    Articulation = ArticulationType.None,
+                    Type = NoteType.Normal,
+                    IsGrouped = true
+                }
+            }];
 
             // In the Future, this can be loaded from a file or 
             // another source
@@ -83,6 +276,33 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                         },
                         new(){
                             Notes = notes,
+                            BarStartPercentage = 75,
+                            BarEndPercentage = 100
+                        }
+                        ],
+                },
+                new()
+                {
+                    Bpm = 160,
+                    TimeSignature = new(4,4),
+                    NoteGroups = [
+                        new(){
+                            Notes = notes2,
+                            BarStartPercentage = 0,
+                            BarEndPercentage = 25
+                        },
+                        new(){
+                            Notes = notes3,
+                            BarStartPercentage = 25,
+                            BarEndPercentage = 50
+                        },
+                        new(){
+                            Notes = notes2,
+                            BarStartPercentage = 50,
+                            BarEndPercentage = 75
+                        },
+                        new(){
+                            Notes = notes3,
                             BarStartPercentage = 75,
                             BarEndPercentage = 100
                         }
