@@ -1,11 +1,13 @@
+using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class PlaybackIndicator(TabRepresentationService representationService)
+    public partial class PlaybackIndicator(TabRepresentationService representationService, TabPlaybackService playbackService) : IDisposable
     {
+
         #region Parameters
         
         /// <summary>
@@ -20,9 +22,71 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public int YPosition { get; set; }
 
+        /// <summary>
+        /// The Time Signature for the bar that the indicator is linked to
+        /// </summary>
+        [Parameter, EditorRequired]
+        public required TimeSignature BarTimeSignature { get; set; }
+
+        /// <summary>
+        /// The width of the parent bar that the indicator is linked to
+        /// </summary>
+        [Parameter]
+        public int ParentBarWidth { get; set; }
+
         #endregion
 
         public RepresentationSettings Settings { get; } = representationService.Settings;
+        
+        public TabPlaybackService PlaybackService { get; } = playbackService;
+
+        private PeriodicTimer? _timer;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                _timer = new PeriodicTimer(TimeSpan.FromMilliseconds(GetFrameTime()));
+                await foreach (var _ in RunAnimation(_timer))
+                {
+                    StateHasChanged();
+                }
+            }
+        }
+
+        private long GetFrameTime()
+            => 1000 / Settings.PlaybackIndicator.FramesPerSecond;
+
+        private async IAsyncEnumerable<int> RunAnimation(PeriodicTimer timer)
+        {
+            int frame = 0;
+            while (await timer.WaitForNextTickAsync())
+            {
+                // Only move if playback is active
+                if (PlaybackService.IsPlaying)
+                {
+                    // Calculate pixels per frame based on BPM
+                    var speed = CalculateSpeedFromBpm();
+                    XPosition += speed;
+                }
+                yield return frame++;
+            }
+        }
+
+        private int CalculateSpeedFromBpm()
+        {
+            int bpm = PlaybackService.Bpm;
+            int beatsPerBar = BarTimeSignature.BeatsPerMeasure;
+            long frameTimeMs = GetFrameTime();
+
+            return (int)(ParentBarWidth * bpm * frameTimeMs) / (60000 * beatsPerBar);
+        }
+
+        public void Dispose() 
+            => _timer?.Dispose();
+
+
+        #region Settings
 
         private int _width
             => Settings.PlaybackIndicator.Width;
@@ -34,6 +98,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => Settings.PlaybackIndicator.Color;
 
         private bool _isVisible
-            => false; // TODO: Pull this from the playback service
+            => true; // TODO: Pull this from the playback service
+
+        
+
+        #endregion
     }
 }

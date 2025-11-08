@@ -256,7 +256,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
             {
                 new()
                 {
-                    Bpm = 160,
+                    Bpm = 181,
                     TimeSignature = new(4,4),
                     NoteGroups = [
                         new(){
@@ -283,7 +283,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 },
                 new()
                 {
-                    Bpm = 160,
+                    Bpm = 181,
                     TimeSignature = new(4,4),
                     NoteGroups = [
                         new(){
