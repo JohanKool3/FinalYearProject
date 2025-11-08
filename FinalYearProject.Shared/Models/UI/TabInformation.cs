@@ -31,5 +31,11 @@
         /// </summary>
         public List<BarInformation> Bars { get; set; } = [];
 
+        /// <summary>
+        /// Holds how long the entire tab is in seconds
+        /// </summary>
+        public float TotalLengthInSeconds
+            => Bars.Count == 0 ? 0 : Bars[^1].PositionInTab.EndTimestamp;
+
     }
 }

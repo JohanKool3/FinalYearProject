@@ -3,6 +3,7 @@ using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.Shared.Enums;
 using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.UI.Bar;
+using FinalYearProject.Services.Helpers;
 
 namespace FinalYearProject.Services.UIFramework.TabLoaders
 {
@@ -312,6 +313,11 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
             };
 
             #endregion
+
+            // Go Through each Bar and calculate positioning information
+            exampleBars = BarPositioningHelper
+                            .CalculateBarPositionsInTab(exampleBars);
+
 
             _currentTab = new TabInformation()
             {

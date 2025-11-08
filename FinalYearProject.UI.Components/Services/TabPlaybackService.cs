@@ -13,6 +13,9 @@ namespace FinalYearProject.UI.Components.Services
             // Load the Initial Piece
             LoadPiece();
         }
+
+        #region Properties
+
         /// <summary>
         /// Returns whether the tab is currently being played.
         /// </summary>
@@ -22,6 +25,14 @@ namespace FinalYearProject.UI.Components.Services
         /// The current Beats Per Minute (BPM) for playback
         /// </summary>
         public int Bpm { get; private set; } = 120;
+
+        /// <summary>
+        /// Keeps track of the current progress through the tab as a time
+        /// </summary>
+        public float CurrentTimeInSeconds { get; private set; } = 0;
+
+        public float TotalTabLengthInSeconds
+            => CurrentTab?.TotalLengthInSeconds ?? 0;
 
         /// <summary>
         /// Who authored the current tab
@@ -39,7 +50,10 @@ namespace FinalYearProject.UI.Components.Services
             => CurrentTab?.Description ?? "No Description";
 
         public TabInformation? CurrentTab { get; private set; }
+        
         public ITabDisplayLoaderService DisplayLoaderService { get; }
+        
+        #endregion
 
         /// <summary>
         /// Starts playback of tab
@@ -47,6 +61,9 @@ namespace FinalYearProject.UI.Components.Services
         public void StartPlayback()
         {
             IsPlaying = true;
+
+            // TODO: Implement Timer here to update
+            // CurrentTimeInSeconds based on Bpm of current bar
         }
 
         /// <summary>
@@ -54,8 +71,24 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public void StopPlayback()
         {
+            // TODO: Implement Stopping of Timer here
             IsPlaying = false;
         }
+
+        public void ResetPlayback()
+        {
+            // Currently, resetting playback only stops it.
+            StopPlayback();
+            SetProgressPercent(0);
+        }
+
+        /// <summary>
+        /// Sets the current progress percentage for playback, 
+        /// clamped between 0% and 100%
+        /// </summary>
+        /// <param name="playbackPercentage"></param>
+        public void SetProgressPercent(int playbackPercentage)
+            => CurrentTimeInSeconds = Math.Clamp(playbackPercentage, 0, 100);
 
         /// <summary>
         /// Sets the BPM for playback, clamped between 20BPM and 300BPM

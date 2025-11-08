@@ -16,6 +16,13 @@ namespace FinalYearProject.Shared.Models.UI
             = TimeSignature.Default;
 
         /// <summary>
+        /// Holds information about where a bar is
+        /// in the tab as a whole.
+        /// </summary>
+        public BarPositionInTab PositionInTab { get; set; } =
+            BarPositionInTab.Default;
+
+        /// <summary>
         /// The BPM of this bar
         /// </summary>
         public int Bpm { get; set; } = 120;

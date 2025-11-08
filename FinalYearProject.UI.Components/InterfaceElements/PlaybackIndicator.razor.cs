@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class PlaybackIndicator(TabRepresentationService representationService, TabPlaybackService playbackService) : IDisposable
+    public partial class PlaybackIndicator(
+        TabRepresentationService representationService,
+        TabPlaybackService playbackService) : IDisposable
     {
 
         #region Parameters
-        
+
         /// <summary>
         /// Where the Playback Indicator is positioned on the X axis
         /// </summary>
@@ -37,7 +39,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #endregion
 
         public RepresentationSettings Settings { get; } = representationService.Settings;
-        
+
         public TabPlaybackService PlaybackService { get; } = playbackService;
 
         private PeriodicTimer? _timer;
@@ -82,7 +84,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             return (int)(ParentBarWidth * bpm * frameTimeMs) / (60000 * beatsPerBar);
         }
 
-        public void Dispose() 
+        public void Dispose()
             => _timer?.Dispose();
 
 
@@ -99,8 +101,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private bool _isVisible
             => true; // TODO: Pull this from the playback service
-
-        
 
         #endregion
     }

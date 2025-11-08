@@ -8,6 +8,7 @@
         /// <summary>
         /// The Notes that are assigned to this group
         /// </summary>
+        //TODO: Extend this to allow Chords at each note position
         public List<NoteInformation> Notes { get; set; } = [];
 
         /// <summary>
