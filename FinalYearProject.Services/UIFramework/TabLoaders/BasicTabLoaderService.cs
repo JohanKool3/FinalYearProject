@@ -11,11 +11,11 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
     /// Basic Tab Display Loader Service for testing and development 
     /// purposes
     /// </summary>
-    public class BasicTabDisplayLoaderService : ITabDisplayLoaderService
+    public class BasicTabLoaderService : ITabLoaderService
     {
         private readonly TabInformation _currentTab = null!;
 
-        public BasicTabDisplayLoaderService()
+        public BasicTabLoaderService()
         {
             #region Example Data Creation
 
@@ -322,14 +322,14 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
             _currentTab = new TabInformation()
             {
                 Bars = exampleBars,
-                Author = "John Doe",
-                Title = "Sample Tab",
+                Author = "Gojira",
+                Title = "Backbone Snippet",
                 Description = "This is a sample tab for testing purposes. The limit of this desription must never exceed 400"
             };
         }
 
         /// <inheritdoc />
-        public TabInformation? GetCurrentTab()
+        public TabInformation? GetTab()
         {
             // TODO: This should be done in the future within a
             // Convertor Service that converts from a file format
@@ -370,7 +370,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
         public bool IsTabLoaded()
             => _currentTab is not null;
 
-        public void LoadTabDisplayInformation(TabInformation information)
+        public void LoadTab(TabInformation information)
         {
             throw new NotImplementedException();
         }

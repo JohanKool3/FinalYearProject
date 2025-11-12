@@ -5,10 +5,10 @@ namespace FinalYearProject.UI.Components.Services
 {
     public class DisplayService
     {
-        public DisplayService(ITabDisplayLoaderService displayLoaderService)
+        public DisplayService(ITabLoaderService displayLoaderService)
         {
             //Pull Display Loader Service from Dependency Injection
-            DisplayLoaderService = displayLoaderService;
+            TabLoaderService = displayLoaderService;
 
             // Load the Initial Piece
             LoadPiece();
@@ -51,7 +51,7 @@ namespace FinalYearProject.UI.Components.Services
 
         public TabInformation? CurrentTab { get; private set; }
         
-        public ITabDisplayLoaderService DisplayLoaderService { get; }
+        public ITabLoaderService TabLoaderService { get; }
         
         #endregion
 
@@ -105,7 +105,7 @@ namespace FinalYearProject.UI.Components.Services
         public void LoadPiece()
         {
             // Load the tab from the display loader service
-            var tab = DisplayLoaderService.GetCurrentTab();
+            var tab = TabLoaderService.GetTab();
 
             CurrentTab = tab;
 
