@@ -18,11 +18,10 @@
 
             <PauseButton NotifyParentOfChange="PlaybackStateChanged" />
 
+            <StopButton NotifyParentOfChange="PlaybackStateChanged" />
+
             <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
         </TabToolbar>
     </div>
 </div>
-@code {
-    private Task PlaybackStateChanged()
-        => InvokeAsync(StateHasChanged);
-}
+
