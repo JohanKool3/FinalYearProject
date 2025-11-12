@@ -22,6 +22,9 @@ namespace FinalYearProject.UI.Components.Extensions
             // Register Playback Service
             services.AddSingleton<DisplayService>();
 
+            // Register Playback Service
+            services.AddSingleton<PlaybackService>();
+
             // Register Settings Service
             services.AddSingleton<SettingsService>();
             return services;

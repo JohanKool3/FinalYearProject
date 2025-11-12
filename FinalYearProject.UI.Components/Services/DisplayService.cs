@@ -5,6 +5,10 @@ namespace FinalYearProject.UI.Components.Services
 {
     public class DisplayService
     {
+        /// <summary>
+        /// Service for storing and managing the display of tabs
+        /// </summary>
+        /// <param name="displayLoaderService"></param>
         public DisplayService(ITabLoaderService displayLoaderService)
         {
             //Pull Display Loader Service from Dependency Injection
@@ -16,23 +20,12 @@ namespace FinalYearProject.UI.Components.Services
 
         #region Properties
 
-        /// <summary>
-        /// Returns whether the tab is currently being played.
-        /// </summary>
-        public bool IsPlaying { get; private set; } = false;
+        
 
         /// <summary>
         /// The current Beats Per Minute (BPM) for playback
         /// </summary>
         public int Bpm { get; private set; } = 120;
-
-        /// <summary>
-        /// Keeps track of the current progress through the tab as a time
-        /// </summary>
-        public float CurrentTimeInSeconds { get; private set; } = 0;
-
-        public float TotalTabLengthInSeconds
-            => CurrentTab?.TotalLengthInSeconds ?? 0;
 
         /// <summary>
         /// Who authored the current tab
@@ -54,41 +47,6 @@ namespace FinalYearProject.UI.Components.Services
         public ITabLoaderService TabLoaderService { get; }
         
         #endregion
-
-        /// <summary>
-        /// Starts playback of tab
-        /// </summary>
-        public void StartPlayback()
-        {
-            IsPlaying = true;
-
-            // TODO: Implement Timer here to update
-            // CurrentTimeInSeconds based on Bpm of current bar
-        }
-
-        /// <summary>
-        /// Stops playback of tab.
-        /// </summary>
-        public void StopPlayback()
-        {
-            // TODO: Implement Stopping of Timer here
-            IsPlaying = false;
-        }
-
-        public void ResetPlayback()
-        {
-            // Currently, resetting playback only stops it.
-            StopPlayback();
-            SetProgressPercent(0);
-        }
-
-        /// <summary>
-        /// Sets the current progress percentage for playback, 
-        /// clamped between 0% and 100%
-        /// </summary>
-        /// <param name="playbackPercentage"></param>
-        public void SetProgressPercent(int playbackPercentage)
-            => CurrentTimeInSeconds = Math.Clamp(playbackPercentage, 0, 100);
 
         /// <summary>
         /// Sets the BPM for playback, clamped between 20BPM and 300BPM

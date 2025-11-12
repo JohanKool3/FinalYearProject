@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class PlayButton(DisplayService playbackService) : ComponentBase
+    public partial class PlayButton(PlaybackService playbackService) : ComponentBase
     {
         [Parameter]
         public Func<Task>? OnPlayAsync { get; set; } = null;
@@ -15,7 +15,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         [Parameter, EditorRequired]
         public Func<Task> NotifyParentOfChange { get; set; } = null!;
 
-        public DisplayService PlaybackService { get; } = playbackService;
+        public PlaybackService PlaybackService { get; } = playbackService;
 
         private async Task StartPlayAsync(MouseEventArgs args)
         {

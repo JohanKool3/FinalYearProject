@@ -7,7 +7,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class PlaybackIndicator(
         SettingsService representationService,
-        DisplayService playbackService) : IDisposable
+        DisplayService displayService,
+        PlaybackService playbackService) : IDisposable
     {
 
         #region Parameters
@@ -38,9 +39,15 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #endregion
 
+        #region Services
+        
         public RepresentationSettings Settings { get; } = representationService.Settings;
-
-        public DisplayService PlaybackService { get; } = playbackService;
+        
+        private int _bpm => displayService.Bpm;
+        
+        public PlaybackService PlaybackService { get; } = playbackService;
+        
+        #endregion
 
         private PeriodicTimer? _timer;
 
@@ -77,11 +84,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private int CalculateSpeedFromBpm()
         {
-            int bpm = PlaybackService.Bpm;
             int beatsPerBar = BarTimeSignature.BeatsPerMeasure;
             long frameTimeMs = GetFrameTime();
 
-            return (int)(ParentBarWidth * bpm * frameTimeMs) / (60000 * beatsPerBar);
+            return (int)(ParentBarWidth * _bpm * frameTimeMs) / (60000 * beatsPerBar);
         }
 
         public void Dispose()
