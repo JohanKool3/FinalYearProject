@@ -7,7 +7,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class PlaybackIndicator(
         SettingsService representationService,
-        TabPlaybackService playbackService) : IDisposable
+        DisplayService playbackService) : IDisposable
     {
 
         #region Parameters
@@ -40,7 +40,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         public RepresentationSettings Settings { get; } = representationService.Settings;
 
-        public TabPlaybackService PlaybackService { get; } = playbackService;
+        public DisplayService PlaybackService { get; } = playbackService;
 
         private PeriodicTimer? _timer;
 

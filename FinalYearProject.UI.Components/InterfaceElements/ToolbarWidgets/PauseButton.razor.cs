@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class PauseButton(TabPlaybackService playbackService) : ComponentBase
+    public partial class PauseButton(DisplayService playbackService) : ComponentBase
     {
         /// <summary>
         /// Action that is invoked when the pause button is clicked
@@ -18,7 +18,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         [Parameter, EditorRequired]
         public Func<Task> NotifyParentOfChange { get; set; } = null!;
 
-        public TabPlaybackService PlaybackService { get; set; } = playbackService;
+        public DisplayService PlaybackService { get; set; } = playbackService;
 
         private async Task PausePlayAsync(MouseEventArgs args)
         {

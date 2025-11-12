@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
-    public partial class TabBody(TabPlaybackService playbackService,
+    public partial class TabBody(DisplayService playbackService,
         SettingsService representationService)
         : ComponentBase
     {
-        public TabPlaybackService PlaybackService { get; set; }
+        public DisplayService PlaybackService { get; set; }
             = playbackService;
         
         public SettingsService RepresentationService { get; }

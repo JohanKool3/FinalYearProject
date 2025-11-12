@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class BpmWidget(TabPlaybackService playbackService) : ComponentBase
+    public partial class BpmWidget(DisplayService playbackService) : ComponentBase
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         [Parameter, EditorRequired]
         public Func<Task> NotifyParentOfChange { get; set; } = null!;
 
-        public TabPlaybackService PlaybackService { get; set; } = playbackService;
+        public DisplayService PlaybackService { get; set; } = playbackService;
 
         /// <summary>
         /// Display value for the current BPM.

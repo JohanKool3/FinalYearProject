@@ -6,9 +6,9 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Tab
     /// Header and Title information for the Tab being displayed
     /// </summary>
     /// <param name="playbackService"></param>
-    public partial class TabHeader(TabPlaybackService playbackService)
+    public partial class TabHeader(DisplayService playbackService)
     {
-        public TabPlaybackService PlaybackService { get; set; } = playbackService;
+        public DisplayService PlaybackService { get; set; } = playbackService;
 
         /// <summary>
         /// Author of the current tab

@@ -3,9 +3,9 @@ using FinalYearProject.Shared.Models.UI;
 
 namespace FinalYearProject.UI.Components.Services
 {
-    public class TabPlaybackService
+    public class DisplayService
     {
-        public TabPlaybackService(ITabDisplayLoaderService displayLoaderService)
+        public DisplayService(ITabDisplayLoaderService displayLoaderService)
         {
             //Pull Display Loader Service from Dependency Injection
             DisplayLoaderService = displayLoaderService;
