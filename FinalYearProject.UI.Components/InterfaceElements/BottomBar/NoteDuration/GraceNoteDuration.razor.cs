@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 {
-    public partial class GraceNoteDuration(TabRepresentationService representationService)
+    public partial class GraceNoteDuration(SettingsService representationService)
     {
         #region Parameters
 
@@ -21,7 +21,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuratio
         public int YPosition { get; set; }
         #endregion
 
-        public TabRepresentationService RepresentationService { get; }
+        public SettingsService RepresentationService { get; }
             = representationService;
 
         #region Settings

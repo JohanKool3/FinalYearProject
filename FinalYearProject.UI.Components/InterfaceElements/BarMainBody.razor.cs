@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarMainBody(TabRepresentationService representationService) : ComponentBase
+    public partial class BarMainBody(SettingsService representationService) : ComponentBase
     {
 
         #region Parameters

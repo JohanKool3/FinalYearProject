@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 {
-    public partial class GroupedDuration(TabRepresentationService representationService)
+    public partial class GroupedDuration(SettingsService representationService)
     {
         public RepresentationSettings Settings { get; }
            = representationService.Settings;

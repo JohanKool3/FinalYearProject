@@ -23,7 +23,7 @@ namespace FinalYearProject.UI.Components.Extensions
             services.AddSingleton<TabPlaybackService>();
 
             // Register Settings Service
-            services.AddSingleton<TabRepresentationService>();
+            services.AddSingleton<SettingsService>();
             return services;
         }
     }

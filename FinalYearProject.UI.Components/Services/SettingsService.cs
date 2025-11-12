@@ -6,7 +6,7 @@ namespace FinalYearProject.UI.Components.Services
     /// <summary>
     /// Holds settings related to the display
     /// </summary>
-    public class TabRepresentationService
+    public class SettingsService
     {
         public RepresentationSettings Settings { get; private set; }
           = new();

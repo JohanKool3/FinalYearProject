@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar.NoteDuration
 {
-    public partial class SeparateDuration(TabRepresentationService representationService)
+    public partial class SeparateDuration(SettingsService representationService)
     {
         #region Parameters
 

@@ -6,7 +6,7 @@ using FinalYearProject.UI.Components.Services;
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
 
-    public partial class Tuning(TabRepresentationService representationService)
+    public partial class Tuning(SettingsService representationService)
     {
         public RepresentationSettings Settings { get; } = representationService.Settings;
 

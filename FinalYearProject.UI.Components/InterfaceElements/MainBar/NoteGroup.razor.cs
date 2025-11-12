@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class NoteGroup(TabRepresentationService representationService)
+    public partial class NoteGroup(SettingsService representationService)
     {
 
         public RepresentationSettings Settings { get; }

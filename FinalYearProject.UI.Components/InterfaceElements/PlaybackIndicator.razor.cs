@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class PlaybackIndicator(
-        TabRepresentationService representationService,
+        SettingsService representationService,
         TabPlaybackService playbackService) : IDisposable
     {
 

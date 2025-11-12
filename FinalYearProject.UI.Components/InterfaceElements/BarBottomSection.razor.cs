@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BarBottomSection(TabRepresentationService representationService)
+    public partial class BarBottomSection(SettingsService representationService)
     {
-        public TabRepresentationService RepresentationService { get; } 
+        public SettingsService RepresentationService { get; } 
             = representationService;
 
         #region Parameters

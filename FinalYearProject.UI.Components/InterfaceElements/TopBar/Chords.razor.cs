@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 {
-    public partial class Chords(TabRepresentationService representationService)
+    public partial class Chords(SettingsService representationService)
     {
         #region Parameters
 
@@ -48,7 +48,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 
         #endregion
 
-        public TabRepresentationService RepresentationService { get; }
+        public SettingsService RepresentationService { get; }
             = representationService;
 
         private int GetHeight()

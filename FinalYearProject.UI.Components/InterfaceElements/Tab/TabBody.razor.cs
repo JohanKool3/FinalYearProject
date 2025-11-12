@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Components;
 namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
     public partial class TabBody(TabPlaybackService playbackService,
-        TabRepresentationService representationService)
+        SettingsService representationService)
         : ComponentBase
     {
         public TabPlaybackService PlaybackService { get; set; }
             = playbackService;
         
-        public TabRepresentationService RepresentationService { get; }
+        public SettingsService RepresentationService { get; }
             = representationService;
 
         /// <summary>

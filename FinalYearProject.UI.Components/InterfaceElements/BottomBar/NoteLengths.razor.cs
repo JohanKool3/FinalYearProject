@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.BottomBar
 {
-    public partial class NoteLengths(TabRepresentationService representationService)
+    public partial class NoteLengths(SettingsService representationService)
     {
         public RepresentationSettings Settings { get; } = representationService.Settings;
 

@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TopBar
 {
-    public partial class BpmMarking(TabRepresentationService representationService)
+    public partial class BpmMarking(SettingsService representationService)
     {
-        public TabRepresentationService RepresentationService { get; } = representationService;
+        public SettingsService RepresentationService { get; } = representationService;
 
         #region Parameters
 

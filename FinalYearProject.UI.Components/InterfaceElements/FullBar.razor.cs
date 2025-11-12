@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class FullBar(TabRepresentationService representationService)
+    public partial class FullBar(SettingsService representationService)
     {
         #region Parameters
 

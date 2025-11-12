@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class Notes(TabRepresentationService tabRepresentationService)
+    public partial class Notes(SettingsService tabRepresentationService)
     {
         public RepresentationSettings Settings { get; } = tabRepresentationService.Settings;
 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.MainBar
 {
-    public partial class BarTimeSignature(TabRepresentationService representationService)
+    public partial class BarTimeSignature(SettingsService representationService)
     {
         #region Parameters
         /// <summary>
