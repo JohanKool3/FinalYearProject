@@ -5,10 +5,16 @@
     /// </summary>
     public class PlaybackService(DisplayService displayService)
     {
+        #region Services
+
         /// <summary>
         /// Registers the display service to get tab information from
         /// </summary>
         public DisplayService DisplayService { get; } = displayService;
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Returns whether the tab is currently being played.
@@ -26,13 +32,72 @@
         public float TotalTabLengthInSeconds
             => DisplayService.CurrentTab?.TotalLengthInSeconds ?? 0;
 
+        #endregion
+
+
+        private event Func<Task>? OnStartPlayback;
+
+        private event Func<Task>? OnStopPlayback;
+
+        #region Registration of Events
+
+        /// <summary>
+        /// Registers a callback for when playback is started
+        /// </summary>
+        /// <param name="event"></param>
+        public void RegisterOnStartPlaybackEvent(Func<Task> @event)
+        {
+            OnStartPlayback += @event;
+        }
+
+        /// <summary>
+        /// Registers a callback for when playback is stopped
+        /// </summary>
+        /// <param name="event"></param>
+        public void RegisterOnStopPlaybackEvent(Func<Task> @event)
+        {
+            OnStopPlayback += @event;
+        }
+
+        #endregion
+
+        #region Events Invocation
+        private async Task InvokeOnStartPlaybackEvent()
+        {
+            if (OnStartPlayback is null)
+            {
+                return;
+            }
+
+            await OnStartPlayback.Invoke();
+        }
+
+        /// <summary>
+        /// Call the registered OnStopPlayback events
+        /// </summary>
+        /// <returns></returns>
+        private async Task InvokeOnStopPlaybackEvent()
+        {
+            if (OnStopPlayback is null)
+            {
+                return;
+            }
+
+            await OnStopPlayback.Invoke();
+
+        }
+        #endregion
+
+        #region Playback Controls
 
         /// <summary>
         /// Starts playback of tab
         /// </summary>
-        public void StartPlayback()
+        public Task StartPlaybackAsync()
         {
             IsPlaying = true;
+            
+            return InvokeOnStartPlaybackEvent();
 
             // TODO: Implement Timer here to update
             // CurrentTimeInSeconds based on Bpm of current bar
@@ -41,17 +106,21 @@
         /// <summary>
         /// Stops playback of tab.
         /// </summary>
-        public void StopPlayback()
+        public Task StopPlaybackAsync()
         {
             // TODO: Implement Stopping of Timer here
             IsPlaying = false;
+
+            return InvokeOnStopPlaybackEvent();
         }
 
-        public void ResetPlayback()
+        public Task ResetPlaybackAsync()
         {
             // Currently, resetting playback only stops it.
-            StopPlayback();
+            StopPlaybackAsync();
             SetProgress(0f);
+
+            return InvokeOnStopPlaybackEvent();
         }
 
         /// <summary>
@@ -59,6 +128,9 @@
         /// clamped between 0% and 100%
         /// </summary>
         /// <param name="playbackPercentage"></param>
+        /// <remarks>
+        /// This is used for seeking across the tab during playback.
+        /// </remarks>
         public void SetProgress(float playbackPercentage)
         {
             // Get a Fraction of the total length
@@ -69,6 +141,8 @@
             CurrentTimeInSeconds
                 = TotalTabLengthInSeconds * progressPercentage;
         }
+
+        #endregion
 
     }
 }

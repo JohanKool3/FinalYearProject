@@ -19,7 +19,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 
         private async Task StartPlayAsync(MouseEventArgs args)
         {
-            PlaybackService.StartPlayback();
+            await PlaybackService.StartPlaybackAsync();
             await InvokeAsync(NotifyParentOfChange);
 
             if (OnPlayAsync is null)

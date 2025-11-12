@@ -23,7 +23,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         private async Task StopPlayAsync(MouseEventArgs args)
         {
             // Inform the service that the pause button was clicked
-            PlaybackService.ResetPlayback();
+            await PlaybackService.ResetPlaybackAsync();
             await InvokeAsync(NotifyParentOfChange);
 
             if (OnPauseAsync is null)

@@ -5,11 +5,34 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class PlaybackIndicator(
-        SettingsService representationService,
-        DisplayService displayService,
-        PlaybackService playbackService) : IDisposable
+    public partial class PlaybackIndicator
+        
     {
+
+        public PlaybackIndicator(SettingsService representationService,
+        SettingsService settingsService,
+        DisplayService displayService,
+        PlaybackService playbackService)
+        {
+            RepresentationService = representationService;
+            SettingsService = settingsService;
+            DisplayService = displayService;
+            PlaybackService = playbackService;
+
+            // Register to be notified when settings change
+            RegisterEventHandlers();
+
+        }
+
+        #region Event Handlers
+
+        private void RegisterEventHandlers()
+        {
+            PlaybackService.RegisterOnStartPlaybackEvent(OnPlaybackStartAsync);
+            PlaybackService.RegisterOnStopPlaybackEvent(OnPlaybackEndAsync);
+        }
+
+        #endregion
 
         #region Parameters
 
@@ -32,6 +55,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         public required TimeSignature BarTimeSignature { get; set; }
 
         /// <summary>
+        /// The number of the bar that the indicator is linked to
+        /// </summary>
+        [Parameter, EditorRequired]
+        public required int BarNumber { get; set; }
+
+        /// <summary>
         /// The width of the parent bar that the indicator is linked to
         /// </summary>
         [Parameter]
@@ -40,74 +69,45 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #endregion
 
         #region Services
-        
-        public RepresentationSettings Settings { get; } = representationService.Settings;
-        
-        private int _bpm => displayService.Bpm;
-        
-        public PlaybackService PlaybackService { get; } = playbackService;
+        public SettingsService RepresentationService { get; }
+        public SettingsService SettingsService { get; }
+        public DisplayService DisplayService { get; }
+        public PlaybackService PlaybackService { get; }
         
         #endregion
-
-        private PeriodicTimer? _timer;
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                _timer = new PeriodicTimer(TimeSpan.FromMilliseconds(GetFrameTime()));
-                await foreach (var _ in RunAnimation(_timer))
-                {
-                    StateHasChanged();
-                }
-            }
-        }
-
-        private long GetFrameTime()
-            => 1000 / Settings.PlaybackIndicator.FramesPerSecond;
-
-        private async IAsyncEnumerable<int> RunAnimation(PeriodicTimer timer)
-        {
-            int frame = 0;
-            while (await timer.WaitForNextTickAsync())
-            {
-                // Only move if playback is active
-                if (PlaybackService.IsPlaying)
-                {
-                    // Calculate pixels per frame based on BPM
-                    var speed = CalculateSpeedFromBpm();
-                    XPosition += speed;
-                }
-                yield return frame++;
-            }
-        }
-
-        private int CalculateSpeedFromBpm()
-        {
-            int beatsPerBar = BarTimeSignature.BeatsPerMeasure;
-            long frameTimeMs = GetFrameTime();
-
-            return (int)(ParentBarWidth * _bpm * frameTimeMs) / (60000 * beatsPerBar);
-        }
-
-        public void Dispose()
-            => _timer?.Dispose();
-
-
+        
         #region Settings
 
         private int _width
-            => Settings.PlaybackIndicator.Width;
+            => SettingsService.Settings.PlaybackIndicator.Width;
 
         private int _height
-            => Settings.PlaybackIndicator.Height;
+            => SettingsService.Settings.PlaybackIndicator.Height;
 
         private string _color
-            => Settings.PlaybackIndicator.Color;
-
-        private bool _isVisible
-            => true; // TODO: Pull this from the playback service
+            => SettingsService.Settings.PlaybackIndicator.Color;
 
         #endregion
+    
+        
+        private bool _isVisible
+            => PlaybackService.IsPlaying;
+
+        private int _bpm
+            => DisplayService.Bpm;
+
+        /// <summary>
+        /// When playback starts, refresh the component state.
+        /// </summary>
+        /// <returns></returns>
+        private Task OnPlaybackStartAsync() 
+            => InvokeAsync(StateHasChanged);
+
+        /// <summary>
+        /// When playback ends, referesh the component state.
+        /// </summary>
+        /// <returns></returns>
+        private Task OnPlaybackEndAsync()
+            => InvokeAsync(StateHasChanged);
     }
 }
