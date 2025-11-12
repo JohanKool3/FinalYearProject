@@ -1,11 +1,10 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
-using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class PlaybackIndicator
+    public partial class PlaybackIndicator : IDisposable
         
     {
 
@@ -109,5 +108,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <returns></returns>
         private Task OnPlaybackEndAsync()
             => InvokeAsync(StateHasChanged);
+
+        public void Dispose()
+        {
+            // Unregister event handlers if needed
+            PlaybackService.UnregisterOnStartPlaybackEvent(OnPlaybackStartAsync);
+            PlaybackService.UnregisterOnStopPlaybackEvent(OnPlaybackEndAsync);
+        }
     }
 }

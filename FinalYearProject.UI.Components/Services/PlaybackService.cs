@@ -59,6 +59,26 @@
             OnStopPlayback += @event;
         }
 
+        /// <summary>
+        /// Removes a callback for when playback is started.
+        /// Prevents memory leaks and invocations of non existent methods.
+        /// </summary>
+        /// <param name="event"></param>
+        public void UnregisterOnStartPlaybackEvent(Func<Task> @event)
+        {
+            OnStartPlayback -= @event;
+        }
+
+        /// <summary>
+        /// Removes a callback for when playback is stopped. 
+        /// Prevents memory leaks and invocations of non existent methods.
+        /// </summary>
+        /// <param name="event"></param>
+        public void UnregisterOnStopPlaybackEvent(Func<Task> @event)
+        {
+            OnStopPlayback -= @event;
+        }
+
         #endregion
 
         #region Events Invocation
