@@ -7,7 +7,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
     public partial class PlaybackIndicator : IDisposable
         
     {
-
         public PlaybackIndicator(SettingsService representationService,
         SettingsService settingsService,
         DisplayService displayService,
