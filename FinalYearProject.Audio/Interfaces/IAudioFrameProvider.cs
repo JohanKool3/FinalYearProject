@@ -5,6 +5,6 @@
     /// </summary>
     public interface IAudioFrameProvider
     {
-        bool TryGetFrame(float[] buffer);
+        // TODO: Define methods and properties for audio frame provision
     }
 }
