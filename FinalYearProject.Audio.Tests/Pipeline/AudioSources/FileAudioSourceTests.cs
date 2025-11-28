@@ -1,8 +1,5 @@
 ﻿using FinalYearProject.Audio.Pipeline.AudioSources;
 using FinalYearProject.Audio.Tests.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FinalYearProject.Audio.Tests.Pipeline.AudioSources
 {
@@ -10,11 +7,56 @@ namespace FinalYearProject.Audio.Tests.Pipeline.AudioSources
     {
 
         [Fact]
-        public void FileAudioSource_Constructor_ShouldInitializeNullProperties()
+        public void FileAudioSource_Constructor_ShouldInitializeNullProperties_ForInvalidFilePath()
         {
             // Arrange
             string testFilePath = "invalid_file.wav";
             
+            // Act
+            var audioSource = new FileAudioSource(testFilePath);
+
+            // Assert
+            Assert.NotNull(audioSource);
+            Assert.Null(audioSource.SampleRate); // Default value
+            Assert.Null(audioSource.Channels);   // Default value
+        }
+
+        [Fact]
+        public void FileAudioSource_Constructor_ShouldInitializeNullProperties_ForMalformedFilePath()
+        {
+            // Arrange
+            string testFilePath = ":::malformed_path:::/file.wav";
+            
+            // Act
+            var audioSource = new FileAudioSource(testFilePath);
+
+            // Assert
+            Assert.NotNull(audioSource);
+            Assert.Null(audioSource.SampleRate); // Default value
+            Assert.Null(audioSource.Channels);   // Default value
+        }
+
+        [Fact]
+        public void FileAudioSource_Constructor_ShouldInitializeNullProperties_ForNoFileExtension()
+        {
+            // Arrange
+            string testFilePath = "file";
+
+            // Act
+            var audioSource = new FileAudioSource(testFilePath);
+
+            // Assert
+            Assert.NotNull(audioSource);
+            Assert.Null(audioSource.SampleRate); // Default value
+            Assert.Null(audioSource.Channels);   // Default value
+        }
+
+        [Fact]
+        public void FileAudioSource_Constructor_ShouldInitializeNullProperties_ForEmptyPath()
+        {
+            // Arrange
+            string testFilePath = string.Empty;
+
             // Act
             var audioSource = new FileAudioSource(testFilePath);
 

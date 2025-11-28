@@ -12,6 +12,16 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
         /// <param name="filePath"></param>
         public FileAudioSource(string filePath)
         {
+            // If the File Path is empty, set the reader and sample provider to null
+            // and mark as inactive.
+            if (filePath == string.Empty)
+            {
+                _reader = null;
+                _sampleProvider = null;
+                IsActive = false;
+                return;
+            }
+
             try
             {
                 _reader = new WaveFileReader(filePath);
@@ -27,8 +37,14 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
                 IsActive = false;
 
             }
-            
-           
+            catch(DirectoryNotFoundException)
+            {
+                _reader = null;
+                _sampleProvider = null;
+                IsActive = false;
+
+            }
+
         }
 
         /// <inheritdoc />
