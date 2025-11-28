@@ -16,11 +16,15 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
             {
                 _reader = new WaveFileReader(filePath);
                 _sampleProvider = _reader.ToSampleProvider();
+                SampleRate = _reader.WaveFormat.SampleRate;
+                Channels = _reader.WaveFormat.Channels;
+                IsActive = true;
             }
             catch(FileNotFoundException)
             {
                 _reader = null;
                 _sampleProvider = null;
+                IsActive = false;
 
             }
             
