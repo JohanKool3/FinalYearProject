@@ -78,7 +78,7 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
         public int Read(float[] buffer)
         {
             // Handle the case where the sample provider is not initialized.
-            if (_sampleProvider is null)
+            if (!IsActive || _sampleProvider is null)
             {
                 return 0;
             }
