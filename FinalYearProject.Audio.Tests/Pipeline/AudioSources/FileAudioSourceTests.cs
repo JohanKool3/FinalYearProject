@@ -1,5 +1,5 @@
 ﻿using FinalYearProject.Audio.Pipeline.AudioSources;
-using FinalYearProject.Audio.Tests.Helpers;
+using FinalYearProject.Shared.Helpers;
 
 namespace FinalYearProject.Audio.Tests.Pipeline.AudioSources
 {
@@ -71,7 +71,7 @@ namespace FinalYearProject.Audio.Tests.Pipeline.AudioSources
         public async Task FileAudioSource_Constructor_ShouldInitializeProperly()
         {
             // Arrange
-            string testFilePath = FileHelper.GetTestFilePath("eminor-test.wav");
+            string testFilePath = FileHelper.GetTestFilePath("eminor-test.wav", "TestData");
 
             // Act
             var audioSource = new FileAudioSource(testFilePath);
@@ -104,7 +104,7 @@ namespace FinalYearProject.Audio.Tests.Pipeline.AudioSources
         public void FileAudioSource_Read_ShouldReturnSamples_ForActiveSource()
         {
             // Arrange
-            string testFilePath = FileHelper.GetTestFilePath("eminor-test.wav");
+            string testFilePath = FileHelper.GetTestFilePath("eminor-test.wav", "TestData");
             var audioSource = new FileAudioSource(testFilePath);
             float[] buffer = new float[1024];
             

@@ -1,16 +1,15 @@
-﻿
-namespace FinalYearProject.Audio.Tests.Helpers
+﻿namespace FinalYearProject.Shared.Helpers
 {
-    internal static class FileHelper
+    public static class FileHelper
     {
         /// <summary>
         /// Gets the full path to a test file located in the TestData directory.
         /// </summary>
         /// <param name="fileName">Full Filename for the test e.g. 'test.wav'</param>
         /// <returns></returns>
-        internal static string GetTestFilePath(string fileName)
+        public static string GetTestFilePath(string fileName, string folderName)
         {
-            return Path.Combine(AppContext.BaseDirectory, "TestData", fileName);
+            return Path.Combine(AppContext.BaseDirectory, folderName, fileName);
         }
     }
 }

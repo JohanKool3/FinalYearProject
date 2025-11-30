@@ -61,12 +61,19 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="AudioFiles\eminor-test.wav">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FinalYearProject.Audio.UI\FinalYearProject.Audio.UI.csproj" />
       <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
       <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>

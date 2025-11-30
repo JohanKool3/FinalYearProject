@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11222.15 d18.0
+VisualStudioVersion = 18.0.11222.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.UI", "FinalYearProject.UI\FinalYearProject.UI.csproj", "{84DF0E83-33D0-4499-A840-6522DD39F189}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio", "FinalYearProject.Audio\FinalYearProject.Audio.csproj", "{235CA011-3939-494D-B272-C697D42578FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio.Tests", "FinalYearProject.Audio.Tests\FinalYearProject.Audio.Tests.csproj", "{22F4CFC8-9410-41DD-8AD5-B79C90B1CEC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio.UI", "FinalYearProject.Audio.UI\FinalYearProject.Audio.UI.csproj", "{CC8AC672-82F4-499D-B689-D38C5AC8C9FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{22F4CFC8-9410-41DD-8AD5-B79C90B1CEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F4CFC8-9410-41DD-8AD5-B79C90B1CEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F4CFC8-9410-41DD-8AD5-B79C90B1CEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC8AC672-82F4-499D-B689-D38C5AC8C9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC8AC672-82F4-499D-B689-D38C5AC8C9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC8AC672-82F4-499D-B689-D38C5AC8C9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC8AC672-82F4-499D-B689-D38C5AC8C9FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
