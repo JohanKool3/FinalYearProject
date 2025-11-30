@@ -1,0 +1,9 @@
+.visualizer-toolbar {
+    display: inline-flex;
+    border: solid;
+    margin-top: 1em;
+    border-radius: 0.25em;
+    border-style: solid;
+    padding: 0.25em;
+    gap: 0.25em;
+}
