@@ -1,0 +1,20 @@
+<div class="visualizer-toolbar">
+    <VisualizerButton OnClick="OnStart">
+        Start
+    </VisualizerButton>
+
+
+    <VisualizerButton OnClick="OnStop">
+        Stop
+    </VisualizerButton>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public EventCallback OnStart { get; set; }
+
+    [Parameter]
+    public EventCallback OnStop { get; set; }
+}

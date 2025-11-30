@@ -2,17 +2,22 @@
 @using System.Timers
 @using FinalYearProject.Audio.Pipeline.AudioSources
 
-<h3>Waveform</h3>
+<div class="main-body">
+<div class="visualizer-main">
+    <svg width="@Width" height="@(2 * Height)">
+        @if (_samples != null && _samples.Length > 0)
+        {
+            <polyline fill="none"
+                      stroke="@LineColor"
+                      stroke-width="@LineWidth"
+                      points="@BuildPoints()">
+            </polyline>
+        }
+    </svg>
+</div>
 
-<svg width="600" height="200">
-    @if (_samples != null && _samples.Length > 0)
-    {
-        <polyline fill="none"
-                  stroke="black"
-                  stroke-width="1"
-                  points="@BuildPoints()">
-        </polyline>
-    }
-</svg>
+<VisualizerToolbar 
+    OnStart="Start"
+    OnStop="Stop"/>
 
-
+</div>

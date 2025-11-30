@@ -1,7 +1,6 @@
 using FinalYearProject.Audio.Pipeline.AudioSources;
 using FinalYearProject.Shared.Helpers;
 using Microsoft.AspNetCore.Components;
-using System.Timers;
 
 namespace FinalYearProject.Audio.UI
 {
@@ -12,6 +11,8 @@ namespace FinalYearProject.Audio.UI
         private float[] _samples;
         private System.Timers.Timer _timer;
 
+
+        #region Parameters
         /// <summary>
         /// The Full Name of the File e.g. "test.wav"
         /// </summary>
@@ -24,6 +25,26 @@ namespace FinalYearProject.Audio.UI
         [Parameter]
         public string FolderName { get; set; } = string.Empty;
 
+        /// <summary>
+        /// The Color of the line representing the audio waveform
+        /// </summary>
+        [Parameter]
+        public string LineColor { get; set; } = "black";
+
+        /// <summary>
+        /// How thick the line representing the audio waveform should be
+        /// </summary>
+        [Parameter]
+        public float LineWidth { get; set; } = 1;
+
+        [Parameter]
+        public float Width { get; set; } = 600;
+
+        [Parameter]
+        public float Height { get; set; } = 100;
+
+        #endregion
+
         protected override void OnInitialized()
         {
             var path = FileHelper.GetTestFilePath(FileName, FolderName);
@@ -31,7 +52,19 @@ namespace FinalYearProject.Audio.UI
 
             _timer = new System.Timers.Timer(30); // ~33fps
             _timer.Elapsed += (s, e) => Tick();
+        }
+
+        /// <summary>
+        /// Starts the Audio Visualizer
+        /// </summary>
+        public void Start()
+        {
             _timer.Start();
+        }
+
+        public void Stop()
+        {
+            _timer.Stop();
         }
 
         private void Tick()
@@ -50,17 +83,15 @@ namespace FinalYearProject.Audio.UI
         {
             if (_samples == null) return "";
 
-            var width = 600.0;
-            var height = 100.0;
 
-            var step = width / _samples.Length;
+            var step = Width / _samples.Length;
 
             var points = new List<string>();
 
             for (int i = 0; i < _samples.Length; i++)
             {
                 var x = i * step;
-                var y = height - (_samples[i] * height);
+                var y = Height - (_samples[i] * Height);
                 points.Add($"{x},{y}");
             }
 
