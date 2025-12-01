@@ -1,8 +1,18 @@
 @page "/audio-view"
 
 
-<WaveformView 
+<h2>Time Domain (Continuous) View</h2>
+<TimeDomainView
     FileName="eminor-test.wav"
     FolderName="AudioFiles"
     LineColor="red"
     LineWidth="3"/>
+
+<h2>Wave Form View</h2>
+<WaveFormView
+    FileName="eminor-test.wav"
+    FolderName="AudioFiles"
+    LineColor="red"
+    Fill = "true"
+    LineWidth="1"
+    Resolution="2048"/>

@@ -1,101 +1,82 @@
-using FinalYearProject.Audio.Pipeline.AudioSources;
+﻿using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Shared.Helpers;
+using FinalYearProject.Shared.Models.AudioRepresentation;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.Audio.UI
 {
-    public partial class WaveformView
+    public partial class WaveFormView
     {
-        private FileAudioSource _source;
-        private float[] _buffer = new float[2048];
-        private float[] _samples;
-        private System.Timers.Timer _timer;
-
-
         #region Parameters
-        /// <summary>
-        /// The Full Name of the File e.g. "test.wav"
-        /// </summary>
+
         [Parameter]
         public string FileName { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Where the Folder is located e.g. "TestData"
-        /// </summary>
         [Parameter]
         public string FolderName { get; set; } = string.Empty;
 
-        /// <summary>
-        /// The Color of the line representing the audio waveform
-        /// </summary>
         [Parameter]
-        public string LineColor { get; set; } = "black";
-
-        /// <summary>
-        /// How thick the line representing the audio waveform should be
-        /// </summary>
-        [Parameter]
-        public float LineWidth { get; set; } = 1;
+        public float Height { get; set; } = 100;
 
         [Parameter]
         public float Width { get; set; } = 600;
 
         [Parameter]
-        public float Height { get; set; } = 100;
+        public int LineWidth { get; set; } = 1;
+
+        [Parameter]
+        public string LineColor { get; set; } = "black";
+
+        [Parameter]
+        public int Resolution { get; set; } = 500;
+
+        [Parameter]
+        public bool Fill { get; set; } = true;
 
         #endregion
 
+        private List<WaveformPoint> _points = [];
+
         protected override void OnInitialized()
         {
-            var path = FileHelper.GetTestFilePath(FileName, FolderName);
-            _source = new FileAudioSource(path);
+            var filePath = FileHelper.GetFilePath(FileName, FolderName);
 
-            _timer = new System.Timers.Timer(30); // ~33fps
-            _timer.Elapsed += (s, e) => Tick();
+            _points = WaveformLoader.LoadFileWaveform(filePath, Resolution);
         }
 
-        /// <summary>
-        /// Starts the Audio Visualizer
-        /// </summary>
-        public void Start()
+        private string BuildPositivePoints()
         {
-            _timer.Start();
-        }
+            double step = Width / _points.Count;
 
-        public void Stop()
-        {
-            _timer.Stop();
-        }
+            var list = new List<string>();
 
-        private void Tick()
-        {
-            int read = _source.Read(_buffer);
-
-            if (read > 0)
+            for (int i = 0; i < _points.Count; i++)
             {
-                _samples = _buffer.Take(read).ToArray();
+                double x = i * step;
+                double y = Height - (_points[i].MaxPositive * Height);
+                list.Add($"{x},{y}");
             }
 
-            InvokeAsync(StateHasChanged);
+            return string.Join(" ", list);
         }
 
-        private string BuildPoints()
+        private string BuildNegativePoints()
         {
-            if (_samples == null) return "";
+            double step = Width / _points.Count;
 
+            var list = new List<string>();
 
-            var step = Width / _samples.Length;
-
-            var points = new List<string>();
-
-            for (int i = 0; i < _samples.Length; i++)
+            for (int i = 0; i < _points.Count; i++)
             {
-                var x = i * step;
-                var y = Height - (_samples[i] * Height);
-                points.Add($"{x},{y}");
+                double x = i * step;
+                double y = Height - (_points[i].MaxNegative * Height);
+                list.Add($"{x},{y}");
             }
 
-            return string.Join(" ", points);
+            return string.Join(" ", list);
         }
+
+        public string GetFill()
+            => Fill ? LineColor : "none";
     }
 }

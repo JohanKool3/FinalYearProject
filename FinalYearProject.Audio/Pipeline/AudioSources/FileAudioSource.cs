@@ -16,31 +16,31 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
             // and mark as inactive.
             if (filePath == string.Empty)
             {
-                _reader = null;
-                _sampleProvider = null;
+                Reader = null;
+                SampleProvider = null;
                 IsActive = false;
                 return;
             }
 
             try
             {
-                _reader = new WaveFileReader(filePath);
-                _sampleProvider = _reader.ToSampleProvider();
-                SampleRate = _reader.WaveFormat.SampleRate;
-                Channels = _reader.WaveFormat.Channels;
+                Reader = new WaveFileReader(filePath);
+                SampleProvider = Reader.ToSampleProvider();
+                SampleRate = Reader.WaveFormat.SampleRate;
+                Channels = Reader.WaveFormat.Channels;
                 IsActive = true;
             }
-            catch(FileNotFoundException)
+            catch (FileNotFoundException)
             {
-                _reader = null;
-                _sampleProvider = null;
+                Reader = null;
+                SampleProvider = null;
                 IsActive = false;
 
             }
-            catch(DirectoryNotFoundException)
+            catch (DirectoryNotFoundException)
             {
-                _reader = null;
-                _sampleProvider = null;
+                Reader = null;
+                SampleProvider = null;
                 IsActive = false;
 
             }
@@ -48,7 +48,7 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
         }
 
         /// <inheritdoc />
-        public int? SampleRate { get; set;  }
+        public int? SampleRate { get; set; }
 
         /// <inheritdoc />
         public int? Channels { get; set; }
@@ -57,33 +57,33 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
         public bool IsActive { get; private set; }
 
         /// <inheritdoc />
-        private readonly ISampleProvider? _sampleProvider;
-        
+        internal ISampleProvider? SampleProvider { get; private set; }
+
         /// <inheritdoc />
-        private WaveFileReader? _reader;
+        internal WaveFileReader? Reader { get; private set; }
 
         /// <inheritdoc />
         public ValueTask DisposeAsync()
         {
             // Cannot dispose reader as it was never set
-            if(_reader is null)
+            if (Reader is null)
             {
                 return ValueTask.CompletedTask;
             }
 
             // Ensure that the reader is disposed of properly, freeing up resources.
-            return _reader.DisposeAsync();
+            return Reader.DisposeAsync();
         }
 
         public int Read(float[] buffer)
         {
             // Handle the case where the sample provider is not initialized.
-            if (!IsActive || _sampleProvider is null)
+            if (!IsActive || SampleProvider is null)
             {
                 return 0;
             }
 
-            return _sampleProvider.Read(buffer, 0, buffer.Length);
+            return SampleProvider.Read(buffer, 0, buffer.Length);
         }
     }
 }

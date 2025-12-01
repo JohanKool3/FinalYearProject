@@ -1,0 +1,23 @@
+@page "/waveform"
+@using System.Timers
+@using FinalYearProject.Audio.Pipeline.AudioSources
+
+<div class="main-body">
+<div class="visualizer-main">
+    <svg width="@Width" height="@(2 * Height)">
+        @if (_samples != null && _samples.Length > 0)
+        {
+            <polyline fill="none"
+                      stroke="@LineColor"
+                      stroke-width="@LineWidth"
+                      points="@BuildPoints()">
+            </polyline>
+        }
+    </svg>
+</div>
+
+<VisualizerToolbar
+    OnStart="Start"
+    OnStop="Stop"/>
+
+</div>

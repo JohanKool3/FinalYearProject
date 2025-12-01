@@ -1,23 +1,19 @@
-@page "/waveform"
-@using System.Timers
-@using FinalYearProject.Audio.Pipeline.AudioSources
+@using FinalYearProject.Audio.Helpers
+@using FinalYearProject.Shared.Helpers
 
 <div class="main-body">
-<div class="visualizer-main">
-    <svg width="@Width" height="@(2 * Height)">
-        @if (_samples != null && _samples.Length > 0)
-        {
-            <polyline fill="none"
+    @if (_points.Count != 0)
+    {
+        <svg width="@Width" height="@(2 * Height)">
+            <polyline fill="@GetFill()"
                       stroke="@LineColor"
                       stroke-width="@LineWidth"
-                      points="@BuildPoints()">
-            </polyline>
-        }
-    </svg>
-</div>
+                      points="@BuildPositivePoints()" />
 
-<VisualizerToolbar 
-    OnStart="Start"
-    OnStop="Stop"/>
-
+            <polyline fill="@GetFill()"
+                      stroke="@LineColor"
+                      stroke-width="@LineWidth"
+                      points="@BuildNegativePoints()" />
+        </svg>
+    }
 </div>
