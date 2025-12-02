@@ -6,8 +6,8 @@
         <h2>Time Domain (Continuous) View</h2>
         <TimeDomainView LineColor="red"
                         LineWidth="3"
-                        Width="500"
-                        Height="100"/>
+                        Width="400"
+                        Height="100" />
     </div>
 
     <div>
@@ -15,9 +15,19 @@
         <FrequencyView LineColor="red"
                        LineWidth="1"
                        Height="167"
-                       Width="500"
+                       Width="400"
                        Padding="40"
                        Resolution="4096" />
+    </div>
+
+    <div>
+        <h2>Waveform View (Realtime) </h2>
+        <WaveformBuilder Height="200"
+                         Width="400"
+                         Resolution="4096"
+                         LineColor="red"
+                         LineWidth="1" />
+
     </div>
 </div>
 
