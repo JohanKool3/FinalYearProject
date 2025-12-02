@@ -4,8 +4,6 @@ using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.AudioRepresentation;
 using Microsoft.AspNetCore.Components;
 using System.Globalization;
-using System.Reflection.Emit;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FinalYearProject.Audio.UI
 {
@@ -136,7 +134,11 @@ namespace FinalYearProject.Audio.UI
 
             for (int i = 0; i < count; i++)
             {
-                double x = (double)i / count * adjustedWidth;
+                double frequency = _results.Frequencies[i];
+                double t = LogMap(frequency, 20, 20000);   // 0–1 in log space
+                double x = t * adjustedWidth;
+
+
                 double y = adjustedHeight - (_results.Magnitudes[i] / max * adjustedHeight);
 
                 sb.Append($"{x.ToString(CultureInfo.InvariantCulture)},{y.ToString(CultureInfo.InvariantCulture)} ");
@@ -173,26 +175,48 @@ namespace FinalYearProject.Audio.UI
         {
             _labels.Clear();
 
-            // only label N evenly spaced frequencies (80/20)
-            int labelCount = 10;
-            int totalBins = _results!.Frequencies.Length;
+            int labelCount = 20;
+
+            double minF = 20.0;
+            double maxF = 20000.0;
 
             var adjustedWidth = Width - Padding * 2;
 
             for (int i = 0; i < labelCount; i++)
             {
-                int bin = (int)((double)i / (labelCount - 1) * (totalBins - 1));
+                // pick frequencies evenly in log space
+                double t = (double)i / (labelCount - 1);             // 0–1
+                double freq = Math.Exp(Math.Log(minF) + t * (Math.Log(maxF) - Math.Log(minF)));
 
-                double freq = _results.Frequencies[bin];
-                double x = (double)bin / totalBins * adjustedWidth;
+                // Round Frequency to nearest power of 100
+                freq = Math.Round(freq / 10.0) * 10.0;
 
+                // map to log x-position
+                double x = LogMap(freq, minF, maxF) * adjustedWidth;
+
+                // format label to kHz if over 1000
                 string label = freq < 1000
-                    ? $"{freq:0}"        // Hz
-                    : $"{freq / 1000:0.0}k";  // kHz
+                    ? $"{freq:0}"
+                    : $"{freq / 1000:0.0}k";
 
                 _labels.Add((x, label));
             }
+
         }
 
+
+        /// <summary>
+        /// Converts a frequency to a logarithmic scale between a
+        /// lowerBound and upperBound
+        /// </summary>
+        /// <param name="frequency"></param>
+        /// <param name="lowerBound"></param>
+        /// <param name="upperBound"></param>
+        /// <returns></returns>
+        private double LogMap(double frequency,
+            double lowerBound,
+            double upperBound) 
+            => Math.Clamp((Math.Log(frequency) - Math.Log(lowerBound)) /
+           (Math.Log(upperBound) - Math.Log(lowerBound)),0, 1);
     }
 }
