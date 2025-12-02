@@ -68,6 +68,8 @@ namespace FinalYearProject.Audio.UI
             _source = new FileAudioSource(path);
 
             _timer = new System.Timers.Timer(30); // ~33fps
+
+            BuildLabels();
             _timer.Elapsed += (s, e) => Tick();
         }
 
@@ -166,7 +168,6 @@ namespace FinalYearProject.Audio.UI
             _results = result;
 
             BuildPoints();
-            BuildLabels();
 
             InvokeAsync(StateHasChanged);
         }
@@ -175,12 +176,18 @@ namespace FinalYearProject.Audio.UI
         {
             _labels.Clear();
 
+            // Cannot Refresh the Labels if the 
+            if(_labels.Count > 0)
+            {
+                return;
+            }
+
             int labelCount = 20;
 
             double minF = 20.0;
             double maxF = 20000.0;
 
-            var adjustedWidth = Width - Padding * 2;
+            var adjustedWidth = Width - (Padding * 2);
 
             for (int i = 0; i < labelCount; i++)
             {
