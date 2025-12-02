@@ -1,0 +1,57 @@
+<FrequencyView FileName="@FileName"
+               FolderName="@FolderName"
+               LineColor="@LineColor"
+               LineWidth="@LineWidth"
+               Resolution="@Resolution"
+               Height="@(2 * (Height / 3))"
+               Width="@Width" />
+
+
+<div class="pitch-detctor">
+    <p>Note: @_current_note</p>
+</div>
+
+
+@code {
+
+    private string _current_note = "A4";
+
+    #region Parameters
+    /// <summary>
+    /// The Full Name of the File e.g. "test.wav"
+    /// </summary>
+    [Parameter]
+    public string FileName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Where the Folder is located e.g. "TestData"
+    /// </summary>
+    [Parameter]
+    public string FolderName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The Color of the line representing the audio waveform
+    /// </summary>
+    [Parameter]
+    public string LineColor { get; set; } = "black";
+
+    /// <summary>
+    /// How thick the line representing the audio waveform should be
+    /// </summary>
+    [Parameter]
+    public float LineWidth { get; set; } = 1;
+
+    [Parameter]
+    public float Width { get; set; } = 600;
+
+    [Parameter]
+    public float Height { get; set; } = 100;
+
+    [Parameter]
+    public float Padding { get; set; } = 10;
+
+    [Parameter]
+    public int Resolution { get; set; } = 512;
+
+    #endregion
+}
