@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Audio.Helpers;
+using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.AudioRepresentation;
 using Microsoft.AspNetCore.Components;
