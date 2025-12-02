@@ -1,37 +1,30 @@
 @page "/audio-view"
+@using FinalYearProject.Audio.UI.Components
 
+<div class="analysis-views">
+    <div>
+        <h2>Time Domain (Continuous) View</h2>
+        <TimeDomainView LineColor="red"
+                        LineWidth="3"
+                        Width="500"
+                        Height="100"/>
+    </div>
 
-<h2>Time Domain (Continuous) View</h2>
-<TimeDomainView FileName="eminor-test.wav"
-                FolderName="AudioFiles"
-                LineColor="red"
-                LineWidth="3" />
+    <div>
+        <h2>Frequency View (Spectogram)</h2>
+        <FrequencyView LineColor="red"
+                       LineWidth="1"
+                       Height="167"
+                       Width="500"
+                       Padding="40"
+                       Resolution="4096" />
+    </div>
+</div>
 
-<h2>Wave Form View</h2>
-<WaveFormView FileName="eminor-test.wav"
-              FolderName="AudioFiles"
-              LineColor="red"
-              Fill="true"
-              LineWidth="1"
-              Resolution="2048" />
+<h2>Monophonic Pitch Detector</h2>
+<MonoPitchDetection />
 
+<VisualizerToolbar OnStart="AudioService.Start"
+                   OnStop="AudioService.Stop"
+                   OnReset="AudioService.Reset" />
 
-<h2>Frequency View (Spectogram)</h2>
-<FrequencyView FileName="eminor-test.wav"
-               FolderName="AudioFiles"
-               LineColor="red"
-               LineWidth="1"
-               Height="200"
-               Padding="40"
-               Resolution="4096" />
-
-
-<h2>Monophonic Pitch Detector (With Spectogram</h2>
-
-<MonoPitchDetection FileName="eminor-test.wav"
-                    FolderName="AudioFiles"
-                    LineColor="red"
-                    LineWidth="2"
-                    Height="200"
-                    Padding="40"
-                    Resolution="4096" />

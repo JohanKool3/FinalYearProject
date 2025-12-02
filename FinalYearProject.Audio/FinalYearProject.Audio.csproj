@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FftSharp" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="NAudio" Version="2.2.1" />
   </ItemGroup>
 

@@ -1,41 +1,19 @@
-using FinalYearProject.Audio.Helpers;
-using FinalYearProject.Audio.Pipeline.AudioSources;
-using FinalYearProject.Shared.Helpers;
-using FinalYearProject.Shared.Models.AudioRepresentation;
+using FinalYearProject.Audio.Services;
 using Microsoft.AspNetCore.Components;
 using System.Globalization;
+using System.Text;
 
 namespace FinalYearProject.Audio.UI
 {
-    public partial class FrequencyView
+    public partial class FrequencyView(FileAudioService audioService)
     {
 
-        private FileAudioSource _source = null!;
-
-        // Where audio samples are stored
-        private float[] _buffer = new float[2048];
-
-        private System.Timers.Timer _timer = null!;
-
-        private FftResult? _results;
-
         // Holds the frequency labels, e.g. "100Hz", "1kHz"
-        private List<(double X, string Text)> _labels = new();
+        private List<(double X, string Text)> _labels = [];
 
 
         #region Parameters
-        /// <summary>
-        /// The Full Name of the File e.g. "test.wav"
-        /// </summary>
-        [Parameter]
-        public string FileName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Where the Folder is located e.g. "TestData"
-        /// </summary>
-        [Parameter]
-        public string FolderName { get; set; } = string.Empty;
-
+        
         /// <summary>
         /// The Color of the line representing the audio waveform
         /// </summary>
@@ -59,76 +37,45 @@ namespace FinalYearProject.Audio.UI
 
         [Parameter]
         public int Resolution { get; set; } = 512;
+       
+        public FileAudioService AudioService { get; } = audioService;
 
         #endregion
 
         protected override void OnInitialized()
         {
-            var path = FileHelper.GetFilePath(FileName, FolderName);
-            _source = new FileAudioSource(path);
-
-            _timer = new System.Timers.Timer(30); // ~33fps
-
             BuildLabels();
-            _timer.Elapsed += (s, e) => Tick();
+
+            // Register the Tick method in the Audio Service Event Handler
+            AudioService.OnTickEvent += Tick;
         }
 
-        #region Start and Stop Events
-
-        /// <summary>
-        /// Starts the Audio Visualizer
-        /// </summary>
-        public void Start()
+        private void Tick(object? sender, EventArgs e)
         {
-            _timer.Start();
+            BuildPoints();
+            InvokeAsync(StateHasChanged);
         }
-
-        public void Stop()
-        {
-            _timer.Stop();
-        }
-
-        public void Reset()
-        {
-            _timer.Stop();
-
-            // Reset FFT readout
-            _points = "";
-            _source.Seek(0);
-            StateHasChanged();
-        }
-
-        #endregion
-
 
         private string _points = "";
 
-        protected override void OnParametersSet()
-        {
-            if (_results is null || _results.Magnitudes.Length == 0)
-            {
-                _points = "";
-                return;
-            }
-
-            BuildPoints();
-        }
-
         private void BuildPoints()
         {
-            if (_results is null || _results.Magnitudes.Length == 0)
+            var results = AudioService.ReadBufferToFrequencyDomain(Resolution);
+
+
+            if (results is null || results.Magnitudes.Length == 0)
             {
                 _points = "";
                 return;
             }
 
-            int count = _results.Magnitudes.Length;
+            int count = results.Magnitudes.Length;
 
             // Normalize magnitudes 0 to 1
-            double max = _results.Magnitudes.Max();
+            double max = results.Magnitudes.Max();
             if (max == 0) max = 1;
 
-            var sb = new System.Text.StringBuilder();
+            var sb = new StringBuilder();
 
             // Adjust Height and Width for padding
             var adjustedHeight = Height - Padding * 2;
@@ -136,40 +83,17 @@ namespace FinalYearProject.Audio.UI
 
             for (int i = 0; i < count; i++)
             {
-                double frequency = _results.Frequencies[i];
+                double frequency = results.Frequencies[i];
                 double t = LogMap(frequency, 20, 20000);   // 0–1 in log space
                 double x = t * adjustedWidth;
 
 
-                double y = adjustedHeight - (_results.Magnitudes[i] / max * adjustedHeight);
+                double y = adjustedHeight - (results.Magnitudes[i] / max * adjustedHeight);
 
                 sb.Append($"{x.ToString(CultureInfo.InvariantCulture)},{y.ToString(CultureInfo.InvariantCulture)} ");
             }
 
             _points = sb.ToString();
-        }
-
-        private void Tick()
-        {
-            int read = _source.Read(_buffer);
-
-            // If there are no Samples, exit
-            if (read <= 0)
-            {
-                return;
-            }
-
-            var result = AnalysisConverter.ConvertToFrequencyDomain(
-                _buffer,
-                read,
-                Resolution,
-                _source.SampleRate ?? 0);
-
-            _results = result;
-
-            BuildPoints();
-
-            InvokeAsync(StateHasChanged);
         }
 
         private void BuildLabels()
@@ -220,7 +144,7 @@ namespace FinalYearProject.Audio.UI
         /// <param name="lowerBound"></param>
         /// <param name="upperBound"></param>
         /// <returns></returns>
-        private double LogMap(double frequency,
+        private static double LogMap(double frequency,
             double lowerBound,
             double upperBound) 
             => Math.Clamp((Math.Log(frequency) - Math.Log(lowerBound)) /

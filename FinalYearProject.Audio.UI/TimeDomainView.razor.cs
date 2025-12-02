@@ -1,14 +1,13 @@
 using FinalYearProject.Audio.Pipeline.AudioSources;
+using FinalYearProject.Audio.Services;
 using FinalYearProject.Shared.Helpers;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.Audio.UI
 {
-    public partial class TimeDomainView
+    public partial class TimeDomainView(FileAudioService audioService)
     {
-        private FileAudioSource _source = null!;
-        private float[] _buffer = new float[2048];
-        private float[] _samples = new float[2048];
+        private float[] _samples => AudioService.Buffer;
         private System.Timers.Timer _timer = null!;
 
         #region Parameters
@@ -41,48 +40,17 @@ namespace FinalYearProject.Audio.UI
 
         [Parameter]
         public float Height { get; set; } = 100;
+        public FileAudioService AudioService { get; } = audioService;
 
         #endregion
 
         protected override void OnInitialized()
         {
-            var path = FileHelper.GetFilePath(FileName, FolderName);
-            _source = new FileAudioSource(path);
-
-            _timer = new System.Timers.Timer(30); // ~33fps
-            _timer.Elapsed += (s, e) => Tick();
-        }
-
-        /// <summary>
-        /// Starts the Audio Visualizer
-        /// </summary>
-        public void Start()
-        {
-            _timer.Start();
-        }
-
-        public void Stop()
-        {
-            _timer.Stop();
-        }
-
-        public void Reset()
-        {
-            _timer.Stop();
-            _samples = new float[2048];
-            StateHasChanged();
-            _source.Seek(0);
+            AudioService.OnTickEvent += (s, e) => Tick();
         }
 
         private void Tick()
         {
-            int read = _source.Read(_buffer);
-
-            if (read > 0)
-            {
-                _samples = [.. _buffer.Take(read)];
-            }
-
             InvokeAsync(StateHasChanged);
         }
 
