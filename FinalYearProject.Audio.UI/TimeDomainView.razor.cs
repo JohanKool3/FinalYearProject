@@ -6,7 +6,7 @@ namespace FinalYearProject.Audio.UI
 {
     public partial class TimeDomainView
     {
-        private FileAudioSource _source;
+        private FileAudioSource _source = null!;
         private float[] _buffer = new float[2048];
         private float[] _samples = new float[2048];
         private System.Timers.Timer _timer = null!;
@@ -80,7 +80,7 @@ namespace FinalYearProject.Audio.UI
 
             if (read > 0)
             {
-                _samples = _buffer.Take(read).ToArray();
+                _samples = [.. _buffer.Take(read)];
             }
 
             InvokeAsync(StateHasChanged);
