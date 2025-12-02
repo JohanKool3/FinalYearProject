@@ -19,13 +19,13 @@
         /// <summary>
         /// Determines whether this audio source is active
         /// </summary>
-        public bool IsActive { get;}
+        public bool IsActive { get; }
 
         /// <summary>
         /// Fill the buffer with the next block of samples.
-        /// Returns the number of samples actually written.        
+        /// Returns the number of samples actually written.
         /// </summary>
-        /// <param name="buffer">Variable that will store the next 'chunk' of 
+        /// <param name="buffer">Variable that will store the next 'chunk' of
         /// audio data</param>
         /// <returns></returns>
         public int Read(float[] buffer);

@@ -75,6 +75,7 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
             return Reader.DisposeAsync();
         }
 
+        /// <inheritdoc />
         public int Read(float[] buffer)
         {
             // Handle the case where the sample provider is not initialized.
@@ -84,6 +85,20 @@ namespace FinalYearProject.Audio.Pipeline.AudioSources
             }
 
             return SampleProvider.Read(buffer, 0, buffer.Length);
+        }
+
+        /// <summary>
+        /// Sets the Current Sample to the given position in the audio
+        /// file.
+        /// </summary>
+        public void Seek(int position)
+        {
+            if (!IsActive || SampleProvider is null || Reader is null)
+            {
+                return;
+            }
+
+            Reader.Position = position;
         }
     }
 }

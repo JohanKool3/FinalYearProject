@@ -8,9 +8,8 @@ namespace FinalYearProject.Audio.UI
     {
         private FileAudioSource _source;
         private float[] _buffer = new float[2048];
-        private float[] _samples;
-        private System.Timers.Timer _timer;
-
+        private float[] _samples = new float[2048];
+        private System.Timers.Timer _timer = null!;
 
         #region Parameters
         /// <summary>
@@ -65,6 +64,14 @@ namespace FinalYearProject.Audio.UI
         public void Stop()
         {
             _timer.Stop();
+        }
+
+        public void Reset()
+        {
+            _timer.Stop();
+            _samples = new float[2048];
+            StateHasChanged();
+            _source.Seek(0);
         }
 
         private void Tick()
