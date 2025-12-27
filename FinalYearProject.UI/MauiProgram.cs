@@ -1,5 +1,4 @@
-﻿using FinalYearProject.Audio.Extensions;
-using FinalYearProject.UI.Components.Extensions;
+﻿using FinalYearProject.UI.Components.Extensions;
 using Microsoft.Extensions.Logging;
 
 namespace FinalYearProject.UI
@@ -20,7 +19,6 @@ namespace FinalYearProject.UI
 
             // Register User Interface Services
             builder.Services.AddUiServices();
-            builder.Services.AddAudioServices();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
