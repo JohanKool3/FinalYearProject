@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.UI.Compone
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Services", "FinalYearProject.Services\FinalYearProject.Services.csproj", "{5FC8D993-A235-4CA6-B2DE-C8C1F1846E81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio", "FinalYearProject.Audio\FinalYearProject.Audio.csproj", "{105806D0-AB21-4F4A-828B-318C12AABE07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{5FC8D993-A235-4CA6-B2DE-C8C1F1846E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FC8D993-A235-4CA6-B2DE-C8C1F1846E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FC8D993-A235-4CA6-B2DE-C8C1F1846E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105806D0-AB21-4F4A-828B-318C12AABE07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105806D0-AB21-4F4A-828B-318C12AABE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105806D0-AB21-4F4A-828B-318C12AABE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105806D0-AB21-4F4A-828B-318C12AABE07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
