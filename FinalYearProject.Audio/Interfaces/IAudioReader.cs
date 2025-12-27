@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalYearProject.Audio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace FinalYearProject.Audio.Interfaces
     {
 
         public List<float> ReadAudioFile(string filepath);
+
+        public AudioFileMetadata? ReadAudioFileMetadata(string filename);
     }
 }
