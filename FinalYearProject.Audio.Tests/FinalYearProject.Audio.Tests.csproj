@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinalYearProject.Audio\FinalYearProject.Audio.csproj" />
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
   </ItemGroup>
 

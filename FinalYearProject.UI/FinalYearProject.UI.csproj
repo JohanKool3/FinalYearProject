@@ -73,7 +73,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FinalYearProject.Audio.UI\FinalYearProject.Audio.UI.csproj" />
       <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
       <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>
