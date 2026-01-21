@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace FinalYearProject.Audio.Tests.IntegrationTests
 {
-    public class ReaderAndWindowerTests
+    public class WavFileReaderAndSimpleWindowerTests
     {
 
         [Fact]
-        public void WavFileReaderAndWindower_ReadValidWavFile_ReturnsCorrectFrames()
+        public void WavFileReaderAndSimpleWindower_ReadValidWavFile_ReturnsCorrectFrames()
         {
             // Arrange
             var reader = new WavFileReader();
@@ -22,16 +22,15 @@ namespace FinalYearProject.Audio.Tests.IntegrationTests
             // Act
             var pcmStream = reader.ReadAudioFile(fileName);
 
-            Assert.NotEmpty(pcmStream);
-
             var windows = windower.ConvertPCMStreamToWindows
                 (pcmStream, 48000, 2048, 1024);
 
             var lastWindow = windows.Last();
-            Assert.Equal(2048, lastWindow.Samples.Count);
-
+            
             // Assert
             Assert.Equal(2090, windows.Count);
+            Assert.NotEmpty(pcmStream);
+            Assert.Equal(2048, lastWindow.Samples.Count);
 
         }
     }
