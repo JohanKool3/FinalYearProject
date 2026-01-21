@@ -1,6 +1,6 @@
-﻿using FinalYearProject.Audio.Readers;
+﻿using FinalYearProject.Audio.AudioAnalysis.Readers;
 
-namespace FinalYearProject.Audio.Tests.Readers
+namespace FinalYearProject.Audio.Tests.UnitTests.Readers
 {
     public class WavFileReaderTests
     {

@@ -3,7 +3,7 @@ using FinalYearProject.Audio.Interfaces;
 using FinalYearProject.Audio.Models;
 using NAudio.Wave;
 
-namespace FinalYearProject.Audio.Readers
+namespace FinalYearProject.Audio.AudioAnalysis.Readers
 {
     public class WavFileReader : IAudioReader
     {
