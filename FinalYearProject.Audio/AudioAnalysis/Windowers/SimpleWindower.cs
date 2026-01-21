@@ -3,6 +3,10 @@ using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.AudioAnalysis.Windowers
 {
+    /// <summary>
+    /// Simple implementation of Rectanglar Windowing 
+    /// <a href='https://www.sciencedirect.com/topics/computer-science/rectangular-window'>See here for more info</a>
+    /// </summary>
     public class SimpleWindower : IWindower
     {
         /// <summary>
