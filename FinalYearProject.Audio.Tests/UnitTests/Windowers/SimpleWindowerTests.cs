@@ -22,7 +22,7 @@ namespace FinalYearProject.Audio.Tests.UnitTests.Windowers
                     2, 
                     1);
 
-            Assert.Equal(8, windows.Count);
+            Assert.Equal(9, windows.Count);
 
         }
     }

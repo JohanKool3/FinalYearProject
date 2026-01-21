@@ -21,11 +21,40 @@ namespace FinalYearProject.Audio.AudioAnalysis.Windowers
 
             double windowDuration = windowSize / (double)sampleRate;
 
+            // Gets the time in seconds for each hop
+            double hopTime = hop / (double)sampleRate;
+
+            // Slide across the PCM stream creating windows, of size windowSize,
+            // moving across by hop samples each time
             for (int startIndex = 0; startIndex + windowSize < pcmStream.Count; startIndex += hop)
             {
                 List<float> windowSamples = [.. pcmStream.GetRange(startIndex, windowSize)];
-                double time = startTime + windowDuration;
+                double time = startTime + hopTime;
 
+                output.Add(new Window
+                {
+                    Samples = windowSamples,
+                    StartTime = startTime,
+                    EndTime = time,
+                    AudioLength = windowDuration
+                });
+
+                startTime = time;
+            }
+
+            // Handle last window if there are remaining samples
+            if (startTime < pcmStream.Count / (double)sampleRate)
+            {
+                int remainingSamples = pcmStream.Count - (pcmStream.Count - (pcmStream.Count % hop));
+                List<float> windowSamples = [.. pcmStream.GetRange(pcmStream.Count - remainingSamples, remainingSamples)];
+
+                // Pad the WindowSamples with zeros to make it the correct size
+                while (windowSamples.Count < windowSize)
+                {
+                    windowSamples.Add(0);
+                }
+
+                double time = startTime + (remainingSamples / (double)sampleRate);
                 output.Add(new Window
                 {
                     Samples = windowSamples,
@@ -33,8 +62,6 @@ namespace FinalYearProject.Audio.AudioAnalysis.Windowers
                     EndTime = time,
                     AudioLength = time - startTime
                 });
-
-                startTime = time;
             }
 
             return output;
