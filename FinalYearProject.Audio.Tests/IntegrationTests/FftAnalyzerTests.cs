@@ -6,7 +6,6 @@ namespace FinalYearProject.Audio.Tests.IntegrationTests
 {
     public class FftAnalyzerTests
     {
-
         [Fact]
         public void FftAnalyzer_ConvertC4SineWave_ReturnsValidApproximately520hz()
         {

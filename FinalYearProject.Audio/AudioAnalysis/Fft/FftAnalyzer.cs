@@ -59,11 +59,15 @@ namespace FinalYearProject.Audio.AudioAnalysis.Fft
                 frequencies.Add(binIndex * frequencyStep);
             }
 
-            // Return Magnitudes and Frequencies
+            // Return Magnitudes and Frequencies as well as 
+            // Window Metadata
             return new FftOutput
             {
                 Frequencies = [.. frequencies],
-                Magnitudes = magnitudes
+                Magnitudes = magnitudes,
+                AudioLength = window.AudioLength,
+                StartTime = window.StartTime,
+                EndTime = window.EndTime
             };
         }
     }
