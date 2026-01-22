@@ -59,8 +59,10 @@ namespace FinalYearProject.Audio.Tests.UnitTests.Fft
             var output = analyzer.ConvertToFrequencyDomain(testWindow, sampleRate);
 
             // Find the maximum frequency
-            var maxFrequency = output.Frequencies.Where((f, i) 
-                => output.Magnitudes[i] == output.Magnitudes.Max()).First();
+            var maxFrequency = output
+                .Frequencies
+                .Where((frequency, index) 
+                    => output.Magnitudes[index] == output.Magnitudes.Max()).First();
             // Assert
             Assert.Equal(expectedFrequencies, output.Frequencies);
             Assert.Equal(6000, maxFrequency);
