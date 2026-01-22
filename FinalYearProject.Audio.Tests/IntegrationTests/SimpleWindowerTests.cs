@@ -1,18 +1,13 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.Readers;
 using FinalYearProject.Audio.AudioAnalysis.Windowers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalYearProject.Audio.Tests.IntegrationTests
 {
-    public class WavFileReaderAndSimpleWindowerTests
+    public class SimpleWindowerTests
     {
 
         [Fact]
-        public void WavFileReaderAndSimpleWindower_ReadValidWavFile_ReturnsCorrectFrames()
+        public void SimpleWindower_ReadValidWavFile_ReturnsCorrectFrames()
         {
             // Arrange
             var reader = new WavFileReader();
