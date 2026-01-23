@@ -35,7 +35,7 @@ namespace FinalYearProject.Audio.Tests.UnitTests.TimelineConstructors
                 },
             };
 
-            var constructor = new SimpleTimelineConstructor();
+            var constructor = new AudioAnalysis.TimelineConstructors.SimpleTimelineConstructorTests();
 
             // Act
             var timeline = constructor.GenerateTimeline(fftOutputs);
@@ -69,7 +69,7 @@ namespace FinalYearProject.Audio.Tests.UnitTests.TimelineConstructors
                     EndTime = 2,
                 },
             };
-            var constructor = new SimpleTimelineConstructor();
+            var constructor = new AudioAnalysis.TimelineConstructors.SimpleTimelineConstructorTests();
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => constructor.GenerateTimeline(fftOutputs));
@@ -80,7 +80,7 @@ namespace FinalYearProject.Audio.Tests.UnitTests.TimelineConstructors
         {
             // Arrange
             var fftOutputs = new List<FftOutput>();
-            var constructor = new SimpleTimelineConstructor();
+            var constructor = new AudioAnalysis.TimelineConstructors.SimpleTimelineConstructorTests();
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => constructor.GenerateTimeline(fftOutputs));
@@ -100,7 +100,7 @@ namespace FinalYearProject.Audio.Tests.UnitTests.TimelineConstructors
                     EndTime = 1,
                 },
             };
-            var constructor = new SimpleTimelineConstructor();
+            var constructor = new AudioAnalysis.TimelineConstructors.SimpleTimelineConstructorTests();
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => constructor.GenerateTimeline(fftOutputs));
