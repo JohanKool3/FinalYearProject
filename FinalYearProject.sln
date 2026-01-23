@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio.Tests", "FinalYearProject.Audio.Tests\FinalYearProject.Audio.Tests.csproj", "{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Audio.Integration.Tests", "FinalYearProject.Audio.Integration.Tests\FinalYearProject.Audio.Integration.Tests.csproj", "{8327A789-4889-4089-BEF1-A5DB3D675BFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,12 +50,17 @@ Global
 		{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8327A789-4889-4089-BEF1-A5DB3D675BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8327A789-4889-4089-BEF1-A5DB3D675BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8327A789-4889-4089-BEF1-A5DB3D675BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8327A789-4889-4089-BEF1-A5DB3D675BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8327A789-4889-4089-BEF1-A5DB3D675BFB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10F71CB4-901E-4F5F-BE33-5AB66EC65247}

@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.Fft;
 using FinalYearProject.Audio.Models;
 
-namespace FinalYearProject.Audio.Tests.UnitTests.Fft
+namespace FinalYearProject.Audio.Tests.Fft
 {
     public class FftAnalyzerTests
     {

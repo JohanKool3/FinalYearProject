@@ -1,6 +1,6 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.Windowers;
 
-namespace FinalYearProject.Audio.Tests.UnitTests.Windowers
+namespace FinalYearProject.Audio.Tests.Windowers
 {
     public class SimpleWindowerTests
     {
