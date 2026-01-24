@@ -25,12 +25,18 @@ namespace FinalYearProject.Audio.AudioAnalysis.TimelineConstructors
                 throw new ArgumentException("Frequencies array contains no valid frequencies");
             }
 
+            // Assume uniform window length
+
+            // End time - start time as there will be window overlap.
+            var firstDatapointLength 
+                = fftResults[0].EndTime - fftResults[0].StartTime;
+
             // Initialize the timeline structure
             var timeline = new FrequencyMagnitudeTimeline
             {
                 FrequencyMagnitude = [],
                 Length = (float)fftResults.Max(w => w.EndTime),
-                DataPointLength = fftResults.First().AudioLength,
+                DataPointLength = firstDatapointLength,
             };
 
 
