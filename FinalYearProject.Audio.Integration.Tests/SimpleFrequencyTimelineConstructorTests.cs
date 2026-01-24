@@ -6,10 +6,10 @@ using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.Tests.IntegrationTests
 {
-    public class SimpleTimelineConstructorTests
+    public class SimpleFrequencyTimelineConstructorTests
     {
         [Fact]
-        public void SimpleTImelineConstructor_C4SineWave_ReturnsValid()
+        public void SimpleFrequencyTimelineConstructor_C4SineWave_ReturnsValid()
         {
             // Arrange
             var reader = new WavFileReader();

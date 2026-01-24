@@ -3,11 +3,11 @@ using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.Tests.TimelineConstructors
 {
-    public class SimpleTimelineConstructorTests
+    public class SimpleFrequencyTimelineConstructorTests
     {
 
         [Fact]
-        public void SimpleTimelineConstructor_ValidInput_ReturnsCorrectFrequency()
+        public void SimpleFrequencyTimelineConstructor_ValidInput_ReturnsCorrectFrequency()
         {
             // Arrange
             var fftOutputs = new List<FftOutput>
@@ -49,7 +49,7 @@ namespace FinalYearProject.Audio.Tests.TimelineConstructors
 
 
         [Fact]
-        public void SimpleTimelineConstructor_InconsistentFrequencies_ThrowsArgumentException()
+        public void SimpleFrequencyTimelineConstructor_InconsistentFrequencies_ThrowsArgumentException()
         {
             // Arrange
             var fftOutputs = new List<FftOutput>
@@ -76,7 +76,7 @@ namespace FinalYearProject.Audio.Tests.TimelineConstructors
         }
 
         [Fact]
-        public void SimpleTimelineConstructor_EmptyWindows_ThrowsArgumentException()
+        public void SimpleFrequencyTimelineConstructor_EmptyWindows_ThrowsArgumentException()
         {
             // Arrange
             var fftOutputs = new List<FftOutput>();
@@ -87,7 +87,7 @@ namespace FinalYearProject.Audio.Tests.TimelineConstructors
         }
 
         [Fact]
-        public void SimpleTimelineConstructor_EmptyFrequencies_ThrowsArgumentException()
+        public void SimpleFrequencyTimelineConstructor_EmptyFrequencies_ThrowsArgumentException()
         {
             // Arrange
             var fftOutputs = new List<FftOutput>
