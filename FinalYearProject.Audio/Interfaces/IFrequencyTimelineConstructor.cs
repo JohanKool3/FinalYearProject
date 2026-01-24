@@ -10,7 +10,7 @@ namespace FinalYearProject.Audio.Interfaces
     /// This will give all the information needed to analyse the audio clip.
     /// E.g. Frequency and its magnitude at a given time.
     /// </remarks>
-    public interface ITimelineConstructor
+    public interface IFrequencyTimelineConstructor
     {
         /// <summary>
         /// Takes fft results in and generates a Frequency Magnitude Timeline from 0s to length of the clip

@@ -16,7 +16,7 @@ namespace FinalYearProject.Audio.Tests.IntegrationTests
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
             var fftAnalyzer = new FftAnalyzer();
-            var timelineConstructor = new SimpleTimelineConstructor();
+            var timelineConstructor = new SimpleFrequencyTimelineConstructor();
 
             // Act
 

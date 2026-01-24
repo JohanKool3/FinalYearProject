@@ -3,7 +3,7 @@ using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.AudioAnalysis.TimelineConstructors
 {
-    public class SimpleTimelineConstructor : ITimelineConstructor
+    public class SimpleFrequencyTimelineConstructor : IFrequencyTimelineConstructor
     {
         public FrequencyMagnitudeTimeline GenerateTimeline(List<FftOutput> fftResults)
         {
