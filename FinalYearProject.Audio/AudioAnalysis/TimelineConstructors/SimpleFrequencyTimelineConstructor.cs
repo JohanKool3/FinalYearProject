@@ -35,6 +35,8 @@ namespace FinalYearProject.Audio.AudioAnalysis.TimelineConstructors
             var timeline = new FrequencyMagnitudeTimeline
             {
                 FrequencyMagnitude = [],
+                Frequencies = [.. frequencies],
+                FrequencyMagnitudes = [.. fftResults.Select(w => w.Magnitudes)],
                 Length = (float)fftResults.Max(w => w.EndTime),
                 DataPointLength = firstDatapointLength,
             };
