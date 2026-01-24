@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.TimelineConstructors;
 using FinalYearProject.Audio.Models;
 
-namespace FinalYearProject.Audio.Tests.TimelineConstructors
+namespace FinalYearProject.Audio.Tests.FrequencyTimelineConstructors
 {
     public class SimpleFrequencyTimelineConstructorTests
     {

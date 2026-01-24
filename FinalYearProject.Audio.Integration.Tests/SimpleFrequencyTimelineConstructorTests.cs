@@ -4,7 +4,7 @@ using FinalYearProject.Audio.AudioAnalysis.TimelineConstructors;
 using FinalYearProject.Audio.AudioAnalysis.Windowers;
 using FinalYearProject.Audio.Models;
 
-namespace FinalYearProject.Audio.Tests.IntegrationTests
+namespace FinalYearProject.Audio.Integration.Tests
 {
     public class SimpleFrequencyTimelineConstructorTests
     {

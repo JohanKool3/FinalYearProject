@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.Readers;
 using FinalYearProject.Audio.AudioAnalysis.Windowers;
 
-namespace FinalYearProject.Audio.Tests.IntegrationTests
+namespace FinalYearProject.Audio.Integration.Tests
 {
     public class SimpleWindowerTests
     {
