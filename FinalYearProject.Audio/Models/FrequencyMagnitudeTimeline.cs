@@ -20,7 +20,7 @@ namespace FinalYearProject.Audio.Models
         /// <summary>
         /// The Magnitudes for each window (maps from RawMagnitudes[i] -> Magnitudes at window i) for each frequency
         /// </summary>
-        public required List<float[]> FrequencyMagnitudes { get; set; }
+        public required List<float[]> FrequencyMagnitudeWindows { get; set; }
 
         /// <summary>
         /// The Length of the audio clip in seconds

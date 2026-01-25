@@ -1,6 +1,6 @@
 ﻿using FinalYearProject.Audio.AudioAnalysis.Fft;
+using FinalYearProject.Audio.AudioAnalysis.FrequencyTimelineConstructors;
 using FinalYearProject.Audio.AudioAnalysis.Readers;
-using FinalYearProject.Audio.AudioAnalysis.TimelineConstructors;
 using FinalYearProject.Audio.AudioAnalysis.Windowers;
 using FinalYearProject.Audio.Models;
 

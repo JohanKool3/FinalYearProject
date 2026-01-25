@@ -1,0 +1,106 @@
+﻿using FinalYearProject.Audio.Helpers;
+using FinalYearProject.Audio.Interfaces;
+using FinalYearProject.Audio.Models;
+
+namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
+{
+    public class SimpleNoteDetector(TuningScheme tuningScheme) : INoteDetector
+    {
+        public TuningScheme TuningScheme { get; } = tuningScheme;
+
+        /// <summary>
+        /// Finds the greatest frequency magnitude and returns
+        /// the note associated with it
+        /// </summary>
+        /// <param name="window"></param>
+        /// <param name="frequencies"></param>
+        /// <param name="startTime"></param>
+        /// <returns></returns>
+        public NoteSlice CalculateNoteConfidenceValues(float[] window,
+            List<float> frequencies,
+            double startTime)
+        {
+            // Find the index of the greatest frequency.
+            // Naively this will be the fundamental frequency
+            // This will need to be updated in future as this won't
+            // neccessarily be true for Guitar Notes
+
+            var maxIndex = window
+                .ToList()
+                .IndexOf(window.Max());
+
+            var maxFrequency = frequencies[maxIndex];
+
+            var note = CalculateNoteSlice(maxFrequency, frequencies, startTime);
+
+            return note;
+
+        }
+
+        /// <summary>
+        /// Using the max frequency, calculate the note and then
+        /// set the confidence to 1.0f.
+        /// </summary>
+        /// <param name="maxFrequency"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        /// <remarks>The remaining notes will be set to 0.0f</remarks>
+        private NoteSlice CalculateNoteSlice(float maxFrequency,
+            List<float> frequencies,
+            double startTime)
+        {
+            // Create blank note slice, set confidences to empty
+            var noteSlice = new NoteSlice
+            {
+                Time = (float)startTime,
+                NoteConfidences = []
+            };
+
+            // Iterate over each frequency bin 
+            foreach (var frequency in frequencies)
+            {
+                // Frequency is the max frequency
+                // Set confidence to max (as this is our fundamental)
+                // and naively, we assume that the max frequency is the 
+                // note being played
+                if (frequency == maxFrequency)
+                {
+                    var semiTones = FrequencyToNoteHelper
+                        .GetFrequencySemiTonesFromA4(frequency, TuningScheme.A4);
+
+                    var noteName = SemitonesToNoteHelper
+                        .ConvertToNoteName(semiTones);
+
+                    noteSlice.NoteConfidences.Add(new NoteConfidence
+                    {
+                        Name = noteName,
+                        // TODO : Improve bounds calculation
+                        FundamentalFrequencyBounds = Tuple.Create(frequency - 1.0f,
+                            frequency + 1.0f),
+                        Confidence = 1.0f
+                    });
+                }
+
+                else
+                {
+                    var semiTones = FrequencyToNoteHelper
+                        .GetFrequencySemiTonesFromA4(frequency, TuningScheme.A4);
+                    
+                    var noteName = SemitonesToNoteHelper
+                        .ConvertToNoteName(semiTones);
+                    
+                    noteSlice.NoteConfidences.Add(new NoteConfidence
+                    {
+                        Name = noteName,
+                        // TODO : Improve bounds calculation
+                        FundamentalFrequencyBounds = Tuple.Create(frequency - 1.0f,
+                            frequency + 1.0f),
+                        Confidence = 0.0f
+                    });
+                }
+            }
+
+            return noteSlice;
+        }
+    }
+}
