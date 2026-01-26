@@ -12,22 +12,21 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
         /// Finds the greatest frequency magnitude and returns
         /// the note associated with it
         /// </summary>
-        /// <param name="window"></param>
+        /// <param name="frequencyMagnitudeSnapshot"></param>
         /// <param name="frequencies"></param>
         /// <param name="startTime"></param>
         /// <returns></returns>
-        public NoteSlice CalculateNoteConfidenceValues(float[] window,
+        public NoteSlice CalculateNoteConfidenceValues(float[] frequencyMagnitudeSnapshot,
             List<float> frequencies,
             double startTime)
         {
-            // Find the index of the greatest frequency.
-            // Naively this will be the fundamental frequency
-            // This will need to be updated in future as this won't
-            // neccessarily be true for Guitar Notes
-
-            var maxIndex = window
+            // - Find the index of the greatest magnitude.
+            // - Naively this will be the fundamental frequency.
+            // - This will need to be updated in future as this won't
+            //   neccessarily be true for Guitar Notes
+            var maxIndex = frequencyMagnitudeSnapshot
                 .ToList()
-                .IndexOf(window.Max());
+                .IndexOf(frequencyMagnitudeSnapshot.Max());
 
             var maxFrequency = frequencies[maxIndex];
 
@@ -43,7 +42,6 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
         /// </summary>
         /// <param name="maxFrequency"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         /// <remarks>The remaining notes will be set to 0.0f</remarks>
         private NoteSlice CalculateNoteSlice(float maxFrequency,
             List<float> frequencies,
