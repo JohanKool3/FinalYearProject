@@ -66,7 +66,7 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
                 if (frequency == maxFrequency)
                 {
                     var semiTones = FrequencyToNoteHelper
-                        .GetFrequencySemiTonesFromA4(frequency, TuningScheme.A4);
+                        .GetFrequencySemiTones(frequency, TuningScheme.A4);
 
                     var noteName = SemitonesToNoteHelper
                         .ConvertToNoteName(semiTones);
@@ -84,7 +84,7 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
                 else
                 {
                     var semiTones = FrequencyToNoteHelper
-                        .GetFrequencySemiTonesFromA4(frequency, TuningScheme.A4);
+                        .GetFrequencySemiTones(frequency, TuningScheme.A4);
                     
                     var noteName = SemitonesToNoteHelper
                         .ConvertToNoteName(semiTones);
