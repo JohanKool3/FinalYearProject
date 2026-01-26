@@ -8,12 +8,27 @@ namespace FinalYearProject.Audio.Helpers
 {
     public static class SemitonesToNoteHelper
     {
-        public static string ConvertToNoteName(int semitonesFromA4)
+        /// <summary>
+        /// Converts a number of semitones to its corresponding note name.
+        /// </summary>
+        /// <param name="semitones"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// When there is a note between two notes (e.g., C and D),
+        /// the sharp (#) notation is used (e.g., C#).
+        /// </remarks>
+        public static string ConvertToNoteName(int semitones)
         {
-            // as A4 is 69th semitone
-            int midiNote = 69 + semitonesFromA4;
+            // Ensure that the semitones value is within the valid MIDI range
+            // see <a href="https://inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies">MIDI Specifications</a>
+            if (semitones < 0 || semitones > 127)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(semitones),
+                    "Semitones must be between 0 and 127 inclusive.");
+            }
 
-            return MidiToName(midiNote);
+            return MidiToName(semitones);
         }
 
         /// <summary>
