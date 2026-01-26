@@ -70,59 +70,26 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
             double startTime)
         {
             // Create blank note slice, set confidences to empty
-            var noteSlice = new NoteSlice
-            {
-                Time = (float)startTime,
-                NoteConfidences = []
-            };
+            var noteSlice = new NoteSlice(startTime, TuningScheme);
 
-            // Iterate over each frequency bin 
-            foreach (var frequency in frequencies)
+
+            foreach(var note in noteSlice.NoteConfidences)
             {
-                // Frequency is the max frequency
-                // Set confidence to max (as this is our fundamental)
-                // and naively, we assume that the max frequency is the 
-                // note being played
-                if (frequency == maxFrequency)
+                var lower = note.FundamentalFrequencyBounds.Item1;
+                var upper = note.FundamentalFrequencyBounds.Item2;
+
+                if(maxFrequency >= lower && maxFrequency <= upper)
                 {
-                    var semiTones = FrequencyToNoteHelper
-                        .GetFrequencySemiTones(frequency, TuningScheme.A4);
-
-                    var noteName = SemitonesToNoteHelper
-                        .ConvertToNoteName(semiTones);
-
-                    noteSlice.NoteConfidences.Add(new NoteConfidence
-                    {
-                        Name = noteName,
-                        // TODO : Improve bounds calculation
-                        FundamentalFrequencyBounds = Tuple.Create(frequency - 1.0f,
-                            frequency + 1.0f),
-                        Confidence = 1.0f
-                    });
+                    note.Confidence = 1.0f;
                 }
-
                 else
                 {
-                    var semiTones = FrequencyToNoteHelper
-                        .GetFrequencySemiTones(frequency, TuningScheme.A4);
-                    
-                    var noteName = SemitonesToNoteHelper
-                        .ConvertToNoteName(semiTones);
-                    
-                    noteSlice.NoteConfidences.Add(new NoteConfidence
-                    {
-                        Name = noteName,
-                        // TODO : Improve bounds calculation
-                        FundamentalFrequencyBounds = Tuple.Create(frequency - 1.0f,
-                            frequency + 1.0f),
-                        Confidence = 0.0f
-                    });
+                    note.Confidence = 0.0f;
                 }
             }
 
             return noteSlice;
         }
-
         #endregion
     }
 }

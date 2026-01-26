@@ -70,6 +70,5 @@ namespace FinalYearProject.Audio.Integration.Tests
                 .Name);
 
         }
-        // TODO: Check each note from A0 to G9 is detected with some confidence
     }
 }

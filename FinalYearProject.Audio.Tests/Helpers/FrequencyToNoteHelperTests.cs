@@ -154,7 +154,7 @@ namespace FinalYearProject.Audio.Tests.Helpers
             const double a4Frequency = 440.0;
             // Act
             int midiNoteNumber = FrequencyToNoteHelper
-                .GetFrequencySemiTones(frequency, a4Frequency);
+                .GetSemiTonesFromFrequency(frequency, a4Frequency);
             // Assert
             Assert.Equal(expectedMidiNoteNumber, midiNoteNumber);
         }
@@ -168,7 +168,7 @@ namespace FinalYearProject.Audio.Tests.Helpers
             const double a4Frequency = 440.0;
             // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() =>
-                FrequencyToNoteHelper.GetFrequencySemiTones(frequency, a4Frequency));
+                FrequencyToNoteHelper.GetSemiTonesFromFrequency(frequency, a4Frequency));
         }
 
         [Fact]
@@ -180,7 +180,7 @@ namespace FinalYearProject.Audio.Tests.Helpers
             const int expectedMidiNoteNumber = 0; // C0
             // Act
             int midiNoteNumber = FrequencyToNoteHelper
-                .GetFrequencySemiTones(frequency, a4Frequency);
+                .GetSemiTonesFromFrequency(frequency, a4Frequency);
             // Assert
             Assert.Equal(expectedMidiNoteNumber, midiNoteNumber);
 
