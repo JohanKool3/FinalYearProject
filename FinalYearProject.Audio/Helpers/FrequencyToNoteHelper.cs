@@ -1,5 +1,4 @@
-﻿
-namespace FinalYearProject.Audio.Helpers
+﻿namespace FinalYearProject.Audio.Helpers
 {
     public static class FrequencyToNoteHelper
     {
@@ -12,7 +11,8 @@ namespace FinalYearProject.Audio.Helpers
         /// <returns></returns>
         public static int GetFrequencySemiTones(float frequency, double a4_frequency)
         {
-            if(frequency <= 0 || frequency > 20000)
+            // Ensure the Frequency is within a valid range
+            if (frequency <= 0 || frequency > 20000)
             {
                 throw new ArgumentOutOfRangeException(nameof(frequency), "Frequency must be between 0 and 20,000 Hz.");
             }
