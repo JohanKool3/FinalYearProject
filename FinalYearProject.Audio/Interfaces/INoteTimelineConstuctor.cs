@@ -10,6 +10,6 @@ namespace FinalYearProject.Audio.Interfaces
         /// </summary>
         /// <param name="frequencyTimeline"></param>
         /// <returns></returns>
-        public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline);
+        public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline, float noteDetectionThreshold);
     }
 }

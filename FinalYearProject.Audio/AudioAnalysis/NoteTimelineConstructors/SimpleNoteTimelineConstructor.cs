@@ -8,10 +8,13 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteTimelineConstructors
     {
         public TuningScheme TuningScheme { get; } = tuningScheme;
 
-        public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline)
+        public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline) 
+            => GenerateTimeline(frequencyTimeline, 0.0f);
+
+        public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline, float noteDetectionThreshold)
         {
             // Component used to detect notes within a frequency window
-            var noteDetector = new SimpleNoteDetector(TuningScheme);
+            var noteDetector = new SimpleNoteDetector(TuningScheme, noteDetectionThreshold);
             var frequencies = frequencyTimeline.Frequencies;
 
             var noteSlices = new List<NoteSlice>();

@@ -28,7 +28,7 @@ namespace FinalYearProject.Audio.Tests.NoteDetectors
                 A4 = 440.0f
             };
 
-            var noteDetector = new SimpleNoteDetector(tuningScheme);
+            var noteDetector = new SimpleNoteDetector(tuningScheme, 0);
 
             // Imitate a frequency magnitude snapshot where only one frequency
             // has a significant magnitude

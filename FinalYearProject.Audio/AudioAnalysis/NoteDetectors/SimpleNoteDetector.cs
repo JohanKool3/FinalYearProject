@@ -4,9 +4,14 @@ using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 {
-    public class SimpleNoteDetector(TuningScheme tuningScheme) : INoteDetector
+    public class SimpleNoteDetector(TuningScheme tuningScheme, float noteDetectionThreshold) : INoteDetector
     {
         public TuningScheme TuningScheme { get; } = tuningScheme;
+
+        /// <summary>
+        /// How much magnitude a frequency must have to be detected
+        /// </summary>
+        public float NoteDetectionThreshold { get; set; } = noteDetectionThreshold;
 
         /// <summary>
         /// Finds the greatest frequency magnitude and returns
@@ -28,7 +33,12 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
                 .ToList()
                 .IndexOf(frequencyMagnitudeSnapshot.Max());
 
-            var maxFrequency = frequencies[maxIndex];
+            float? maxFrequency = frequencies[maxIndex];
+
+            if(frequencyMagnitudeSnapshot[maxIndex] < NoteDetectionThreshold)
+            {
+                maxFrequency = null;
+            }
 
             // Clamp Frequencies to max midi note (127)
             frequencies = ClampFrequencies(frequencies);
@@ -65,7 +75,7 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
         /// <param name="maxFrequency"></param>
         /// <returns></returns>
         /// <remarks>The remaining notes will be set to 0.0f</remarks>
-        private NoteSlice CalculateNoteSlice(float maxFrequency,
+        private NoteSlice CalculateNoteSlice(float? maxFrequency,
             List<float> frequencies,
             double startTime)
         {
@@ -78,7 +88,13 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
                 var lower = note.FundamentalFrequencyBounds.Item1;
                 var upper = note.FundamentalFrequencyBounds.Item2;
 
-                if(maxFrequency >= lower && maxFrequency <= upper)
+                if(maxFrequency is null)
+                {
+                    note.Confidence = 0.0f;
+                    continue;
+                }
+
+                if (maxFrequency >= lower && maxFrequency <= upper)
                 {
                     note.Confidence = 1.0f;
                 }
