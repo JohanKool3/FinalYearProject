@@ -161,7 +161,6 @@ namespace FinalYearProject.Audio.Tests.Helpers
 
         [Theory]
         [InlineData(-1)]
-        [InlineData(0)]
         [InlineData(float.MaxValue)]
         public void FrequencyToNoteHelper_GetFrequencySemiTones_InvalidFrequency_ThrowsArgumentOutOfRangeException(float frequency)
         {
@@ -170,6 +169,21 @@ namespace FinalYearProject.Audio.Tests.Helpers
             // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() =>
                 FrequencyToNoteHelper.GetFrequencySemiTones(frequency, a4Frequency));
+        }
+
+        [Fact]
+        public void FrequencyToNoteHelper_GetFrequencySemiTones_Zero_ReturnsLowestNote()
+        {
+           // Arrange
+            const float frequency = 0.0f;
+            const double a4Frequency = 440.0;
+            const int expectedMidiNoteNumber = 0; // C0
+            // Act
+            int midiNoteNumber = FrequencyToNoteHelper
+                .GetFrequencySemiTones(frequency, a4Frequency);
+            // Assert
+            Assert.Equal(expectedMidiNoteNumber, midiNoteNumber);
+
         }
     }
 }

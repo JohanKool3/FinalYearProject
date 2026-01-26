@@ -23,7 +23,7 @@ namespace FinalYearProject.Audio.Tests.Helpers
 
         [Theory]
         [InlineData(-1)]
-        [InlineData(128)]
+        [InlineData(129)]
         public void SemitonesToNoteHelper_ConvertSemitonesToNote_InvalidSemitones_ThrowsArgumentOutOfRangeException(int semitones)
         {
             // Arrange

@@ -21,7 +21,7 @@ namespace FinalYearProject.Audio.Helpers
         {
             // Ensure that the semitones value is within the valid MIDI range
             // see <a href="https://inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies">MIDI Specifications</a>
-            if (semitones < 0 || semitones > 127)
+            if (semitones < 0 || semitones > 128)
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(semitones),

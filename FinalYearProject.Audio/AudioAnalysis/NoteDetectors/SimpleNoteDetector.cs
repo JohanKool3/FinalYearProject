@@ -30,10 +30,30 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 
             var maxFrequency = frequencies[maxIndex];
 
-            var note = CalculateNoteSlice(maxFrequency, frequencies, startTime);
+            // Clamp Frequencies to max midi note (127)
+            frequencies = ClampFrequencies(frequencies);
 
-            return note;
+            var noteSlice = CalculateNoteSlice(maxFrequency, frequencies, startTime);
 
+            return noteSlice;
+
+        }
+
+        private static List<float> ClampFrequencies(List<float> frequencies)
+        {
+            List<float> clampedFrequencies = [];
+
+            foreach(var frequency in frequencies)
+            {
+                // Skip this frequency, it is out of bounds
+                if(frequency < MidiFrequencyBounds.MinFrequency || frequency > MidiFrequencyBounds.MaxFrequency)
+                {
+                    continue;
+                }
+                clampedFrequencies.Add(frequency);
+            }
+
+            return clampedFrequencies;
         }
 
         #region Private Methods
