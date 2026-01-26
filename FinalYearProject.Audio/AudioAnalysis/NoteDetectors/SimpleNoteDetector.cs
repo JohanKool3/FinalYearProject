@@ -36,6 +36,8 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 
         }
 
+        #region Private Methods
+
         /// <summary>
         /// Using the max frequency, calculate the note and then
         /// set the confidence to 1.0f.
@@ -100,5 +102,7 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 
             return noteSlice;
         }
+
+        #endregion
     }
 }
