@@ -140,7 +140,7 @@ namespace FinalYearProject.Audio.Integration.Tests
                     .Where(nc => nc.Confidence > 0)
                     .FirstOrDefault();
 
-                Assert.Equal("C5", detectedNote
+                Assert.Equal("C5", detectedNote?
                     .Name);
             }
 

@@ -11,11 +11,23 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteTimelineConstructors
         public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline) 
             => GenerateTimeline(frequencyTimeline, 0.0f);
 
+        /// <summary>
+        /// Generates a Timeline of Notes over time
+        /// </summary>
+        /// <param name="frequencyTimeline"></param>
+        /// <param name="noteDetectionThreshold"></param>
+        /// <returns></returns>
         public NoteTimeline GenerateTimeline(FrequencyMagnitudeTimeline frequencyTimeline, float noteDetectionThreshold)
         {
             // Component used to detect notes within a frequency window
             var noteDetector = new SimpleNoteDetector(TuningScheme, noteDetectionThreshold);
             var frequencies = frequencyTimeline.Frequencies;
+
+            if(frequencies is null)
+            {
+                // TODO: Log error
+                throw new ArgumentNullException(nameof(frequencies), "Frequencies list cannot be null");
+            }
 
             var noteSlices = new List<NoteSlice>();
 
