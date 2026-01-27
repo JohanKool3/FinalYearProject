@@ -1,5 +1,4 @@
-﻿
-using FinalYearProject.Audio.Helpers;
+﻿using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Audio.Models;
 
 namespace FinalYearProject.Audio.Tests.Helpers
