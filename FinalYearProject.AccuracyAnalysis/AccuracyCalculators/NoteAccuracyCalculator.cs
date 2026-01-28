@@ -44,22 +44,35 @@ namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
                     continue;
                 }
 
-                foreach (var note in noteGroup.Notes)
+                // Check the difference in the amount of notes in the group vs played
+                if(noteGroup.Notes.Count < startTimeNotes.Count)
                 {
-                    totalNotes++;
-
-                    // Note was expected and played, reward
-                    if (startTimeNotes.Contains(note.Name))
-                    {
-                        correctNotes++;
-                    }
-
-                    // Note was not expected but played, penalize
-                    else
-                    {
-                        correctNotes--;
-                    }
+                    // More notes played than expected, penalize
+                    correctNotes -= (startTimeNotes.Count - noteGroup.Notes.Count);
                 }
+                else if(noteGroup.Notes.Count > startTimeNotes.Count)
+                {
+                    // Less notes played than expected, penalize
+                    correctNotes -= (noteGroup.Notes.Count - startTimeNotes.Count);
+                }
+
+
+                foreach (var note in noteGroup.Notes)
+                    {
+                        totalNotes++;
+
+                        // Note was expected and played, reward
+                        if (startTimeNotes.Contains(note.Name))
+                        {
+                            correctNotes++;
+                        }
+
+                        // Note was not expected but played, penalize
+                        else
+                        {
+                            correctNotes--;
+                        }
+                    }
             }
 
             // Calculate accuracy as a percentage
