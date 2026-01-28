@@ -3,14 +3,14 @@ using NAudio.Dsp;
 
 namespace FinalYearProject.Audio.AudioAnalysis.Fft
 {
-    public class FftAnalyzer
+    public static class FftAnalyzer
     {
         /// <summary>
         /// Converts a Window of audio samples to the frequency domain using FFT.
         /// </summary>
         /// <param name="window"></param>
         /// <param name="samplingRate">The sample rate of the Audio File</param>
-        public FftOutput ConvertToFrequencyDomain(Window window, int samplingRate)
+        public static FftOutput ConvertToFrequencyDomain(Window window, int samplingRate)
         {
             // FFT Size is the number of samples in the window
             var fftSize = window.Samples.Count;
@@ -69,6 +69,19 @@ namespace FinalYearProject.Audio.AudioAnalysis.Fft
                 StartTime = window.StartTime,
                 EndTime = window.EndTime
             };
+        }
+    
+    
+        public static List<FftOutput> BatchConvertToFrequencyDomain(List<Window> windows, 
+            int samplingRate)
+        {
+            List<FftOutput> fftOutputs = [];
+            foreach(var window in windows)
+            {
+                var fftOutput = ConvertToFrequencyDomain(window, samplingRate);
+                fftOutputs.Add(fftOutput);
+            }
+            return fftOutputs;
         }
     }
 }

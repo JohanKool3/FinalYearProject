@@ -49,14 +49,17 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 
         }
 
+
+        #region Private Methods
+
         private static List<float> ClampFrequencies(List<float> frequencies)
         {
             List<float> clampedFrequencies = [];
 
-            foreach(var frequency in frequencies)
+            foreach (var frequency in frequencies)
             {
                 // Skip this frequency, it is out of bounds
-                if(frequency < MidiFrequencyBounds.MinFrequency || frequency > MidiFrequencyBounds.MaxFrequency)
+                if (frequency < MidiFrequencyBounds.MinFrequency || frequency > MidiFrequencyBounds.MaxFrequency)
                 {
                     continue;
                 }
@@ -66,7 +69,6 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
             return clampedFrequencies;
         }
 
-        #region Private Methods
 
         /// <summary>
         /// Using the max frequency, calculate the note and then
@@ -106,6 +108,24 @@ namespace FinalYearProject.Audio.AudioAnalysis.NoteDetectors
 
             return noteSlice;
         }
+
         #endregion
+
+        // <inheritdoc />
+        public List<NoteSlice> BatchCalculateNoteConfidenceValues(List<float[]> frequencyMagnitudeSnapshots, List<float> frequencies, double startTime, double dataPointLength)
+        {
+            double currentTime = startTime;
+
+            List<NoteSlice> noteSlices = [];
+
+            foreach(var snapshot in frequencyMagnitudeSnapshots)
+            {
+                var noteSlice = CalculateNoteConfidenceValues(snapshot, frequencies, currentTime);
+                noteSlices.Add(noteSlice);
+                currentTime += dataPointLength;
+            }
+
+            return noteSlices;
+        }
     }
 }

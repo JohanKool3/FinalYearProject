@@ -17,7 +17,6 @@ namespace FinalYearProject.Audio.Tests.Fft
             };
 
             var sampleRate = 48000;
-            var analyzer = new FftAnalyzer();
 
             var expectedFrequencies = new float[]
             {
@@ -30,7 +29,7 @@ namespace FinalYearProject.Audio.Tests.Fft
             };
 
             // Act
-            var output = analyzer.ConvertToFrequencyDomain(testWindow, sampleRate);
+            var output = FftAnalyzer.ConvertToFrequencyDomain(testWindow, sampleRate);
 
             // Assert
             Assert.Equal(expectedFrequencies, output.Frequencies);
@@ -50,13 +49,12 @@ namespace FinalYearProject.Audio.Tests.Fft
                 ]
             };
             var sampleRate = 48000;
-            var analyzer = new FftAnalyzer();
             var expectedFrequencies = new float[]
             {
                 0, 3000, 6000, 9000, 12000, 15000, 18000, 21000
             };
             // Act
-            var output = analyzer.ConvertToFrequencyDomain(testWindow, sampleRate);
+            var output = FftAnalyzer.ConvertToFrequencyDomain(testWindow, sampleRate);
 
             // Find the maximum frequency
             var maxFrequency = output

@@ -22,7 +22,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
-            var fftAnalyzer = new FftAnalyzer();
             var timelineConstructor = new SimpleFrequencyTimelineConstructor();
             var noteDetector = new SimpleNoteDetector(tuningScheme, 0);
 
@@ -40,7 +39,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             foreach (var window in windows)
             {
-                var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 44100);
+                var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 44100);
 
                 fftOutputs.Add(fftOutput);
             }
@@ -83,7 +82,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
-            var fftAnalyzer = new FftAnalyzer();
             var timelineConstructor = new SimpleFrequencyTimelineConstructor();
             var noteDetector = new SimpleNoteDetector(tuningScheme, 0);
 
@@ -101,7 +99,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             foreach (var window in windows)
             {
-                var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 44100);
+                var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 44100);
 
                 fftOutputs.Add(fftOutput);
             }
@@ -158,7 +156,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\eminor-test.wav";
             var windower = new SimpleWindower();
-            var fftAnalyzer = new FftAnalyzer();
             var timelineConstructor = new SimpleFrequencyTimelineConstructor();
             var noteDetector = new SimpleNoteDetector(tuningScheme, 0.06185f);
 
@@ -176,7 +173,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             foreach (var window in windows)
             {
-                var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 48000);
+                var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 48000);
 
                 fftOutputs.Add(fftOutput);
             }

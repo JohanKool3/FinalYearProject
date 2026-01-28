@@ -13,5 +13,15 @@ namespace FinalYearProject.Audio.Interfaces
         /// <param name="startTime">When the snapshot started</param>
         /// <returns></returns>
         NoteSlice CalculateNoteConfidenceValues(float[] frequencyMagnitudeSnapshot, List<float> frequencies, double startTime);
+
+        /// <summary>
+        /// Calculates the notes and their confidence values for a batch of frequency magnitude snapshots
+        /// </summary>
+        /// <param name="frequencyMagnitudeSnapshots"></param>
+        /// <param name="frequencies"></param>
+        /// <param name="startTime"></param>
+        /// <param name="dataPointLength"></param>
+        /// <returns></returns>
+        List<NoteSlice> BatchCalculateNoteConfidenceValues(List<float[]> frequencyMagnitudeSnapshots, List<float> frequencies, double startTime, double dataPointLength);
     }
 }

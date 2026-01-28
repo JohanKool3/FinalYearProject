@@ -15,7 +15,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
-            var fftAnalyzer = new FftAnalyzer();
             var timelineConstructor = new SimpleFrequencyTimelineConstructor();
 
             // Act
@@ -32,7 +31,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             foreach(var window in windows)
             {
-                var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 44100);
+                var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 44100);
 
                 fftOutputs.Add(fftOutput);
             }

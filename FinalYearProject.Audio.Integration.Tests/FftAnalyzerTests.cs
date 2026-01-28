@@ -13,9 +13,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
-
-            var fftAnalyzer = new FftAnalyzer();
-
             // Act
             var pcmStream = reader.ReadAudioFile(fileName);
 
@@ -24,7 +21,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             var window = windows[100];
 
-            var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 44100);
+            var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 44100);
 
             var maxFrequencyBin = fftOutput
                 .Frequencies
@@ -42,8 +39,6 @@ namespace FinalYearProject.Audio.Integration.Tests
             var reader = new WavFileReader();
             var fileName = "TestData\\pure-sine-c4.wav";
             var windower = new SimpleWindower();
-            var fftAnalyzer = new FftAnalyzer();
-            
             // Act
             var pcmStream = reader.ReadAudioFile(fileName);
             var windows = windower.ConvertPCMStreamToWindows
@@ -53,7 +48,7 @@ namespace FinalYearProject.Audio.Integration.Tests
 
             foreach (var window in windows)
             {
-                var fftOutput = fftAnalyzer.ConvertToFrequencyDomain(window, 44100);
+                var fftOutput = FftAnalyzer.ConvertToFrequencyDomain(window, 44100);
                 var maxFrequencyBin = fftOutput
                     .Frequencies
                     .Where((frequency, index)
