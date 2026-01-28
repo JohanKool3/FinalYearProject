@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.Analysis.Tests", "FinalYearProject.Accuracy.Analysis.Tests\FinalYearProject.Accuracy.Analysis.Tests.csproj", "{22D91138-C288-4A1C-84E1-14ADC7FD1A5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.Analysis.Integration.Tests", "FinalYearProject.Accuracy.Analysis.Integration.Tests\FinalYearProject.Accuracy.Analysis.Integration.Tests.csproj", "{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{22D91138-C288-4A1C-84E1-14ADC7FD1A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D91138-C288-4A1C-84E1-14ADC7FD1A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D91138-C288-4A1C-84E1-14ADC7FD1A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{A8CE1875-F8C7-4A0A-9865-B02AAE358DCD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8327A789-4889-4089-BEF1-A5DB3D675BFB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{22D91138-C288-4A1C-84E1-14ADC7FD1A5C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10F71CB4-901E-4F5F-BE33-5AB66EC65247}

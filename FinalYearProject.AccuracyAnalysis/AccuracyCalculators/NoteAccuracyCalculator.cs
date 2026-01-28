@@ -7,7 +7,7 @@ namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
 {
     public class NoteAccuracyCalculator(AccuracySettings requiredConfidence) : IAccuracyCalculator
     {
-        public float RequiredConfidence { get; set; } = requiredConfidence.RequiredNoteAccuracy;
+        public float RequiredConfidence { get; set; } = requiredConfidence.RequiredNoteConfidence;
 
         /// <summary>
         /// Calculates the accuracy of the player's notes compared to the expected notes.

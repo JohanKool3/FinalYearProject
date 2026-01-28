@@ -23,7 +23,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
             var calculator = new NoteAccuracyCalculator(
                 new AccuracySettings
                 {
-                    RequiredNoteAccuracy = 0.1f
+                    RequiredNoteConfidence = 0.1f
                 });
 
             var timeline = new NoteTimeline
@@ -72,7 +72,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
             var calculator = new NoteAccuracyCalculator(
                 new AccuracySettings
                 {
-                    RequiredNoteAccuracy = 0.1f
+                    RequiredNoteConfidence = 0.1f
                 });
             var timeline = new NoteTimeline
             {
@@ -117,7 +117,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
             var calculator = new NoteAccuracyCalculator(
                 new AccuracySettings
                 {
-                    RequiredNoteAccuracy = 0.1f
+                    RequiredNoteConfidence = 0.1f
                 });
             var timeline = new NoteTimeline
             {

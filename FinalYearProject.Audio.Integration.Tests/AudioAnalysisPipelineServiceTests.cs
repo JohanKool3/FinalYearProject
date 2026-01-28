@@ -13,7 +13,6 @@ namespace FinalYearProject.Audio.Integration.Tests
         public void AudioAnalysisPipelineService_ValidPath_ReturnsExpectedResult()
         {
             // Arrange
-
             var tuningScheme = new TuningScheme()
             {
                 A4 = 440.0
