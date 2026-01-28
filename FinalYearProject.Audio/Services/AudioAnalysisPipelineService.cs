@@ -20,7 +20,6 @@ namespace FinalYearProject.Audio.Services
         IWindower windower,
         IFrequencyTimelineConstructor frequencyConstructor,
         INoteTimelineConstuctor noteConstructor,
-        INoteDetector noteDetector,
         TuningScheme tuningScheme,
         DetectionSettings settings)
     {
@@ -33,8 +32,6 @@ namespace FinalYearProject.Audio.Services
         public IFrequencyTimelineConstructor FrequencyConstructor { get; } = frequencyConstructor;
         
         public INoteTimelineConstuctor NoteConstructor { get; } = noteConstructor;
-        
-        public INoteDetector NoteDetector { get; } = noteDetector;
         
         public TuningScheme TuningScheme { get; } = tuningScheme;
         
@@ -62,9 +59,9 @@ namespace FinalYearProject.Audio.Services
             // 2. Window the audio data
             var windows = Windower.ConvertPCMStreamToWindows(
                 audioData,
+                fileMetadata.SampleRate,
                 Settings.WindowSize, 
-                Settings.HopSize,
-                fileMetadata.SampleRate)
+                Settings.HopSize)
                 ?? throw new AudioAnalysisPipelineException(2,
                 "Failed to convert PCM Stream (Audio Data) to windows");
 
