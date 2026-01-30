@@ -7,7 +7,7 @@ namespace FinalYearProject.Server.Validators
     public class AudioDataValidator(ValidationSettings validationSettings) : IAudioDataValidator
     {
         #region Dependencies
-        
+
         public ValidationSettings Settings { get; } = validationSettings;
 
         #endregion

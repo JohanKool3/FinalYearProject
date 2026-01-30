@@ -1,5 +1,4 @@
-﻿using FinalYearProject.Server.Exceptions;
-using FinalYearProject.Server.Helpers;
+﻿using FinalYearProject.Server.Helpers;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Server.Validators;
@@ -16,6 +15,10 @@ namespace FinalYearProject.Server.Extensions
             _ = services.AddSingleton(sp
                 => SettingsSubSectionHelper
                 .GetSettingsSubSection<ValidationSettings>(configuration));
+
+            _ = services.AddSingleton(sp
+                => SettingsSubSectionHelper
+                .GetSettingsSubSection<FileSettings>(configuration));
 
             return services;
         }

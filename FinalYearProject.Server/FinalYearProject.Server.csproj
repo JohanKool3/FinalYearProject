@@ -23,4 +23,8 @@
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

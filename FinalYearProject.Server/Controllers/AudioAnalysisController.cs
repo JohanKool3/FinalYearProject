@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.Server.Interfaces;
+using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +8,11 @@ namespace FinalYearProject.Server.Controllers
     [ApiController]
     [Route("api/analysis/[controller]")]
     public class AudioAnalysisController(
-        IAudioDataValidator audioDatavalidator) : ControllerBase
+        IAudioDataValidator audioDatavalidator,
+        FileSettings fileSettings) : ControllerBase
     {
         public IAudioDataValidator Validator { get; } = audioDatavalidator;
+        public FileSettings FileSettings { get; } = fileSettings;
 
         /// <summary>
         /// Returns analysis results for the provided audio data.
@@ -23,17 +26,20 @@ namespace FinalYearProject.Server.Controllers
         {
             // TODO: Validate User Authentication & Authorization
 
-            if (!Validator.ValidAudioData(audioData) )
+            if (!Validator.ValidAudioData(audioData))
             {
                 return BadRequest("Invalid audio data.");
             }
 
             // TODO: Validate Piece ID
-            // TODO: Save as Wav File on Server
-            // TODO: Process Audio File (Through AudioAnalysisPipelineService)
-            // TODO: Generate AccuracyResultsDto based on analysis
-            // TODO: Save results to Database
-            // TODO: Delete Temporary Audio File
+
+            //TODO: Process Audio File
+            // 1. Create a Temporary Folder for this request
+            // 2. Save Audio File to Temporary Folder
+            // 3. Run Audio Analysis on the audio file
+            // 4. Save results to Database
+            // 5. Delete Temporary Folder and its contents
+            // 6. Return Analysis Results
 
 
             // Placeholder for audio analysis logic
@@ -42,7 +48,6 @@ namespace FinalYearProject.Server.Controllers
                 NoteAccuracy = 1f // Placeholder value
             };
 
-            // TODO: Utilize the AudioAnalysisPipelineService to process the audioData
             return Ok(response);
         }
     }
