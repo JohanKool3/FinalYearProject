@@ -1,13 +1,16 @@
-﻿using FinalYearProject.Shared.Models.Dtos;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using FinalYearProject.Server.Interfaces;
+using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalYearProject.Server.Controllers
 {
     [ApiController]
     [Route("api/analysis/[controller]")]
-    public class AudioAnalysisController : ControllerBase
+    public class AudioAnalysisController(
+        IAudioDataValidator audioDatavalidator) : ControllerBase
     {
+        public IAudioDataValidator Validator { get; } = audioDatavalidator;
+
         /// <summary>
         /// Returns analysis results for the provided audio data.
         /// </summary>
@@ -18,7 +21,14 @@ namespace FinalYearProject.Server.Controllers
         public async Task<ActionResult<AccuracyResultsDto>> AnalyzeAudioAsync
             ([FromForm] AnalysisRequestDto audioData)
         {
-            // TODO: Validate audioData
+            // TODO: Validate User Authentication & Authorization
+
+            if (!Validator.ValidAudioData(audioData) )
+            {
+                return BadRequest("Invalid audio data.");
+            }
+
+            // TODO: Validate Piece ID
             // TODO: Save as Wav File on Server
             // TODO: Process Audio File (Through AudioAnalysisPipelineService)
             // TODO: Generate AccuracyResultsDto based on analysis
