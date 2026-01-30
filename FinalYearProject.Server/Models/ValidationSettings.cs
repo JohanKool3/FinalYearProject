@@ -10,6 +10,12 @@ namespace FinalYearProject.Server.Models
         public List<string> AllowedFileExtensions { get; set; } = [];
 
         /// <summary>
+        /// Defines the MIME types that are allowed for audio uploads. These
+        /// outline the contents of the files. e.g. "audio/wave"
+        /// </summary>
+        public List<string> AllowedMimeTypes { get; set; } = [];
+
+        /// <summary>
         /// Defines the maximum allowed size for audio files in bytes.
         /// </summary>
         public int MaxAudioFileSizeBytes { get; set; }

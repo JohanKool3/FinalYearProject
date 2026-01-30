@@ -1,7 +1,6 @@
 ﻿using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
-using Microsoft.Extensions.FileProviders;
 
 namespace FinalYearProject.Server.Validators
 {
@@ -9,7 +8,7 @@ namespace FinalYearProject.Server.Validators
     {
         #region Dependencies
         
-        public ValidationSettings ValidationSettings { get; } = validationSettings;
+        public ValidationSettings Settings { get; } = validationSettings;
 
         #endregion
 
@@ -17,7 +16,19 @@ namespace FinalYearProject.Server.Validators
         {
             var fileData = audioData.AudioFile;
 
-            if(!IsValidMetadata(fileData))
+            // Check if file is null
+            if (fileData is null)
+            {
+                return false;
+            }
+
+            // Checks if the payload contains valid MIME type
+            if (!IsValidMime(fileData))
+            {
+                return false;
+            }
+
+            if (!IsValidMetadata(fileData))
             {
                 return false;
             }
@@ -29,6 +40,27 @@ namespace FinalYearProject.Server.Validators
 
             //TODO: Additional checks can be added here (e.g., audio format validation)
             // as well as header checks to ensure the file is not corrupted or malformed.
+
+            return true;
+        }
+
+        private bool IsValidMime(IFormFile fileData)
+        {
+            // Check high-level MIME type
+            var contentType = fileData.ContentType.ToLowerInvariant();
+            var contentTypeHeaderValues = fileData.Headers["Content-Type"];
+
+            // Content Type is not allowed
+            if (!Settings.AllowedMimeTypes.Contains(contentType))
+            {
+                return false;
+            }
+
+            // Content Type header value mismatch (should be the same as ContentType)
+            if (contentType != contentTypeHeaderValues)
+            {
+                return false;
+            }
 
             return true;
         }
@@ -47,7 +79,7 @@ namespace FinalYearProject.Server.Validators
             }
 
             // Check if file size exceeds maximum allowed size
-            if (fileData.Length > ValidationSettings.MaxAudioFileSizeBytes)
+            if (fileData.Length > Settings.MaxAudioFileSizeBytes)
             {
                 return false;
             }
@@ -60,18 +92,11 @@ namespace FinalYearProject.Server.Validators
         /// </summary>
         /// <param name="fileData"></param>
         /// <returns></returns>
-        private static bool IsValidMetadata(IFormFile? fileData)
+        private bool IsValidMetadata(IFormFile fileData)
         {
-            // Check if file is null
-            if (fileData is null)
-            {
-                return false;
-            }
-
-            // Check File Type (e.g., only allow .wav)
-            var allowedExtensions = new[] { ".wav", ".mp3" };
-
             var fileExtension = Path.GetExtension(fileData.FileName).ToLowerInvariant();
+
+            var allowedExtensions = Settings.AllowedFileExtensions;
 
             if (!allowedExtensions.Contains(fileExtension))
             {
