@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.Analysis.Integration.Tests", "FinalYearProject.Accuracy.Analysis.Integration.Tests\FinalYearProject.Accuracy.Analysis.Integration.Tests.csproj", "{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Server", "FinalYearProject.Server\FinalYearProject.Server.csproj", "{4953806E-5D90-44E7-BA52-62DB498F3301}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CCD6C00-34ED-4F0E-A3EA-AB49BFEDA2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4953806E-5D90-44E7-BA52-62DB498F3301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4953806E-5D90-44E7-BA52-62DB498F3301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4953806E-5D90-44E7-BA52-62DB498F3301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4953806E-5D90-44E7-BA52-62DB498F3301}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
