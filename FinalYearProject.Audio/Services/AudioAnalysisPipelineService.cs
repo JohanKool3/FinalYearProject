@@ -12,7 +12,6 @@ namespace FinalYearProject.Audio.Services
     /// <param name="windower">The component that will split full audio stream into chunks</param>
     /// <param name="frequencyConstructor">The component that will create a frequency, magnitude over time representation</param>
     /// <param name="noteConstructor">The component that will create a note over time representation</param>
-    /// <param name="noteDetector">The component that will detect notes from frequency set</param>
     /// <param name="tuningScheme">The tuning scheme for the current session (e.g. A4 = 440)</param>
     /// <param name="settings">Settings that determine how sensitive note detection is</param>
     public class AudioAnalysisPipelineService(
