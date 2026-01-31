@@ -1,3 +1,5 @@
+using FinalYearProject.Audio.Enums;
+using FinalYearProject.Audio.Extensions;
 using FinalYearProject.Server.Extensions;
 
 namespace FinalYearProject.Server
@@ -13,6 +15,9 @@ namespace FinalYearProject.Server
 
             // Load Validators
             builder.Services.LoadValidators();
+
+            // Load Audio Analysis Pipeline
+            builder.Services.AddAudioAnalysisServices(ServiceType.Simple);
 
             // Add services to the container.
             builder.Services.AddControllers();
