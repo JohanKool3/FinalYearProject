@@ -1,4 +1,4 @@
-﻿namespace FinalYearProject.Server.Interfaces
+﻿namespace FinalYearProject.Shared.Interfaces
 {
     /// <summary>
     /// A Marker Interface for Settings Classes.

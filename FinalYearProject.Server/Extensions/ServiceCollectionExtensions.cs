@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Server.Helpers;
+﻿using FinalYearProject.Audio.Models;
+using FinalYearProject.Server.Helpers;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Server.Services;
@@ -27,12 +28,12 @@ namespace FinalYearProject.Server.Extensions
             // Load Tuning Scheme
             _ = services.AddSingleton(sp
                 => SettingsSubSectionHelper
-                .GetSettingsSubSection<ServerTuningScheme>(configuration));
+                .GetSettingsSubSection<TuningScheme>(configuration));
 
             // Load Detection Settings
             _ = services.AddSingleton(sp
                 => SettingsSubSectionHelper
-                .GetSettingsSubSection<ServerDetectionSettings>(configuration));
+                .GetSettingsSubSection<DetectionSettings>(configuration));
 
             #endregion
 

@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Server.Interfaces;
+﻿using FinalYearProject.Shared.Interfaces;
 
 namespace FinalYearProject.Server.Models
 {

@@ -1,6 +1,8 @@
-﻿namespace FinalYearProject.Audio.Models
+﻿using FinalYearProject.Shared.Interfaces;
+
+namespace FinalYearProject.Audio.Models
 {
-    public class DetectionSettings
+    public class DetectionSettings : ISetting
     {
         public int WindowSize { get; set; }
         

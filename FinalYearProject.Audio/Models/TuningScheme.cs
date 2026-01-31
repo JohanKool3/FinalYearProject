@@ -1,10 +1,12 @@
-﻿namespace FinalYearProject.Audio.Models
+﻿using FinalYearProject.Shared.Interfaces;
+
+namespace FinalYearProject.Audio.Models
 {
     /// <summary>
     /// Holds information about a tuning scheme e.g
     /// A = 440Hz
     /// </summary>
-    public class TuningScheme
+    public class TuningScheme: ISetting
     {
         /// <summary>
         /// The frequency that A4 is tuned to.

@@ -1,23 +1,29 @@
-﻿using FinalYearProject.Server.Exceptions;
+﻿using FinalYearProject.Audio.Services;
+using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Services
 {
-    public class AudioFileProcessorService(FileSettings settings) : IAudioFileProcessorService
+    public class AudioFileProcessorService(FileSettings settings,
+        AudioAnalysisPipelineService analysisService) : IAudioFileProcessorService
     {
         public FileSettings Settings { get; } = settings;
+
+        public AudioAnalysisPipelineService AnalysisService { get; } = analysisService;
 
         public async Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequestDto requestDto)
         {
             // 1. Create a Temporary Folder within base directory
             var tempFolderPath = CreateTemporaryFolder();
 
+            var filePath = string.Empty;
+
             // 2. Save the uploaded audio file to the Temporary Folder
             try
             {
-                await SaveFileToFolderAsync(tempFolderPath, requestDto);
+                filePath = await SaveFileToFolderAsync(tempFolderPath, requestDto);
             }
 
             // Failed to save as file is null, delete temporary folder and rethrow
@@ -27,7 +33,14 @@ namespace FinalYearProject.Server.Services
                 throw new AudioFileProcessingException("Payload File was null, cannot processes");
             }
 
+            if (filePath == string.Empty)
+            {
+                CleanupTemporaryFolder(tempFolderPath);
+                throw new AudioFileProcessingException("Failed to save uploaded audio file.");
+            }
+
             // 3. Run the Audio Analysis Pipeline on this file
+            var results = AnalysisService.AnalyzeAudioFile(filePath);
 
             // 5. Delete Temporary Folder
             CleanupTemporaryFolder(tempFolderPath);
@@ -57,7 +70,7 @@ namespace FinalYearProject.Server.Services
         /// <param name="requestDto"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private static async Task SaveFileToFolderAsync(string tempFolderPath, AnalysisRequestDto requestDto)
+        private static async Task<string> SaveFileToFolderAsync(string tempFolderPath, AnalysisRequestDto requestDto)
         {
             var file = requestDto.AudioFile
                 ?? throw new ArgumentNullException(nameof(requestDto.AudioFile), "Uploaded audio file cannot be null.");
@@ -68,6 +81,10 @@ namespace FinalYearProject.Server.Services
             await file.CopyToAsync(stream);
 
             stream.Close();
+
+            return filePath;
+
+
         }
 
         /// <summary>

@@ -1,5 +1,5 @@
 ﻿using FinalYearProject.Server.Exceptions;
-using FinalYearProject.Server.Interfaces;
+using FinalYearProject.Shared.Interfaces;
 
 namespace FinalYearProject.Server.Helpers
 {
