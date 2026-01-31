@@ -17,9 +17,24 @@ namespace FinalYearProject.Server.Extensions
                 => SettingsSubSectionHelper
                 .GetSettingsSubSection<ValidationSettings>(configuration));
 
+            // Load File Settings
             _ = services.AddSingleton(sp
                 => SettingsSubSectionHelper
                 .GetSettingsSubSection<FileSettings>(configuration));
+
+            #region Audio Analysis Pipeline Settings
+
+            // Load Tuning Scheme
+            _ = services.AddSingleton(sp
+                => SettingsSubSectionHelper
+                .GetSettingsSubSection<ServerTuningScheme>(configuration));
+
+            // Load Detection Settings
+            _ = services.AddSingleton(sp
+                => SettingsSubSectionHelper
+                .GetSettingsSubSection<ServerDetectionSettings>(configuration));
+
+            #endregion
 
             return services;
         }
