@@ -6,7 +6,8 @@ using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Services
 {
-    public class AudioFileProcessorService(FileSettings settings,
+    public class AudioFileProcessorService(
+        FileSettings settings,
         AudioAnalysisPipelineService analysisService) : IAudioFileProcessorService
     {
         public FileSettings Settings { get; } = settings;
@@ -42,6 +43,8 @@ namespace FinalYearProject.Server.Services
             // 3. Run the Audio Analysis Pipeline on this file
             var results = AnalysisService.AnalyzeAudioFile(filePath);
 
+            // 4. Compare to the expected results from the piece repository
+
             // 5. Delete Temporary Folder
             CleanupTemporaryFolder(tempFolderPath);
 
@@ -49,7 +52,7 @@ namespace FinalYearProject.Server.Services
 
             return new AccuracyResultsDto
             {
-                NoteAccuracy = 0.95f // Placeholder value
+                NoteAccuracy = 1f // Placeholder value
             };
         }
 
