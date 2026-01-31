@@ -7,11 +7,7 @@ using FinalYearProject.Audio.AudioAnalysis.Windowers;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Audio.Services;
 using FinalYearProject.Shared.Models.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FinalYearProject.Accuracy.Analysis.Services.Calculators;
 
 namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculators
 {

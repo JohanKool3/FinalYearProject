@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Audio.Models;
+﻿using FinalYearProject.Accuracy.Analysis.Models;
+using FinalYearProject.Audio.Models;
 using FinalYearProject.EfCore.Helpers;
 using FinalYearProject.EfCore.Models;
 using FinalYearProject.Server.Helpers;
@@ -27,6 +28,11 @@ namespace FinalYearProject.Server.Extensions
             _ = services.AddSingleton(sp
                 => SettingsSubSectionHelper
                 .GetSettingsSubSection<FileSettings>(configuration));
+
+            // Load Accuracy Settings
+            _ = services.AddSingleton(sp
+                => SettingsSubSectionHelper
+                .GetSettingsSubSection<AccuracySettings>(configuration));
 
             #region Audio Analysis Pipeline Settings
 

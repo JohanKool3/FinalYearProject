@@ -4,7 +4,7 @@ using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Shared.Models.Dtos;
 
-namespace FinalYearProject.Accuracy.Analysis.Services
+namespace FinalYearProject.Accuracy.Analysis.Services.Calculators
 {
     public class NoteAccuracyCalculatorService(AccuracySettings accuracySettings) : IAccuracyCalculator
     {

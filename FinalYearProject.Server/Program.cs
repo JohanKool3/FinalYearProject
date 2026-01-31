@@ -1,3 +1,4 @@
+using FinalYearProject.Accuracy.Analysis.Extensions;
 using FinalYearProject.Audio.Enums;
 using FinalYearProject.Audio.Extensions;
 using FinalYearProject.Server.Extensions;
@@ -21,6 +22,8 @@ namespace FinalYearProject.Server
 
             // Load Audio Analysis Pipeline
             builder.Services.AddAudioAnalysisServices(ServiceType.Simple);
+
+            builder.Services.AddPerformanceAnalysisServices();
 
             // Add services to the container.
             builder.Services.AddControllers();

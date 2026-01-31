@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Server.Exceptions;
+﻿using FinalYearProject.Accuracy.Analysis.Services;
+using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
@@ -11,6 +12,7 @@ namespace FinalYearProject.Server.Controllers
     public class AudioAnalysisController(
     IDataValidator<AnalysisRequestDto> audioDataValidator,
     IDataValidator<AnalysisRequestMetadata> requestMetadataValidator,
+
     IAudioFileProcessorService processorService) : ControllerBase
     {
         #region Dependencies
@@ -62,6 +64,9 @@ namespace FinalYearProject.Server.Controllers
             {
                 return StatusCode(500, "Error processing audio file.");
             }
+
+            // Check Accuracy Against Expected
+
 
             // 5. Save Data to Database (TO BE IMPLEMENTED LATER)
 

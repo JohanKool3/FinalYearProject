@@ -1,18 +1,28 @@
-﻿using FinalYearProject.Audio.Services;
+﻿using FinalYearProject.Accuracy.Analysis.Services;
+using FinalYearProject.Accuracy.Analysis.Services.Calculators;
+using FinalYearProject.Audio.Services;
+using FinalYearProject.EfCore.Models;
 using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
+using FinalYearProject.Shared.Interfaces;
 using FinalYearProject.Shared.Models.Dtos;
+using System.Reflection.Metadata.Ecma335;
 
 namespace FinalYearProject.Server.Services
 {
     public class AudioFileProcessorService(
         FileSettings settings,
-        AudioAnalysisPipelineService analysisService) : IAudioFileProcessorService
+        AudioAnalysisPipelineService analysisService,
+        PerformanceAccuracyService performanceAccuracyService,
+        IRepository<Piece, Guid> pieceRepository) : IAudioFileProcessorService
     {
         public FileSettings Settings { get; } = settings;
 
         public AudioAnalysisPipelineService AnalysisService { get; } = analysisService;
+
+        public PerformanceAccuracyService PerformanceAccuracyService { get; } = performanceAccuracyService;
+        public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
 
         public async Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequestDto requestDto)
         {
@@ -41,19 +51,35 @@ namespace FinalYearProject.Server.Services
             }
 
             // 3. Run the Audio Analysis Pipeline on this file
-            var results = AnalysisService.AnalyzeAudioFile(filePath);
+            var noteTimeline = AnalysisService.AnalyzeAudioFile(filePath);
+
+            var referenceTab = await GetReferenceTabAsync(requestDto.PieceId)
+                ?? throw new AudioFileProcessingException("Could not locate Reference Tab");
+
 
             // 4. Compare to the expected results from the piece repository
+            var accuracyResults = PerformanceAccuracyService
+                .CalculatePerformanceAccuracy(noteTimeline, referenceTab);
 
             // 5. Delete Temporary Folder
             CleanupTemporaryFolder(tempFolderPath);
 
             // 6. Return Data
 
-            return new AccuracyResultsDto
+            return accuracyResults;
+        }
+
+        private async Task<ReferenceTabDto?> GetReferenceTabAsync(Guid pieceId)
+        {
+            // Search the Piece Repository for the expected tab
+            var piece = await PieceRepository.GetAsync(pieceId);
+
+            if (piece is null)
             {
-                NoteAccuracy = 1f // Placeholder value
-            };
+                return null;
+            }
+
+            return piece.ReferenceTab;
         }
 
         /// <summary>

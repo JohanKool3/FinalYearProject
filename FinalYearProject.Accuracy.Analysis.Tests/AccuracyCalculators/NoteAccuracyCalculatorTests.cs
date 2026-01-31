@@ -1,12 +1,7 @@
-﻿using FinalYearProject.Accuracy.Analysis.Services;
-using FinalYearProject.Accuracy.Analysis.Models;
+﻿using FinalYearProject.Accuracy.Analysis.Models;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Shared.Models.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FinalYearProject.Accuracy.Analysis.Services.Calculators;
 
 namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
 {

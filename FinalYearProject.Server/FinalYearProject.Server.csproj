@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FinalYearProject.AccuracyAnalysis\FinalYearProject.Accuracy.Analysis.csproj" />
     <ProjectReference Include="..\FinalYearProject.Audio\FinalYearProject.Audio.csproj" />
     <ProjectReference Include="..\FinalYearProject.EfCore\FinalYearProject.EfCore.csproj" />
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
