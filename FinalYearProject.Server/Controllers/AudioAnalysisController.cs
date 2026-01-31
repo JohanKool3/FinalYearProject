@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Server.Interfaces;
+﻿using FinalYearProject.Server.Exceptions;
+using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,15 @@ namespace FinalYearProject.Server.Controllers
     [Route("api/analysis/[controller]")]
     public class AudioAnalysisController(
         IAudioDataValidator audioDatavalidator,
-        FileSettings fileSettings) : ControllerBase
+        IAudioFileProcessorService processorService) : ControllerBase
     {
+        #region Dependencies
+
         public IAudioDataValidator Validator { get; } = audioDatavalidator;
-        public FileSettings FileSettings { get; } = fileSettings;
+        
+        public IAudioFileProcessorService ProcessorService { get; } = processorService;
+
+        #endregion
 
         /// <summary>
         /// Returns analysis results for the provided audio data.
@@ -24,29 +30,27 @@ namespace FinalYearProject.Server.Controllers
         public async Task<ActionResult<AccuracyResultsDto>> AnalyzeAudioAsync
             ([FromForm] AnalysisRequestDto audioData)
         {
-            // TODO: Validate User Authentication & Authorization
+            // TODO: 1. Validate User Authentication & Authorization
 
+            // 2. Validate Audio Data
             if (!Validator.ValidAudioData(audioData))
             {
                 return BadRequest("Invalid audio data.");
             }
 
-            // TODO: Validate Piece ID
+            // TODO: 3. Validate Piece ID
 
-            //TODO: Process Audio File
-            // 1. Create a Temporary Folder for this request
-            // 2. Save Audio File to Temporary Folder
-            // 3. Run Audio Analysis on the audio file
-            // 4. Save results to Database
-            // 5. Delete Temporary Folder and its contents
-            // 6. Return Analysis Results
+            // 4. Process the audio file
+            AccuracyResultsDto? response = null;
 
-
-            // Placeholder for audio analysis logic
-            var response = new AccuracyResultsDto
+            try
             {
-                NoteAccuracy = 1f // Placeholder value
-            };
+                 response = await ProcessorService.ProcessAudioFileAsync(audioData);
+            }
+            catch (AudioFileProcessingException)
+            {
+                return StatusCode(500, "Error processing audio file.");
+            }
 
             return Ok(response);
         }

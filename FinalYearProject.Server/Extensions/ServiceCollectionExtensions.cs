@@ -1,6 +1,7 @@
 ﻿using FinalYearProject.Server.Helpers;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
+using FinalYearProject.Server.Services;
 using FinalYearProject.Server.Validators;
 
 namespace FinalYearProject.Server.Extensions
@@ -27,6 +28,7 @@ namespace FinalYearProject.Server.Extensions
             this IServiceCollection services)
         {
             services.AddScoped<IAudioDataValidator, AudioDataValidator>();
+            services.AddScoped<IAudioFileProcessorService, AudioFileProcessorService>();
 
             return services;
         }
