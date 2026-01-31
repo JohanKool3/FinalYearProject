@@ -1,5 +1,7 @@
-﻿using FinalYearProject.Server.Exceptions;
+﻿using FinalYearProject.EfCore.Models;
+using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
+using FinalYearProject.Shared.Interfaces;
 using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,16 +10,19 @@ namespace FinalYearProject.Server.Controllers
     [ApiController]
     [Route("api/analysis/[controller]")]
     public class AudioAnalysisController(
-        IAudioDataValidator audioDatavalidator,
-        IAudioFileProcessorService processorService) : ControllerBase
+    IAudioDataValidator audioDatavalidator,
+    IAudioFileProcessorService processorService,
+    IRepository<Piece, Guid> pieceRepository) : ControllerBase
     {
         #region Dependencies
 
         public IAudioDataValidator Validator { get; } = audioDatavalidator;
-        
+
         public IAudioFileProcessorService ProcessorService { get; } = processorService;
+        public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
 
         #endregion
+
 
         /// <summary>
         /// Returns analysis results for the provided audio data.

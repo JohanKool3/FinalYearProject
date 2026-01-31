@@ -1,6 +1,6 @@
-﻿namespace FinalYearProject.Accuracy.Analysis.Models
+﻿namespace FinalYearProject.Shared.Models.Dtos
 {
-    public class ExpectedNote
+    public class ExpectedNoteDto
     {
         public string Name { get; set; } = string.Empty;
 

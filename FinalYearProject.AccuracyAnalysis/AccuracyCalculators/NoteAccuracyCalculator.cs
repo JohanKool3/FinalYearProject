@@ -2,6 +2,7 @@
 using FinalYearProject.Accuracy.Analysis.Models;
 using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Audio.Models;
+using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
 {
@@ -18,7 +19,7 @@ namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
         /// <exception cref="NotImplementedException"></exception>
         public float CalculateAccuracy(
             NoteTimeline playerTimeline, 
-            ReferenceTab expectedTimeline)
+            ReferenceTabDto expectedTimeline)
         {
             // 1. Iterate over each NoteGroup in the expected timeline
             // 2. For each note in the note group, check if the player hit the note at the correct time

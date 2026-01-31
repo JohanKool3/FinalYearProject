@@ -1,6 +1,7 @@
 ﻿using FinalYearProject.Accuracy.Analysis.AccuracyCalculators;
 using FinalYearProject.Accuracy.Analysis.Models;
 using FinalYearProject.Audio.Models;
+using FinalYearProject.Shared.Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                 ]
             };
 
-            var expectedTab = new ReferenceTab
+            var expectedTab = new ReferenceTabDto
             {
                 NoteGroups =
                 [
@@ -89,7 +90,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                     }
                 ]
             };
-            var expectedTab = new ReferenceTab
+            var expectedTab = new ReferenceTabDto
             {
                 NoteGroups =
                 [
@@ -136,7 +137,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                     }
                 ]
             };
-            var expectedTab = new ReferenceTab
+            var expectedTab = new ReferenceTabDto
             {
                 NoteGroups =
                 [

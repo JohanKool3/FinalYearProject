@@ -1,6 +1,6 @@
-﻿namespace FinalYearProject.Accuracy.Analysis.Models
+﻿namespace FinalYearProject.Shared.Models.Dtos
 {
-    public class NoteGroup
+    public class NoteGroupDto
     {
         /// <summary>
         /// When this group of notes starts (in seconds)
@@ -15,6 +15,6 @@
         /// <summary>
         /// The Notes that are part of this group
         /// </summary>
-        public List<ExpectedNote> Notes { get; set; } = [];
+        public List<ExpectedNoteDto> Notes { get; set; } = [];
     }
 }

@@ -6,7 +6,7 @@ namespace FinalYearProject.Server
 {
     public class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +32,7 @@ namespace FinalYearProject.Server
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                await app.SeedRepositoriesAsync();
                 app.MapOpenApi();
             }
 

@@ -1,9 +1,13 @@
 ﻿using FinalYearProject.Audio.Models;
+using FinalYearProject.EfCore.Helpers;
+using FinalYearProject.EfCore.Models;
 using FinalYearProject.Server.Helpers;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
+using FinalYearProject.Server.Repositories;
 using FinalYearProject.Server.Services;
 using FinalYearProject.Server.Validators;
+using FinalYearProject.Shared.Interfaces;
 
 namespace FinalYearProject.Server.Extensions
 {
@@ -56,6 +60,7 @@ namespace FinalYearProject.Server.Extensions
             if (env.IsDevelopment())
             {
                 // Load Development Data Stores
+                services.AddSingleton<IRepository<Piece, Guid>, InMemoryPieceRepository>();
             }
             else
             {

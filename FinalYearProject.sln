@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Accuracy.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.Server", "FinalYearProject.Server\FinalYearProject.Server.csproj", "{4953806E-5D90-44E7-BA52-62DB498F3301}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalYearProject.EfCore", "FinalYearProject.EfCore\FinalYearProject.EfCore.csproj", "{F879EBC1-EE37-4822-AB40-E95516A79341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{4953806E-5D90-44E7-BA52-62DB498F3301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4953806E-5D90-44E7-BA52-62DB498F3301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4953806E-5D90-44E7-BA52-62DB498F3301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F879EBC1-EE37-4822-AB40-E95516A79341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F879EBC1-EE37-4822-AB40-E95516A79341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F879EBC1-EE37-4822-AB40-E95516A79341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F879EBC1-EE37-4822-AB40-E95516A79341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

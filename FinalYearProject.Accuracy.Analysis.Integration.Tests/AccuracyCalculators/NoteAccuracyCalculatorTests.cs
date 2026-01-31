@@ -6,6 +6,7 @@ using FinalYearProject.Audio.AudioAnalysis.Readers;
 using FinalYearProject.Audio.AudioAnalysis.Windowers;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Audio.Services;
+using FinalYearProject.Shared.Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculato
 
             #region Reference Tab Setup
             
-            var referenceTab = new ReferenceTab()
+            var referenceTab = new ReferenceTabDto()
             {
                 Bpm = 120,
                 NoteGroups = [new() {

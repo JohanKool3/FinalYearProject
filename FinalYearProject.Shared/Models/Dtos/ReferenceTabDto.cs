@@ -1,9 +1,8 @@
-﻿
-namespace FinalYearProject.Accuracy.Analysis.Models
+﻿namespace FinalYearProject.Shared.Models.Dtos
 {
-    public class ReferenceTab
+    public class ReferenceTabDto
     {
-        public List<NoteGroup> NoteGroups { get; set; } = [];
+        public List<NoteGroupDto> NoteGroups { get; set; } = [];
 
         /// <summary>
         /// The Beats Per Minute of the Reference Tab

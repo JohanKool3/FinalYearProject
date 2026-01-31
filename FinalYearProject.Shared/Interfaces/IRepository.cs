@@ -1,4 +1,4 @@
-﻿namespace FinalYearProject.Server.Interfaces
+﻿namespace FinalYearProject.Shared.Interfaces
 {
     /// <summary>
     /// Defines a generic repository interface for data access operations.
@@ -11,7 +11,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<T> GetAsync(TId id);
+        Task<T?> GetAsync(TId id);
 
         /// <summary>
         /// Returns all entities
@@ -32,7 +32,7 @@
         /// <param name="id"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<T> UpdateAsync(TId id, T entity);
+        Task<T?> UpdateAsync(TId id, T entity);
 
         /// <summary>
         /// Deletes an entity at a given ID

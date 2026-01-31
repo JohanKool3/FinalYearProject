@@ -1,5 +1,5 @@
-﻿using FinalYearProject.Accuracy.Analysis.Models;
-using FinalYearProject.Audio.Models;
+﻿using FinalYearProject.Audio.Models;
+using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Accuracy.Analysis.Interfaces
 {
@@ -13,7 +13,7 @@ namespace FinalYearProject.Accuracy.Analysis.Interfaces
         /// <returns></returns>
         float CalculateAccuracy(
             NoteTimeline playerTimeline,
-            ReferenceTab expectedTimeline
+            ReferenceTabDto expectedTimeline
             );
     }
 }
