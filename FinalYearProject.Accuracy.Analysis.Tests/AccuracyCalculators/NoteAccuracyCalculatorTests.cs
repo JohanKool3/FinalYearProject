@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Accuracy.Analysis.AccuracyCalculators;
+﻿using FinalYearProject.Accuracy.Analysis.Services;
 using FinalYearProject.Accuracy.Analysis.Models;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Shared.Models.Dtos;
@@ -21,7 +21,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                 A4 = 440.0
             };
 
-            var calculator = new NoteAccuracyCalculator(
+            var calculator = new NoteAccuracyCalculatorService(
                 new AccuracySettings
                 {
                     RequiredNoteConfidence = 0.1f
@@ -70,7 +70,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
             {
                 A4 = 440.0
             };
-            var calculator = new NoteAccuracyCalculator(
+            var calculator = new NoteAccuracyCalculatorService(
                 new AccuracySettings
                 {
                     RequiredNoteConfidence = 0.1f
@@ -115,7 +115,7 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
             {
                 A4 = 440.0
             };
-            var calculator = new NoteAccuracyCalculator(
+            var calculator = new NoteAccuracyCalculatorService(
                 new AccuracySettings
                 {
                     RequiredNoteConfidence = 0.1f

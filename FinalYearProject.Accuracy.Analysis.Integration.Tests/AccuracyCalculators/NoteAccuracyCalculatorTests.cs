@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Accuracy.Analysis.AccuracyCalculators;
+﻿using FinalYearProject.Accuracy.Analysis.Services;
 using FinalYearProject.Accuracy.Analysis.Models;
 using FinalYearProject.Audio.AudioAnalysis.FrequencyTimelineConstructors;
 using FinalYearProject.Audio.AudioAnalysis.NoteTimelineConstructors;
@@ -122,7 +122,7 @@ namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculato
                 RequiredNoteConfidence = 1f
             };
 
-            var noteAccuracyCalculator = new NoteAccuracyCalculator(accuracySettings);
+            var noteAccuracyCalculator = new NoteAccuracyCalculatorService(accuracySettings);
 
 
             // Act

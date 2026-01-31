@@ -4,11 +4,11 @@ using FinalYearProject.Audio.Helpers;
 using FinalYearProject.Audio.Models;
 using FinalYearProject.Shared.Models.Dtos;
 
-namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
+namespace FinalYearProject.Accuracy.Analysis.Services
 {
-    public class NoteAccuracyCalculator(AccuracySettings requiredConfidence) : IAccuracyCalculator
+    public class NoteAccuracyCalculatorService(AccuracySettings accuracySettings) : IAccuracyCalculator
     {
-        public float RequiredConfidence { get; set; } = requiredConfidence.RequiredNoteConfidence;
+        public float AccuracySettings { get; set; } = accuracySettings.RequiredNoteConfidence;
 
         /// <summary>
         /// Calculates the accuracy of the player's notes compared to the expected notes.
@@ -36,7 +36,7 @@ namespace FinalYearProject.Accuracy.Analysis.AccuracyCalculators
                     .GetNotesAtTime(
                         playerTimeline,
                         noteGroupStartTime,
-                        RequiredConfidence);
+                        AccuracySettings);
 
                 if (startTimeNotes is null)
                 {
