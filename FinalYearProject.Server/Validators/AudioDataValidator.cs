@@ -4,7 +4,7 @@ using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Validators
 {
-    public class AudioDataValidator(ValidationSettings validationSettings) : IAudioDataValidator
+    public class AudioDataValidator(ValidationSettings validationSettings) : IDataValidator<AnalysisRequestDto>
     {
         #region Dependencies
 
@@ -12,7 +12,7 @@ namespace FinalYearProject.Server.Validators
 
         #endregion
 
-        public bool ValidAudioData(AnalysisRequestDto audioData)
+        public async Task<bool> ValidDataAsync(AnalysisRequestDto audioData)
         {
             var fileData = audioData.AudioFile;
 

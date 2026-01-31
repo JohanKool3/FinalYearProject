@@ -1,7 +1,6 @@
-﻿using FinalYearProject.EfCore.Models;
-using FinalYearProject.Server.Exceptions;
+﻿using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
-using FinalYearProject.Shared.Interfaces;
+using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +9,17 @@ namespace FinalYearProject.Server.Controllers
     [ApiController]
     [Route("api/analysis/[controller]")]
     public class AudioAnalysisController(
-    IAudioDataValidator audioDatavalidator,
-    IAudioFileProcessorService processorService,
-    IRepository<Piece, Guid> pieceRepository) : ControllerBase
+    IDataValidator<AnalysisRequestDto> audioDataValidator,
+    IDataValidator<AnalysisRequestMetadata> requestMetadataValidator,
+    IAudioFileProcessorService processorService) : ControllerBase
     {
         #region Dependencies
 
-        public IAudioDataValidator Validator { get; } = audioDatavalidator;
+        public IDataValidator<AnalysisRequestDto> AudioValidator { get; } = audioDataValidator;
+
+        public IDataValidator<AnalysisRequestMetadata> RequestMetadataValidator { get; } = requestMetadataValidator;
 
         public IAudioFileProcessorService ProcessorService { get; } = processorService;
-        public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
 
         #endregion
 
@@ -27,29 +27,36 @@ namespace FinalYearProject.Server.Controllers
         /// <summary>
         /// Returns analysis results for the provided audio data.
         /// </summary>
-        /// <param name="audioData"></param>
+        /// <param name="analysisRequest"></param>
         /// <returns></returns>
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<AccuracyResultsDto>> AnalyzeAudioAsync
-            ([FromForm] AnalysisRequestDto audioData)
+            ([FromForm] AnalysisRequestDto analysisRequest)
         {
             // TODO: 1. Validate User Authentication & Authorization
 
             // 2. Validate Audio Data
-            if (!Validator.ValidAudioData(audioData))
+            if (!(await AudioValidator.ValidDataAsync(analysisRequest)))
             {
                 return BadRequest("Invalid audio data.");
             }
 
-            // TODO: 3. Validate Piece ID
+            var metadata = GetMetadata(analysisRequest);
+
+            // TODO: 3. Validate Request Metadata
+            if (!(await RequestMetadataValidator.ValidDataAsync(metadata)))
+            {
+                return BadRequest("Invalid request metadata.");
+
+            }
 
             // 4. Process the audio file
             AccuracyResultsDto? response = null;
 
             try
             {
-                 response = await ProcessorService.ProcessAudioFileAsync(audioData);
+                response = await ProcessorService.ProcessAudioFileAsync(analysisRequest);
             }
             catch (AudioFileProcessingException)
             {
@@ -61,5 +68,17 @@ namespace FinalYearProject.Server.Controllers
             // 6. Return the analysis results
             return Ok(response);
         }
+
+        /// <summary>
+        /// Returns the metadata for the analysis request.
+        /// </summary>
+        /// <param name="analysisRequest"></param>
+        /// <returns></returns>
+        private AnalysisRequestMetadata GetMetadata(AnalysisRequestDto analysisRequest)
+            => new()
+            {
+                PieceId = analysisRequest.PieceId
+            };
+
     }
 }
