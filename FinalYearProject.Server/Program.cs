@@ -13,6 +13,9 @@ namespace FinalYearProject.Server
             // Load Settings
             builder.Services.LoadSettings(builder.Configuration);
 
+            // Load Data Stores
+            builder.Services.LoadDataStores(builder.Environment);
+
             // Load Validators
             builder.Services.LoadValidators();
 

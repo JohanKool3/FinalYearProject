@@ -48,5 +48,21 @@ namespace FinalYearProject.Server.Extensions
 
             return services;
         }
+    
+        public static IServiceCollection LoadDataStores(
+            this IServiceCollection services,
+            IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                // Load Development Data Stores
+            }
+            else
+            {
+                // Load Production Data Stores
+            }
+
+            return services;
+        }
     }
 }
