@@ -24,7 +24,7 @@ namespace FinalYearProject.Server.Services
         public PerformanceAccuracyService PerformanceAccuracyService { get; } = performanceAccuracyService;
         public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
 
-        public async Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequestDto requestDto)
+        public async Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequest requestDto)
         {
             // 1. Create a Temporary Folder within base directory
             var tempFolderPath = CreateTemporaryFolder();
@@ -99,7 +99,7 @@ namespace FinalYearProject.Server.Services
         /// <param name="requestDto"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private static async Task<string> SaveFileToFolderAsync(string tempFolderPath, AnalysisRequestDto requestDto)
+        private static async Task<string> SaveFileToFolderAsync(string tempFolderPath, AnalysisRequest requestDto)
         {
             var file = requestDto.AudioFile
                 ?? throw new ArgumentNullException(nameof(requestDto.AudioFile), "Uploaded audio file cannot be null.");

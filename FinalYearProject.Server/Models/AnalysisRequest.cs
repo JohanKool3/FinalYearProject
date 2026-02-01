@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace FinalYearProject.Shared.Models.Dtos
+namespace FinalYearProject.Server.Models
 {
     /// <summary>
     /// Represents the body of a POST request for audio analysis.
     /// </summary>
-    public class AnalysisRequestDto
+    public class AnalysisRequest
     {
         //// TODO: Extend this to include additional properties such as:
         //// 1. UserToken: The Unique Identifier for the user making the request.

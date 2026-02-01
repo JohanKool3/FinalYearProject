@@ -10,14 +10,14 @@ namespace FinalYearProject.Server.Controllers
     [ApiController]
     [Route("api/analysis/[controller]")]
     public class AudioAnalysisController(
-    IDataValidator<AnalysisRequestDto> audioDataValidator,
+    IDataValidator<AnalysisRequest> audioDataValidator,
     IDataValidator<AnalysisRequestMetadata> requestMetadataValidator,
 
     IAudioFileProcessorService processorService) : ControllerBase
     {
         #region Dependencies
 
-        public IDataValidator<AnalysisRequestDto> AudioValidator { get; } = audioDataValidator;
+        public IDataValidator<AnalysisRequest> AudioValidator { get; } = audioDataValidator;
 
         public IDataValidator<AnalysisRequestMetadata> RequestMetadataValidator { get; } = requestMetadataValidator;
 
@@ -34,7 +34,7 @@ namespace FinalYearProject.Server.Controllers
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<AccuracyResultsDto>> AnalyzeAudioAsync
-            ([FromForm] AnalysisRequestDto analysisRequest)
+            ([FromForm] AnalysisRequest analysisRequest)
         {
             // TODO: 1. Validate User Authentication & Authorization
 
@@ -79,7 +79,7 @@ namespace FinalYearProject.Server.Controllers
         /// </summary>
         /// <param name="analysisRequest"></param>
         /// <returns></returns>
-        private AnalysisRequestMetadata GetMetadata(AnalysisRequestDto analysisRequest)
+        private AnalysisRequestMetadata GetMetadata(AnalysisRequest analysisRequest)
             => new()
             {
                 PieceId = analysisRequest.PieceId

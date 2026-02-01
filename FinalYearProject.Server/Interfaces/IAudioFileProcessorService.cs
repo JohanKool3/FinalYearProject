@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Shared.Models.Dtos;
+﻿using FinalYearProject.Server.Models;
+using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Interfaces
 {
@@ -8,6 +9,6 @@ namespace FinalYearProject.Server.Interfaces
         /// Takes an audio file stream and processes it for analysis.
         /// </summary>
         /// <returns></returns>
-        Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequestDto requestDto);
+        Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequest requestDto);
     }
 }

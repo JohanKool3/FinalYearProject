@@ -9,7 +9,6 @@ using FinalYearProject.Server.Repositories;
 using FinalYearProject.Server.Services;
 using FinalYearProject.Server.Validators;
 using FinalYearProject.Shared.Interfaces;
-using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Extensions
 {
@@ -54,7 +53,7 @@ namespace FinalYearProject.Server.Extensions
         public static IServiceCollection LoadValidators(
             this IServiceCollection services)
         {
-            services.AddScoped<IDataValidator<AnalysisRequestDto>, AudioDataValidator>();
+            services.AddScoped<IDataValidator<AnalysisRequest>, AudioDataValidator>();
             services.AddScoped<IDataValidator<AnalysisRequestMetadata>, RequestMetadataValidator>();
             services.AddScoped<IAudioFileProcessorService, AudioFileProcessorService>();
 
