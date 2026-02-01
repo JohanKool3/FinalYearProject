@@ -80,6 +80,19 @@ namespace FinalYearProject.Api
             return piece;
         }
 
+        public async Task<PieceDto?> GetPieceByIdAsync(
+            Guid pieceId,
+            CancellationToken cancellationToken = default)
+        {
+            var response = await _httpClient.GetAsync($"/api/piece/{pieceId}", cancellationToken);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            var piece = await response.Content.ReadFromJsonAsync<PieceDto>(cancellationToken);
+            return piece;
+        }
+
         #endregion
     }
 }

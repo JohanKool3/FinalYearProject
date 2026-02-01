@@ -60,5 +60,19 @@ namespace FinalYearProject.Integration.Tests.ApiClient
             Assert.NotNull(piece);
             Assert.Equal("C Major Scale", piece.PieceName);
         }
+
+        [Fact]
+        public async Task FinalYearProjectApi_GetPieceByIdAsync_ValidId_ReturnsExpected()
+        {
+            // Arrange
+            var pieceId = Guid.Empty;
+            
+            // Act
+            var piece = await _api.GetPieceByIdAsync(pieceId);
+            
+            // Assert
+            Assert.NotNull(piece);
+            Assert.Equal("C Major Scale", piece!.PieceName);
+        }
     }
 }

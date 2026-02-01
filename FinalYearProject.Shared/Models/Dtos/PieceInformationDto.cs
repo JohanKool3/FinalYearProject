@@ -1,5 +1,9 @@
 ﻿namespace FinalYearProject.Shared.Models.Dtos
 {
+    /// <summary>
+    /// Outlines basic information about a Piece to be displayed
+    /// to the user in a selectable list.
+    /// </summary>
     public class PieceInformationDto
     {
         /// <summary>
