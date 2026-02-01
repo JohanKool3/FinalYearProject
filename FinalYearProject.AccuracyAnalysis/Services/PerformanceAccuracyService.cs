@@ -21,7 +21,7 @@ namespace FinalYearProject.Accuracy.Analysis.Services
 
             // Go through each aspect and calculate accuracy
             var noteAccuracy = NoteAccuracyCalculator.CalculateAccuracy(playerTimeline, expectedTimeline);
-
+            // TODO: Extend this to allow for accuracy of each aspect to be analyzed
 
             return new AccuracyResultsDto()
             {
