@@ -9,6 +9,8 @@ namespace FinalYearProject.Api
     {
         private readonly HttpClient _httpClient = httpClient;
 
+        #region Audio Analysis 
+        
         public async Task<AccuracyResultsDto?> RequestAnalysisAsync(
             RequestAnalysisData request,
             CancellationToken cancellationToken = default)
@@ -30,7 +32,7 @@ namespace FinalYearProject.Api
             content.Add(fileContent, "file", request.FileName);
 
             // Implementation for sending the analysis request to the API
-            var response = await _httpClient.PostAsync("/api/analysis/audioanalysis", content, cancellationToken);
+            var response = await _httpClient.PostAsync("/api/audioanalysis", content, cancellationToken);
 
 
             if (!response.IsSuccessStatusCode)
@@ -44,5 +46,40 @@ namespace FinalYearProject.Api
 
             return details;
         }
+
+        #endregion
+
+        #region Piece Information
+
+        public async Task<IEnumerable<PieceInformationDto>?> GetAllPieceInformationAsync(
+            CancellationToken cancellationToken = default)
+        {
+            var response = await _httpClient.GetAsync("/api/pieceinformation", cancellationToken);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var pieces = await response.Content.ReadFromJsonAsync<IEnumerable<PieceInformationDto>>(cancellationToken);
+            return pieces;
+        }
+
+        public async Task<PieceInformationDto?> GetPieceInformationByIdAsync(
+            Guid pieceId,
+            CancellationToken cancellationToken = default)
+        {
+            var response = await _httpClient.GetAsync($"/api/pieceinformation/{pieceId}", cancellationToken);
+            
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var piece = await response.Content.ReadFromJsonAsync<PieceInformationDto>(cancellationToken);
+            
+            return piece;
+        }
+
+        #endregion
     }
 }

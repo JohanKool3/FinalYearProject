@@ -12,6 +12,8 @@ namespace FinalYearProject.EfCore.Models
         /// </summary>
         public required Guid Id { get; set; }
 
+        public required string PieceName { get; set; }
+
         /// <summary>
         /// Full set of Tab Information for this Piece
         /// </summary>

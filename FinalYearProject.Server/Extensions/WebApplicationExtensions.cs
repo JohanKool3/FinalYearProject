@@ -94,6 +94,7 @@ namespace FinalYearProject.Server.Extensions
             var newPiece = new Piece()
             {
                 Id = Guid.Empty,
+                PieceName = "C Major Scale",
                 ReferenceTab = referenceTab
             };
 

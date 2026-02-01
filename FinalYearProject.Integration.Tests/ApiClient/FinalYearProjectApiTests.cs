@@ -34,5 +34,31 @@ namespace FinalYearProject.Integration.Tests.ApiClient
             Assert.NotNull(response);
             Assert.Equal(1.0f, response.NoteAccuracy);
         }
+
+        [Fact]
+        public async Task FinalYearProjectApi_GetAllPieceInformationAsync_ReturnsExpectedPieces()
+        {
+            // Act
+            var pieces = await _api.GetAllPieceInformationAsync();
+            
+            // Assert
+            Assert.NotNull(pieces);
+            var pieceList = pieces.ToList();
+            Assert.Contains(pieces.ToList(), p => p.PieceName == "C Major Scale");
+        }
+
+        [Fact]
+        public async Task FinalYearProjectApi_GetPieceByIdAsync_ValidId_ReturnsExpectedPiece()
+        {
+            // Arrange
+            var pieceId = Guid.Empty;
+            
+            // Act
+            var piece = await _api.GetPieceInformationByIdAsync(pieceId);
+            
+            // Assert
+            Assert.NotNull(piece);
+            Assert.Equal("C Major Scale", piece.PieceName);
+        }
     }
 }

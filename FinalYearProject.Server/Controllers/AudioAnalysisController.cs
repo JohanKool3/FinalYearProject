@@ -1,5 +1,4 @@
-﻿using FinalYearProject.Accuracy.Analysis.Services;
-using FinalYearProject.Server.Exceptions;
+﻿using FinalYearProject.Server.Exceptions;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Models.Dtos;
@@ -8,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinalYearProject.Server.Controllers
 {
     [ApiController]
-    [Route("api/analysis/[controller]")]
+    [Route("api/[controller]")]
     public class AudioAnalysisController(
     IDataValidator<AnalysisRequest> audioDataValidator,
     IDataValidator<AnalysisRequestMetadata> requestMetadataValidator,
@@ -54,8 +53,7 @@ namespace FinalYearProject.Server.Controllers
             }
 
             // 4. Process the audio file
-            AccuracyResultsDto? response = null;
-
+            AccuracyResultsDto? response;
             try
             {
                 response = await ProcessorService.ProcessAudioFileAsync(analysisRequest);
