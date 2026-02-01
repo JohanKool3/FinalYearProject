@@ -59,7 +59,7 @@ namespace FinalYearProject.Server.Extensions
 
             return services;
         }
-    
+
         public static IServiceCollection LoadDataStores(
             this IServiceCollection services,
             IWebHostEnvironment env)
@@ -67,6 +67,10 @@ namespace FinalYearProject.Server.Extensions
             if (env.IsDevelopment())
             {
                 // Load Development Data Stores
+                services.AddSingleton<IRepository<Piece, Guid>, InMemoryPieceRepository>();
+            }
+            else if (env.IsTest())
+            {
                 services.AddSingleton<IRepository<Piece, Guid>, InMemoryPieceRepository>();
             }
             else

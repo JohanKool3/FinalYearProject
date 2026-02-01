@@ -9,7 +9,7 @@ namespace FinalYearProject.Server.Extensions
         public static async Task SeedRepositoriesAsync(this WebApplication app)
         {
             // Check if in Development
-            if (!app.Environment.IsDevelopment())
+            if (!(app.Environment.IsDevelopment() || app.Environment.IsTest()))
             {
                 return;
             }

@@ -23,7 +23,7 @@ namespace FinalYearProject.Api
             // File field
             var fileContent = new StreamContent(request.AudioData);
             fileContent.Headers.ContentType =
-                new MediaTypeHeaderValue("audio/wav");
+                new MediaTypeHeaderValue("audio/wave");
 
             content.Add(fileContent, "AudioFile", request.FileName);
 
@@ -31,6 +31,13 @@ namespace FinalYearProject.Api
 
             // Implementation for sending the analysis request to the API
             var response = await _httpClient.PostAsync("/api/analysis/audioanalysis", content, cancellationToken);
+
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle error response as needed
+                return null;
+            }
 
             // Read Response to Accuracy Details
             var details = await response.Content.ReadFromJsonAsync<AccuracyResultsDto>(cancellationToken);

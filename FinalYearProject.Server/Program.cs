@@ -33,7 +33,7 @@ namespace FinalYearProject.Server
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment() || app.Environment.IsTest())
             {
                 await app.SeedRepositoriesAsync();
                 app.MapOpenApi();

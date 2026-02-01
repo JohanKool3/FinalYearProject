@@ -26,4 +26,8 @@
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="FinalYearProject.Integration.Tests" />
+	</ItemGroup>
+
 </Project>
