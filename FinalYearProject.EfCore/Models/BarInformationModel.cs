@@ -16,5 +16,10 @@
         /// Where this Bar is in the Tab
         /// </summary>
         public required PositionInTabModel Position { get; set; }
+
+        /// <summary>
+        /// The Note Groups that are a part of this Bar
+        /// </summary>
+        public required List<NoteGroupInformationModel> NoteGroups { get; set; }
     }
 }

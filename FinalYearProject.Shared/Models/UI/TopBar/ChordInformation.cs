@@ -5,7 +5,7 @@ namespace FinalYearProject.Shared.Models.UI.TopBar
     public class ChordInformation : IPositionedElement
     { 
         /// <summary>
-        /// How far accross the bar the chord starts (0-100) in %
+        /// How far across the bar the chord starts (0-100) in %
         /// </summary>
         public double StartPercentage { get; set; }
 

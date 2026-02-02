@@ -48,7 +48,29 @@ namespace FinalYearProject.Server.Extensions
                                 StartTime = 0,
                                 EndTime = 2,
                                 Length = 2,
-                            }
+                            },
+                            NoteGroups = [
+                                new(){
+                                    BarStartPercentage = 0,
+                                    BarEndPercentage = 25,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 25,
+                                    BarEndPercentage = 50,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 50,
+                                    BarEndPercentage = 75,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 75,
+                                    BarEndPercentage = 100,
+                                    TotalGroupBeatLength = 1
+                                }
+                            ]
                         },
                         new(){
                             Bpm = 120,
@@ -60,7 +82,29 @@ namespace FinalYearProject.Server.Extensions
                                 StartTime = 2,
                                 EndTime = 4,
                                 Length = 2,
-                            }
+                            },
+                            NoteGroups = [
+                                new(){
+                                    BarStartPercentage = 0,
+                                    BarEndPercentage = 25,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 25,
+                                    BarEndPercentage = 50,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 50,
+                                    BarEndPercentage = 75,
+                                    TotalGroupBeatLength = 1
+                                },
+                                new(){
+                                    BarStartPercentage = 75,
+                                    BarEndPercentage = 100,
+                                    TotalGroupBeatLength = 1
+                                }
+                            ]
                         }
                     ]
                 }
