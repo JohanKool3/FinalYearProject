@@ -39,10 +39,18 @@ namespace FinalYearProject.Server.Extensions
                     TotalLengthInSeconds = 4,
                     Bars = [
                         new(){
-                            Bpm = 120
+                            Bpm = 120,
+                            TimeSignature = new(){
+                                BeatsPerMeasure = 4,
+                                BeatUnit = 4
+                            }
                         },
                         new(){
-                            Bpm = 120
+                            Bpm = 120,
+                            TimeSignature = new(){
+                                BeatsPerMeasure = 4,
+                                BeatUnit = 4
+                            }
                         }
                     ]
                 }

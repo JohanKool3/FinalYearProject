@@ -10,5 +10,10 @@ namespace FinalYearProject.Shared.Models.Dtos
         /// The Beats Per Minute of this Bar
         /// </summary>
         public int Bpm { get; set; }
+
+        /// <summary>
+        /// The time signature of this bar
+        /// </summary>
+        public required TimeSignatureDto TimeSignature { get; set; }
     }
 }

@@ -6,5 +6,10 @@
         /// The Beats Per Minute of this Bar
         /// </summary>
         public required int Bpm { get; set; }
+
+        /// <summary>
+        /// The Time Signature of this Bar
+        /// </summary>
+        public required TimeSignatureModel TimeSignature { get; set; }
     }
 }
