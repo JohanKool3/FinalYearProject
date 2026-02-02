@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FinalYearProject.EfCore.Models
+﻿namespace FinalYearProject.EfCore.Models
 {
     public class NoteGroupInformationModel
     {
-        // TODO: Add Notes
+        /// <summary>
+        /// The List of Notes for this Group
+        /// </summary>
+        public required List<NoteModel> Notes { get; set; }
 
         /// <summary>
         /// Where this Group Starts Relative to the Bar (0-100%)

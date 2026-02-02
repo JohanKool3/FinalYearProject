@@ -53,22 +53,54 @@ namespace FinalYearProject.Server.Extensions
                                 new(){
                                     BarStartPercentage = 0,
                                     BarEndPercentage = 25,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                    Notes = [
+                                        new(){
+                                            FretNumber = 6,
+                                            StringNumber = 3,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 25,
                                     BarEndPercentage = 50,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 8,
+                                            StringNumber = 3,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 50,
                                     BarEndPercentage = 75,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 10,
+                                            StringNumber = 3,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 75,
                                     BarEndPercentage = 100,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 7,
+                                            StringNumber = 2,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 }
                             ]
                         },
@@ -87,23 +119,55 @@ namespace FinalYearProject.Server.Extensions
                                 new(){
                                     BarStartPercentage = 0,
                                     BarEndPercentage = 25,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 9,
+                                            StringNumber = 2,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 25,
                                     BarEndPercentage = 50,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 11,
+                                            StringNumber = 2,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 50,
                                     BarEndPercentage = 75,
-                                    TotalGroupBeatLength = 1
+                                    TotalGroupBeatLength = 1,
+                                     Notes = [
+                                        new(){
+                                            FretNumber = 8,
+                                            StringNumber = 1,
+                                            StartPercentage = 0,
+                                            EndPercentage = 100
+                                        }
+                                        ]
                                 },
                                 new(){
                                     BarStartPercentage = 75,
                                     BarEndPercentage = 100,
-                                    TotalGroupBeatLength = 1
-                                }
+                                    TotalGroupBeatLength = 1,
+                                    Notes = [
+                                        new(){
+                                            StartPercentage = 0,
+                                            EndPercentage = 1,
+                                            StringNumber = 1,
+                                            FretNumber = 9
+                                        }]
+                                },
+            
                             ]
                         }
                     ]

@@ -2,7 +2,10 @@
 {
     public class NoteGroupInformationDto
     {
-        // TODO: Add Notes
+        /// <summary>
+        /// The Notes that belong to this Group
+        /// </summary>
+        public required List<NoteDto> Notes { get; set; }
 
         /// <summary>
         /// Where this Group Starts Relative to the Bar (0-100%)
