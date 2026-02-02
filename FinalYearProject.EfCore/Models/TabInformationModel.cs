@@ -5,6 +5,8 @@
     /// </summary>
     public class TabInformationModel
     {
+        #region Metadata
+
         /// <summary>
         /// Name of the Piece / Tab
         /// </summary>
@@ -24,5 +26,12 @@
         /// How long this piece lasts in seconds
         /// </summary>
         public required float TotalLengthInSeconds { get; set; }
+
+        #endregion
+
+        /// <summary>
+        /// The Bars within this tab
+        /// </summary>
+        public List<BarInformationModel> Bars { get; set; } = [];
     }
 }

@@ -12,6 +12,9 @@ namespace FinalYearProject.EfCore.Models
         /// </summary>
         public required Guid Id { get; set; }
 
+        /// <summary>
+        /// Holds information about the Tab
+        /// </summary>
         public required TabInformationModel TabInformationModel { get; set; }
     }
 }

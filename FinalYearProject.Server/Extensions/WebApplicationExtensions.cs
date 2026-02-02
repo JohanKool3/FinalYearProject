@@ -31,11 +31,20 @@ namespace FinalYearProject.Server.Extensions
             var newPiece = new PieceModel()
             {
                 Id = Guid.Empty,
-                TabInformationModel = new() { 
+                TabInformationModel = new()
+                {
                     Title = "C Major Scale",
                     Author = "Unknown",
                     Description = "A Short scale",
-                    TotalLengthInSeconds = 4
+                    TotalLengthInSeconds = 4,
+                    Bars = [
+                        new(){
+                            Bpm = 120
+                        },
+                        new(){
+                            Bpm = 120
+                        }
+                    ]
                 }
             };
 

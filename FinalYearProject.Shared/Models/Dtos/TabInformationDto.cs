@@ -23,5 +23,6 @@
         public required float TotalLengthInSeconds { get; set; }
 
         //TODO: Extend to Include Bar Information
+        public List<BarInformationDto> Bars { get; set; } = [];
     }
 }
