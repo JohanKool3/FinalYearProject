@@ -21,5 +21,10 @@
         /// Which String the note is on (1-6)
         /// </summary>
         public int StringNumber { get; set; } = 6;
+
+        /// <summary>
+        /// The Properties of this Note
+        /// </summary>
+        public required NotePropertiesModel Properties { get; set; }
     }
 }

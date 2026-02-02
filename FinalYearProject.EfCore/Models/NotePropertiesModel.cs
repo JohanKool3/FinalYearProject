@@ -1,12 +1,8 @@
 ﻿using FinalYearProject.Shared.Enums;
-using FinalYearProject.Shared.Helpers;
 
-namespace FinalYearProject.Shared.Models.UI.Bar
+namespace FinalYearProject.EfCore.Models
 {
-    /// <summary>
-    /// Properties of a Note
-    /// </summary>
-    public class NoteProperties
+    public class NotePropertiesModel
     {
         /// <summary>
         /// How Long the Note is held for (in beats)
@@ -14,15 +10,10 @@ namespace FinalYearProject.Shared.Models.UI.Bar
         public double Length { get; set; }
 
         /// <summary>
-        /// Calculated Beat Subdivisions based on Length
-        /// </summary>
-        public DurationMetadata BeatMetadata 
-            => NoteHelper.GetDurationMetadata(Length);
-
-        /// <summary>
         /// The Type of note being displayed
         /// </summary>
         public NoteType Type { get; set; }
+            = NoteType.Normal;
 
         /// <summary>
         /// Whether to display the note as grouped with others

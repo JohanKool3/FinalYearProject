@@ -59,7 +59,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 6,
                                             StringNumber = 3,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -72,7 +75,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 8,
                                             StringNumber = 3,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -85,7 +91,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 10,
                                             StringNumber = 3,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -98,7 +107,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 7,
                                             StringNumber = 2,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 }
@@ -125,7 +137,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 9,
                                             StringNumber = 2,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -138,7 +153,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 11,
                                             StringNumber = 2,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -151,7 +169,10 @@ namespace FinalYearProject.Server.Extensions
                                             FretNumber = 8,
                                             StringNumber = 1,
                                             StartPercentage = 0,
-                                            EndPercentage = 100
+                                            EndPercentage = 100,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }
                                         ]
                                 },
@@ -164,10 +185,13 @@ namespace FinalYearProject.Server.Extensions
                                             StartPercentage = 0,
                                             EndPercentage = 1,
                                             StringNumber = 1,
-                                            FretNumber = 9
+                                            FretNumber = 9,
+                                            Properties = new(){
+                                                Length = 1
+                                            }
                                         }]
                                 },
-            
+
                             ]
                         }
                     ]

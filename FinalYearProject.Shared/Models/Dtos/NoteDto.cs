@@ -23,5 +23,10 @@ namespace FinalYearProject.Shared.Models.Dtos
         /// Which String the note is on (1-6)
         /// </summary>
         public int StringNumber { get; set; }
+
+        /// <summary>
+        /// The Properties of this Note
+        /// </summary>
+        public required NotePropertiesDto Properties { get; set; }
     }
 }
