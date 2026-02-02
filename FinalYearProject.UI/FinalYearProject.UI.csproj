@@ -40,6 +40,7 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+        <UserSecretsId>325bdfba-1c38-4a2d-9d72-794733723553</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -62,12 +63,15 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="16.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.30" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.0.30" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.2" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FinalYearProject.Api\FinalYearProject.Api.csproj" />
       <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
       <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>
