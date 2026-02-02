@@ -1,6 +1,4 @@
 ﻿using FinalYearProject.Shared.Enums;
-using FinalYearProject.Shared.Helpers;
-using FinalYearProject.Shared.Models.UI.Bar;
 
 namespace FinalYearProject.Shared.Models.Dtos
 {

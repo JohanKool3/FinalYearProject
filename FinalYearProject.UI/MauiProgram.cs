@@ -15,6 +15,8 @@ namespace FinalYearProject.UI
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            builder.Services.AddAutoMapper(cfg => { }, typeof(MauiProgram));
+
             builder.Services.AddMauiBlazorWebView();
 
             // Register User Interface Services
