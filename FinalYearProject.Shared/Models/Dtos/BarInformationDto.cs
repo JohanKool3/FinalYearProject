@@ -15,5 +15,7 @@ namespace FinalYearProject.Shared.Models.Dtos
         /// The time signature of this bar
         /// </summary>
         public required TimeSignatureDto TimeSignature { get; set; }
+
+        public required PositionInTabDto Position { get; set; }
     }
 }

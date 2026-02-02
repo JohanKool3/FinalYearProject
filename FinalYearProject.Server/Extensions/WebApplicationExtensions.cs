@@ -1,6 +1,5 @@
 ﻿using FinalYearProject.EfCore.Helpers;
 using FinalYearProject.EfCore.Models;
-using FinalYearProject.Shared.Models.Dtos;
 
 namespace FinalYearProject.Server.Extensions
 {
@@ -42,7 +41,13 @@ namespace FinalYearProject.Server.Extensions
                             Bpm = 120,
                             TimeSignature = new(){
                                 BeatsPerMeasure = 4,
-                                BeatUnit = 4
+                                BeatUnit = 4,
+
+                            },
+                            Position = new(){
+                                StartTime = 0,
+                                EndTime = 2,
+                                Length = 2,
                             }
                         },
                         new(){
@@ -50,6 +55,11 @@ namespace FinalYearProject.Server.Extensions
                             TimeSignature = new(){
                                 BeatsPerMeasure = 4,
                                 BeatUnit = 4
+                            },
+                            Position = new(){
+                                StartTime = 2,
+                                EndTime = 4,
+                                Length = 2,
                             }
                         }
                     ]

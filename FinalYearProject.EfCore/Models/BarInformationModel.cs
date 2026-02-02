@@ -11,5 +11,10 @@
         /// The Time Signature of this Bar
         /// </summary>
         public required TimeSignatureModel TimeSignature { get; set; }
+
+        /// <summary>
+        /// Where this Bar is in the Tab
+        /// </summary>
+        public required PositionInTabModel Position { get; set; }
     }
 }
