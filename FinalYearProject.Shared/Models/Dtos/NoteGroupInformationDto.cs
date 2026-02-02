@@ -8,6 +8,11 @@
         public required List<NoteDto> Notes { get; set; }
 
         /// <summary>
+        /// The Chords that belong to this Group
+        /// </summary>
+        public required List<ChordInformationDto> Chords { get; set; }
+
+        /// <summary>
         /// Where this Group Starts Relative to the Bar (0-100%)
         /// </summary>
         public required int BarStartPercentage { get; set; }

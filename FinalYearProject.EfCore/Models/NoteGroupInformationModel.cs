@@ -8,6 +8,11 @@
         public required List<NoteModel> Notes { get; set; }
 
         /// <summary>
+        /// The List of Chords for this Group
+        /// </summary>
+        public required List<ChordInformationModel> Chords { get; set; }
+
+        /// <summary>
         /// Where this Group Starts Relative to the Bar (0-100%)
         /// </summary>
         public required int BarStartPercentage { get; set; }

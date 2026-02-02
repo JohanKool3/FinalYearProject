@@ -1,4 +1,6 @@
-﻿namespace FinalYearProject.Shared.Models.Dtos
+﻿using FinalYearProject.Shared.Models.UI.Bar;
+
+namespace FinalYearProject.Shared.Models.Dtos
 {
     public class NoteGroupDto
     {
@@ -15,6 +17,11 @@
         /// <summary>
         /// The Notes that are part of this group
         /// </summary>
-        public List<ExpectedNoteDto> Notes { get; set; } = [];
+        public required List<ExpectedNoteDto> Notes { get; set; }
+
+        /// <summary>
+        /// The Chords that are a part of this Group
+        /// </summary>
+        public required List<ChordInformationDto> Chords { get; set; }
     }
 }

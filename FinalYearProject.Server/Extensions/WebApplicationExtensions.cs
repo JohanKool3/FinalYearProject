@@ -64,7 +64,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 25,
@@ -80,7 +81,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 50,
@@ -96,7 +98,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 75,
@@ -112,7 +115,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 }
                             ]
                         },
@@ -142,7 +146,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 25,
@@ -158,7 +163,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 50,
@@ -174,7 +180,8 @@ namespace FinalYearProject.Server.Extensions
                                                 Length = 1
                                             }
                                         }
-                                        ]
+                                        ],
+                                    Chords = []
                                 },
                                 new(){
                                     BarStartPercentage = 75,
@@ -189,7 +196,8 @@ namespace FinalYearProject.Server.Extensions
                                             Properties = new(){
                                                 Length = 1
                                             }
-                                        }]
+                                        }],
+                                    Chords = []
                                 },
 
                             ]
