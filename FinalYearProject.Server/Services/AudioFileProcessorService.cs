@@ -3,6 +3,7 @@ using FinalYearProject.Accuracy.Analysis.Services.Calculators;
 using FinalYearProject.Audio.Services;
 using FinalYearProject.EfCore.Models;
 using FinalYearProject.Server.Exceptions;
+using FinalYearProject.Server.Helpers;
 using FinalYearProject.Server.Interfaces;
 using FinalYearProject.Server.Models;
 using FinalYearProject.Shared.Interfaces;
@@ -79,7 +80,10 @@ namespace FinalYearProject.Server.Services
                 return null;
             }
 
-            return piece.ReferenceTab;
+            var referenceTab = DisplayToLogicConverter
+                .ConvertModelToTab(piece);
+
+            return referenceTab;
         }
 
         /// <summary>

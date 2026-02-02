@@ -11,13 +11,9 @@
         public required Guid Id { get; set; }
 
         /// <summary>
-        /// Name of the Piece
+        /// The Display Information for this Piece
         /// </summary>
-        public required string PieceName { get; set; }
+        public required TabInformationDto TabInformation { get; set; }
 
-        /// <summary>
-        /// Full set of Tab Information for this Piece
-        /// </summary>
-        public required ReferenceTabDto ReferenceTab { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace FinalYearProject.Integration.Tests.ApiClient
             };
 
             // Act
-            var response = await _api.RequestAnalysisAsync(request);
+            var response = await _api.RequestAnalysisAsync(request, CancellationToken.None);
 
             Assert.NotNull(response);
             Assert.Equal(1.0f, response.NoteAccuracy);
@@ -39,7 +39,7 @@ namespace FinalYearProject.Integration.Tests.ApiClient
         public async Task FinalYearProjectApi_GetAllPieceInformationAsync_ReturnsExpectedPieces()
         {
             // Act
-            var pieces = await _api.GetAllPieceInformationAsync();
+            var pieces = await _api.GetAllPieceInformationAsync(CancellationToken.None);
             
             // Assert
             Assert.NotNull(pieces);
@@ -54,7 +54,7 @@ namespace FinalYearProject.Integration.Tests.ApiClient
             var pieceId = Guid.Empty;
             
             // Act
-            var piece = await _api.GetPieceInformationByIdAsync(pieceId);
+            var piece = await _api.GetPieceInformationByIdAsync(pieceId, CancellationToken.None);
             
             // Assert
             Assert.NotNull(piece);
@@ -68,11 +68,11 @@ namespace FinalYearProject.Integration.Tests.ApiClient
             var pieceId = Guid.Empty;
             
             // Act
-            var piece = await _api.GetPieceByIdAsync(pieceId);
+            var piece = await _api.GetPieceByIdAsync(pieceId, CancellationToken.None);
             
             // Assert
             Assert.NotNull(piece);
-            Assert.Equal("C Major Scale", piece!.PieceName);
+            Assert.Equal("C Major Scale", piece!.TabInformation.Title);
         }
     }
 }

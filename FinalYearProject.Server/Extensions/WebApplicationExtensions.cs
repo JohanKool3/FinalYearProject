@@ -28,74 +28,15 @@ namespace FinalYearProject.Server.Extensions
         {
             List<PieceModel> output = [];
 
-            // Add initial reference tab here
-            var referenceTab = new ReferenceTabDto()
-            {
-                Bpm = 120,
-                NoteGroups = [new() {
-                    StartTime = 0.0,
-                    EndTime = 0.5,
-                    Notes = [new(){
-                        Name = "C5"
-                    }]
-                },
-                new() {
-                    StartTime = 0.5,
-                    EndTime = 1,
-                    Notes = [new(){
-                        Name = "D5"
-                    }]
-                },
-                new() {
-                    StartTime = 1,
-                    EndTime = 1.5,
-                    Notes = [new(){
-                        Name = "E5"
-                    }]
-                },
-                new() {
-                    StartTime = 1.5,
-                    EndTime = 2,
-                    Notes = [new(){
-                        Name = "F5"
-                    }]
-                },
-                new() {
-                    StartTime = 2,
-                    EndTime = 2.5,
-                    Notes = [new(){
-                        Name = "G5"
-                    }]
-                },
-                new() {
-                    StartTime = 2.5,
-                    EndTime = 3,
-                    Notes = [new(){
-                        Name = "A5"
-                    }]
-                },
-                new() {
-                    StartTime = 3,
-                    EndTime = 3.5,
-                    Notes = [new(){
-                        Name = "B5"
-                    }]
-                },
-                new() {
-                    StartTime = 3.5,
-                    EndTime = 4,
-                    Notes = [new(){
-                        Name = "C6"
-                    }]
-                },
-                ]
-            };
-
             var newPiece = new PieceModel()
             {
                 Id = Guid.Empty,
-                PieceName = "C Major Scale",
-                ReferenceTab = referenceTab
+                TabInformationModel = new() { 
+                    Title = "C Major Scale",
+                    Author = "Unknown",
+                    Description = "A Short scale",
+                    TotalLengthInSeconds = 4
+                }
             };
 
             output.Add(newPiece);
