@@ -17,7 +17,8 @@ namespace FinalYearProject.UI.Components.Extensions
         {
 
             // Register Tab Display Loader
-            services.AddSingleton<ITabLoaderService, BasicTabLoaderService>();
+            //services.AddSingleton<ITabLoaderService, BasicTabLoaderService>();
+            services.AddScoped<ITabLoaderService, TabLoaderService>();
 
             // Register Playback Service
             services.AddSingleton<DisplayService>();

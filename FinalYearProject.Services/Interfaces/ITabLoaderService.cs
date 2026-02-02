@@ -11,7 +11,7 @@ namespace FinalYearProject.Services.Interfaces
         /// Get the Currently loaded Tab Display Information
         /// </summary>
         /// <returns></returns>
-        public TabInformation? GetTab();
+        public Task<TabInformation?> GetTabAsync(Guid pieceId, CancellationToken cancellationToken);
 
         /// <summary>
         /// Loads Tab Display Information

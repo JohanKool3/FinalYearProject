@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FinalYearProject.Api\FinalYearProject.Api.csproj" />
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
   </ItemGroup>
 

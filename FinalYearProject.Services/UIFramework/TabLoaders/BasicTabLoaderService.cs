@@ -329,7 +329,7 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
         }
 
         /// <inheritdoc />
-        public TabInformation? GetTab()
+        public async Task<TabInformation?> GetTabAsync(Guid pieceId, CancellationToken cancellationToken)
         {
             // TODO: This should be done in the future within a
             // Convertor Service that converts from a file format

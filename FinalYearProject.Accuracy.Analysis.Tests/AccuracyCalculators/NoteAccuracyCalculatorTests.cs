@@ -45,7 +45,8 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                     new(){
                         StartTime = 0.0f,
                         EndTime = 1.0f,
-                        Notes = [new() { Name = "E4" }]
+                        Notes = [new() { Name = "E4" }],
+                    Chords = []
                     }
                 ]
             };
@@ -92,7 +93,8 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                     new(){
                         StartTime = 0.0f,
                         EndTime = 1.0f,
-                        Notes = [new() { Name = "F4" }]
+                        Notes = [new() { Name = "F4" }],
+                    Chords = []
                     }
                 ]
             };
@@ -140,7 +142,8 @@ namespace FinalYearProject.Accuracy.Analysis.Tests.AccuracyCalculators
                         StartTime = 0.0f,
                         EndTime = 1.0f,
                         Notes = [new() { Name = "E4" },
-                                 new() { Name = "F4" },]
+                                 new() { Name = "F4" },],
+                    Chords = []
                     }
                 ]
             };

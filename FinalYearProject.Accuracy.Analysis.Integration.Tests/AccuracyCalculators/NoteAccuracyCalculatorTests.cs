@@ -48,56 +48,65 @@ namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculato
                     EndTime = 0.5,
                     Notes = [new(){
                         Name = "C5"
-                    }]
+                    },
+                    ],
+                    Chords = []
                 },
                 new() {
                     StartTime = 0.5,
                     EndTime = 1,
                     Notes = [new(){
                         Name = "D5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 1,
                     EndTime = 1.5,
                     Notes = [new(){
                         Name = "E5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 1.5,
                     EndTime = 2,
                     Notes = [new(){
                         Name = "F5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 2,
                     EndTime = 2.5,
                     Notes = [new(){
                         Name = "G5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 2.5,
                     EndTime = 3,
                     Notes = [new(){
                         Name = "A5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 3,
                     EndTime = 3.5,
                     Notes = [new(){
                         Name = "B5"
-                    }]
+                    }],
+                    Chords = []
                 },
                 new() {
                     StartTime = 3.5,
                     EndTime = 4,
                     Notes = [new(){
                         Name = "C6"
-                    }]
+                    }],
+                    Chords = []
                 },
                 ]
             };

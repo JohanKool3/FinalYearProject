@@ -13,9 +13,6 @@ namespace FinalYearProject.UI.Components.Services
         {
             //Pull Display Loader Service from Dependency Injection
             TabLoaderService = displayLoaderService;
-
-            // Load the Initial Piece
-            LoadPiece();
         }
 
         #region Properties
@@ -60,10 +57,10 @@ namespace FinalYearProject.UI.Components.Services
         /// <summary>
         /// Loads a new tab into the playback service from Loader Service
         /// </summary>
-        public void LoadPiece()
+        public async Task LoadPiece(Guid pieceId, CancellationToken cancellationToken)
         {
             // Load the tab from the display loader service
-            var tab = TabLoaderService.GetTab();
+            var tab = await TabLoaderService.GetTabAsync(pieceId, cancellationToken);
 
             CurrentTab = tab;
 
