@@ -6,14 +6,14 @@ namespace FinalYearProject.Server.Repositories
     /// <summary>
     /// Simple Repository to simulate data storage for Pieces in-memory
     /// </summary>
-    public class InMemoryPieceRepository : IRepository<Piece, Guid>
+    public class InMemoryPieceRepository : IRepository<PieceModel, Guid>
     {
         /// <summary>
         /// The Contents of this in-memory repository
         /// </summary>
-        public List<Piece> Contents { get; set; } = [];
+        public List<PieceModel> Contents { get; set; } = [];
 
-        public async Task<bool> CreateAsync(Piece entity)
+        public async Task<bool> CreateAsync(PieceModel entity)
         {
             Contents.Add(entity);
 
@@ -35,12 +35,12 @@ namespace FinalYearProject.Server.Repositories
             }
         }
 
-        public async Task<ICollection<Piece>> GetAllAsync()
+        public async Task<ICollection<PieceModel>> GetAllAsync()
         {
             return Contents;
         }
 
-        public async Task<Piece?> GetAsync(Guid id)
+        public async Task<PieceModel?> GetAsync(Guid id)
         {
             var exists = Contents.Any(p => p.Id == id);
 
@@ -54,7 +54,7 @@ namespace FinalYearProject.Server.Repositories
 
         }
 
-        public async Task<Piece?> UpdateAsync(Guid id, Piece entity)
+        public async Task<PieceModel?> UpdateAsync(Guid id, PieceModel entity)
         {
             var exists = Contents.Any(p => p.Id == id);
 

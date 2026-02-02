@@ -17,16 +17,16 @@ namespace FinalYearProject.Server.Extensions
             using var scope = app.Services.CreateScope();
 
             await DevelopmentRepositorySeeder
-                .SeedDataAsync<Piece, Guid>(scope, GetPieceData());
+                .SeedDataAsync<PieceModel, Guid>(scope, GetPieceData());
         }
 
         /// <summary>
         /// Creates test data for the Piece Repository
         /// </summary>
         /// <returns></returns>
-        private static List<Piece> GetPieceData()
+        private static List<PieceModel> GetPieceData()
         {
-            List<Piece> output = [];
+            List<PieceModel> output = [];
 
             // Add initial reference tab here
             var referenceTab = new ReferenceTabDto()
@@ -91,7 +91,7 @@ namespace FinalYearProject.Server.Extensions
                 ]
             };
 
-            var newPiece = new Piece()
+            var newPiece = new PieceModel()
             {
                 Id = Guid.Empty,
                 PieceName = "C Major Scale",

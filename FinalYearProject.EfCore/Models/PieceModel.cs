@@ -5,7 +5,7 @@ namespace FinalYearProject.EfCore.Models
     /// <summary>
     /// Represents a Piece of Tab that will be stored in a database
     /// </summary>
-    public class Piece
+    public class PieceModel
     {
         /// <summary>
         /// Unique Identifier for this Piece

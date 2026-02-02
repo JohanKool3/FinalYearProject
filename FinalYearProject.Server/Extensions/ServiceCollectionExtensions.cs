@@ -67,11 +67,11 @@ namespace FinalYearProject.Server.Extensions
             if (env.IsDevelopment())
             {
                 // Load Development Data Stores
-                services.AddSingleton<IRepository<Piece, Guid>, InMemoryPieceRepository>();
+                services.AddSingleton<IRepository<PieceModel, Guid>, InMemoryPieceRepository>();
             }
             else if (env.IsTest())
             {
-                services.AddSingleton<IRepository<Piece, Guid>, InMemoryPieceRepository>();
+                services.AddSingleton<IRepository<PieceModel, Guid>, InMemoryPieceRepository>();
             }
             else
             {

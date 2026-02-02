@@ -77,7 +77,7 @@ namespace FinalYearProject.Server.Controllers
         /// </summary>
         /// <param name="analysisRequest"></param>
         /// <returns></returns>
-        private AnalysisRequestMetadata GetMetadata(AnalysisRequest analysisRequest)
+        private static AnalysisRequestMetadata GetMetadata(AnalysisRequest analysisRequest)
             => new()
             {
                 PieceId = analysisRequest.PieceId

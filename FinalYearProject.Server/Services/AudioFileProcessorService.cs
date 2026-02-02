@@ -15,14 +15,14 @@ namespace FinalYearProject.Server.Services
         FileSettings settings,
         AudioAnalysisPipelineService analysisService,
         PerformanceAccuracyService performanceAccuracyService,
-        IRepository<Piece, Guid> pieceRepository) : IAudioFileProcessorService
+        IRepository<PieceModel, Guid> pieceRepository) : IAudioFileProcessorService
     {
         public FileSettings Settings { get; } = settings;
 
         public AudioAnalysisPipelineService AnalysisService { get; } = analysisService;
 
         public PerformanceAccuracyService PerformanceAccuracyService { get; } = performanceAccuracyService;
-        public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
+        public IRepository<PieceModel, Guid> PieceRepository { get; } = pieceRepository;
 
         public async Task<AccuracyResultsDto> ProcessAudioFileAsync(AnalysisRequest requestDto)
         {

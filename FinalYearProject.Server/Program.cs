@@ -11,6 +11,9 @@ namespace FinalYearProject.Server
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Load AutoMapper
+            builder.Services.AddAutoMapper(cfg => {}, typeof(Program));
+
             // Load Settings
             builder.Services.LoadSettings(builder.Configuration);
 

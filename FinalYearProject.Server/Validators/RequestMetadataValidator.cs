@@ -6,12 +6,12 @@ using FinalYearProject.Shared.Interfaces;
 namespace FinalYearProject.Server.Validators
 {
     public class RequestMetadataValidator(
-        IRepository<Piece, Guid> pieceRepository
+        IRepository<PieceModel, Guid> pieceRepository
         )
         : IDataValidator<AnalysisRequestMetadata>
     {
 
-        public IRepository<Piece, Guid> PieceRepository { get; } = pieceRepository;
+        public IRepository<PieceModel, Guid> PieceRepository { get; } = pieceRepository;
 
         public async Task<bool> ValidDataAsync(AnalysisRequestMetadata data)
         {

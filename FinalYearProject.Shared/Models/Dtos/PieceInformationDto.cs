@@ -9,7 +9,7 @@
         /// <summary>
         /// Piece Id
         /// </summary>
-        public Guid PieceId { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Name of the Piece

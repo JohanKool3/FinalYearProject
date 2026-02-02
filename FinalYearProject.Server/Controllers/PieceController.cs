@@ -1,4 +1,5 @@
-﻿using FinalYearProject.EfCore.Models;
+﻿using AutoMapper;
+using FinalYearProject.EfCore.Models;
 using FinalYearProject.Shared.Interfaces;
 using FinalYearProject.Shared.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -7,10 +8,13 @@ namespace FinalYearProject.Server.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
-    public class PieceController(IRepository<Piece, Guid> repository)
+    public class PieceController(
+        IRepository<PieceModel, Guid> repository,
+        IMapper mapper)
         : ControllerBase
     {
-        public IRepository<Piece, Guid> Repository { get; } = repository;
+        public IRepository<PieceModel, Guid> Repository { get; } = repository;
+        public IMapper Mapper { get; } = mapper;
 
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<PieceDto>> GetPieceAsync(Guid id)
@@ -29,12 +33,7 @@ namespace FinalYearProject.Server.Controllers
             }
 
             // TODO: Use AutoMapper
-            var response = new PieceDto()
-            {
-                Id = piece.Id,
-                PieceName = piece.PieceName,
-                ReferenceTab = piece.ReferenceTab
-            };
+            var response = Mapper.Map<PieceDto>(piece);
 
             return response;
         }
