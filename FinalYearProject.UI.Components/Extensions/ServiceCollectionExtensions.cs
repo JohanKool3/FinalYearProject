@@ -44,5 +44,13 @@ namespace FinalYearProject.UI.Components.Extensions
 
             return services;
         }
+
+        public static IServiceCollection AddLocalFileStorage(this IServiceCollection services)
+        {
+
+            services.AddSingleton<IUserDataStorage, UserDataStorage>();
+
+            return services;
+        }
     }
 }

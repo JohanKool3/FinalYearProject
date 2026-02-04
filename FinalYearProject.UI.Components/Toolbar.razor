@@ -1,3 +1,4 @@
+@using FinalYearProject.UI.Components.InterfaceElements.Recording
 @using FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 
 <div class="toolbar">
@@ -10,4 +11,6 @@
 
         <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
     </TabToolbar>
+
+    <AudioFileManager @ref="AudioFileManager" />
 </div>

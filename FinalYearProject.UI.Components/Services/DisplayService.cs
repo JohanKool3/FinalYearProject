@@ -10,9 +10,20 @@ namespace FinalYearProject.UI.Components.Services
     public class DisplayService(ITabLoaderService displayLoaderService)
     {
 
+        #region Toolbar Properties and Events
+        /// <summary>
+        /// The Current Active Piece
+        /// </summary>
+        public Guid CurrentPieceId { get; private set; }
+
+        /// <summary>
+        /// Action to perform when the current piece Id is changed
+        /// </summary>
+        public Func<Guid, Task>? OnUpdateCurrentPieceIdAsync { get; set; }
+
+        #endregion
+
         #region Properties
-
-
 
         /// <summary>
         /// The current Beats Per Minute (BPM) for playback
@@ -61,6 +72,23 @@ namespace FinalYearProject.UI.Components.Services
 
             // Get the BPM for the first bar, or default to 120 if not available
             Bpm = tab?.Bars[0].Bpm ?? 120;
+        }
+
+
+        /// <summary>
+        /// Sets the Current Piece Id
+        /// </summary>
+        /// <param name="pieceId"></param>
+        public async Task SetCurrentPieceIdAsync(Guid pieceId)
+        {
+            CurrentPieceId = pieceId;
+
+            if (OnUpdateCurrentPieceIdAsync is null)
+            {
+                return;
+            }
+            await OnUpdateCurrentPieceIdAsync(pieceId);
+
         }
     }
 }

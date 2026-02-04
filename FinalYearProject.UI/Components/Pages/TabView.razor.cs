@@ -17,6 +17,7 @@ namespace FinalYearProject.UI.Components.Pages
         {
             // Fetch Data
             await DisplayService.LoadPieceAsync(PieceId, CancellationToken.None);
+            await DisplayService.SetCurrentPieceIdAsync(PieceId);
             await base.OnInitializedAsync();
         }
 

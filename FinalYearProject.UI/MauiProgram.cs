@@ -31,6 +31,8 @@ namespace FinalYearProject.UI
             // Add API Client
             builder.Services.AddApiClient(builder.Configuration);
 
+            builder.Services.AddLocalFileStorage();
+
             // Register User Interface Services
             builder.Services.AddUiServices();
 
