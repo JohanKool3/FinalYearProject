@@ -1,19 +1,14 @@
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Final Year Project</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="nav-bar">
+    <div class="nav-item" @onclick="NavigateHome">
+        <span class="nav-text">Home</span>
     </div>
-</div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="CollapseNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item">
-            <NavLink href="" Match="NavLinkMatch.All">
-                <span aria-hidden="true">Home</span>
-            </NavLink>
-        </div>
-    </nav>
+    <div class="nav-item" @onclick="NavigateToAccounts">
+        <span class="nav-text">Account</span>
+    </div>
+
+    <div class="nav-item" @onclick="NavigateToSettings">
+        <span class="nav-text">Settings</span>
+    </div>
 </div>
 

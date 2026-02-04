@@ -1,19 +1,29 @@
+using FinalYearProject.UI.Helpers;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+
 namespace FinalYearProject.UI.Components.Layout
 {
-    public partial class NavMenu
+    public partial class NavMenu(NavigationManager navigationManager)
     {
-        private bool collapseNavMenu = true;
+        public NavigationManager NavigationManager { get; } = navigationManager;
 
-        private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-        private void ToggleNavMenu()
+        #region Navigation
+
+        private void NavigateHome(MouseEventArgs args)
         {
-            collapseNavMenu = !collapseNavMenu;
+            NavigationManager.NavigateTo("/");
+        }
+        private void NavigateToSettings(MouseEventArgs args)
+        {
+            NavigationManager.NavigateTo("/settings");
+        }
+        private void NavigateToAccounts(MouseEventArgs args)
+        {
+            NavigationManager.NavigateTo("/account");
         }
 
-        private void CollapseNavMenu()
-        {
-            collapseNavMenu = true;
-        }
+        #endregion
     }
 }
