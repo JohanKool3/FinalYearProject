@@ -41,7 +41,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                     Notes = [
                                         new(){
-                                            FretNumber = 6,
+                                            FretNumber = 17,
                                             StringNumber = 3,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -58,7 +58,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 8,
+                                            FretNumber = 19,
                                             StringNumber = 3,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -75,7 +75,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 10,
+                                            FretNumber = 21,
                                             StringNumber = 3,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -92,7 +92,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 7,
+                                            FretNumber = 18,
                                             StringNumber = 2,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -123,7 +123,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 9,
+                                            FretNumber = 20,
                                             StringNumber = 2,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -140,7 +140,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 11,
+                                            FretNumber = 22,
                                             StringNumber = 2,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -157,7 +157,7 @@ namespace FinalYearProject.Server.Seeding
                                     TotalGroupBeatLength = 1,
                                      Notes = [
                                         new(){
-                                            FretNumber = 8,
+                                            FretNumber = 19,
                                             StringNumber = 1,
                                             StartPercentage = 0,
                                             EndPercentage = 100,
@@ -177,7 +177,7 @@ namespace FinalYearProject.Server.Seeding
                                             StartPercentage = 0,
                                             EndPercentage = 1,
                                             StringNumber = 1,
-                                            FretNumber = 9,
+                                            FretNumber = 20,
                                             Properties = new(){
                                                 Length = 1
                                             }

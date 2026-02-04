@@ -42,7 +42,6 @@ namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculato
             
             var referenceTab = new ReferenceTabDto()
             {
-                Bpm = 120,
                 NoteGroups = [new() {
                     StartTime = 0.0,
                     EndTime = 0.5,

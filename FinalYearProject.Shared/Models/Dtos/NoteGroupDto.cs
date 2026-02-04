@@ -1,7 +1,8 @@
-﻿using FinalYearProject.Shared.Models.UI.Bar;
-
-namespace FinalYearProject.Shared.Models.Dtos
+﻿namespace FinalYearProject.Shared.Models.Dtos
 {
+    /// <summary>
+    /// Group of Notes used in Analysis logic
+    /// </summary>
     public class NoteGroupDto
     {
         /// <summary>
