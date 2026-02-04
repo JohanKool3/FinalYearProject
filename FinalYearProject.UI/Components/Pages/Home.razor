@@ -1,4 +1,8 @@
 ﻿@page "/"
 
-<TabBrowser
-    NavigateToPiece="Navigate"/>
+<div class="tab-browser">
+    <TabBrowser
+        NavigateToPiece="Navigate"
+        Height="@GetHeight()"
+        Width="@GetWidth()"/>
+</div>
