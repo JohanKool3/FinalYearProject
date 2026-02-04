@@ -5,3 +5,9 @@
     padding: 0.1em;
     padding-bottom: 1em;
 }
+
+.loading-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
