@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {
-    public partial class TabBody(DisplayService playbackService,
+    public partial class TabBody(DisplayService displayService,
         SettingsService representationService)
         : ComponentBase
     {
         public DisplayService PlaybackService { get; set; }
-            = playbackService;
+            = displayService;
         
         public SettingsService RepresentationService { get; }
             = representationService;

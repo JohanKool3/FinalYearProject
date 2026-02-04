@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.TabBrowser.Elements
+namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class BrowserLoadingIcon
+    public partial class LoadingIcon
     {
 
         [Parameter]

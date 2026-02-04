@@ -17,9 +17,13 @@
         height: 2em;
         text-align: center;
         background-color: aqua;
+        cursor: pointer;
     }
 
 .browser-item-button {
     border: none;
     background: none;
 }
+    .browser-item-button:hover {
+        cursor: pointer;
+    }

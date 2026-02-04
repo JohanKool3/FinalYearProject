@@ -12,9 +12,11 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TabBrowser.Elements
         public required string Name { get; set; }
 
         /// <summary>
-        /// The Unique Piece Identifier
+        /// Action to be performed when this item is clicked
         /// </summary>
         [Parameter, EditorRequired]
-        public required Guid Id { get; set; }
+        public required Action OnClick { get; set; }
+
+
     }
 }

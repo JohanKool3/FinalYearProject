@@ -1,12 +1,27 @@
-﻿using FinalYearProject.Services.Interfaces;
-using Microsoft.AspNetCore.Components.Web;
+using FinalYearProject.UI.Components.Services;
+using Microsoft.AspNetCore.Components;
+
 namespace FinalYearProject.UI.Components.Pages
 {
-    public partial class TabView(ITabLoaderService tabLoader)
+    public partial class TabView(DisplayService displayService)
     {
-        private async Task LoadTabAsync(MouseEventArgs args)
+        /// <summary>
+        /// The Id of this Piece
+        /// </summary>
+        [Parameter]
+        public Guid PieceId { get; set; }
+
+        public DisplayService DisplayService { get; } = displayService;
+
+        protected override async Task OnInitializedAsync()
         {
+            // Fetch Data
+            await DisplayService.LoadPieceAsync(PieceId, CancellationToken.None);
+            await base.OnInitializedAsync();
         }
 
+
+        private bool TabIsLoaded()
+            => DisplayService.CurrentTab != null;
     }
 }

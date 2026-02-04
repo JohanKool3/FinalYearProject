@@ -1,3 +1,18 @@
-﻿@page "/tabview"
+@page "/tabview"
+@page "/tabview/{PieceId:guid}"
+@using FinalYearProject.UI.Components.InterfaceElements
 
-<TabBrowser />
+@if (!TabIsLoaded())
+{
+    <div class="tab-view-loading-icon">
+        <LoadingIcon Height="200"
+                     Width="200" />
+    </div>
+}
+else
+{
+    <TabWidget />
+}
+
+
+

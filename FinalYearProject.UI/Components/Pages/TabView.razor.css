@@ -1,9 +1,8 @@
-html, body{
-    height: 100%;
-}
-
-.tab {
+.tab-view-loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: flex;
-    height: 100%;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

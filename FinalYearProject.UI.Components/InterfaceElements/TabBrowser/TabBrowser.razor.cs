@@ -19,6 +19,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.TabBrowser
         public int Width { get; set; } = 300;
 
         /// <summary>
+        /// Navigate Action
+        /// </summary>
+        [Parameter, EditorRequired]
+        public required Action<Guid> NavigateToPiece { get; set; }
+
+        /// <summary>
         /// Determines whether data from the server has been loaded
         /// </summary>
         private bool DataLoaded;

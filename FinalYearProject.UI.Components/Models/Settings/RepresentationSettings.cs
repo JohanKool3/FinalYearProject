@@ -24,7 +24,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
         /// Whether to show bounding boxes for each component for debugging and
         /// design purposes
         /// </summary>
-        public bool DebugMode { get; set; } = true;
+        public bool DebugMode { get; set; } = false;
 
         /// <summary>
         /// Settings related to the Strings and Notes display
@@ -33,7 +33,7 @@ namespace FinalYearProject.UI.Components.Models.Settings
             = new()
             {
                 TopPadding = 20,
-                LeftPadding = 20,
+                LeftPadding = 40,
                 NoteSpacing = 20,
                 StringSpacing = 15
             };
