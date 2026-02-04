@@ -3,21 +3,16 @@ using FinalYearProject.Shared.Models.UI;
 
 namespace FinalYearProject.UI.Components.Services
 {
-    public class DisplayService
+    /// <summary>
+    /// Service for storing and managing the display of tabs
+    /// </summary>
+    /// <param name="displayLoaderService"></param>
+    public class DisplayService(ITabLoaderService displayLoaderService)
     {
-        /// <summary>
-        /// Service for storing and managing the display of tabs
-        /// </summary>
-        /// <param name="displayLoaderService"></param>
-        public DisplayService(ITabLoaderService displayLoaderService)
-        {
-            //Pull Display Loader Service from Dependency Injection
-            TabLoaderService = displayLoaderService;
-        }
 
         #region Properties
 
-        
+
 
         /// <summary>
         /// The current Beats Per Minute (BPM) for playback
@@ -40,9 +35,9 @@ namespace FinalYearProject.UI.Components.Services
             => CurrentTab?.Description ?? "No Description";
 
         public TabInformation? CurrentTab { get; private set; }
-        
-        public ITabLoaderService TabLoaderService { get; }
-        
+
+        public ITabLoaderService TabLoaderService { get; } = displayLoaderService;
+
         #endregion
 
         /// <summary>
@@ -67,7 +62,5 @@ namespace FinalYearProject.UI.Components.Services
             // Get the BPM for the first bar, or default to 120 if not available
             Bpm = tab?.Bars[0].Bpm ?? 120;
         }
-
-        // TODO: Add Overload that allows loading of a specific tab
     }
 }

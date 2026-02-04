@@ -1,4 +1,3 @@
-using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Services;
