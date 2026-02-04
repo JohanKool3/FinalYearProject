@@ -1,10 +1,5 @@
 ﻿using FinalYearProject.Services.Interfaces;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace FinalYearProject.UI.Components.Pages
 {
     public partial class TabView(ITabLoaderService tabLoader)

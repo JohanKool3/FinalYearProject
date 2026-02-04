@@ -34,8 +34,7 @@
         /// <summary>
         /// Holds how long the entire tab is in seconds
         /// </summary>
-        public float TotalLengthInSeconds
-            => Bars.Count == 0 ? 0 : Bars[^1].PositionInTab.EndTimestamp;
+        public required float TotalLengthInSeconds { get; set; }
 
     }
 }

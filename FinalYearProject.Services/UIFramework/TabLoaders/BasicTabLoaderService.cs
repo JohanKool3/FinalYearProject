@@ -324,7 +324,8 @@ namespace FinalYearProject.Services.UIFramework.TabLoaders
                 Bars = exampleBars,
                 Author = "Gojira",
                 Title = "Backbone Snippet",
-                Description = "This is a sample tab for testing purposes. The limit of this desription must never exceed 400"
+                Description = "This is a sample tab for testing purposes. The limit of this desription must never exceed 400",
+                TotalLengthInSeconds = 0
             };
         }
 
