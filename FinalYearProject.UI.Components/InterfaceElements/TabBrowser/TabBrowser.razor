@@ -1,12 +1,13 @@
+@using FinalYearProject.UI.Components.InterfaceElements.TabBrowser.Elements
 @using Microsoft.AspNetCore.Components.Forms
-<div class="tab-browser">
+<div class="tab-browser" style="width:@($"{Width}px"); height:@($"{Height}px");">
     <div class="tab-browser-title">
         <h1>Tab Browser</h1>
     </div>
 
     <div class="tab-browser-search-bar">
         <span>Search: </span>
-        <InputText @bind-Value="UserSearch" />
+        <input @bind-value="UserSearch" />
         <button>Enter</button>
     </div>
 
@@ -16,6 +17,10 @@
     }
     else
     {
-        <p>Data Has Been Loaded</p>
+        foreach (var dataItem in localData)
+        {
+            <BrowserItem Name="@dataItem.PieceName"
+                         Id="@dataItem.Id" />
+        }
     }
 </div>

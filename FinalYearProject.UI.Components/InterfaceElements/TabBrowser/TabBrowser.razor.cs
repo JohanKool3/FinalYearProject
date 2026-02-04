@@ -1,10 +1,23 @@
 ﻿using FinalYearProject.Shared.Models.Dtos;
 using FinalYearProject.UI.Components.Interfaces;
+using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.TabBrowser
 {
     public partial class TabBrowser(IDataManager<PieceInformationDto> dataManager)
     {
+        /// <summary>
+        /// Height of the entire tab browser
+        /// </summary>
+        [Parameter]
+        public int Height { get; set; } = 500;
+
+        /// <summary>
+        /// Width of the Tab Browser
+        /// </summary>
+        [Parameter]
+        public int Width { get; set; } = 300;
+
         /// <summary>
         /// Determines whether data from the server has been loaded
         /// </summary>
