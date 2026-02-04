@@ -10,7 +10,7 @@ namespace FinalYearProject.Api
         private readonly HttpClient _httpClient = httpClient;
 
         #region Audio Analysis 
-        
+
         public async Task<AccuracyResultsDto?> RequestAnalysisAsync(
             RequestAnalysisData request,
             CancellationToken cancellationToken = default)
@@ -51,17 +51,20 @@ namespace FinalYearProject.Api
 
         #region Piece Information
 
-        public async Task<IEnumerable<PieceInformationDto>?> GetAllPieceInformationAsync(
+        public async Task<IEnumerable<PieceInformationDto>> GetAllPieceInformationAsync(
             CancellationToken cancellationToken = default)
         {
             var response = await _httpClient.GetAsync("/api/pieceinformation", cancellationToken);
             if (!response.IsSuccessStatusCode)
             {
-                return null;
+                return [];
             }
 
             var pieces = await response.Content.ReadFromJsonAsync<IEnumerable<PieceInformationDto>>(cancellationToken);
-            return pieces;
+            
+            return (pieces == null)
+                ? []
+                : pieces;
         }
 
         public async Task<PieceInformationDto?> GetPieceInformationByIdAsync(
@@ -69,14 +72,14 @@ namespace FinalYearProject.Api
             CancellationToken cancellationToken = default)
         {
             var response = await _httpClient.GetAsync($"/api/pieceinformation/{pieceId}", cancellationToken);
-            
+
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
 
             var piece = await response.Content.ReadFromJsonAsync<PieceInformationDto>(cancellationToken);
-            
+
             return piece;
         }
 

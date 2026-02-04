@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Components.Forms
+<div class="tab-browser">
+    <div class="tab-browser-title">
+        <h1>Tab Browser</h1>
+    </div>
+
+    <div class="tab-browser-search-bar">
+        <span>Search: </span>
+        <InputText @bind-Value="UserSearch" />
+        <button>Enter</button>
+    </div>
+
+    @if (!DataLoaded)
+    {
+        // Display the Loading Icon
+    }
+    else
+    {
+        <p>Data Has Been Loaded</p>
+    }
+</div>

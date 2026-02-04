@@ -1,5 +1,8 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.UIFramework.TabLoaders;
+using FinalYearProject.Shared.Models.Dtos;
+using FinalYearProject.UI.Components.DataManagers;
+using FinalYearProject.UI.Components.Interfaces;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,6 +31,17 @@ namespace FinalYearProject.UI.Components.Extensions
 
             // Register Settings Service
             services.AddSingleton<SettingsService>();
+
+            // Register Data Managers
+            services.RegisterDataManagers();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterDataManagers(this IServiceCollection services)
+        {
+            services.AddScoped<IDataManager<PieceInformationDto>, TabBrowserDataManager>();
+
             return services;
         }
     }

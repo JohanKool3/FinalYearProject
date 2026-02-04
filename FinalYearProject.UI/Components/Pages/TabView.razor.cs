@@ -6,11 +6,6 @@ namespace FinalYearProject.UI.Components.Pages
     {
         private async Task LoadTabAsync(MouseEventArgs args)
         {
-            var id = Guid.Empty;
-
-            var tab = await tabLoader.GetTabAsync(id, CancellationToken.None);
-
-            Console.WriteLine();
         }
 
     }
