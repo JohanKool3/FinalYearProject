@@ -1,4 +1,5 @@
 .nav-bar{
+    padding-top: 1em;
     display: inline-flex;
     background: none;
     width: 100%;
@@ -8,8 +9,15 @@
 
 }
 
-.nav-item {
+.nav-icon{
     display: flex;
+    justify-content: center;
+    height:2em;
+    padding-right: 1em;
+}
+
+.nav-item {
+    display: inline-flex;
     color: black;
     width: 20%;
     height:100%;

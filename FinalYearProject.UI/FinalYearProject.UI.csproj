@@ -76,4 +76,8 @@
       <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\images\navicons\" />
+    </ItemGroup>
+
 </Project>
