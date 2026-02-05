@@ -1,0 +1,36 @@
+<div class="results-graphic">
+    <div class="title">
+        <h2>@Title</h2>
+    </div>
+
+
+    <svg width="@Size" height="@Size" viewBox="0 0 @Size @Size">
+        <!-- Background ring -->
+        <circle cx="@GetCenterCoordinate()"
+                cy="@GetCenterCoordinate()"
+                r="@Radius"
+                stroke="#e0e0e0"
+                stroke-width="@StrokeWidth"
+                fill="none" />
+
+        <!-- Progress ring -->
+        <circle cx="@GetCenterCoordinate()"
+                cy="@GetCenterCoordinate()"
+                r="@Radius"
+                stroke="green"
+                fill="none"
+                stroke-dashoffset="@((1 - ClampedValue) * Circumference)"
+                stroke-width="@StrokeWidth" />
+
+        @* Percentage Readout *@
+        <text x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              font-size="20"
+              font-weight="bold"
+              fill="#333">
+            @(Math.Round(ClampedValue * 100))%
+        </text>
+    </svg>
+</div>

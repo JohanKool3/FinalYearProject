@@ -1,0 +1,10 @@
+.results-graphic
+{
+    height: fit-content;
+    width: fit-content;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
