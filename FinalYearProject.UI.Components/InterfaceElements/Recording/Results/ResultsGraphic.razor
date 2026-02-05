@@ -18,9 +18,12 @@
                 cy="@GetCenterCoordinate()"
                 r="@Radius"
                 stroke="green"
+                stroke-width="@StrokeWidth"
                 fill="none"
+                stroke-linecap="round"
+                stroke-dasharray="@Circumference"
                 stroke-dashoffset="@((1 - ClampedValue) * Circumference)"
-                stroke-width="@StrokeWidth" />
+                transform="rotate(-90 @Size/2 @Size/2)" />
 
         @* Percentage Readout *@
         <text x="50%"
