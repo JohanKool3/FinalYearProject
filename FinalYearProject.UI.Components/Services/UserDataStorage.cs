@@ -22,6 +22,19 @@ namespace FinalYearProject.UI.Components.Services
             var fileName = $"recording_{timestamp:yyyyMMdd_HHmmss}.wav";
             return Path.Combine(GetPieceDirectory(pieceId), fileName);
         }
+
+        public List<string> GetFilesAtDirectoryByFileExtension(Guid pieceId, string extension)
+        {
+            var directory = GetPieceDirectory(pieceId);
+
+            var output = Directory
+                .GetFiles(directory, $"*{extension}")
+                .OrderByDescending(File.GetCreationTimeUtc)
+                .ToList();
+
+
+            return output;
+        }
     }
 }
 

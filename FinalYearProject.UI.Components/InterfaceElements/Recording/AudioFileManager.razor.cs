@@ -1,4 +1,5 @@
 using FinalYearProject.UI.Components.Interfaces;
+using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Recording
 {
@@ -7,11 +8,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
         /// <summary>
         /// The Current Recording Session's Piece Id
         /// </summary>
-        public required Guid? PieceId { get; set; }
+        [Parameter, EditorRequired]
+        public required Guid PieceId { get; set; }
 
         public IUserDataStorage Storage { get; } = storage;
 
-        internal void SetId(Guid guid)
+        public Task SetIdAsync(Guid guid)
         {
             PieceId = guid;
 
@@ -19,6 +21,16 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
             var location = Storage.GetPieceDirectory(guid);
 
             Console.WriteLine();
+
+            return InvokeAsync(StateHasChanged);
+        }
+
+        internal string GetLatestRecording()
+        {
+            var files = Storage.GetFilesAtDirectoryByFileExtension(PieceId, ".wav");
+
+            return files.FirstOrDefault()
+                ?? string.Empty;
         }
     }
 }
