@@ -1,5 +1,16 @@
+@using FinalYearProject.UI.Components.InterfaceElements.Recording.SubElements
+<div class="audio-file-manager">
+    <h2>Audio File Manager</h2>
+    <div class="progress-view">
+        <WaveformView FilePath="@GetLatestRecording()"
+                      Resolution="1000"
+                      Height="200"
+                      Width="600" />
+    </div>
+    <div class="actions-view">
+        <UploadForAnalysisButton OnClickAsync="UploadAsync" />
+    </div>
 
-<WaveformView FilePath="@GetLatestRecording()"
-              Resolution="1000"
-              Height="200"
-              Width="600" />
+    <div class="minimize">
+    </div>
+</div>

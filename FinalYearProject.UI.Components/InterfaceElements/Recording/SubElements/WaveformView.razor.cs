@@ -1,7 +1,7 @@
 using FinalYearProject.UI.Components.Helpers;
 using Microsoft.AspNetCore.Components;
 
-namespace FinalYearProject.UI.Components.InterfaceElements.Recording
+namespace FinalYearProject.UI.Components.InterfaceElements.Recording.SubElements
 {
     public partial class WaveformView
     {
