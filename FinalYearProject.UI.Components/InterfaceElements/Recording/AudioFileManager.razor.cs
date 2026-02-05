@@ -11,6 +11,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
 
         public IUserDataStorage Storage { get; } = storage;
 
+        internal void SetId(Guid guid)
+        {
+            PieceId = guid;
 
+            // Create the Folder Location 
+            var location = Storage.GetPieceDirectory(guid);
+
+            Console.WriteLine();
+        }
     }
 }

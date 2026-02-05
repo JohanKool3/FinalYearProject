@@ -14,7 +14,7 @@ namespace FinalYearProject.UI.Components
 
         private Task OnUpdateCurrentPieceIdAsync(Guid guid)
         {
-            AudioFileManager.PieceId = guid;
+            AudioFileManager.SetId(guid);
 
             return InvokeAsync(StateHasChanged);
         }
