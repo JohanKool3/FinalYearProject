@@ -32,6 +32,8 @@ namespace FinalYearProject.UI.Components.Extensions
             // Register Settings Service
             services.AddSingleton<SettingsService>();
 
+            services.AddSingleton<PerformanceService>();
+
             // Register Data Managers
             services.RegisterDataManagers();
 

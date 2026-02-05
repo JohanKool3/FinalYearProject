@@ -1,12 +1,15 @@
 using FinalYearProject.Api;
 using FinalYearProject.UI.Components.Helpers;
 using FinalYearProject.UI.Components.Interfaces;
+using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Recording
 {
-    public partial class AudioFileManager(IUserDataStorage storage,
-        FinalYearProjectApiClient apiClient)
+    public partial class AudioFileManager(
+        IUserDataStorage storage,
+        PerformanceService performanceService,
+        NavigationManager navigationManager)
     {
         #region Parameters
         /// <summary>
@@ -20,8 +23,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
         #region Dependencies
 
         public IUserDataStorage Storage { get; } = storage;
-
-        public FinalYearProjectApiClient ApiClient { get; } = apiClient;
+        public PerformanceService PerformanceService { get; } = performanceService;
+        public NavigationManager NavigationManager { get; } = navigationManager;
 
         #endregion
 
@@ -49,20 +52,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
         {
             Stream data = File.OpenRead(GetLatestRecording());
 
-            if(data is null || ApiClient is null)
-            {
-                return;
-            }
-
-            var request = ApiRequestHelper
-                .GenerateAnalysisRequestData(PieceId,
-                $"{Guid.NewGuid().ToString()[..4]}.wav", // Generate a placeholder name
-                data
-                );
-
-            var results = await ApiClient.RequestAnalysisAsync(request, CancellationToken.None);
-
-            Console.WriteLine();
+            await PerformanceService.GetResultsAsync(data, PieceId);
+            NavigationManager.NavigateTo($"/results/{PieceId}");
         }
     }
 }

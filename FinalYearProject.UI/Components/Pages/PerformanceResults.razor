@@ -1,0 +1,14 @@
+@page "/results/{PieceId:guid}"
+@using FinalYearProject.UI.Components.InterfaceElements
+
+@if (!DataLoaded())
+{
+    <div class="loading-icon">
+        <LoadingIcon Height="200"
+                     Width="200" />
+    </div>
+}
+else
+{
+    <span>Note Accuracy: @Results.NoteAccuracy</span>
+}
