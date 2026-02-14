@@ -3,6 +3,7 @@ using FinalYearProject.UI.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
+using FinalYearProject.Services.Extensions;
 
 namespace FinalYearProject.UI
 {
@@ -32,6 +33,9 @@ namespace FinalYearProject.UI
             builder.Services.AddApiClient(builder.Configuration);
 
             builder.Services.AddLocalFileStorage();
+
+            // Add Recording Service
+            builder.Services.AddRecordingServices(DeviceInfo.Current);
 
             // Register User Interface Services
             builder.Services.AddUiServices();

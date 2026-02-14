@@ -63,15 +63,16 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="16.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.30" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.0.30" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.3" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.40" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.0.40" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.3" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\FinalYearProject.Api\FinalYearProject.Api.csproj" />
+      <ProjectReference Include="..\FinalYearProject.Services\FinalYearProject.Services.csproj" />
       <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
       <ProjectReference Include="..\FinalYearProject.UI.Components\FinalYearProject.UI.Components.csproj" />
     </ItemGroup>
