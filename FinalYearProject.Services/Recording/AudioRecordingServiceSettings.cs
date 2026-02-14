@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinalYearProject.Services.Models
+namespace FinalYearProject.Services.Recording
 {
     /// <summary>
     /// Holds settings related to the Input and Output IDs for
@@ -20,12 +20,6 @@ namespace FinalYearProject.Services.Models
         /// The ID of the Output Device
         /// </summary>
         public string OutputDeviceId { get; set; } = string.Empty;
-
-        /// <summary>
-        /// The Sample Rate of the Recording (Higher is more precise
-        /// but slower)
-        /// </summary>
-        public SampleRate SampleRate { get; set; } = SampleRate.Standard;
 
         /// <summary>
         /// The Percentage of the Input Volume, 0 -> 100%

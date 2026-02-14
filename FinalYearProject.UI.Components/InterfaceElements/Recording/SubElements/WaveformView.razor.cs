@@ -35,7 +35,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording.SubElements
         protected override Task OnInitializedAsync()
         {
             // TODO: Check the waveform is valid before setting it
-             WaveForm = WaveFileHelper.ReadWavFile(FilePath, Resolution);
+            //WaveForm = WaveFileHelper.ReadWavFile(FilePath, Resolution);
+            WaveForm = [];
 
             return base.OnInitializedAsync();
         }

@@ -53,26 +53,16 @@ namespace FinalYearProject.Services.Recording
             var inputDevice = new MMDeviceEnumerator()
                 .GetDevice(Settings.InputDeviceId);
 
-            _capture = new WasapiCapture(inputDevice, false, GetSampleRate());
-            _writer = new WaveFileWriter(outputPath, _capture.WaveFormat);
+            _capture = new WasapiCapture(inputDevice, true);
 
+            _writer = new WaveFileWriter(outputPath, _capture.WaveFormat);
+      
             // Register Event Handlers
             _capture.DataAvailable += OnRecordedDataAvailable;
             _capture.RecordingStopped += OnRecordingStopped;
 
             _capture.StartRecording();
         }
-
-        /// <summary>
-        /// Returns the Samples Per Second of the Recording
-        /// </summary>
-        /// <returns></returns>
-        private int GetSampleRate()
-            => Settings.SampleRate switch
-            {
-                SampleRate.Standard => 44100,
-                _ => 44100
-            };
 
         public void StopRecording()
         {
@@ -82,6 +72,7 @@ namespace FinalYearProject.Services.Recording
             }
 
             _capture.StopRecording();
+            OnRecordingStopped(null, null);
         }
 
         /// <summary>
@@ -90,7 +81,7 @@ namespace FinalYearProject.Services.Recording
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnRecordingStopped(object? sender, StoppedEventArgs args)
+        private void OnRecordingStopped(object? sender, StoppedEventArgs? args)
         {
             _writer?.Dispose();
             _writer = null;

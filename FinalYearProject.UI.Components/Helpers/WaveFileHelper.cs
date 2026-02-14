@@ -24,6 +24,11 @@ namespace FinalYearProject.UI.Components.Helpers
 
             using var reader = new AudioFileReader(filePath);
 
+            if (reader.Length < points)
+            {
+                return [];
+            }
+
             int samplesPerPoint =
                 (int)((reader.Length / 2) / points);
 
@@ -33,9 +38,24 @@ namespace FinalYearProject.UI.Components.Helpers
 
             for (int i = 0; i < points; i++)
             {
-                int read = reader.Read(buffer, 0, samplesPerPoint);
-                if (read == 0)
+                if(reader.Position == reader.Length)
+                {
                     break;
+                }
+
+                if(reader.Length < points)
+                {
+                    reader.Read(buffer, 0, (int)reader.Length);
+
+                }
+                else
+                {
+                    int read = reader.Read(buffer, 0, samplesPerPoint);
+                    if (read == 0)
+                        break;
+                }
+
+                    
 
                 // peak value for this buffer
                 float max = GetPeak(buffer);
@@ -61,10 +81,10 @@ namespace FinalYearProject.UI.Components.Helpers
         {
             var maxAmplitude = 0f;
 
-            foreach(var sample in buffer)
+            foreach (var sample in buffer)
             {
                 var abs = Math.Abs(sample);
-                
+
                 if (abs > maxAmplitude)
                 {
                     maxAmplitude = abs;

@@ -21,6 +21,11 @@ namespace FinalYearProject.UI.Components.Services
         /// </summary>
         public Func<Guid, Task>? OnUpdateCurrentPieceIdAsync { get; set; }
 
+        /// <summary>
+        /// Whether currently recording
+        /// </summary>
+        public bool IsRecording { get; set; }
+
         #endregion
 
         #region Properties
