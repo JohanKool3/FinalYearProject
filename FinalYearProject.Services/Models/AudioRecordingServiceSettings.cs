@@ -25,6 +25,6 @@ namespace FinalYearProject.Services.Models
         /// The Sample Rate of the Recording (Higher is more precise
         /// but slower)
         /// </summary>
-        public SampleRate SampleRate { get; set; }
+        public SampleRate SampleRate { get; set; } = SampleRate.Standard;
     }
 }
