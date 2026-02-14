@@ -1,75 +1,81 @@
-@page "/settings"
+﻿@page "/settings"
 
 <h1>Settings</h1>
 
 
-@* TODO: Add the ability to adjust latency, display etc *@
+@* Recording Settings Section *@
 <div class="settings-section">
-    <h2>Recording Settings</h2>
-
-    @* Which Device to listen to for Audio Recording*@
-    <div class="settings-sub-section">
-        <span>Input Device: </span>
-        <select @bind="Settings.InputDeviceId">
-            @foreach (var device in RecordingService.GetInputDevices())
-            {
-                <option value="@device.Id">@device.Name</option>
-            }
-
-        </select>
+    <div class="section-header">
+        <span class="toggle-switch" @onclick="ToggleRecording">@(ExpansionSettings.Recording ? "−" : "+")</span>
+        <strong>Recording Settings</strong>
     </div>
 
-    @* Which Device to send output to for Listening *@
-    <div class="settings-sub-section">
-        <span>Output Device:</span>
-        <select @bind="Settings.OutputDeviceId">
-            @foreach (var device in RecordingService.GetOutputDevices())
-            {
-                <option value="@device.Id">@device.Name</option>
-            }
-        </select>
-    </div>
+    <div class="section-body @GetSize(ExpansionSettings.Recording)">
+        @* Which Device to listen to for Audio Recording*@
+        <div class="settings-sub-section">
+            <span>Input Device: </span>
+            <select @bind="Settings.InputDeviceId">
+                @foreach (var device in RecordingService.GetInputDevices())
+                {
+                    <option value="@device.Id">@device.Name</option>
+                }
 
-    @* How loud the input stream should be amplified by*@
-    <div class="settings-sub-section">
-        <span>Input Volume: </span>
-        <input type="range" min="0" max="100" @bind="_inputVolumePercentage" />
-
-        <div class="input-group">
-            <input type="text" @bind="_inputVolumePercentage" />
-            <span class="suffix">%</span>
+            </select>
         </div>
-    </div>
 
-    @* How loud the output stream should be amplified by *@
-    <div class="settings-sub-section">
-        <span>Output Volume: </span>
-        <input type="range" min="0" max="100" @bind="_outputVolumePercentage" />
-
-        <div class="input-group">
-            <input type="text" @bind="_outputVolumePercentage" />
-            <span class="suffix">%</span>
+        @* Which Device to send output to for Listening *@
+        <div class="settings-sub-section">
+            <span>Output Device:</span>
+            <select @bind="Settings.OutputDeviceId">
+                @foreach (var device in RecordingService.GetOutputDevices())
+                {
+                    <option value="@device.Id">@device.Name</option>
+                }
+            </select>
         </div>
-    </div>
 
-    <div class="settings-sub-section">
-        <span>Input Latency: </span>
-        <input type="range" min="0" max="@Settings.MaxLatency" @bind="_inputLatencyMs" />
+        @* How loud the input stream should be amplified by*@
+        <div class="settings-sub-section">
+            <span>Input Volume: </span>
+            <input type="range" min="0" max="100" @bind="_inputVolumePercentage" />
 
-        <div class="input-group">
-            <input type="text" @bind="_inputLatencyMs" />
-            <span class="suffix">ms</span>
+            <div class="input-group">
+                <input type="text" @bind="_inputVolumePercentage" />
+                <span class="suffix">%</span>
+            </div>
         </div>
-    </div>
 
-    <div class="settings-sub-section">
-        <span>Output Latency: </span>
-        <input type="range" min="0" max="@Settings.MaxLatency" @bind="_outputLatencyMs" />
+        @* How loud the output stream should be amplified by *@
+        <div class="settings-sub-section">
+            <span>Output Volume: </span>
+            <input type="range" min="0" max="100" @bind="_outputVolumePercentage" />
 
-        <div class="input-group">
-            <input type="text" @bind="_outputLatencyMs" />
-            <span class="suffix">ms</span>
+            <div class="input-group">
+                <input type="text" @bind="_outputVolumePercentage" />
+                <span class="suffix">%</span>
+            </div>
         </div>
+
+        <div class="settings-sub-section">
+            <span>Input Latency: </span>
+            <input type="range" min="0" max="@Settings.MaxLatency" @bind="_inputLatencyMs" />
+
+            <div class="input-group">
+                <input type="text" @bind="_inputLatencyMs" />
+                <span class="suffix">ms</span>
+            </div>
+        </div>
+
+        <div class="settings-sub-section">
+            <span>Output Latency: </span>
+            <input type="range" min="0" max="@Settings.MaxLatency" @bind="_outputLatencyMs" />
+
+            <div class="input-group">
+                <input type="text" @bind="_outputLatencyMs" />
+                <span class="suffix">ms</span>
+            </div>
+        </div>
+
     </div>
 </div>
 

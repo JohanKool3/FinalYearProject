@@ -70,3 +70,38 @@ input[type="text"] {
     font-weight: bold;
     
 }
+
+.toggle-switch{
+    padding-right: 1em;
+}
+
+.toggle-switch:hover{
+    cursor: pointer;
+}
+
+.section-header{
+    display: inline-flex;
+    font-size: 3em;
+    gap: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: groove;
+    border-radius: 0.15em;
+    width: 100%;
+}
+
+.section-body {
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+
+    .section-body.expanded {
+        transform: scaleY(1);
+        max-height: fit-content;
+        opacity: 1;
+    }
+
+    .section-body.collapsed {
+        transform: scaleY(0);
+        max-height: 0;
+        opacity: 0;
+    }

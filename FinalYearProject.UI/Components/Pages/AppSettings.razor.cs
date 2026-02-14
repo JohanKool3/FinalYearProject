@@ -1,5 +1,6 @@
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
+using FinalYearProject.UI.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.Pages
@@ -10,6 +11,10 @@ namespace FinalYearProject.UI.Components.Pages
     {
         public AudioRecordingServiceSettings Settings { get; } = settings;
         public IAudioRecordingService RecordingService { get; } = recordingService;
+
+        private SettingsExpansion ExpansionSettings = new();
+
+        #region Recording Settings Section
 
         public int _inputVolumePercentage
         {
@@ -35,6 +40,20 @@ namespace FinalYearProject.UI.Components.Pages
             set => Settings.OutputLatency = Math.Clamp(value, 0, Settings.MaxLatency);
         }
 
+        #endregion
+
+        #region Expansion Management
+        private void ToggleRecording()
+            => ExpansionSettings.Recording = !ExpansionSettings.Recording;
+
+
+        private string GetSize(bool isSectionExpanded)
+            => isSectionExpanded switch
+            {
+                false => "section-body collapsed",
+                true => "section-body expanded"
+            };
+        #endregion
 
     }
 }
