@@ -2,8 +2,10 @@
 using FinalYearProject.Services.Exceptions;
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
+using FinalYearProject.Services.SampleProviders;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using System.Data;
 
 namespace FinalYearProject.Services.Recording
@@ -13,11 +15,16 @@ namespace FinalYearProject.Services.Recording
     {
 
         private WasapiCapture? _capture;
+        private WasapiOut? _playback;
 
+        // The Audio Input Device
+        private WaveInProvider? _audioInputProvider;
         private WaveFileWriter? _writer;
 
         public AudioRecordingServiceSettings Settings { get; } = settings;
 
+        #region Metadata and Setup
+        
         public List<AudioDevice> GetInputDevices()
         {
             var enumerator = new MMDeviceEnumerator();
@@ -42,6 +49,8 @@ namespace FinalYearProject.Services.Recording
             })];
         }
 
+        #endregion
+        
         public void StartRecording(string outputPath)
         {
             // Check if the Input Device has not been set.
@@ -50,10 +59,32 @@ namespace FinalYearProject.Services.Recording
                 throw new InputDeviceNotSetException("Input Device ID has not been set");
             }
 
+            // AUDIO CAPTURE
             var inputDevice = new MMDeviceEnumerator()
                 .GetDevice(Settings.InputDeviceId);
 
+            
             _capture = new WasapiCapture(inputDevice, true);
+            _audioInputProvider = new WaveInProvider(_capture);
+            var audioSampleProvider = _audioInputProvider.ToSampleProvider();
+
+            // METRONOME
+            var metronome = new MetronomeSampleProvider(
+                        150,
+                        audioSampleProvider.WaveFormat.SampleRate,
+                        audioSampleProvider.WaveFormat);
+
+
+            var mixer = new MixingSampleProvider(audioSampleProvider.WaveFormat);
+            mixer.AddMixerInput(audioSampleProvider);
+            mixer.AddMixerInput(metronome);
+
+
+            _playback = new WasapiOut(AudioClientShareMode.Shared, false, Settings.InputLatency);
+            _playback.Init(mixer);
+            _playback.Play();
+
+
 
             _writer = new WaveFileWriter(outputPath, _capture.WaveFormat);
       
@@ -66,12 +97,13 @@ namespace FinalYearProject.Services.Recording
 
         public void StopRecording()
         {
-            if (_capture is null)
+            if (_capture is null || _playback is null)
             {
                 throw new ArgumentNullException("Capture Device is null, Cannot stop a null object");
             }
 
             _capture.StopRecording();
+            _playback.Stop();
             OnRecordingStopped(null, null);
         }
 
@@ -97,7 +129,6 @@ namespace FinalYearProject.Services.Recording
             }
 
             _writer.Write(args.Buffer, 0, args.BytesRecorded);
-            // TODO: Extend this to notify the output service
         }
     }
 }
