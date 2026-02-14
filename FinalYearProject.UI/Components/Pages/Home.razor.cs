@@ -28,10 +28,10 @@ namespace FinalYearProject.UI.Components.Pages
             NavigationManager.NavigateTo($"/tabview/{id}");
         }
 
-        private int GetHeight()
+        private static int GetHeight()
             => 500;
 
-        private int GetWidth()
+        private static int GetWidth()
             => 900;
 
     }
