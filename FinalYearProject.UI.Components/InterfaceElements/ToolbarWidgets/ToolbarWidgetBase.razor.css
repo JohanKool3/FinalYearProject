@@ -4,12 +4,9 @@
     align-content: center;
     border-radius: 0.25em;
     font-weight: bold;
+    position: relative;
+    display: inline-flex;
 }
-
-    .widget:hover {
-        background-color: rgb(67, 230, 250, 0.29);
-        cursor: pointer;
-    }
 
 .normal {
     width: 2em;
@@ -27,3 +24,27 @@
     width: 6em;
     height: 2em;
 }
+
+.tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(0, 0, 0);
+    color: rgb(255,255,255);
+    padding: 0.35em;
+    border-radius: 0.25em;
+    font-size: 1em;
+    white-space: nowrap;
+
+    transition: opacity 0.1s ease-in-out;
+}
+
+    .tooltip.enabled {
+        opacity: 1;
+        max-height: fit-content;
+    }
+
+    .tooltip.disabled {
+        opacity: 0;
+    }

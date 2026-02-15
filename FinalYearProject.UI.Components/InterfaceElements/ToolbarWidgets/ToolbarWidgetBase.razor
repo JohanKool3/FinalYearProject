@@ -1,4 +1,12 @@
-﻿<div class="widget @GetSizeClass()">
+﻿<div class="widget @GetSizeClass()"
+     @onmouseenter="HandleMouseEnter"
+     @onmouseleave="HandleMouseLeave"
+     @onclick="HandleClick">
     @ChildContent
+
+    <div class="tooltip @GetEnabled()">
+        @ToolTipMessage
+    </div>
+
 </div>
 
