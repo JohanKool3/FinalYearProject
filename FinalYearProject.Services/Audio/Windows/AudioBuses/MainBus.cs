@@ -7,6 +7,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     {
         private List<IAudioSource> _audioSources = [];
 
+        /// <summary>
+        /// Whether Audio should be played or not
+        /// </summary>
+        public bool IsEnabled { get; private set; } = true;
+
         public void AddEffect(IAudioEffect effect)
         {
             throw new NotImplementedException();
@@ -48,12 +53,36 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         public void Start()
         {
-            throw new NotImplementedException();
+            if (!IsEnabled)
+            {
+                return;
+            }
+
+            foreach (var source in _audioSources)
+            {
+                source.Start();
+            }
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if (!IsEnabled)
+            {
+                return;
+            }
+
+            foreach (var source in _audioSources)
+            {
+                source.Stop();
+            }
+        }
+
+        public void ToggleActive()
+        {
+            // Stop All Sources, then toggle
+            Stop();
+            IsEnabled = !IsEnabled;
+
         }
     }
 }

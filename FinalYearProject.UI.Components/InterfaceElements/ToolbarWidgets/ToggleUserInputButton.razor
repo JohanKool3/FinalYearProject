@@ -1,4 +1,6 @@
 <ToolbarWidgetBase>
-    <button class="widget-button">
-    </button>
+    <div @onclick="ToggleUserTrack" class="toolbar-button @GetEnabled()">
+        <img class="toolbar-icon" src="/images/toolbar/user-input.svg" />
+    </div>
 </ToolbarWidgetBase>
+
