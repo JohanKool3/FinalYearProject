@@ -1,5 +1,5 @@
 ﻿using FinalYearProject.Services.Interfaces;
-using FinalYearProject.Services.UIFramework.TabLoaders;
+using FinalYearProject.Services.UI.TabLoaders;
 using FinalYearProject.Shared.Models.Dtos;
 using FinalYearProject.UI.Components.DataManagers;
 using FinalYearProject.UI.Components.Interfaces;

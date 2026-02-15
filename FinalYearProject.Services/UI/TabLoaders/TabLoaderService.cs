@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinalYearProject.Services.UIFramework.TabLoaders
+namespace FinalYearProject.Services.UI.TabLoaders
 {
     public class TabLoaderService(
         FinalYearProjectApiClient apiClient,

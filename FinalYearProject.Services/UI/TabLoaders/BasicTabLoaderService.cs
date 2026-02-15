@@ -5,7 +5,7 @@ using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.UI.Bar;
 using FinalYearProject.Services.Helpers;
 
-namespace FinalYearProject.Services.UIFramework.TabLoaders
+namespace FinalYearProject.Services.UI.TabLoaders
 {
     /// <summary>
     /// Basic Tab Display Loader Service for testing and development 
