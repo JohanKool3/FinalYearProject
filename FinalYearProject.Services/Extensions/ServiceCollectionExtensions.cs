@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Audio;
+using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Devices;
@@ -34,7 +35,7 @@ namespace FinalYearProject.Services.Extensions
 
         private static void RegisterWindowsServices(IServiceCollection services)
         {
-            // TODO: Add Relevent services
+            services.AddSingleton<IAudioService, WindowsAudioService>();
         }
     }
 }
