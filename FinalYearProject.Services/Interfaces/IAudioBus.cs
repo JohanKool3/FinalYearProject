@@ -43,6 +43,9 @@ namespace FinalYearProject.Services.Interfaces
         /// Returns an output of the input ran through the effects
         /// </summary>
         /// <returns></returns>
-        ISampleProvider GetOutput();
+        /// <remarks>
+        /// Returns Null if a Mixer has not been set
+        /// </remarks>
+        ISampleProvider? GetOutput();
     }
 }

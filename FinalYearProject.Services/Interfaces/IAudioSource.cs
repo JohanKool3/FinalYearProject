@@ -11,7 +11,10 @@ namespace FinalYearProject.Services.Interfaces
         /// Returns an Audio Sample Source
         /// </summary>
         /// <returns></returns>
-        ISampleProvider GetOutput();
+        /// <remarks>
+        /// Returns Null if a mixer has not been set
+        /// </remarks>
+        ISampleProvider? GetOutput();
 
         /// <summary>
         /// Starts the Source
