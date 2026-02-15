@@ -9,6 +9,12 @@ namespace FinalYearProject.Services.Interfaces
     public interface IAudioBus
     {
         /// <summary>
+        /// Adjusts the Output Volume for this Audio Bus
+        /// </summary>
+        /// <param name="volume"></param>
+        void AdjustVolume(double volume);
+
+        /// <summary>
         /// Add an audio Source to this Mixer Bus
         /// </summary>
         /// <param name="source"></param>
@@ -37,6 +43,6 @@ namespace FinalYearProject.Services.Interfaces
         /// Returns an output of the input ran through the effects
         /// </summary>
         /// <returns></returns>
-        ISampleProvider GetMixedOutput();
+        ISampleProvider GetOutput();
     }
 }

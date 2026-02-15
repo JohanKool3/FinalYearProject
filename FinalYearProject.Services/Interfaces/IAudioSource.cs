@@ -5,13 +5,13 @@ namespace FinalYearProject.Services.Interfaces
     /// <summary>
     /// Defines a Source that produces an Audio Stream
     /// </summary>
-    public interface IAudioSource : IDisposable
+    public interface IAudioSource
     {
         /// <summary>
         /// Returns an Audio Sample Source
         /// </summary>
         /// <returns></returns>
-        ISampleProvider GetSampleProvider();
+        ISampleProvider GetOutput();
 
         /// <summary>
         /// Starts the Source

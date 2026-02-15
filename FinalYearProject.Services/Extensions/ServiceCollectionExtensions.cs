@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.Services.Audio;
+using FinalYearProject.Services.Audio.Windows.AudioBuses;
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +36,14 @@ namespace FinalYearProject.Services.Extensions
 
         private static void RegisterWindowsServices(IServiceCollection services)
         {
+            // Register the 4 Busses
+            // (so that they can be modified in the UI)
+            services.AddSingleton<MainBus>();
+            services.AddSingleton<UserBus>();
+            services.AddSingleton<BackingTrackBus>();
+            services.AddSingleton<MetronomeBus>();
+
+            // Register main Service
             services.AddSingleton<IAudioService, WindowsAudioService>();
         }
     }
