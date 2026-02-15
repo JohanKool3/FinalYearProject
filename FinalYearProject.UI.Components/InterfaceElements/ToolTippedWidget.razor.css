@@ -17,13 +17,23 @@
     padding: 0.35em;
     border-radius: 0.25em;
     font-size: 1em;
-    white-space: nowrap;
     transition: opacity 0.1s ease-in-out;
 }
+
+    .tooltip.nowrap {
+        white-space: nowrap;
+    }
+
+    .tooltip.wrap{
+        white-space: wrap;
+        width: 10em;
+        
+    }
 
     .tooltip.enabled {
         opacity: 1;
         max-height: fit-content;
+
     }
 
     .tooltip.disabled {

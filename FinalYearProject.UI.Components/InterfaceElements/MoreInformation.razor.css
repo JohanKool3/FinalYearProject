@@ -1,0 +1,8 @@
+.information :hover{
+    cursor: help;
+}
+
+.information-icon{
+    width: 100%;
+    height: 100%;
+}

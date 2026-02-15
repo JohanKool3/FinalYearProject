@@ -57,6 +57,38 @@ namespace FinalYearProject.UI.Components.Pages
         #endregion
 
 
+        #region Documentation
+
+        private string InputDeviceInformation =
+            """ Selects the Input Device for Listening. This will be the device sampled for audio analysis""";
+
+        private string OutputDeviceInformation =
+            """ Selects the Output Device for Audio Playback""";
+
+
+        private string InputVolumeInformation =
+            """ Sets a percentage multiplier for input volume control. 0% to 100% """;
+
+        private string OutputVolumeInformation =
+            """ Sets a percentage multiplier for output volume control. 0% to 100% """;
+
+
+        private string InputLatencyInformation =
+            """
+             Sets a delay between input being detected to it being analyzed. Used to
+             reduce artifacts and ensure that other parts of the system (e.g. the metronome
+             and backing track) line up correctly
+            """;
+
+        private string OutputLatencyInformation =
+             """
+             Sets a delay between audio being processed and it being output. Used to
+             reduce artifacts and ensure that other parts of the system (e.g. the metronome
+             and backing track) line up correctly
+            """;
+
+        #endregion
+
         private string GetIcon(bool settingsSection)
             => settingsSection switch
             {

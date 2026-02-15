@@ -23,6 +23,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public int DelayTime { get; set; } = 400;
 
+        /// <summary>
+        /// Whether to wrap text or not
+        /// </summary>
+        [Parameter]
+        public bool NoWrap { get; set; } = true;
+
         private string GetEnabled()
                 // If should show Tooltip, Change Css to allow for animations
                 => (ShowTooltip && !string.IsNullOrWhiteSpace(ToolTipMessage)) switch
@@ -30,6 +36,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                     true => "enabled",
                     false => "disabled",
                 };
+
+        private string GetWrapped()
+            => NoWrap switch
+            {
+                true => "nowrap",
+                false => "wrap"
+            };
 
 
         private bool ShowTooltip;

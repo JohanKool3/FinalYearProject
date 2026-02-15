@@ -24,6 +24,10 @@
                 }
 
             </select>
+
+            <div class="information center">
+                <MoreInformation Message="@InputDeviceInformation" />
+            </div>
         </div>
 
         @* Which Device to send output to for Listening *@
@@ -35,6 +39,10 @@
                     <option value="@device.Id">@device.Name</option>
                 }
             </select>
+
+            <div class="information center">
+                <MoreInformation Message="@OutputDeviceInformation" />
+            </div>
         </div>
 
         @* How loud the input stream should be amplified by*@
@@ -45,6 +53,10 @@
             <div class="input-group">
                 <input type="text" @bind="_inputVolumePercentage" />
                 <span class="suffix">%</span>
+            </div>
+
+            <div class="information center">
+                <MoreInformation Message="@InputVolumeInformation" />
             </div>
         </div>
 
@@ -57,6 +69,10 @@
                 <input type="text" @bind="_outputVolumePercentage" />
                 <span class="suffix">%</span>
             </div>
+
+            <div class="information center">
+                <MoreInformation Message="@OutputVolumeInformation" />
+            </div>
         </div>
 
         <div class="settings-sub-section">
@@ -67,6 +83,10 @@
                 <input type="text" @bind="_inputLatencyMs" />
                 <span class="suffix">ms</span>
             </div>
+
+            <div class="information center">
+                <MoreInformation Message="@InputLatencyInformation" />
+            </div>
         </div>
 
         <div class="settings-sub-section">
@@ -76,6 +96,10 @@
             <div class="input-group">
                 <input type="text" @bind="_outputLatencyMs" />
                 <span class="suffix">ms</span>
+            </div>
+
+            <div class="information center">
+                <MoreInformation Message="@OutputLatencyInformation" />
             </div>
         </div>
 
