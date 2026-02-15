@@ -1,24 +1,21 @@
-using FinalYearProject.UI.Components.InterfaceElements.Recording;
-using FinalYearProject.UI.Components.Services;
+using FinalYearProject.UI.Components.Models;
+
 
 namespace FinalYearProject.UI.Components
 {
-    public partial class Toolbar
+    public partial class Toolbar(ToolbarSettings settings)
     {
-        /// <summary>
-        /// Whether the toolbar is expanded or not
-        /// </summary>
-        private bool IsExpanded = true;
+        public ToolbarSettings Settings { get; } = settings;
 
         private Task PlaybackStateChanged()
             => InvokeAsync(StateHasChanged);
 
 
         private void ToggleExpand()
-            => IsExpanded = !IsExpanded;
+            => Settings.IsExpanded = !Settings.IsExpanded;
 
         private string GetExpanded()
-            => IsExpanded switch
+            => Settings.IsExpanded switch
             {
                 true => "expanded",
                 false => "collapsed"
@@ -26,7 +23,7 @@ namespace FinalYearProject.UI.Components
 
 
         private string GetIcon()
-            => IsExpanded switch
+            => Settings.IsExpanded switch
             {
                 true => "collapse.svg",
                 false => "expand.svg"

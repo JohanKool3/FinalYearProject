@@ -3,6 +3,7 @@ using FinalYearProject.Services.UI.TabLoaders;
 using FinalYearProject.Shared.Models.Dtos;
 using FinalYearProject.UI.Components.DataManagers;
 using FinalYearProject.UI.Components.Interfaces;
+using FinalYearProject.UI.Components.Models;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,11 +20,14 @@ namespace FinalYearProject.UI.Components.Extensions
         public static IServiceCollection AddUiServices(this IServiceCollection services)
         {
 
+            // Register Settings
+            services.RegisterSettings();
+
             // Register Tab Display Loader
             //services.AddSingleton<ITabLoaderService, BasicTabLoaderService>();
-            services.AddScoped<ITabLoaderService, TabLoaderService>();
+            services.AddSingleton<ITabLoaderService, TabLoaderService>();
 
-            // Register Playback Service
+            // Register Display Service
             services.AddSingleton<DisplayService>();
 
             // Register Playback Service
@@ -51,6 +55,13 @@ namespace FinalYearProject.UI.Components.Extensions
         {
 
             services.AddSingleton<IUserDataStorage, UserDataStorage>();
+
+            return services;
+        }
+
+        public static IServiceCollection RegisterSettings(this IServiceCollection services)
+        {
+            services.AddSingleton<ToolbarSettings>();
 
             return services;
         }
