@@ -7,7 +7,7 @@ namespace FinalYearProject.Services.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddRecordingServices(
+        public static IServiceCollection AddAudioServices(
             this IServiceCollection services,
             IDeviceInfo deviceInfo)
         {
@@ -34,7 +34,7 @@ namespace FinalYearProject.Services.Extensions
 
         private static void RegisterWindowsServices(IServiceCollection services)
         {
-            services.AddSingleton<IAudioRecordingService, WASAPIAudioService>();
+            // TODO: Add Relevent services
         }
     }
 }

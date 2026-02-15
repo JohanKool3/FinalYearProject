@@ -17,4 +17,8 @@
     <ProjectReference Include="..\FinalYearProject.Shared\FinalYearProject.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Recording\" />
+  </ItemGroup>
+
 </Project>

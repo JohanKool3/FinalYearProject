@@ -1,9 +1,21 @@
 @using FinalYearProject.UI.Components.InterfaceElements.Recording
-@using FinalYearProject.UI.Components.InterfaceElements.RecordingToolbar
 @using FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 
-<div class="toolbar">
-    <TabToolbar>
+<div class="toolbar @GetExpanded()">
+
+    <div class="toolbar-header">
+        <div class="toggle-switch @GetExpanded()" @onclick="ToggleExpand">
+            <img src="/images/expansion/@GetIcon()" class="center">
+        </div>
+
+        <div class="toolbar-title @GetExpanded()">
+            <span>Toolbar</span>
+        </div>
+    </div>
+
+
+    <div class="toolbar-body @GetExpanded()">
+
         <PlayButton NotifyParentOfChange="PlaybackStateChanged" />
 
         <PauseButton NotifyParentOfChange="PlaybackStateChanged" />
@@ -11,11 +23,5 @@
         <StopButton NotifyParentOfChange="PlaybackStateChanged" />
 
         <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
-    </TabToolbar>
-
-    <RecordingToolbar>
-        <RecordWidget />
-        <MetronomeWidget />
-        <CountIn />
-    </RecordingToolbar>
+    </div>
 </div>

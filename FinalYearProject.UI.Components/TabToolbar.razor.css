@@ -1,8 +1,0 @@
-.tab-toolbar {
-    display: flex;
-    justify-content:left;
-    gap: 0.25em;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--toolbar-background, #f5f5f5);
-}

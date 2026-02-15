@@ -11,6 +11,7 @@ namespace FinalYearProject.UI.Components.Services
     {
 
         #region Toolbar Properties and Events
+        
         /// <summary>
         /// The Current Active Piece
         /// </summary>

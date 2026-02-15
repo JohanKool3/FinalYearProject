@@ -1,10 +1,6 @@
 ﻿using FinalYearProject.Api;
 using FinalYearProject.Shared.Models.Dtos;
 using FinalYearProject.UI.Components.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FinalYearProject.UI.Components.Services
 {

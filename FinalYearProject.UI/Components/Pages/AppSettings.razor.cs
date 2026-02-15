@@ -1,16 +1,12 @@
-using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Recording;
 using FinalYearProject.UI.Models;
-using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.Pages
 {
     public partial class AppSettings(
-        AudioRecordingServiceSettings settings,
-        IAudioRecordingService recordingService)
+        AudioRecordingServiceSettings settings)
     {
         public AudioRecordingServiceSettings Settings { get; } = settings;
-        public IAudioRecordingService RecordingService { get; } = recordingService;
 
         private SettingsExpansion ExpansionSettings = new();
 
@@ -47,7 +43,7 @@ namespace FinalYearProject.UI.Components.Pages
             => ExpansionSettings.Recording = !ExpansionSettings.Recording;
 
 
-        private string GetSize(bool isSectionExpanded)
+        private static string GetSize(bool isSectionExpanded)
             => isSectionExpanded switch
             {
                 false => "section-body collapsed",

@@ -15,10 +15,7 @@
         <div class="settings-sub-section">
             <span>Input Device: </span>
             <select @bind="Settings.InputDeviceId">
-                @foreach (var device in RecordingService.GetInputDevices())
-                {
-                    <option value="@device.Id">@device.Name</option>
-                }
+                @* Add Reference to Audio Service to get all devices *@
 
             </select>
         </div>
@@ -27,10 +24,7 @@
         <div class="settings-sub-section">
             <span>Output Device:</span>
             <select @bind="Settings.OutputDeviceId">
-                @foreach (var device in RecordingService.GetOutputDevices())
-                {
-                    <option value="@device.Id">@device.Name</option>
-                }
+                @* Add Reference to Audio Service to get all devices *@
             </select>
         </div>
 

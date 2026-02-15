@@ -34,8 +34,8 @@ namespace FinalYearProject.UI
 
             builder.Services.AddLocalFileStorage();
 
-            // Add Recording Service
-            builder.Services.AddRecordingServices(DeviceInfo.Current);
+            // Add Audio Services
+            builder.Services.AddAudioServices(DeviceInfo.Current);
 
             // Register User Interface Services
             builder.Services.AddUiServices();
