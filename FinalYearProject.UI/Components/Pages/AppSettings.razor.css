@@ -5,8 +5,10 @@
 }
 
 .settings-sub-section {
+    width: 90%;
     display: flex;
     padding-left: 2em;
+    padding-right: 2em;
     gap: 2em;
     padding-top: 1.25em;
     padding-bottom: 1.1em;

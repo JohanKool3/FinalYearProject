@@ -1,6 +1,10 @@
 .tooltipped-widget {
     position: relative;
     display: inline-flex;
+    height: inherit;
+    width: inherit;
+    max-height: inherit;
+    max-width: inherit;
 }
 
 .tooltip {

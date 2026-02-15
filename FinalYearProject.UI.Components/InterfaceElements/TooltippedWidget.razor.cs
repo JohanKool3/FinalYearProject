@@ -43,23 +43,36 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             {
                 await Task.Delay(400, _cts.Token); // delay time
                 ShowTooltip = true;
-                StateHasChanged();
+                await InvokeAsync(StateHasChanged);
             }
             catch (TaskCanceledException) { }
         }
 
-        private void HandleMouseLeave()
+        private Task HandleMouseLeaveAsync()
         {
-            _cts?.Cancel();
+            if(_cts is null)
+            {
+                return Task.CompletedTask;
+            }
             ShowTooltip = false;
+
+            return _cts.CancelAsync();
+            
         }
 
-        private void HandleClick()
+        private Task HandleClickAsync()
         {
-            _cts?.Cancel();   // cancel pending tooltip
+
+            if(_cts is null)
+            {
+                return Task.CompletedTask;
+            }
+
+            
             ShowTooltip = false;
+            return _cts.CancelAsync();   // cancel pending tooltip
         }
-
-
     }
+
+
 }
