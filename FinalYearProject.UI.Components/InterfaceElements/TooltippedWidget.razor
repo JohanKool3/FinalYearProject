@@ -1,0 +1,12 @@
+
+<div class="tooltipped-widget"
+     @onmouseenter="HandleMouseEnter"
+     @onmouseleave="HandleMouseLeave"
+     @onclick="HandleClick">
+
+    @ChildContent
+
+    <div class="tooltip @GetEnabled()">
+        @ToolTipMessage
+    </div>
+</div>
