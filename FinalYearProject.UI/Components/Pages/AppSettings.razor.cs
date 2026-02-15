@@ -7,12 +7,13 @@ namespace FinalYearProject.UI.Components.Pages
 {
     public partial class AppSettings(
         AudioServiceSettings settings,
-        IAudioService audioService)
+        IAudioService audioService,
+        AppSettingsExpansionSettings appSettingsExpansionSettings)
     {
         public AudioServiceSettings Settings { get; } = settings;
         public IAudioService AudioService { get; } = audioService;
 
-        private SettingsExpansion ExpansionSettings = new();
+        private AppSettingsExpansionSettings AppSettingsExpansionSettings = appSettingsExpansionSettings;
 
         #region Recording Settings Section
 
@@ -44,7 +45,7 @@ namespace FinalYearProject.UI.Components.Pages
 
         #region Expansion Management
         private void ToggleRecording()
-            => ExpansionSettings.Recording = !ExpansionSettings.Recording;
+            => AppSettingsExpansionSettings.Recording = !AppSettingsExpansionSettings.Recording;
 
 
         private static string GetSize(bool isSectionExpanded)

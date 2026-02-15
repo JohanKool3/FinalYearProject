@@ -32,10 +32,14 @@ namespace FinalYearProject.UI
             // Add API Client
             builder.Services.AddApiClient(builder.Configuration);
 
+            // Add Local File System
             builder.Services.AddLocalFileStorage();
 
             // Add Audio Services
             builder.Services.AddAudioServices(DeviceInfo.Current);
+
+            // Add UI Settings
+            builder.Services.AddUISettings();
 
             // Register User Interface Services
             builder.Services.AddUiServices();

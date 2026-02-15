@@ -21,5 +21,12 @@ namespace FinalYearProject.UI.Extensions
             return services;
 
         }
+
+        public static IServiceCollection AddUISettings(this IServiceCollection services)
+        {
+            services.AddSingleton<AppSettingsExpansionSettings>();
+
+            return services;
+        }
     }
 }

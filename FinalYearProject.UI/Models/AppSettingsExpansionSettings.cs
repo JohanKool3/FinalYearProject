@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FinalYearProject.UI.Models
+﻿namespace FinalYearProject.UI.Models
 {
-    public class SettingsExpansion
+    public class AppSettingsExpansionSettings
     {
         /// <summary>
         /// Determines whether the Recording Section is Expanded

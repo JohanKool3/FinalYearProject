@@ -1,6 +1,5 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
-using FinalYearProject.UI.Helpers;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.Pages
