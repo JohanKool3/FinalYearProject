@@ -7,21 +7,22 @@
         <div class="toggle-switch @GetExpanded()" @onclick="ToggleExpand">
             <img src="/images/expansion/@GetIcon()" class="center">
         </div>
-
-        <div class="toolbar-title @GetExpanded()">
-            <span>Toolbar</span>
-        </div>
     </div>
-
-
     <div class="toolbar-body @GetExpanded()">
 
-        <PlayButton NotifyParentOfChange="PlaybackStateChanged" />
+        @* Playback Section *@
+        <div class="toolbar-section @GetExpanded()">
+            <div class="toolbar-title">
+                <span>Playback</span>
+            </div>
 
-        <PauseButton NotifyParentOfChange="PlaybackStateChanged" />
+            <PlayButton NotifyParentOfChange="PlaybackStateChanged" />
 
-        <StopButton NotifyParentOfChange="PlaybackStateChanged" />
+            <PauseButton NotifyParentOfChange="PlaybackStateChanged" />
 
-        <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
+            <StopButton NotifyParentOfChange="PlaybackStateChanged" />
+
+            <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
+        </div>
     </div>
 </div>

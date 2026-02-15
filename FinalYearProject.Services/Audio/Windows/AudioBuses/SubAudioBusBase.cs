@@ -11,6 +11,12 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     public class SubAudioBusBase : IAudioBus, IAudioSource
     {
 
+        /// <summary>
+        /// Whether this Audio Bus should provide output or not
+        /// </summary>
+        public bool IsEnabled { get; private set; } = true;
+
+
         #region Input and Effects
 
         // Inputs
@@ -68,8 +74,22 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         public void SetMixer(WaveFormat waveFormat)
             => Mixer = new MixingSampleProvider(waveFormat);
 
+
+        public void ToggleActive()
+        {
+            // Stop All Sources, then toggle
+            Stop();
+            IsEnabled = !IsEnabled;
+            
+        }
+
         public ISampleProvider? GetOutput()
         {
+            if (!IsEnabled)
+            {
+                return null;
+            }
+
             // Ensure the Mixer has been set
             if (Mixer is null)
             {
@@ -108,6 +128,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         public void Start()
         {
+            if (!IsEnabled)
+            {
+                return;
+            }
+
             foreach(var source in Sources)
             {
                 source.Start();
@@ -116,6 +141,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         public void Stop()
         {
+            if (!IsEnabled)
+            {
+                return;
+            }
+
             foreach (var source in Sources)
             {
                 source.Stop();

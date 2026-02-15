@@ -11,15 +11,38 @@
     transition: background 0.25s ease-in-out, border-top 0.25s ease-in-out;
 }
 
-    .toolbar.expanded {
-        background: white;
-        border-top: solid;
+.toolbar-section {
+    display: inline-flex;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    gap: 0.5em;
+    margin: 1em;
+    padding: 0.4em;
+    transition: border 0.25s ease-in-out;
+    border-radius: 0.25em;
+    
+}
+
+    .toolbar-section.expanded {
+        border: solid;
+        border-width: 0.1em;
+        border-color: rgba(1,1,1,0.4)
     }
 
-    .toolbar.collapsed {
-        background: none;
-        border-top: none;
+    .toolbar-section.collapsed {
+        border: none;
     }
+
+.toolbar.expanded {
+    background: white;
+    border-top: solid;
+}
+
+.toolbar.collapsed {
+    background: none;
+    border-top: none;
+}
 
 .toolbar-header {
     display: inline-flex;
@@ -32,27 +55,19 @@
 .toolbar-title {
     align-content: center;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.2em;
+    max-height: 4em;
     transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    padding-left: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
 }
-
-    .toolbar-title.expanded {
-        max-height: 4em;
-        opacity: 1;
-    }
-
-    .toolbar-title.collapsed {
-        max-height: 0em;
-        opacity: 0;
-    }
-
-
 
 .toolbar-body {
     display: inline-flex;
     transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out;
     transform-origin: top;
+    align-items: center;
     gap: 0.5em;
 }
 
@@ -99,5 +114,4 @@
     margin-left: auto;
     margin-right: auto;
     width: 75%;
-
 }
