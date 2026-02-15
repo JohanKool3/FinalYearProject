@@ -31,10 +31,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         }
 
         /// <summary>
-        /// Can only play if it is not currently playing.
+        /// If it is playing, then the pause button should be enabled.
         /// </summary>
         /// <returns></returns>
-        private bool GetStatus() 
-            => PlaybackService.IsPlaying;
+        private string GetEnabled()
+            => PlaybackService.IsPlaying switch
+            {
+                false => "enabled",
+                true => "disabled",
+            };
     }
 }

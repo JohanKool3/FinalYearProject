@@ -11,13 +11,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         [Parameter]
         public WidgetWidth WidgetWidth { get; set; } = WidgetWidth.Single;
 
-        private string GetClass()
+        private string GetSizeClass()
             =>
               WidgetWidth switch{
-                  WidgetWidth.Single => "toolbar-widget-normal",
-                  WidgetWidth.Double => "toolbar -widget-double",
-                  WidgetWidth.Triple => "toolbar-widget-triple",
-                  _ => "toolbar-widget-normal"
+                  WidgetWidth.Single => "normal",
+                  WidgetWidth.Double => "double",
+                  WidgetWidth.Triple => "triple",
+                  _ => "normal"
               };
             
         

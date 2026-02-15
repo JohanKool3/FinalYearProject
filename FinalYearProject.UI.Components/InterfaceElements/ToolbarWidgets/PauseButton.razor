@@ -1,9 +1,6 @@
 ﻿<ToolbarWidgetBase>
-    <button class="pause-button" 
-        @onclick="PausePlayAsync" 
-        title="Pause"
-        disabled="@GetStatus()">
-        <img src="images/pause.svg" />
-    </button>
+    <div @onclick="PausePlayAsync" class="toolbar-button @GetEnabled()">
+        <img src="/images/pause.svg" />
+    </div>
 </ToolbarWidgetBase>
 

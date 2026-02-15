@@ -1,20 +1,15 @@
-.pause-button{
-    width:100%;
-    height:100%;
-    justify-content: center;
-    padding: 0em;
-    border: none;
+.toolbar-button {
+    height: inherit;
+    width: inherit;
+    transition: background-color 0.15s ease-in-out;
 }
 
-.pause-button:disabled{
-    background-color: grey;
-    border: inherit;
-}
 
-    .pause-button:hover:where(:not(:disabled)) {
-        background-color: lightgreen;
+    .toolbar-button.enabled {
+        background-color: none;
     }
 
-    .pause-button:active:where(:not(:disabled)) {
-        background-color: green;
+    .toolbar-button.disabled {
+        background-color: rgba(245, 44, 44, 0.5);
+        cursor: default;
     }

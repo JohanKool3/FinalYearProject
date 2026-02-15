@@ -2,11 +2,8 @@
 @using Microsoft.AspNetCore.Components.Forms
 
 <ToolbarWidgetBase WidgetWidth=WidgetWidth.Triple>
-    <div class="bpm-widget">
-        <label>BPM:</label>
-        <input maxlength="3" class="bpm-input"
-               @bind="@_currentBpmReadout"
-               @bind:after="ValidateInput" />
+    <div>
+        <span>BPM: </span>
     </div>
 </ToolbarWidgetBase>
 

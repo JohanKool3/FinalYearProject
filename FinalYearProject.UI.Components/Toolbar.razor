@@ -11,7 +11,7 @@
     <div class="toolbar-body @GetExpanded()">
 
         @* Playback Section *@
-        <div class="toolbar-section @GetExpanded()">
+        <div class="toolbar-section">
             <div class="toolbar-title">
                 <span>Playback</span>
             </div>
@@ -24,5 +24,21 @@
 
             <BpmWidget NotifyParentOfChange="PlaybackStateChanged" />
         </div>
+
+        @* Audio Section *@
+        <div class="toolbar-section @GetExpanded()">
+            <div class="toolbar-title">
+                <span>Audio</span>
+            </div>
+
+            <ToggleUserInputButton />
+
+            <ToggleMetronomeButton />
+
+            <ToggleBackingTrackButton />
+
+            
+
+        </div> 
     </div>
 </div>

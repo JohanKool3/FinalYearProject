@@ -1,18 +1,15 @@
-.play-button {
-    width: 100%;
-    height: 100%;
-    border: none;
+.toolbar-button {
+    height: inherit;
+    width: inherit;
+    transition: background-color 0.15s ease-in-out;
 }
 
-    .play-button:disabled {
-        background-color: grey;
-        border: inherit;
+
+    .toolbar-button.enabled {
+        background-color: none;
     }
 
-    .play-button:hover:where(:not(:disabled)) {
-        background-color: lightgreen;
-    }
-
-    .play-button:active:where(:not(:disabled)) {
-        background-color: green;
+    .toolbar-button.disabled {
+        background-color: rgb(60, 238, 83);
+        cursor: default;
     }
