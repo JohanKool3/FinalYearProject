@@ -1,4 +1,4 @@
-using FinalYearProject.Services.Recording;
+using FinalYearProject.Services.Settings;
 using FinalYearProject.UI.Models;
 
 namespace FinalYearProject.UI.Components.Pages

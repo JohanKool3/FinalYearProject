@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Recording\" />
+    <Folder Include="Settings\" />
   </ItemGroup>
 
 </Project>

@@ -2,20 +2,12 @@
 
 namespace FinalYearProject.Services.SampleProviders
 {
-    public class MetronomeSampleProvider : ISampleProvider
+    public class MetronomeSampleProvider(int bpm, int sampleRate, WaveFormat waveFormat) : ISampleProvider
     {
-        private readonly WaveFormat _waveFormat;
+        private readonly WaveFormat _waveFormat = waveFormat;
         private int _sample;
-        private readonly int _samplesPerBeat;
+        private readonly int _samplesPerBeat = (sampleRate * 60) / (bpm / 2);
         private readonly float _frequency = 1000f;
-
-        public MetronomeSampleProvider(int bpm, int sampleRate, WaveFormat waveFormat)
-        {
-            _waveFormat = waveFormat;
-
-            // Divided by 2 as there are two channels (Left and Right)
-            _samplesPerBeat = (sampleRate * 60) / (bpm / 2);
-        }
 
         public WaveFormat WaveFormat => _waveFormat;
 

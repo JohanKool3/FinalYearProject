@@ -1,4 +1,4 @@
-﻿using FinalYearProject.Services.Recording;
+﻿using FinalYearProject.Services.Settings;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.Pages

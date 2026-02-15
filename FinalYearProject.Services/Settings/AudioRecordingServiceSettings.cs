@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinalYearProject.Services.Recording
+namespace FinalYearProject.Services.Settings
 {
     /// <summary>
     /// Holds settings related to the Input and Output IDs for
