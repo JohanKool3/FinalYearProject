@@ -6,7 +6,9 @@
 @* Recording Settings Section *@
 <div class="settings-section">
     <div class="section-header">
-        <span class="toggle-switch" @onclick="ToggleRecording">@(ExpansionSettings.Recording ? "−" : "+")</span>
+        <div class="toggle-switch">
+            <img src="/images/expansion/@GetIcon(ExpansionSettings.Recording)" @onclick="ToggleRecording" class="center">
+        </div>
         <strong>Recording Settings</strong>
     </div>
 

@@ -51,5 +51,12 @@ namespace FinalYearProject.UI.Components.Pages
             };
         #endregion
 
+
+        private string GetIcon(bool settingsSection)
+            => settingsSection switch
+            {
+                true => "collapse.svg",
+                false => "expand.svg"
+            };
     }
 }
