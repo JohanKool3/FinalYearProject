@@ -17,7 +17,10 @@
         <div class="settings-sub-section">
             <span>Input Device: </span>
             <select @bind="Settings.InputDeviceId">
-                @* Add Reference to Audio Service to get all devices *@
+                @foreach(var device in GetInputDevices())
+                {
+                    <option value="@device.Id">@device.Name</option>
+                }
 
             </select>
         </div>
@@ -26,7 +29,10 @@
         <div class="settings-sub-section">
             <span>Output Device:</span>
             <select @bind="Settings.OutputDeviceId">
-                @* Add Reference to Audio Service to get all devices *@
+                @foreach (var device in GetOutputDevices())
+                {
+                    <option value="@device.Id">@device.Name</option>
+                }
             </select>
         </div>
 

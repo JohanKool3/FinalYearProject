@@ -5,6 +5,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
     public class MainBus : IAudioBus
     {
+        private List<IAudioSource> _audioSources = [];
+
         public void AddEffect(IAudioEffect effect)
         {
             throw new NotImplementedException();
@@ -12,7 +14,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         public void AddSource(IAudioSource source)
         {
-            throw new NotImplementedException();
+            if (source == null)
+            {
+                return;
+            }
+            _audioSources.Add(source);
         }
 
         public void AdjustVolume(double volume)

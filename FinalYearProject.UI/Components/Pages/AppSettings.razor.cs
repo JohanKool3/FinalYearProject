@@ -1,12 +1,16 @@
+using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
 using FinalYearProject.UI.Models;
 
 namespace FinalYearProject.UI.Components.Pages
 {
     public partial class AppSettings(
-        AudioRecordingServiceSettings settings)
+        AudioServiceSettings settings,
+        IAudioService audioService)
     {
-        public AudioRecordingServiceSettings Settings { get; } = settings;
+        public AudioServiceSettings Settings { get; } = settings;
+        public IAudioService AudioService { get; } = audioService;
 
         private SettingsExpansion ExpansionSettings = new();
 
@@ -58,5 +62,12 @@ namespace FinalYearProject.UI.Components.Pages
                 true => "collapse.svg",
                 false => "expand.svg"
             };
+
+
+        private List<AudioDevice> GetInputDevices()
+            => AudioService.GetInputDevices();
+
+        private List<AudioDevice> GetOutputDevices()
+            => AudioService.GetOutputDevices();
     }
 }

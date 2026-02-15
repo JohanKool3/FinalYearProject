@@ -1,15 +1,10 @@
-﻿using FinalYearProject.Services.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FinalYearProject.Services.Settings
+﻿namespace FinalYearProject.Services.Settings
 {
     /// <summary>
     /// Holds settings related to the Input and Output IDs for
     /// Audio Recording Service
     /// </summary>
-    public class AudioRecordingServiceSettings
+    public class AudioServiceSettings
     {
         /// <summary>
         /// The ID of the Input Device

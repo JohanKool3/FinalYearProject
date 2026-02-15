@@ -1,6 +1,7 @@
 ﻿using FinalYearProject.Services.Audio;
 using FinalYearProject.Services.Audio.Windows.AudioBuses;
 using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Devices;
@@ -18,7 +19,7 @@ namespace FinalYearProject.Services.Extensions
             // this can be extended to include platforms such as MAC and Android
 
             // Register Settings as they are platform independent
-            services.AddSingleton<AudioRecordingServiceSettings>();
+            services.AddSingleton<AudioServiceSettings>();
 
 
             if (deviceInfo.Platform == DevicePlatform.WinUI)
