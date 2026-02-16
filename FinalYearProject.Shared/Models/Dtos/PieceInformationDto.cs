@@ -15,5 +15,15 @@
         /// Name of the Piece
         /// </summary>
         public string PieceName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The Person / Group who made this piece
+        /// </summary>
+        public string Author { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Description of the Piece
+        /// </summary>
+        public string Description { get; set; } = string.Empty;
     }
 }

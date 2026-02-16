@@ -1,3 +1,16 @@
 <div class="browser-item" @onclick="OnClick">
-    <span>@Name</span>
+    <TooltippedWidget ToolTipMessage="@Description">
+        <div class="browser-item-body">
+            <div class="section-small">
+                <span class="section-text">@ResultIndex.</span>
+            </div>
+
+            <div class="section">
+                <span class="section-text">@Name</span>
+            </div>
+            <div class="section">
+                <span class="section-text">@Author</span>
+            </div>
+        </div>
+    </TooltippedWidget>
 </div>

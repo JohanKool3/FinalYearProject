@@ -4,7 +4,7 @@
 
     <div class="tab-browser-search-bar">
         <div class="search-title">
-            <span >Search</span>
+            <span>Search</span>
             <SearchIcon />
         </div>
         <input class="search-box" @bind-value="UserSearch" placeholder="Search For Tabs" />
@@ -22,11 +22,14 @@
     }
     else
     {
-        foreach (var dataItem in localData)
+        foreach (var (dataItem, index) in localData.Select((item, index) => (item, index + 1)))
         {
             <div class="result">
                 <BrowserItem Name="@dataItem.PieceName"
-                             OnClick="() => NavigateToPiece(dataItem.Id)" />
+                             Author="@dataItem.Author"
+                             Description="@dataItem.Description"
+                             OnClick="() => NavigateToPiece(dataItem.Id)" 
+                             ResultIndex="index"/>
             </div>
         }
     }

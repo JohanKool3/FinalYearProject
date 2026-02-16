@@ -9,8 +9,12 @@ public class PieceProfile : Profile
     public PieceProfile()
     {
         _ = CreateMap<PieceModel, PieceInformationDto>()
-            .ForMember(dest => dest.PieceName, 
-            opt => opt.MapFrom(src => src.TabInformationModel.Title));
+            .ForMember(dest => dest.PieceName,
+            opt => opt.MapFrom(src => src.TabInformationModel.Title))
+            .ForMember(dest => dest.Author,
+            opt => opt.MapFrom(src => src.TabInformationModel.Author))
+            .ForMember(dest => dest.Description,
+            opt => opt.MapFrom(src => src.TabInformationModel.Description));
 
 
         _ = CreateMap<PieceModel, PieceDto>()
