@@ -1,14 +1,14 @@
 @using FinalYearProject.UI.Components.InterfaceElements.TabBrowser.Elements
 @using Microsoft.AspNetCore.Components.Forms
 <div class="tab-browser" style="width:@($"{Width}px"); height:@($"{Height}px");">
-    <div class="tab-browser-title">
-        <h1>Tab Browser</h1>
-    </div>
 
     <div class="tab-browser-search-bar">
-        <span>Search: </span>
-        <input @bind-value="UserSearch" />
-        <button>Enter</button>
+        <div class="search-title">
+            <span >Search</span>
+            <SearchIcon />
+        </div>
+        <input class="search-box" @bind-value="UserSearch" placeholder="Search For Tabs" />
+        <button class="enter-button">Enter</button>
     </div>
 
     @if (!DataLoaded)
@@ -24,8 +24,10 @@
     {
         foreach (var dataItem in localData)
         {
-            <BrowserItem Name="@dataItem.PieceName"
-                         OnClick="() => NavigateToPiece(dataItem.Id)" />
+            <div class="result">
+                <BrowserItem Name="@dataItem.PieceName"
+                             OnClick="() => NavigateToPiece(dataItem.Id)" />
+            </div>
         }
     }
 </div>

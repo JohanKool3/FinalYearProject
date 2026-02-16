@@ -1,10 +1,13 @@
 .tab-browser-search-bar {
     display: inline-flex;
-    justify-content: center;
-    gap: 4%;
+    border: solid;
     width: 100%;
-    padding: 0.1em;
-    padding-bottom: 1em;
+    padding: 1em;
+    gap: 10%;
+    margin-top: 3em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+    border-color: rgba(1,1,1,0.75);
 }
 
 .loading-icon {
@@ -12,3 +15,50 @@
     justify-content: center;
     align-items: center;
 }
+
+.search-title{
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 3em;
+    gap: 0.5em;
+}
+
+.search-box{
+    border: solid;
+    border-radius: 0.25em;
+    width: 50%;
+    font-size: 2em;
+    padding-left: 0.5em;
+}
+
+    .search-box:hover {
+        background-color: rgb(39, 208, 177);
+    }
+
+.enter-button{
+    width: 10%;
+    border: solid;
+    border-radius: 0.5em;
+    background-color: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+    .enter-button:hover {
+        background-color: rgb(39, 208, 177);
+    }
+
+.result{
+    display: flex;
+    width: 100%;
+    border: solid;
+    border-radius: 0.5em;
+    height: 3em;
+    padding: 1em;
+}
+
+    .result:hover {
+        background-color: rgb(39, 208, 177);
+        cursor: pointer;
+    }
