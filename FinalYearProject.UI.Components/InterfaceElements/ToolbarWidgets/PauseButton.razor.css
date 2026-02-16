@@ -6,6 +6,7 @@
 
     .toolbar-button:hover {
         background-color: rgb(39, 208, 177);
+        cursor: pointer;
     }
 
     .toolbar-button.enabled {

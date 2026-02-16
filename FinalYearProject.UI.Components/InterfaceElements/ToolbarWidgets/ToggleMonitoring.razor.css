@@ -5,14 +5,27 @@
     transition: background-color 0.15s ease-in-out;
 }
 
+    .toolbar-button:hover {
+        cursor: pointer;
+        background-color: rgb(39, 208, 177);
+    }
+
 
     .toolbar-button.enabled {
         background-color: rgb(60, 238, 83);
     }
 
+        .toolbar-button.enabled:hover {
+            background-color: rgb(39, 208, 177);
+        }
+
     .toolbar-button.disabled {
         background-color: rgba(245, 44, 44, 0.5);
     }
+
+        .toolbar-button.disabled:hover {
+            background-color: rgb(39, 208, 177);
+        }
 
 
 .toolbar-icon {
