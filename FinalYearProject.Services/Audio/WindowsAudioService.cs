@@ -154,8 +154,7 @@ namespace FinalYearProject.Services.Audio
             _output = new WasapiOut(outputDevice,
                 AudioClientShareMode.Shared,
                 true,
-                _settings.OutputLatency)
-            ;
+                _settings.OutputLatency);
 
             _output.Init(outputSampleProvider);
             _output.Play();

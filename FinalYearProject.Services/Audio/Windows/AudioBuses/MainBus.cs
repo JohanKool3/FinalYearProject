@@ -54,6 +54,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         public ISampleProvider? GetOutput()
         {
+            if (!IsEnabled)
+            {
+                return null;
+            }
+
             if(_waveFormat is null)
             {
                 return null;
