@@ -1,3 +1,4 @@
+using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Enums;
 using FinalYearProject.Shared.Models;
 using FinalYearProject.UI.Components.Enums;
@@ -5,7 +6,8 @@ using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class ToolbarSlider(UserSettings userSettings)
+    public partial class ToolbarSlider(UserSettings userSettings,
+        IAudioService audioService)
     {
         #region Parameters
 
@@ -47,6 +49,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         public UserSettings UserSettings { get; } = userSettings;
 
+        public IAudioService AudioService { get; } = audioService;
+
         #endregion
 
         /// <summary>
@@ -81,13 +85,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                 true => "enabled",
                 false => "disabled"
             };
-        private Task OnInputAsync(ChangeEventArgs args)
+        private async Task OnInputAsync(ChangeEventArgs args)
         {
+            AudioService.StopPlayback();
             var newValue = int.Parse(args.Value!.ToString()!);
-
             Value = newValue;
-
-            return ValueChanged.InvokeAsync(newValue);
+            await ValueChanged.InvokeAsync(newValue);
+            AudioService.StartPlayback();
         }
     }
 }
