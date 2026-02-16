@@ -2,7 +2,6 @@
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
-using FinalYearProject.Shared.Services;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
@@ -17,6 +16,7 @@ namespace FinalYearProject.Services.Audio
         /// The output for this Audio Service.
         /// </summary>
         private MainBus _mainBus;
+        private readonly UserBus _userBus;
         private readonly AudioServiceSettings _settings;
 
         // Output
@@ -31,9 +31,11 @@ namespace FinalYearProject.Services.Audio
         {
             // Register the main Bus 
             _mainBus = mainBus;
+
+            _userBus = userBus;
             _settings = settings;
 
-            // Add Inputs into Main Bus
+            // Add Sub Busses as inputs into Main Bus
             _mainBus.AddSource(userBus);
             _mainBus.AddSource(backingTrackBus);
             _mainBus.AddSource(metronomeBus);
@@ -107,10 +109,34 @@ namespace FinalYearProject.Services.Audio
 
         public void StartPlayback()
         {
+            // TODO: Log Exception
             if (_output is null)
             {
                 return;
             }
+
+            // TODO: Log Exception
+            if(_userBus is null || _userBus.Source is null)
+            {
+                return;
+            }
+
+            // Initialize Input
+            _userBus.Source.InitializeCapture();
+
+
+            // Set the output device
+            var enumerator = new MMDeviceEnumerator();
+            var outputDevice = enumerator.GetDevice(_settings.OutputDeviceId);
+
+            var deviceFormat = outputDevice.AudioClient.MixFormat;
+
+
+            var floatFormat = WaveFormat.CreateIeeeFloatWaveFormat(
+                    deviceFormat.SampleRate,
+                    deviceFormat.Channels);
+
+            _mainBus.SetMixer(floatFormat);
 
             var outputSampleProvider = _mainBus.GetOutput();
 
@@ -119,7 +145,20 @@ namespace FinalYearProject.Services.Audio
                 return;
             }
 
+            // Cannot start as no output device
+            if (outputDevice is null)
+            {
+                return;
+            }
+
+            _output = new WasapiOut(outputDevice,
+                AudioClientShareMode.Shared,
+                true,
+                _settings.OutputLatency)
+            ;
+
             _output.Init(outputSampleProvider);
+            _output.Play();
         }
 
         public void StopPlayback()

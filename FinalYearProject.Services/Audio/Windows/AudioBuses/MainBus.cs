@@ -5,9 +5,9 @@ using NAudio.Wave.SampleProviders;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class MainBus(PlaybackService playback) : IAudioBus
+    public class MainBus(PlaybackService playback)
     {
-        private List<SubAudioBusBase> _audioSources = [];
+        private List<ISubAudioBus<IAudioSource>> _audioSources = [];
 
         /// <summary>
         /// Whether Audio should be played or not
@@ -30,16 +30,14 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             throw new NotImplementedException();
         }
 
-        public void AddSource(IAudioSource source)
+        public void AddSource(ISubAudioBus<IAudioSource> source)
         {
             if (source == null)
             {
                 return;
             }
 
-            var subAudioBus = (SubAudioBusBase)source;
-
-            _audioSources.Add(subAudioBus);
+            _audioSources.Add(source);
         }
 
         public void RemoveEffect(IAudioEffect effect)
@@ -61,7 +59,10 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return null;
             }
 
-            var mixer = new MixingSampleProvider(_waveFormat);
+            var mixer = new MixingSampleProvider(_waveFormat)
+            {
+                ReadFully = true
+            };
 
             foreach (var input in _audioSources)
             {
@@ -110,6 +111,12 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             // wave format
             foreach(var source in _audioSources)
             {
+                if(source.Name == "user-bus")
+                {
+                    // Needs to skip to use its own Wave Format
+                    continue;
+                }
+
                 source.SetMixer(waveFormat);
             }
         }

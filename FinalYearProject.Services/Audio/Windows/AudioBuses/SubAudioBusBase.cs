@@ -9,8 +9,11 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     /// Defines a Base class for a Sub Audio Bus (one that will feed into
     /// the main bus)
     /// </summary>
-    public class SubAudioBusBase(UserSettings settings) 
-        : IAudioBus, IAudioSource
+    /// <typeparam name="TAudioSource"> The type of audio source</typeparam>
+    /// <param name="settings"></param>
+    public class SubAudioBusBase<TAudioSource>(UserSettings settings)
+        : ISubAudioBus<TAudioSource> where TAudioSource : IAudioSource
+      
     {
         #region Dependencies
 
@@ -18,9 +21,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         /// Holds Details about the Audio Busses.
         /// </summary>
         public UserSettings Settings { get; } = settings;
-        
-        #endregion
 
+        #endregion
 
         /// <summary>
         /// Whether this Audio Bus should provide output or not
@@ -31,19 +33,21 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         #region Input and Effects
 
         // Inputs
-        public List<IAudioSource> Sources { get; private set; } = [];
+        public virtual TAudioSource? Source { get; internal set; }
 
         // Effects
-        public List<IAudioEffect> Effects { get; private set; } = [];
+        public List<IAudioEffect> Effects { get; internal set; } = [];
 
         #endregion
 
         /// <summary>
         /// The Mixer for this Sub Audio Bus
         /// </summary>
-        public MixingSampleProvider? Mixer { get; private set; }
+        public MixingSampleProvider? Mixer { get; internal set; }
 
         public virtual string Name => "default";
+
+        public ISampleProvider SampleProvider => throw new NotImplementedException();
 
         #region Add + Remove
 
@@ -52,20 +56,16 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             Effects.Add(effect);
         }
 
-        public void AddSource(IAudioSource source)
-        {
-            Sources.Add(source);
-        }
+        public void AddSource(TAudioSource source)
+            => Source = source;
 
         public void RemoveEffect(IAudioEffect effect)
         {
             Effects.Remove(effect);
         }
 
-        public void RemoveSource(IAudioSource source)
-        {
-            Sources.Remove(source);
-        }
+        public void RemoveSource(TAudioSource source)
+            => Source = default;
 
         #endregion
 
@@ -81,12 +81,20 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         public void ToggleActive()
         {
             // Stop All Sources, then toggle
-            Stop();
-            IsEnabled = !IsEnabled;
-
+            if (IsEnabled)
+            {
+                Stop();
+                IsEnabled = false;
+            }
+            else
+            {
+                Stop();
+                // Edit the current setup, then start playback again
+                IsEnabled = true;
+            }
         }
 
-        public ISampleProvider? GetOutput()
+        public virtual ISampleProvider? GetOutput()
         {
             if (!IsEnabled)
             {
@@ -99,19 +107,21 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return null;
             }
 
-            // Add Sources
-            foreach (var input in Sources)
+            if (Source is null)
             {
-                var inputSampleProvider = input.GetOutput();
-
-                // Check if the Input mixer has been set
-                if (inputSampleProvider is not null)
-                {
-                    Mixer.AddMixerInput(inputSampleProvider);
-                }
+                return null;
             }
 
-            // Run Sources Through FX
+            // Add Source
+            var inputSampleProvider = Source.SampleProvider;
+
+            // Check if the Input mixer has been set
+            if (inputSampleProvider is not null)
+            {
+                Mixer.AddMixerInput(inputSampleProvider);
+            }
+
+            // Run Source Through FX
             ISampleProvider current = Mixer;
 
             foreach (var effect in Effects)
@@ -136,10 +146,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return;
             }
 
-            foreach (var source in Sources)
-            {
-                source.Start();
-            }
+            Source?.Start();
         }
 
         public void Stop()
@@ -149,10 +156,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return;
             }
 
-            foreach (var source in Sources)
-            {
-                source.Stop();
-            }
+            Source?.Stop();
         }
     }
 }

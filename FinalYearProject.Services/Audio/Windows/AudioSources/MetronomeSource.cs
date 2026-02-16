@@ -9,6 +9,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioSources
 
         public string Name => "metronome-source";
 
+        public ISampleProvider? SampleProvider => throw new NotImplementedException();
+
         public void Dispose()
         {
             throw new NotImplementedException();

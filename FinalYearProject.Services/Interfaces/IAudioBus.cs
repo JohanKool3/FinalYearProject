@@ -6,7 +6,8 @@ namespace FinalYearProject.Services.Interfaces
     /// Represents a component that is responsible for accepting input,
     /// applying effects to it and then outputting it
     /// </summary>
-    public interface IAudioBus
+    /// <typeparam name="TAudioSource">The type of audio source</typeparam>
+    public interface IAudioBus<TAudioSource>
     {
         /// <summary>
         /// Sets up the Mixer for use. All Sources must have the same
@@ -19,13 +20,13 @@ namespace FinalYearProject.Services.Interfaces
         /// Add an audio Source to this Mixer Bus
         /// </summary>
         /// <param name="source"></param>
-        void AddSource(IAudioSource source);
+        void AddSource(TAudioSource source);
 
         /// <summary>
         /// Remove a specific Audio Source from this Mixer Bus
         /// </summary>
         /// <param name="source"></param>
-        void RemoveSource(IAudioSource source);
+        void RemoveSource(TAudioSource source);
 
 
         /// <summary>
@@ -39,14 +40,5 @@ namespace FinalYearProject.Services.Interfaces
         /// </summary>
         /// <param name="effect"></param>
         void RemoveEffect(IAudioEffect effect);
-
-        /// <summary>
-        /// Returns an output of the input ran through the effects
-        /// </summary>
-        /// <returns></returns>
-        /// <remarks>
-        /// Returns Null if a Mixer has not been set
-        /// </remarks>
-        ISampleProvider? GetOutput();
     }
 }
