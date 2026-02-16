@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Services.Audio.Windows.AudioSources;
+﻿using FinalYearProject.Services.Audio.Windows.AudioEffects;
+using FinalYearProject.Services.Audio.Windows.AudioSources;
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
 using FinalYearProject.Shared.Models;
@@ -25,7 +26,25 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return null;
             }
 
-            return Source?.GetOutput();
+            Effects.Clear();
+
+            Effects.AddRange(GetUserEffectsChain());
+
+            return base.GetOutput();
+        }
+
+        private IEnumerable<IAudioEffect> GetUserEffectsChain()
+        {
+            List<IAudioEffect> output = [];
+
+            var preFXGain = new PreFXGainEffect()
+            {
+                GainPercentage = Settings.UserVolume,
+            };
+
+            output.Add(preFXGain);
+
+            return output;
         }
     }
 }

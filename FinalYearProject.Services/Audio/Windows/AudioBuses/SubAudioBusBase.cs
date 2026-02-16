@@ -101,12 +101,6 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return null;
             }
 
-            // Ensure the Mixer has been set
-            if (Mixer is null)
-            {
-                return null;
-            }
-
             if (Source is null)
             {
                 return null;
@@ -114,15 +108,17 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
             // Add Source
             var inputSampleProvider = Source.SampleProvider;
+            
 
             // Check if the Input mixer has been set
             if (inputSampleProvider is not null)
             {
-                Mixer.AddMixerInput(inputSampleProvider);
+                SetMixer(inputSampleProvider.WaveFormat);
+                Mixer!.AddMixerInput(inputSampleProvider);
             }
 
             // Run Source Through FX
-            ISampleProvider current = Mixer;
+            ISampleProvider current = Mixer!;
 
             foreach (var effect in Effects)
             {
