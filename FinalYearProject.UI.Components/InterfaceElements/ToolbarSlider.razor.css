@@ -16,12 +16,26 @@
     padding: 1em;
     border-radius: 0.5em;
     align-items: center;
+
+    transition: opacity 0.25s ease-in-out;
 }
+
+    .slider-popup.enabled {
+        opacity: 1;
+    }
+
+    .slider-popup.disabled {
+        opacity: 0;
+    }
 
 input[type="range"] {
     width: 6em;
 }
 
-.slider-title{
+.slider-title {
     text-align: center;
+}
+
+.suffix{
+    width: 4em;
 }

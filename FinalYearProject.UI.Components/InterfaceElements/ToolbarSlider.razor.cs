@@ -4,6 +4,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 {
     public partial class ToolbarSlider
     {
+        #region Parameters
+
         /// <summary>
         /// Title of the Slider
         /// </summary>
@@ -22,6 +24,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public EventCallback<int> ValueChanged { get; set; }
 
+        #endregion
 
         /// <summary>
         /// Whether to show the slider
@@ -32,5 +35,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         {
             IsOpen = !IsOpen;
         }
+
+        private string IsEnabled()
+            => IsOpen switch
+            {
+                true => "enabled",
+                false => "disabled"
+            };
     }
 }
