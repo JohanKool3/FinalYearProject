@@ -1,11 +1,15 @@
-﻿using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Audio.Windows.AudioEffects;
+using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Services.Settings;
+using FinalYearProject.Shared.Models;
 using FinalYearProject.Shared.Services;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class MainBus(PlaybackService playback)
+    public class MainBus(PlaybackService playback,
+        AudioServiceSettings settings)
     {
         private List<ISubAudioBus<IAudioSource>> _audioSources = [];
 
@@ -15,6 +19,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         public bool IsEnabled { get; private set; } = true;
 
         public PlaybackService Playback { get; } = playback;
+        public AudioServiceSettings Settings { get; } = settings;
 
         public string Name => "main-bus";
 
@@ -100,7 +105,14 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 mixer.AddMixerInput(inputSampleProvider);
             }
 
-            return mixer;
+
+            // Run Mixer through Gain Effect
+            var masterGain = new PreFXGainEffect()
+            {
+                GainPercentage = Settings.OutputVolumePercent
+            };
+
+            return masterGain.Apply(mixer);
         }
 
 
