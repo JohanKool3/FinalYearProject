@@ -19,6 +19,11 @@
         /// <summary>
         /// Channel For Backing Track
         /// </summary>
-        BackingTrack
+        BackingTrack,
+
+        /// <summary>
+        /// Adjust the Percentage of the raw BPM of the piece
+        /// </summary>
+        BpmPercentage
     }
 }

@@ -1,5 +1,6 @@
 using FinalYearProject.Shared.Enums;
 using FinalYearProject.Shared.Models;
+using FinalYearProject.UI.Components.Enums;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
@@ -31,6 +32,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// </summary>
         [Parameter]
         public string Tooltip { get; set; } = string.Empty;
+
+        /// <summary>
+        /// How much space this widget will take on the toolbar
+        /// </summary>
+        [Parameter]
+        public WidgetWidth WidgetWidth { get; set; } = WidgetWidth.Single;
 
         /// <summary>
         /// The Slider that this Widget Represents

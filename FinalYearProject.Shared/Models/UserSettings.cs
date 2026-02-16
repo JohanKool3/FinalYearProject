@@ -22,6 +22,10 @@ namespace FinalYearProject.Shared.Models
         /// </summary>
         public Slider? ActiveSlider { get; set; }
 
+        /// <summary>
+        /// The Percentage Multiplier for BPM
+        /// </summary>
+        public int BpmPercentage { get; set; } = 100;
 
         /// <summary>
         /// Volume Percentage of the User Channel, 0% -> 100%

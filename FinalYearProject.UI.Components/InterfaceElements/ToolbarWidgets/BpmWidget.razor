@@ -1,10 +1,13 @@
-﻿@using FinalYearProject.UI.Components.Enums
+﻿@using FinalYearProject.Shared.Enums
+@using FinalYearProject.UI.Components.Enums
 @using Microsoft.AspNetCore.Components.Forms
 
-<ToolbarWidgetBase WidgetWidth=WidgetWidth.Triple>
-    <div>
-        <span>BPM: </span>
-    </div>
-</ToolbarWidgetBase>
+<ToolbarSlider Title="BPM Percentage"
+               @bind-Value="@Settings.BpmPercentage"
+               Slider="Slider.BpmPercentage"
+               Tooltip="Adjusts the Speed of the piece as a multiplier of the original BPM"
+               WidgetWidth="WidgetWidth.Double">
+    <span class="bpm-selector">BPM</span>
+</ToolbarSlider>
 
 
