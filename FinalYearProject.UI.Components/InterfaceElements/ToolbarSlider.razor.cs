@@ -24,6 +24,12 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public EventCallback<int> ValueChanged { get; set; }
 
+        /// <summary>
+        /// Tooltip for this slider
+        /// </summary>
+        [Parameter]
+        public string Tooltip { get; set; } = string.Empty;
+
         #endregion
 
         /// <summary>
