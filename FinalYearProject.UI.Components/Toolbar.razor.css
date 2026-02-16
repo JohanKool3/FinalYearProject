@@ -4,6 +4,8 @@
     left: 0;
     width: 100%;
     height: fit-content;
+    padding-top: 1em;
+    padding-bottom: 1em;
     border-radius: 0.2em;
     display: flex;
     align-items: center;
@@ -24,7 +26,7 @@
 .toolbar-section {
     display: inline-flex;
     align-items: center;
-    height: 2em;
+    height: fit-content;
     width: fit-content;
     gap: 0.5em;
     margin: 0.2em;
@@ -78,15 +80,15 @@
     border: solid;
     border-radius: 0.5em;
     text-align: center;
-    height: 4em;
-    width: 4em;
+    height: 8em;
+    width: 8em;
     align-content: center;
     transition: max-height 0.25s ease-in-out, max-width 0.25s ease-in-out, margin 0.25s ease-in-out;
 }
 
     .toggle-switch.expanded {
-        max-width: 3em;
-        max-height: 3em;
+        max-width: 4em;
+        max-height: 4em;
         margin: 0.2em;
     }
 
