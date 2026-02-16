@@ -1,10 +1,11 @@
 ﻿using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Shared.Services;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class MainBus : IAudioBus
+    public class MainBus(PlaybackService playback) : IAudioBus
     {
         private List<IAudioSource> _audioSources = [];
 
@@ -12,6 +13,10 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         /// Whether Audio should be played or not
         /// </summary>
         public bool IsEnabled { get; private set; } = true;
+
+        public PlaybackService Playback { get; } = playback;
+
+        public string Name => "main-bus";
 
         /// <summary>
         /// The Mixer for this Audio Bus
@@ -52,8 +57,16 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
             foreach (var input in _audioSources)
             {
+              
                 // Not Enabled, don't add output
                 if (!input.IsEnabled)
+                {
+                    continue;
+                }
+
+                // Playback is not in process
+                // User channel should always be playing if enabled
+                if(!Playback.IsPlaying && input.Name != "user-bus")
                 {
                     continue;
                 }
@@ -67,6 +80,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 {
                     continue;
                 }
+
+                // Check that playback is happening 
 
                 mixer.AddMixerInput(inputSampleProvider);
             }

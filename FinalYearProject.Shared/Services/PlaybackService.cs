@@ -1,4 +1,4 @@
-﻿namespace FinalYearProject.UI.Components.Services
+﻿namespace FinalYearProject.Shared.Services
 {
     /// <summary>
     /// Service to manage Tab playback

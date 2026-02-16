@@ -7,6 +7,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioSources
     {
         public bool IsEnabled => throw new NotImplementedException();
 
+        public string Name => "metronome-source";
+
         public void Dispose()
         {
             throw new NotImplementedException();

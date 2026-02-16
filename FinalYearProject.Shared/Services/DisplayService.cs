@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Models.UI;
 
-namespace FinalYearProject.UI.Components.Services
+namespace FinalYearProject.Shared.Services
 {
     /// <summary>
     /// Service for storing and managing the display of tabs

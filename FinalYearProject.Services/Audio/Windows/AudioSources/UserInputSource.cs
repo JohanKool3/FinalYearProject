@@ -7,6 +7,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioSources
     {
         public bool IsEnabled => throw new NotImplementedException();
 
+        public string Name => "user-input-source";
+
         public void Dispose()
         {
             throw new NotImplementedException();

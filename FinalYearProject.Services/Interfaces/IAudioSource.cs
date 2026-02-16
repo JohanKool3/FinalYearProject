@@ -7,6 +7,9 @@ namespace FinalYearProject.Services.Interfaces
     /// </summary>
     public interface IAudioSource
     {
+        public string Name { get; }
+
+
         /// <summary>
         /// Whether this Audio Source is Enabled
         /// </summary>

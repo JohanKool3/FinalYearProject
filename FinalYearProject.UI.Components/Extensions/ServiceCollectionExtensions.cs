@@ -2,6 +2,7 @@
 using FinalYearProject.Services.UI.TabLoaders;
 using FinalYearProject.Shared.Models;
 using FinalYearProject.Shared.Models.Dtos;
+using FinalYearProject.Shared.Services;
 using FinalYearProject.UI.Components.DataManagers;
 using FinalYearProject.UI.Components.Interfaces;
 using FinalYearProject.UI.Components.Models;

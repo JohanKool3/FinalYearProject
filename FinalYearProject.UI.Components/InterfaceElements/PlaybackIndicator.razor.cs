@@ -1,4 +1,5 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
+using FinalYearProject.Shared.Services;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 

@@ -42,7 +42,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         /// The Mixer for this Sub Audio Bus
         /// </summary>
         public MixingSampleProvider? Mixer { get; private set; }
-        
+
+        public virtual string Name => "default";
 
         #region Add + Remove
 

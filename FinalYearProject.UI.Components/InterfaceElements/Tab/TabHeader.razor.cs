@@ -1,4 +1,4 @@
-using FinalYearProject.UI.Components.Services;
+using FinalYearProject.Shared.Services;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.Tab
 {

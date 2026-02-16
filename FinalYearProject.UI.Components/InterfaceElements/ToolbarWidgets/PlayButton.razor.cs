@@ -1,4 +1,4 @@
-using FinalYearProject.UI.Components.Services;
+using FinalYearProject.Shared.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 

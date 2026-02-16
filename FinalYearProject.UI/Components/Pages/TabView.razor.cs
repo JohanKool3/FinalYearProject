@@ -1,4 +1,4 @@
-using FinalYearProject.UI.Components.Services;
+using FinalYearProject.Shared.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.Pages

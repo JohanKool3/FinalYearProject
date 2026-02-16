@@ -2,6 +2,7 @@
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
+using FinalYearProject.Shared.Services;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 

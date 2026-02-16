@@ -5,5 +5,6 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     public class MetronomeBus(UserSettings channelSettings) 
         : SubAudioBusBase(channelSettings)
     {
+        public override string Name => "metronome-bus";
     }
 }
