@@ -12,7 +12,7 @@ namespace FinalYearProject.Services.Interfaces
         /// Adjusts the Output Volume for this Audio Bus
         /// </summary>
         /// <param name="volume"></param>
-        void AdjustVolume(double volume);
+        void AdjustVolume(int volume);
 
         /// <summary>
         /// Add an audio Source to this Mixer Bus

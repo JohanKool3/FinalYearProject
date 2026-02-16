@@ -1,0 +1,27 @@
+.slider-wrapper {
+    position: relative;
+    display: inline-flex;
+}
+
+.slider-popup {
+    width: 14em;
+    display: inline-flex;
+    position: absolute;
+    gap: 1em;
+    bottom: 175%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(0,0,0);
+    color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+    align-items: center;
+}
+
+input[type="range"] {
+    width: 6em;
+}
+
+.slider-title{
+    text-align: center;
+}

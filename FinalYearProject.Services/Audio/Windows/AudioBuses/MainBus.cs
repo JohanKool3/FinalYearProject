@@ -26,7 +26,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             _audioSources.Add(source);
         }
 
-        public void AdjustVolume(double volume)
+        public void AdjustVolume(int volume)
         {
             throw new NotImplementedException();
         }

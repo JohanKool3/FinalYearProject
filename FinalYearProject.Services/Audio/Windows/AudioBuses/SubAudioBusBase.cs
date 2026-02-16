@@ -28,9 +28,13 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         #endregion
 
         /// <summary>
-        /// Volume between 0 and 1 representing 0% and 100%
+        /// Volume between 0 and 100 representing 0% and 100%
         /// </summary>
-        public double Volume { get; private set; } = 1;
+        public int Volume
+        {
+            get;
+            set => Math.Clamp(value, 0, 100);
+        } = 100;
 
         /// <summary>
         /// The Mixer for this Sub Audio Bus
@@ -49,9 +53,9 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             Sources.Add(source);
         }
 
-        public void AdjustVolume(double volume)
+        public void AdjustVolume(int volume)
         {
-            Volume = Math.Clamp(volume, 0, 1);
+            Volume = Math.Clamp(volume, 0, 100);
         }
 
         public void RemoveEffect(IAudioEffect effect)
@@ -80,7 +84,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             // Stop All Sources, then toggle
             Stop();
             IsEnabled = !IsEnabled;
-            
+
         }
 
         public ISampleProvider? GetOutput()
@@ -133,7 +137,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return;
             }
 
-            foreach(var source in Sources)
+            foreach (var source in Sources)
             {
                 source.Start();
             }
