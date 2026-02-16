@@ -7,7 +7,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
     public class MainBus(PlaybackService playback) : IAudioBus
     {
-        private List<IAudioSource> _audioSources = [];
+        private List<SubAudioBusBase> _audioSources = [];
 
         /// <summary>
         /// Whether Audio should be played or not
@@ -36,7 +36,10 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             {
                 return;
             }
-            _audioSources.Add(source);
+
+            var subAudioBus = (SubAudioBusBase)source;
+
+            _audioSources.Add(subAudioBus);
         }
 
         public void RemoveEffect(IAudioEffect effect)
@@ -51,8 +54,13 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
         #endregion
 
-        public ISampleProvider GetOutput()
+        public ISampleProvider? GetOutput()
         {
+            if(_waveFormat is null)
+            {
+                return null;
+            }
+
             var mixer = new MixingSampleProvider(_waveFormat);
 
             foreach (var input in _audioSources)
@@ -97,6 +105,13 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             // for different waveformats to be consolidated into
             // a single one), we will set the mixer at the Get Output stage
             _waveFormat = waveFormat;
+
+            // Notify Mixers of the Lower Level Busses to use the new 
+            // wave format
+            foreach(var source in _audioSources)
+            {
+                source.SetMixer(waveFormat);
+            }
         }
 
         public void ToggleActive()

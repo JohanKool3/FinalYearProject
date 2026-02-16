@@ -98,7 +98,7 @@ namespace FinalYearProject.Services.Audio
 
 
             // Handle no devices found
-            if(outputDevices is null)
+            if (outputDevices is null)
             {
                 return [];
             }
@@ -107,17 +107,24 @@ namespace FinalYearProject.Services.Audio
 
         public void StartPlayback()
         {
-            if(_output is null)
+            if (_output is null)
             {
                 return;
             }
 
-            _output.Init(_mainBus.GetOutput());
+            var outputSampleProvider = _mainBus.GetOutput();
+
+            if (outputSampleProvider is null)
+            {
+                return;
+            }
+
+            _output.Init(outputSampleProvider);
         }
 
         public void StopPlayback()
         {
-            if(_output is null)
+            if (_output is null)
             {
                 return;
             }
