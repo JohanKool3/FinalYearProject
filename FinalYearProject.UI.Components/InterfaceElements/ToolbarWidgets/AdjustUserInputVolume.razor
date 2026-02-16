@@ -1,6 +1,8 @@
-<ToolbarSlider @bind-Value="@UserBus.Volume"
+@using FinalYearProject.Shared.Enums
+<ToolbarSlider @bind-Value="@Settings.UserVolume"
                Title="User Volume"
-               Tooltip="Adjusts the Volume of the User's Channel">
+               Tooltip="Adjusts the Volume of the User's Channel"
+               Slider="Slider.UserInput">
 
     <img class="center" src="images/toolbar/user-input.svg" />
 

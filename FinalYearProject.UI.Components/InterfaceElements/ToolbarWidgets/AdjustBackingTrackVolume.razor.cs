@@ -1,9 +1,10 @@
 using FinalYearProject.Services.Audio.Windows.AudioBuses;
+using FinalYearProject.Shared.Models;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class AdjustBackingTrackVolume(BackingTrackBus backingTrackBus)
+    public partial class AdjustBackingTrackVolume(UserSettings settings)
     {
-        public BackingTrackBus BackingTrackBus { get; } = backingTrackBus;
+        public UserSettings Settings { get; } = settings;
     }
 }

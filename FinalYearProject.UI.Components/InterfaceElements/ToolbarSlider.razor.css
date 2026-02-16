@@ -39,3 +39,12 @@ input[type="range"] {
 .suffix{
     width: 4em;
 }
+
+.slider-trigger {
+    background-color: rgb(60, 238, 83);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.slider-trigger:hover {
+    background-color: rgb(39, 208, 177);
+}

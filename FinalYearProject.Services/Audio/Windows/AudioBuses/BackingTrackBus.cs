@@ -1,6 +1,9 @@
-﻿namespace FinalYearProject.Services.Audio.Windows.AudioBuses
+﻿using FinalYearProject.Shared.Models;
+
+namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class BackingTrackBus : SubAudioBusBase
+    public class BackingTrackBus(UserSettings channelSettings) 
+        : SubAudioBusBase(channelSettings)
     {
     }
 }

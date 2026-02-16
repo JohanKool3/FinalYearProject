@@ -1,8 +1,10 @@
+using FinalYearProject.Shared.Enums;
+using FinalYearProject.Shared.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace FinalYearProject.UI.Components.InterfaceElements
 {
-    public partial class ToolbarSlider
+    public partial class ToolbarSlider(UserSettings userSettings)
     {
         #region Parameters
 
@@ -30,6 +32,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         [Parameter]
         public string Tooltip { get; set; } = string.Empty;
 
+        /// <summary>
+        /// The Slider that this Widget Represents
+        /// </summary>
+        [Parameter, EditorRequired]
+        public required Slider Slider { get; set; }
+
+        public UserSettings UserSettings { get; } = userSettings;
+
         #endregion
 
         /// <summary>
@@ -39,7 +49,23 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private void Toggle()
         {
-            IsOpen = !IsOpen;
+            if (IsOpen)
+            {
+                // Release the lock for other sliders to be interacted with
+                UserSettings.ActiveSlider = null;
+                IsOpen = false;
+            }
+            else
+            {
+                // Check if another Slider is active
+                if (UserSettings.ActiveSlider is not null)
+                {
+                    return;
+                }
+
+                IsOpen = true;
+                UserSettings.ActiveSlider = Slider;
+            }
         }
 
         private string IsEnabled()
@@ -48,5 +74,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
                 true => "enabled",
                 false => "disabled"
             };
+        private Task OnInputAsync(ChangeEventArgs args)
+        {
+            var newValue = int.Parse(args.Value!.ToString()!);
+
+            Value = newValue;
+
+            return ValueChanged.InvokeAsync(newValue);
+        }
     }
 }

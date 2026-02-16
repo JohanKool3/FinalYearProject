@@ -27,6 +27,7 @@
     .tooltip.wrap{
         white-space: wrap;
         width: 10em;
+        text-align: center;
         
     }
 

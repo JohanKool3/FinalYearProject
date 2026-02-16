@@ -1,6 +1,9 @@
-﻿namespace FinalYearProject.Services.Audio.Windows.AudioBuses
+﻿using FinalYearProject.Shared.Models;
+
+namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class MetronomeBus : SubAudioBusBase
+    public class MetronomeBus(UserSettings channelSettings) 
+        : SubAudioBusBase(channelSettings)
     {
     }
 }

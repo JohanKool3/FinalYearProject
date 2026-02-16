@@ -9,12 +9,14 @@
         @if (IsOpen)
         {
             <div class="slider-section">
-                <div class="slider-popup @IsEnabled()">
+                <div class="slider-popup @IsEnabled()"
+                     @onmouseleave="Toggle">
                     <span class="slider-title">@Title</span>
                     <input type="range"
                            min="0"
                            max="100"
-                           @bind="Value" />
+                           value="@Value"
+                           @oninput="OnInputAsync" />
 
                     <span class="suffix">@Value%</span>
                 </div>
@@ -22,4 +24,4 @@
             </div>
         }
     </div>
-    </ToolbarWidgetBase>
+</ToolbarWidgetBase>

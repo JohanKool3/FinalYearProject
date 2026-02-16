@@ -4,6 +4,9 @@
     transition: background-color 0.15s ease-in-out;
 }
 
+    .toolbar-button:hover {
+        background-color: rgb(39, 208, 177);
+    }
 
     .toolbar-button.enabled {
         background-color: none;

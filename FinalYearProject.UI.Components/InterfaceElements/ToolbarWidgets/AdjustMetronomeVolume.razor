@@ -1,6 +1,8 @@
-<ToolbarSlider @bind-Value="@MetronomeBus.Volume"
+@using FinalYearProject.Shared.Enums
+<ToolbarSlider @bind-Value="@Settings.MetronomeVolume"
                Title="Metronome Volume"
-               Tooltip="Adjusts the Volume of the Metronome Channel">
+               Tooltip="Adjusts the Volume of the Metronome Channel"
+               Slider="Slider.Metronome">
 
     <img class="center" src="images/toolbar/metronome.svg" />
 

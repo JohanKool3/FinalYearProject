@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Shared.Models;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
@@ -8,8 +9,18 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     /// Defines a Base class for a Sub Audio Bus (one that will feed into
     /// the main bus)
     /// </summary>
-    public class SubAudioBusBase : IAudioBus, IAudioSource
+    public class SubAudioBusBase(UserSettings settings) 
+        : IAudioBus, IAudioSource
     {
+        #region Dependencies
+
+        /// <summary>
+        /// Holds Details about the Audio Busses.
+        /// </summary>
+        public UserSettings Settings { get; } = settings;
+        
+        #endregion
+
 
         /// <summary>
         /// Whether this Audio Bus should provide output or not
@@ -28,18 +39,10 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         #endregion
 
         /// <summary>
-        /// Volume between 0 and 100 representing 0% and 100%
-        /// </summary>
-        public int Volume
-        {
-            get;
-            set => Math.Clamp(value, 0, 100);
-        } = 100;
-
-        /// <summary>
         /// The Mixer for this Sub Audio Bus
         /// </summary>
         public MixingSampleProvider? Mixer { get; private set; }
+        
 
         #region Add + Remove
 
@@ -51,11 +54,6 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         public void AddSource(IAudioSource source)
         {
             Sources.Add(source);
-        }
-
-        public void AdjustVolume(int volume)
-        {
-            Volume = Math.Clamp(volume, 0, 100);
         }
 
         public void RemoveEffect(IAudioEffect effect)

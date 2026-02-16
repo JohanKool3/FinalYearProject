@@ -1,9 +1,10 @@
 using FinalYearProject.Services.Audio.Windows.AudioBuses;
+using FinalYearProject.Shared.Models;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class AdjustMetronomeVolume(MetronomeBus metronomeBus)
+    public partial class AdjustMetronomeVolume(UserSettings settings)
     {
-        public MetronomeBus MetronomeBus { get; } = metronomeBus;
+        public UserSettings Settings { get; } = settings;
     }
 }
