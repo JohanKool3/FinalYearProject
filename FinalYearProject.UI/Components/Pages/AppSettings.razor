@@ -45,21 +45,6 @@
             </div>
         </div>
 
-        @* How loud the input stream should be amplified by*@
-        <div class="settings-sub-section">
-            <span>Input Volume: </span>
-            <input type="range" min="0" max="100" @bind="_inputVolumePercentage" />
-
-            <div class="input-group">
-                <input type="text" @bind="_inputVolumePercentage" />
-                <span class="suffix">%</span>
-            </div>
-
-            <div class="information center">
-                <MoreInformation Message="@InputVolumeInformation" />
-            </div>
-        </div>
-
         @* How loud the output stream should be amplified by *@
         <div class="settings-sub-section">
             <span>Output Volume: </span>

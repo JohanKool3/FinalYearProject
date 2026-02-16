@@ -17,12 +17,6 @@ namespace FinalYearProject.UI.Components.Pages
 
         #region Recording Settings Section
 
-        public int _inputVolumePercentage
-        {
-            get => Settings.InputVolumePercent;
-            set => Settings.InputVolumePercent = Math.Clamp(value, 0, 100);
-        }
-
         public int _outputVolumePercentage
         {
             get => Settings.OutputVolumePercent;
@@ -64,10 +58,6 @@ namespace FinalYearProject.UI.Components.Pages
 
         private string OutputDeviceInformation =
             """ Selects the Output Device for Audio Playback""";
-
-
-        private string InputVolumeInformation =
-            """ Sets a percentage multiplier for input volume control. 0% to 100% """;
 
         private string OutputVolumeInformation =
             """ Sets a percentage multiplier for output volume control. 0% to 100% """;

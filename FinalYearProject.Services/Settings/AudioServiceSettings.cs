@@ -17,11 +17,6 @@
         public string OutputDeviceId { get; set; } = string.Empty;
 
         /// <summary>
-        /// The Percentage of the Input Volume, 0 -> 100%
-        /// </summary>
-        public int InputVolumePercent { get; set; } = 100;
-
-        /// <summary>
         /// The Percentage of the Output Volume, 0 -> 100%
         /// </summary>
         public int OutputVolumePercent { get; set; } = 100;

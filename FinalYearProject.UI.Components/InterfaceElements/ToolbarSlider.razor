@@ -6,20 +6,20 @@
         <div class="slider-trigger" @onclick="Toggle">
             @ChildContent
         </div>
+        @if (IsOpen)
+        {
+            <div class="slider-section">
+                <div class="slider-popup @IsEnabled()">
+                    <span class="slider-title">@Title</span>
+                    <input type="range"
+                           min="0"
+                           max="100"
+                           @bind="Value" />
 
-        <div class="slider-section">
-            <div class="slider-popup @IsEnabled()">
-                <span class="slider-title">@Title</span>
-                <input type="range"
-                       min="0"
-                       max="100"
-                       @bind="Value" />
+                    <span class="suffix">@Value%</span>
+                </div>
 
-                <span class="suffix">@Value%</span>
             </div>
-
-
-        </div>
-
+        }
     </div>
-</ToolbarWidgetBase>
+    </ToolbarWidgetBase>
