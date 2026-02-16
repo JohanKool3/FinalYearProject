@@ -8,6 +8,11 @@ namespace FinalYearProject.Services.Interfaces
     public interface IAudioSource
     {
         /// <summary>
+        /// Whether this Audio Source is Enabled
+        /// </summary>
+        bool IsEnabled { get; }
+
+        /// <summary>
         /// Returns an Audio Sample Source
         /// </summary>
         /// <returns></returns>

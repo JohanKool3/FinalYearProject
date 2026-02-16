@@ -5,6 +5,8 @@ namespace FinalYearProject.Services.Audio.Windows.AudioSources
 {
     public class BackingTrackSource : IAudioSource
     {
+        public bool IsEnabled => throw new NotImplementedException();
+
         public void Dispose()
         {
             throw new NotImplementedException();

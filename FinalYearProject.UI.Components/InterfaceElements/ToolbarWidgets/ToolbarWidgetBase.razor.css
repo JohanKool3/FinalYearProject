@@ -10,19 +10,19 @@
 }
 
 .normal {
-    width: 4em;
-    height: 4em;
+    width: 2em;
+    height: 2em;
 }
 
 
 .double {
-    width: 8em;
+    width: 4em;
     height: 2em;
 }
 
 
 .triple {
-    width: 12em;
+    width: 6em;
     height: 2em;
 }
 

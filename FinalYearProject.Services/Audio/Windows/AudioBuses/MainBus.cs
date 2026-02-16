@@ -1,5 +1,6 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
@@ -11,6 +12,13 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
         /// Whether Audio should be played or not
         /// </summary>
         public bool IsEnabled { get; private set; } = true;
+
+        /// <summary>
+        /// The Mixer for this Audio Bus
+        /// </summary>
+        private WaveFormat? _waveFormat;
+
+        #region Add and Remove
 
         public void AddEffect(IAudioEffect effect)
         {
@@ -26,21 +34,6 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             _audioSources.Add(source);
         }
 
-        public void AdjustVolume(int volume)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ISampleProvider GetOutput()
-        {
-            throw new NotImplementedException();
-        }
-
         public void RemoveEffect(IAudioEffect effect)
         {
             throw new NotImplementedException();
@@ -51,38 +44,49 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
             throw new NotImplementedException();
         }
 
-        public void Start()
+        #endregion
+
+        public ISampleProvider GetOutput()
         {
-            if (!IsEnabled)
+            var mixer = new MixingSampleProvider(_waveFormat);
+
+            foreach (var input in _audioSources)
             {
-                return;
+                // Not Enabled, don't add output
+                if (!input.IsEnabled)
+                {
+                    continue;
+                }
+
+                input.Start();
+                var inputSampleProvider = input.GetOutput();
+
+                // Cannot get output as it is null,
+                // TODO: Log this
+                if(inputSampleProvider is null)
+                {
+                    continue;
+                }
+
+                mixer.AddMixerInput(inputSampleProvider);
             }
 
-            foreach (var source in _audioSources)
-            {
-                source.Start();
-            }
+            return mixer;
         }
 
-        public void Stop()
-        {
-            if (!IsEnabled)
-            {
-                return;
-            }
 
-            foreach (var source in _audioSources)
-            {
-                source.Stop();
-            }
+
+        public void SetMixer(WaveFormat waveFormat)
+        {
+            // As the Main Bus needs to be dynamic (as to allow
+            // for different waveformats to be consolidated into
+            // a single one), we will set the mixer at the Get Output stage
+            _waveFormat = waveFormat;
         }
 
         public void ToggleActive()
         {
-            // Stop All Sources, then toggle
-            Stop();
             IsEnabled = !IsEnabled;
-
         }
     }
 }

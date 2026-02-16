@@ -9,6 +9,13 @@ namespace FinalYearProject.Services.Interfaces
     public interface IAudioBus
     {
         /// <summary>
+        /// Sets up the Mixer for use. All Sources must have the same
+        /// Wave Format to work
+        /// </summary>
+        /// <param name="waveFormat"></param>
+        public void SetMixer(WaveFormat waveFormat);
+
+        /// <summary>
         /// Add an audio Source to this Mixer Bus
         /// </summary>
         /// <param name="source"></param>

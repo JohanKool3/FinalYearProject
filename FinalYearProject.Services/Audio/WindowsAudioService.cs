@@ -2,8 +2,8 @@
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
-using Microsoft.Maui.Devices;
 using NAudio.CoreAudioApi;
+using NAudio.Wave;
 
 namespace FinalYearProject.Services.Audio
 {
@@ -15,8 +15,11 @@ namespace FinalYearProject.Services.Audio
         /// <summary>
         /// The output for this Audio Service.
         /// </summary>
-        private MainBus _bus;
+        private MainBus _mainBus;
         private readonly AudioServiceSettings _settings;
+
+        // Output
+        private WasapiOut? _output;
 
         public WindowsAudioService(
             MainBus mainBus,
@@ -26,17 +29,20 @@ namespace FinalYearProject.Services.Audio
             AudioServiceSettings settings)
         {
             // Register the main Bus 
-            _bus = mainBus;
+            _mainBus = mainBus;
             _settings = settings;
 
             // Add Inputs into Main Bus
-            _bus.AddSource(userBus);
-            _bus.AddSource(backingTrackBus);
-            _bus.AddSource(metronomeBus);
+            _mainBus.AddSource(userBus);
+            _mainBus.AddSource(backingTrackBus);
+            _mainBus.AddSource(metronomeBus);
 
 
             // Set Initial Settings
             SetInitialSettings();
+
+            // Set output
+            _output = new WasapiOut();
         }
 
         private void SetInitialSettings()
@@ -100,12 +106,22 @@ namespace FinalYearProject.Services.Audio
 
         public void StartPlayback()
         {
-            _bus.Start();
+            if(_output is null)
+            {
+                return;
+            }
+
+            _output.Init(_mainBus.GetOutput());
         }
 
         public void StopPlayback()
         {
-            _bus.Stop();
+            if(_output is null)
+            {
+                return;
+            }
+
+            _output.Stop();
         }
     }
 }
