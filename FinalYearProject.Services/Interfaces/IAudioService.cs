@@ -28,5 +28,7 @@ namespace FinalYearProject.Services.Interfaces
         /// Ends audio Playback
         /// </summary>
         void StopPlayback();
+
+        void RestartPlayback();
     }
 }

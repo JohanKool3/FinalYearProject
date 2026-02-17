@@ -169,5 +169,14 @@ namespace FinalYearProject.Services.Audio
 
             _output.Stop();
         }
+
+        /// <summary>
+        /// Used to reset playback when changes have been made to settings
+        /// </summary>
+        public void RestartPlayback()
+        {
+            StopPlayback();
+            StartPlayback();
+        }
     }
 }

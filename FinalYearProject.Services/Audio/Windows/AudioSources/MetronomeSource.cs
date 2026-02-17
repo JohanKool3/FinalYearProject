@@ -1,34 +1,44 @@
-﻿using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Audio.Windows.AudioBuses;
+using FinalYearProject.Services.Interfaces;
+using FinalYearProject.Services.SampleProviders;
+using FinalYearProject.Shared.Services;
 using NAudio.Wave;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioSources
 {
-    public class MetronomeSource : IAudioSource
+    public class MetronomeSource(
+        DisplayService displayService,
+        UserBus userBus) : IAudioSource
     {
-        public bool IsEnabled => throw new NotImplementedException();
+        public bool IsEnabled => true;
 
         public string Name => "metronome-source";
 
-        public ISampleProvider? SampleProvider => throw new NotImplementedException();
+        public ISampleProvider? SampleProvider
+            => new MetronomeSampleProvider(
+                DisplayService.Bpm, 
+                UserBus?.Source?.SampleProvider?.WaveFormat);
+
+        public DisplayService DisplayService { get; } = displayService;
+
+        public UserBus UserBus { get; } = userBus;
 
         public void Dispose()
         {
             throw new NotImplementedException();
         }
 
-        public ISampleProvider GetOutput()
-        {
-            throw new NotImplementedException();
-        }
+        public ISampleProvider? GetOutput()
+            => SampleProvider;
 
         public void Start()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

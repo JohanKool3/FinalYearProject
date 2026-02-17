@@ -11,7 +11,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
     public class MainBus(PlaybackService playback,
         AudioServiceSettings settings)
     {
-        private List<ISubAudioBus<IAudioSource>> _audioSources = [];
+        internal List<ISubAudioBus<IAudioSource>> AudioSources = [];
 
         /// <summary>
         /// Whether Audio should be played or not
@@ -42,7 +42,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 return;
             }
 
-            _audioSources.Add(source);
+            AudioSources.Add(source);
         }
 
         public void RemoveEffect(IAudioEffect effect)
@@ -74,7 +74,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
                 ReadFully = true
             };
 
-            foreach (var input in _audioSources)
+            foreach (var input in AudioSources)
             {
               
                 // Not Enabled, don't add output
@@ -126,7 +126,7 @@ namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 
             // Notify Mixers of the Lower Level Busses to use the new 
             // wave format
-            foreach(var source in _audioSources)
+            foreach(var source in AudioSources)
             {
                 if(source.Name == "user-bus")
                 {

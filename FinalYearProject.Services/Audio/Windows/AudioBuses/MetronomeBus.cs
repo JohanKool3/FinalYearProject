@@ -2,15 +2,28 @@
 using FinalYearProject.Services.Audio.Windows.AudioSources;
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Models;
+using FinalYearProject.Shared.Services;
 using NAudio.Wave;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioBuses
 {
-    public class MetronomeBus(UserSettings channelSettings)
+    public class MetronomeBus(UserSettings channelSettings,
+        DisplayService displayService,
+        UserBus userBus)
         : SubAudioBusBase<MetronomeSource>(channelSettings),
         ISubAudioBus<MetronomeSource>
     {
         public override string Name => "metronome-bus";
+
+        public override MetronomeSource? Source
+        {
+            get => new(DisplayService, UserBus);
+            internal set;
+        }
+        public DisplayService DisplayService { get; } = displayService;
+        
+        public UserBus UserBus { get; } = userBus;
+
 
         public override ISampleProvider? GetOutput()
         {

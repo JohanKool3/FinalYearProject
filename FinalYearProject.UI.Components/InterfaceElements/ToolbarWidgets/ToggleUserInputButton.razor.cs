@@ -19,9 +19,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
             };
         private void ToggleUserTrack(MouseEventArgs args)
         {
-            AudioService.StopPlayback();
             UserBus.ToggleActive();
-            AudioService.StartPlayback();
+            AudioService.RestartPlayback();
         }
     }
 }

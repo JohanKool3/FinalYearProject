@@ -1,10 +1,12 @@
+using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
 {
-    public partial class PauseButton(PlaybackService playbackService) : ComponentBase
+    public partial class PauseButton(PlaybackService playbackService,
+        IAudioService audioService) : ComponentBase
     {
         /// <summary>
         /// Action that is invoked when the pause button is clicked
@@ -19,12 +21,23 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
         public Func<Task> NotifyParentOfChange { get; set; } = null!;
 
         public PlaybackService PlaybackService { get; set; } = playbackService;
+        
+        public IAudioService AudioService { get; } = audioService;
 
         private async Task PausePlayAsync(MouseEventArgs args)
         {
+            // Prevents stopping a stopped playback state
+            if (!PlaybackService.IsPlaying)
+            {
+                return;
+            }
+
             // Inform the service and listeners that the pause button was clicked
             await PlaybackService.StopPlaybackAsync();
+
+
             await InvokeAsync(NotifyParentOfChange);
+            AudioService.RestartPlayback();
 
             if (OnPauseAsync is null)
             {

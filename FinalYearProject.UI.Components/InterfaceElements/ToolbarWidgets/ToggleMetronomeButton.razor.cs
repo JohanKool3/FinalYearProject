@@ -19,9 +19,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets
             };
         private void ToggleMetronomeTrack(MouseEventArgs args)
         {
-            AudioService.StopPlayback();
             MetronomeBus.ToggleActive();
-            AudioService.StartPlayback();
+            AudioService.RestartPlayback();
         }
     }
 }

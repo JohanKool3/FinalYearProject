@@ -2,17 +2,23 @@
 
 namespace FinalYearProject.Services.SampleProviders
 {
-    public class MetronomeSampleProvider(int bpm, int sampleRate, WaveFormat waveFormat) : ISampleProvider
+    public class MetronomeSampleProvider(int bpm, WaveFormat? waveFormat) : ISampleProvider
     {
-        private readonly WaveFormat _waveFormat = waveFormat;
+        private readonly WaveFormat? _waveFormat = waveFormat;
         private int _sample;
-        private readonly int _samplesPerBeat = (sampleRate * 60) / (bpm / 2);
+        private readonly int _samplesPerBeat = ((waveFormat?.SampleRate ?? 1) * 60) / (bpm / 2);
         private readonly float _frequency = 1000f;
 
-        public WaveFormat WaveFormat => _waveFormat;
+        public WaveFormat? WaveFormat => _waveFormat;
 
         public int Read(float[] buffer, int offset, int count)
         {
+            if(_waveFormat is null)
+            {
+                // TODO: Log this exception
+                return 0;
+            }
+
             for (int n = 0; n < count; n++)
             {
                 if (_sample % _samplesPerBeat < 2000)
