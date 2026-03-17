@@ -19,7 +19,6 @@ namespace FinalYearProject.Integration.Tests.ApiClient
         public async Task FinalYearProjectApi_RequestAnalysisAsync_ValidData_ReturnsExpectedResult()
         {
             // Arrange
-
             var request = new RequestAnalysisData
             {
                 // C Major Scale has an empty GUID as its ID
