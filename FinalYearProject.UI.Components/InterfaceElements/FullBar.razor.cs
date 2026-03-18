@@ -97,5 +97,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private int GetPlaybackIndicatorYPosition()
             => _topBarHeight + _mainBarTopPadding/4;
+
+        private int GetPlaybackIndicatorXPosition()
+            => ShowTimeSignature ? _preBarWidth : 0;
     }
 }
