@@ -1,9 +1,9 @@
-﻿using FinalYearProject.Services.Interfaces;
-using FinalYearProject.Shared.Models.UI;
+﻿using FinalYearProject.Shared.Models.UI;
 using FinalYearProject.Shared.Enums;
 using FinalYearProject.Shared.Helpers;
 using FinalYearProject.Shared.Models.UI.Bar;
 using FinalYearProject.Services.Helpers;
+using FinalYearProject.Shared.Services;
 
 namespace FinalYearProject.Services.UI.TabLoaders
 {

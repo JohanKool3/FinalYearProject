@@ -1,6 +1,6 @@
 ﻿using FinalYearProject.Shared.Models.UI;
 
-namespace FinalYearProject.Services.Interfaces
+namespace FinalYearProject.Shared.Services
 {
     /// <summary>
     /// Outlines a service for Loading Tab Display information

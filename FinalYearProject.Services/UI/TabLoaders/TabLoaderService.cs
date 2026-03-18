@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using FinalYearProject.Api;
-using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Models.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using FinalYearProject.Shared.Services;
 
 namespace FinalYearProject.Services.UI.TabLoaders
 {

@@ -1,9 +1,12 @@
-﻿namespace FinalYearProject.Shared.Services
+﻿using FinalYearProject.Shared.Models.UI;
+
+namespace FinalYearProject.Shared.Services
 {
     /// <summary>
     /// Service to manage Tab playback
     /// </summary>
-    public class PlaybackService(DisplayService displayService)
+    public class PlaybackService(DisplayService displayService,
+        GlobalTimerService timer)
     {
         #region Services
 
@@ -11,6 +14,7 @@
         /// Registers the display service to get tab information from
         /// </summary>
         public DisplayService DisplayService { get; } = displayService;
+        public GlobalTimerService Timer { get; } = timer;
 
         #endregion
 
@@ -116,11 +120,10 @@
         public Task StartPlaybackAsync()
         {
             IsPlaying = true;
+
+            Timer.Start();
             
             return InvokeOnStartPlaybackEvent();
-
-            // TODO: Implement Timer here to update
-            // CurrentTimeInSeconds based on Bpm of current bar
         }
 
         /// <summary>
@@ -130,6 +133,8 @@
         {
             // TODO: Implement Stopping of Timer here
             IsPlaying = false;
+
+            Timer.Stop();
 
             return InvokeOnStopPlaybackEvent();
         }
@@ -164,5 +169,44 @@
 
         #endregion
 
+
+        private double GetBarDuration(BarInformation bar)
+        {
+            double secondsPerQuarter = 60.0 / DisplayService.Bpm;
+
+            double beatMultiplier = 4.0 / bar.TimeSignature.BeatUnit;
+
+            return secondsPerQuarter * beatMultiplier * bar.TimeSignature.BeatsPerMeasure;
+        }
+
+        private int GetCurrentBar(double elapsedSeconds)
+        {
+            double accumulated = 0;
+
+            var bars = DisplayService?.CurrentTab?.Bars ?? [];
+
+            for (int i = 0; i < bars.Count; i++)
+            {
+                double duration = GetBarDuration(bars[i]);
+
+                if (elapsedSeconds < accumulated + duration)
+                {
+                    return i;
+                }
+
+                accumulated += duration;
+            }
+
+            // Stop Playback as we have reached the end
+            return -1;
+        }
+
+        public bool IsBarActive(int barNumber, double time)
+        {
+            var currentBar = GetCurrentBar(time);
+            var barIndex = barNumber - 1;
+
+            return currentBar == barIndex;
+        }
     }
 }

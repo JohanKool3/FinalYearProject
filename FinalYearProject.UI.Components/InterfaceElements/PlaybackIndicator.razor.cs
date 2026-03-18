@@ -13,11 +13,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         public PlaybackIndicator(SettingsService representationService,
         SettingsService settingsService,
         DisplayService displayService,
-        PlaybackService playbackService)
+        PlaybackService playbackService,
+        GlobalTimerService timer)
         {
             RepresentationService = representationService;
             DisplayService = displayService;
             PlaybackService = playbackService;
+            Timer = timer;
 
             // Register to be notified when settings change
             RegisterEventHandlers();
@@ -28,6 +30,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         private void RegisterEventHandlers()
         {
+            Timer.OnTick += HandleTickAsync;
             PlaybackService.RegisterOnStartPlaybackEvent(OnPlaybackStartAsync);
             PlaybackService.RegisterOnStopPlaybackEvent(OnPlaybackEndAsync);
         }
@@ -76,6 +79,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => RepresentationService.Settings;
 
         public PlaybackService PlaybackService { get; }
+        public GlobalTimerService Timer { get; }
 
         #endregion
 
@@ -93,10 +97,8 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #endregion
 
         private bool _isVisible
-            => PlaybackService.IsPlaying;
-
-        private Stopwatch _clock = new();
-        private CancellationTokenSource? _playbackCts;
+            => PlaybackService.IsPlaying &&
+               PlaybackService.IsBarActive(BarNumber, Timer.CurrentTime);
 
         /// <summary>
         /// When playback starts, refresh the component state.
@@ -104,11 +106,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <returns></returns>
         private Task OnPlaybackStartAsync()
         {
-            _playbackCts?.Cancel(); // stop previous clock if any
-            _playbackCts = new CancellationTokenSource();
-
-            _ = RunPlaybackClock(_playbackCts.Token);
-
             return InvokeAsync(StateHasChanged);
         }
 
@@ -118,7 +115,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         /// <returns></returns>
         private Task OnPlaybackEndAsync()
         {
-            _playbackCts?.Cancel();
             return InvokeAsync(StateHasChanged);
         }
 
@@ -129,31 +125,24 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             PlaybackService.UnregisterOnStopPlaybackEvent(OnPlaybackEndAsync);
         }
 
-
         private int _playbackXPosition = 0;
 
-        private async Task RunPlaybackClock(CancellationToken token)
+        private Task HandleTickAsync()
         {
-            _clock.Restart();
+            double time = Timer.CurrentTime;
 
+            // Calculate the modulo of the position within the bar
             double secondsPerBeat = 60.0 / DisplayService.Bpm;
-            double secondsPerBar = secondsPerBeat * BarTimeSignature.BeatsPerMeasure;
+            double barDuration = secondsPerBeat * BarTimeSignature.BeatsPerMeasure;
 
-            while (!token.IsCancellationRequested)
-            {
-                double elapsed = _clock.Elapsed.TotalSeconds;
+            double timeInBar = time % barDuration;
 
-                double barProgress = (elapsed % secondsPerBar) / secondsPerBar;
+            double progress = timeInBar / barDuration;
 
-                _playbackXPosition = (int)(barProgress * ParentBarWidth);
+            _playbackXPosition = (int)(progress * ParentBarWidth);
+            _playbackXPosition = Math.Clamp(_playbackXPosition, XPosition, ParentBarWidth);
 
-                // Ensure that the XPosition is within valid bounds
-                _playbackXPosition = Math.Clamp(_playbackXPosition, XPosition, ParentBarWidth);
-
-                await InvokeAsync(StateHasChanged);
-
-                await Task.Delay(8, token);
-            }
+            return InvokeAsync(StateHasChanged);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using FinalYearProject.Services.Interfaces;
-using FinalYearProject.Shared.Models.UI;
+﻿using FinalYearProject.Shared.Models.UI;
 
 namespace FinalYearProject.Shared.Services
 {

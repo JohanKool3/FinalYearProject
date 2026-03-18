@@ -1,5 +1,4 @@
-﻿using FinalYearProject.Services.Interfaces;
-using FinalYearProject.Services.UI.TabLoaders;
+﻿using FinalYearProject.Services.UI.TabLoaders;
 using FinalYearProject.Shared.Models;
 using FinalYearProject.Shared.Models.Dtos;
 using FinalYearProject.Shared.Services;
@@ -28,6 +27,9 @@ namespace FinalYearProject.UI.Components.Extensions
             // Register Tab Display Loader
             //services.AddSingleton<ITabLoaderService, BasicTabLoaderService>();
             services.AddSingleton<ITabLoaderService, TabLoaderService>();
+
+            // Register Playback Timer
+            services.AddSingleton<GlobalTimerService>();
 
             // Register Display Service
             services.AddSingleton<DisplayService>();
