@@ -35,12 +35,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #region Parameters
 
         /// <summary>
-        /// Where the Playback Indicator is positioned on the X axis
-        /// </summary>
-        [Parameter]
-        public int XPosition { get; set; }
-
-        /// <summary>
         /// Where the Playback Indicator is positioned on the Y axis
         /// </summary>
         [Parameter]
@@ -88,8 +82,13 @@ namespace FinalYearProject.UI.Components.InterfaceElements
             => Settings.PlaybackIndicator.Color;
 
         #endregion
-    
-        
+
+        /// <summary>
+        /// Holds the position of the Bar Indicator is on the XAxis
+        /// </summary>
+        public int XPosition { get; set; } = 0;
+
+
         private bool _isVisible
             => PlaybackService.IsPlaying;
 
