@@ -1,3 +1,4 @@
+using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.Shared.Services;
 using FinalYearProject.UI.Components.Models.Settings;
@@ -14,12 +15,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         SettingsService settingsService,
         DisplayService displayService,
         PlaybackService playbackService,
-        GlobalTimerService timer)
+        GlobalTimerService timer,
+        IAudioService audioService)
         {
             RepresentationService = representationService;
             DisplayService = displayService;
             PlaybackService = playbackService;
             Timer = timer;
+            AudioService = audioService;
 
             // Register to be notified when settings change
             RegisterEventHandlers();
@@ -80,6 +83,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         public PlaybackService PlaybackService { get; }
         public GlobalTimerService Timer { get; }
+        public IAudioService AudioService { get; }
 
         #endregion
 
@@ -130,6 +134,14 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         private Task HandleTickAsync()
         {
             double time = Timer.CurrentTime;
+
+            // Check if timer has exceeded the max length of the piece,
+            // if so, return false and stop playback
+            if (time > PlaybackService.TotalTabLengthInSeconds)
+            {
+                AudioService.StopPlayback();
+                return PlaybackService.StopPlaybackAsync();
+            }
 
             // Calculate the modulo of the position within the bar
             double secondsPerBeat = 60.0 / DisplayService.Bpm;
