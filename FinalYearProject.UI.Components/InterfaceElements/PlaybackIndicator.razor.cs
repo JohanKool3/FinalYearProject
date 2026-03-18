@@ -1,5 +1,6 @@
 using FinalYearProject.Shared.Models.TabRepresentation;
 using FinalYearProject.Shared.Services;
+using FinalYearProject.UI.Components.Models.Settings;
 using FinalYearProject.UI.Components.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -14,8 +15,6 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         PlaybackService playbackService)
         {
             RepresentationService = representationService;
-            SettingsService = settingsService;
-            DisplayService = displayService;
             PlaybackService = playbackService;
 
             // Register to be notified when settings change
@@ -69,8 +68,10 @@ namespace FinalYearProject.UI.Components.InterfaceElements
 
         #region Services
         public SettingsService RepresentationService { get; }
-        public SettingsService SettingsService { get; }
-        public DisplayService DisplayService { get; }
+
+        private RepresentationSettings Settings 
+            => RepresentationService.Settings;
+
         public PlaybackService PlaybackService { get; }
         
         #endregion
@@ -78,22 +79,19 @@ namespace FinalYearProject.UI.Components.InterfaceElements
         #region Settings
 
         private int _width
-            => SettingsService.Settings.PlaybackIndicator.Width;
+            => Settings.PlaybackIndicator.Width;
 
         private int _height
-            => SettingsService.Settings.PlaybackIndicator.Height;
+            => Settings.PlaybackIndicator.Height;
 
         private string _color
-            => SettingsService.Settings.PlaybackIndicator.Color;
+            => Settings.PlaybackIndicator.Color;
 
         #endregion
     
         
         private bool _isVisible
             => PlaybackService.IsPlaying;
-
-        private int _bpm
-            => DisplayService.Bpm;
 
         /// <summary>
         /// When playback starts, refresh the component state.
