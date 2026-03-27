@@ -5,11 +5,18 @@ using NAudio.Wave;
 
 namespace FinalYearProject.Services.Audio.Windows.AudioSources
 {
-    public class UserInputSource : IAudioSource
+    public class UserInputSource(AudioServiceSettings audioServiceSettings) : IAudioSource
     {
-        public bool IsEnabled => true;
+        public bool IsEnabled 
+            => true;
 
-        public string Name => "user-input-source";
+        /// <summary>
+        /// Whether output is being saved from this input source
+        /// </summary>
+        public bool IsRecording { get; set;  }
+
+        public string Name 
+            => "user-input-source";
 
         #region User Input 
 
@@ -19,11 +26,9 @@ namespace FinalYearProject.Services.Audio.Windows.AudioSources
 
         #endregion
 
-        public AudioServiceSettings AudioServiceSettings { get; }
+        public AudioServiceSettings AudioServiceSettings { get; } = audioServiceSettings;
 
         public ISampleProvider? SampleProvider => _waveProvider;
-
-        public UserInputSource(AudioServiceSettings audioServiceSettings) => AudioServiceSettings = audioServiceSettings;
 
         public void Dispose()
         {

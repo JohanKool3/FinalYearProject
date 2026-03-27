@@ -107,6 +107,12 @@ namespace FinalYearProject.Services.Audio
             return outputDevices;
         }
 
+
+        public void StartRecording()
+        {
+            throw new NotImplementedException();
+        }
+
         public void StartPlayback()
         {
             // TODO: Log Exception
