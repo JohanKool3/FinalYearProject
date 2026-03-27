@@ -3,7 +3,7 @@ using FinalYearProject.Services.Settings;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
-namespace FinalYearProject.Services.Audio.Windows.AudioSources
+namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
 {
     public class UserInputSource(AudioServiceSettings audioServiceSettings) : IAudioSource
     {

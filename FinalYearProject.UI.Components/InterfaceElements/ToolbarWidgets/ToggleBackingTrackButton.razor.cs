@@ -1,5 +1,5 @@
-using FinalYearProject.Services.Audio.Windows.AudioBuses;
 using FinalYearProject.UI.Components.Services;
+using FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace FinalYearProject.UI.Components.InterfaceElements.ToolbarWidgets

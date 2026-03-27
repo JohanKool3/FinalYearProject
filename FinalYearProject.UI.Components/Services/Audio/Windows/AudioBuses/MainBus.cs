@@ -1,12 +1,11 @@
-﻿using FinalYearProject.Services.Audio.Windows.AudioEffects;
-using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
-using FinalYearProject.Shared.Models;
 using FinalYearProject.Shared.Services;
+using FinalYearProject.UI.Components.Services.Audio.Windows.AudioEffects;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-namespace FinalYearProject.Services.Audio.Windows.AudioBuses
+namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses
 {
     public class MainBus(PlaybackService playback,
         AudioServiceSettings settings)

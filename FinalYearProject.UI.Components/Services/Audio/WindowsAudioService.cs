@@ -1,11 +1,11 @@
-﻿using FinalYearProject.Services.Audio.Windows.AudioBuses;
-using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
+using FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
-namespace FinalYearProject.Services.Audio
+namespace FinalYearProject.UI.Components.Services.Audio
 {
     /// <summary>
     /// Audio Engine Service for Windows Devices

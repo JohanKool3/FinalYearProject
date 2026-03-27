@@ -3,7 +3,7 @@ using FinalYearProject.Shared.Models;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-namespace FinalYearProject.Services.Audio.Windows.AudioBuses
+namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses
 {
     /// <summary>
     /// Defines a Base class for a Sub Audio Bus (one that will feed into

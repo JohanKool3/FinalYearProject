@@ -2,7 +2,7 @@
 using FinalYearProject.Services.SampleProviders;
 using NAudio.Wave;
 
-namespace FinalYearProject.Services.Audio.Windows.AudioEffects
+namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioEffects
 {
     public class PreFXGainEffect : IAudioEffect
     {

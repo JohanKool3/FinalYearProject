@@ -1,7 +1,7 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using NAudio.Wave;
 
-namespace FinalYearProject.Services.Audio.Windows.AudioSources
+namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
 {
     public class BackingTrackSource : IAudioSource
     {

@@ -3,7 +3,6 @@ using FinalYearProject.UI.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
-using FinalYearProject.Services.Extensions;
 
 namespace FinalYearProject.UI
 {
