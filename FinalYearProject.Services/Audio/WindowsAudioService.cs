@@ -108,7 +108,7 @@ namespace FinalYearProject.Services.Audio
         }
 
 
-        public void StartRecording()
+        public void EnableRecording()
         {
             throw new NotImplementedException();
         }

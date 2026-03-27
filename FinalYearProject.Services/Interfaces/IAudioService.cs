@@ -27,7 +27,7 @@ namespace FinalYearProject.Services.Interfaces
         /// <summary>
         /// Starts the Recording of the User Input channel
         /// </summary>
-        void StartRecording();
+        void EnableRecording();
 
         /// <summary>
         /// Ends audio Playback
