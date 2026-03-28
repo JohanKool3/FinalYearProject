@@ -31,6 +31,12 @@ namespace FinalYearProject.Shared.Services
         public bool RecordingEnabled { get; private set; } = false;
 
         /// <summary>
+        /// Only in a recording state when Recording is enabled and playback is active
+        /// </summary>
+        public bool InRecordingState => 
+            RecordingEnabled && IsPlaying;
+
+        /// <summary>
         /// Keeps track of the current progress through the tab as a time
         /// </summary>
         public float CurrentTimeInSeconds { get; private set; } = 0;

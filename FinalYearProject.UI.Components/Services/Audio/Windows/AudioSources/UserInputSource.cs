@@ -1,11 +1,13 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
+using FinalYearProject.Shared.Services;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
 namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
 {
-    public class UserInputSource(AudioServiceSettings audioServiceSettings) : IAudioSource
+    public class UserInputSource(AudioServiceSettings audioServiceSettings,
+        PlaybackService playbackService) : IAudioSource
     {
         public bool IsEnabled 
             => true;
@@ -22,6 +24,7 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
         #endregion
 
         public AudioServiceSettings AudioServiceSettings { get; } = audioServiceSettings;
+        private readonly PlaybackService _playbackService = playbackService;
 
         public ISampleProvider? SampleProvider => _waveProvider;
 
@@ -69,6 +72,11 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
             _capture.DataAvailable += (s, e) =>
             {
                 waveProvider.AddSamples(e.Buffer, 0, e.BytesRecorded);
+
+                if (_playbackService.InRecordingState)
+                {
+                    // TODO: Insert Writing to File Logic here
+                }
             };
 
             _waveProvider = waveProvider.ToSampleProvider();

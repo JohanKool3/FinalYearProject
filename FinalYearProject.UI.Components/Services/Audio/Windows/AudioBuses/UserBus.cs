@@ -1,6 +1,7 @@
 ﻿using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Settings;
 using FinalYearProject.Shared.Models;
+using FinalYearProject.Shared.Services;
 using FinalYearProject.UI.Components.Services.Audio.Windows.AudioEffects;
 using FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources;
 using NAudio.Wave;
@@ -8,7 +9,8 @@ using NAudio.Wave;
 namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses
 {
     public class UserBus(UserSettings channelSettings,
-        AudioServiceSettings audioSettings)
+        AudioServiceSettings audioSettings,
+        PlaybackService playbackService)
         : SubAudioBusBase<UserInputSource>(channelSettings)
         
     {
@@ -17,7 +19,7 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses
         public AudioServiceSettings AudioSettings { get; } = audioSettings;
 
         public override UserInputSource? Source { get; internal set; }
-        = new UserInputSource(audioSettings);
+        = new UserInputSource(audioSettings, playbackService);
 
         public override ISampleProvider? GetOutput()
         {
