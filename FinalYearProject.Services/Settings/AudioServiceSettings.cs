@@ -31,7 +31,10 @@
         /// </summary>
         public int OutputLatency { get; set; }
 
-
+        /// <summary>
+        /// The Max Latency allowed for a given input or output (used as a 
+        /// bound for the UI inputs)
+        /// </summary>
         public int MaxLatency => 1024;
     }
 }

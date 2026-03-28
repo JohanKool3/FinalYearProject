@@ -10,11 +10,6 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
         public bool IsEnabled 
             => true;
 
-        /// <summary>
-        /// Whether output is being saved from this input source
-        /// </summary>
-        public bool IsRecording { get; set;  }
-
         public string Name 
             => "user-input-source";
 
