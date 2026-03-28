@@ -47,7 +47,8 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses
 
         public virtual string Name => "default";
 
-        public ISampleProvider SampleProvider => throw new NotImplementedException();
+        public ISampleProvider SampleProvider 
+            => throw new NotImplementedException();
 
         #region Add + Remove
 

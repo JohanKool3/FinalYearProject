@@ -1,4 +1,5 @@
-﻿using FinalYearProject.Services.Interfaces;
+﻿using FinalYearProject.Services.Enums;
+using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Services.Models;
 using FinalYearProject.Services.Settings;
 using FinalYearProject.UI.Components.Services.Audio.Windows.AudioBuses;
@@ -139,8 +140,8 @@ namespace FinalYearProject.UI.Components.Services.Audio
 
 
             var floatFormat = WaveFormat.CreateIeeeFloatWaveFormat(
-                    deviceFormat.SampleRate,
-                    deviceFormat.Channels);
+                    GetSampleRate(),
+                    2);
 
             _mainBus.SetMixer(floatFormat);
 
@@ -165,6 +166,13 @@ namespace FinalYearProject.UI.Components.Services.Audio
             _output.Init(outputSampleProvider);
             _output.Play();
         }
+
+        private int GetSampleRate()
+            => _settings.SampleRate switch
+            {
+                SampleRate.Standard => 44100,
+                _ => 48000
+            };
 
         public void StopPlayback()
         {

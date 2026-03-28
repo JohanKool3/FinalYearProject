@@ -1,4 +1,6 @@
-﻿namespace FinalYearProject.Services.Settings
+﻿using FinalYearProject.Services.Enums;
+
+namespace FinalYearProject.Services.Settings
 {
     /// <summary>
     /// Holds settings related to the Input and Output IDs for
@@ -36,5 +38,10 @@
         /// bound for the UI inputs)
         /// </summary>
         public int MaxLatency => 1024;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SampleRate SampleRate { get; set; }
     }
 }
