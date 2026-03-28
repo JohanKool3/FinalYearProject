@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 namespace FinalYearProject.UI.Components.InterfaceElements.Recording
 {
     public partial class AudioFileManager(
-        IUserDataStorage storage,
+        IUserDataService storage,
         PerformanceService performanceService,
         NavigationManager navigationManager)
     {
@@ -22,7 +22,7 @@ namespace FinalYearProject.UI.Components.InterfaceElements.Recording
 
         #region Dependencies
 
-        public IUserDataStorage Storage { get; } = storage;
+        public IUserDataService Storage { get; } = storage;
         public PerformanceService PerformanceService { get; } = performanceService;
         public NavigationManager NavigationManager { get; } = navigationManager;
 

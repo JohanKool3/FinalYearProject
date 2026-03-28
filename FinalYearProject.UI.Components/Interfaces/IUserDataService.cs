@@ -4,7 +4,7 @@
     /// Defines a Service that can interact with the native
     /// device's File System
     /// </summary>
-    public interface IUserDataStorage
+    public interface IUserDataService
     {
         /// <summary>
         /// Gets a Piece Directory by ID

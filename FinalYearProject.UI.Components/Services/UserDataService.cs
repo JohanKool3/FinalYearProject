@@ -3,8 +3,8 @@ using Microsoft.Maui.Storage;
 
 namespace FinalYearProject.UI.Components.Services
 {
-    /// <inheritdoc cref="IUserDataStorage" />
-    public class UserDataStorage : IUserDataStorage
+    /// <inheritdoc cref="IUserDataService" />
+    public class UserDataService : IUserDataService
     {
         // TODO: Move this into configuration for ease of changes
         private readonly string _basePath =
