@@ -26,6 +26,11 @@ namespace FinalYearProject.Shared.Services
         public bool IsPlaying { get; private set; } = false;
 
         /// <summary>
+        /// Returns whether the performance should be recorded during playback
+        /// </summary>
+        public bool RecordingEnabled { get; private set; } = false;
+
+        /// <summary>
         /// Keeps track of the current progress through the tab as a time
         /// </summary>
         public float CurrentTimeInSeconds { get; private set; } = 0;
@@ -122,7 +127,7 @@ namespace FinalYearProject.Shared.Services
             IsPlaying = true;
 
             Timer.Start();
-            
+
             return InvokeOnStartPlaybackEvent();
         }
 
@@ -208,5 +213,9 @@ namespace FinalYearProject.Shared.Services
 
             return currentBar == barIndex;
         }
+
+        public void ToggleRecording()
+        => RecordingEnabled = !RecordingEnabled;
+
     }
 }
