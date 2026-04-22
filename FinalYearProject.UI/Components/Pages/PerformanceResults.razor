@@ -1,6 +1,5 @@
 @page "/results/{PieceId:guid}"
 @using FinalYearProject.UI.Components.InterfaceElements
-@using FinalYearProject.UI.Components.InterfaceElements.Recording.Results
 
 @if (!DataLoaded())
 {
@@ -11,11 +10,6 @@
 }
 else
 {
-    <div class="results-view">
-        <ResultsGraphic Value="Results.NoteAccuracy"
-                        Size="200"
-                        StrokeWidth="25"
-                        Title="Note Accuracy" />
-    </div>
+   <p>Results will be shown here</p>
 
 }

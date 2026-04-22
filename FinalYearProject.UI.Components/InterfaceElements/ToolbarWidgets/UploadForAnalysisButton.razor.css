@@ -1,0 +1,11 @@
+.toolbar-button {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    background-color: rgb(60, 238, 83);
+}
+
+    .toolbar-button:hover {
+        cursor: pointer;
+        background-color: rgb(39, 208, 177);
+    }
