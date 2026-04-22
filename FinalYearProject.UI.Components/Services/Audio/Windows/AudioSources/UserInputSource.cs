@@ -10,7 +10,7 @@ namespace FinalYearProject.UI.Components.Services.Audio.Windows.AudioSources
         PlaybackService playbackService) : IAudioSource
     {
         public bool IsEnabled 
-            => true;
+            => false;
 
         public string Name 
             => "user-input-source";
