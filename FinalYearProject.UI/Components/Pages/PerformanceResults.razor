@@ -10,5 +10,13 @@
 }
 else
 {
-   <p>Note Accuracy: @Results.NoteAccuracy</p>
+    <h1>Performance Results for: @displayService.Title</h1>
+
+    <div class="results-area">
+        <div class="result-section">
+            <span class="no-wrap">Note Accuracy</span>
+            <StaticProgressBar Value="_accuracy" />
+            <span class="no-wrap">@_accuracy%</span>
+        </div>
+    </div>
 }
