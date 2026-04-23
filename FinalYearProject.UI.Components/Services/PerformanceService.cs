@@ -16,6 +16,12 @@ namespace FinalYearProject.UI.Components.Services
 
         public FinalYearProjectApiClient ApiClient { get; } = apiClient;
 
+        /// <summary>
+        /// Requests Results, saves to LastFetchedResults property
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="pieceId"></param>
+        /// <returns></returns>
         public async Task GetResultsAsync(Stream data, Guid pieceId)
         {
             if (data is null || ApiClient is null)

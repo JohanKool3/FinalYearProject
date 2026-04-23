@@ -21,6 +21,11 @@ namespace FinalYearProject.Shared.Services
         #region Properties
 
         /// <summary>
+        /// Holds the ID of the active Piece
+        /// </summary>
+        public Guid? ActivePieceId { get; set; }
+
+        /// <summary>
         /// Returns whether the tab is currently being played.
         /// </summary>
         public bool IsPlaying { get; private set; } = false;

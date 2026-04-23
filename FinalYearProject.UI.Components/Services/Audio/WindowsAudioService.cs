@@ -37,7 +37,7 @@ namespace FinalYearProject.UI.Components.Services.Audio
             _settings = settings;
 
             // Add Sub Busses as inputs into Main Bus
-            _mainBus.AddSource(userBus);
+            //_mainBus.AddSource(userBus);
             _mainBus.AddSource(backingTrackBus);
             _mainBus.AddSource(metronomeBus);
 
