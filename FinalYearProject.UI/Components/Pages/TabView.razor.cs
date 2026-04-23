@@ -1,5 +1,6 @@
 using FinalYearProject.Services.Interfaces;
 using FinalYearProject.Shared.Services;
+using FinalYearProject.UI.Components.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
@@ -7,8 +8,11 @@ namespace FinalYearProject.UI.Components.Pages
 {
     public partial class TabView(DisplayService displayService,
         IAudioService audioService,
+        IUserDataService userDataService,
         NavigationManager navigationManager)
     {
+        private readonly IUserDataService _userDataService = userDataService;
+
         /// <summary>
         /// The Id of this Piece
         /// </summary>
@@ -28,6 +32,10 @@ namespace FinalYearProject.UI.Components.Pages
             // Fetch Data
             await DisplayService.LoadPieceAsync(PieceId, CancellationToken.None);
             await DisplayService.SetCurrentPieceIdAsync(PieceId);
+
+            // Create Recording Folder (Ensures it exists for later recording logic)
+            _userDataService.GetPieceDirectory(PieceId);
+
             await base.OnInitializedAsync();
         }
 
