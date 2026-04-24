@@ -135,6 +135,7 @@ namespace FinalYearProject.Accuracy.Analysis.Integration.Tests.AccuracyCalculato
 
             // Assert
             Assert.NotNull(noteTimeline);
+            Assert.Equal(1, accuracy);
         }
     }
 }

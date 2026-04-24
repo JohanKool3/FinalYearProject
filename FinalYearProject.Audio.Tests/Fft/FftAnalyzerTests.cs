@@ -9,7 +9,7 @@ namespace FinalYearProject.Audio.Tests.Fft
         [Fact]
         public void FftAnalyzer_EmptyInput_ReturnsEmptyBins()
         {
-            // arrange
+            // Arrange
             var testWindow = new Window()
             {
                 Samples = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
