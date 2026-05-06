@@ -47,7 +47,7 @@ namespace FinalYearProject.Integration.Tests.ApiClient
         }
 
         [Fact]
-        public async Task FinalYearProjectApi_GetPieceByIdAsync_ValidId_ReturnsExpectedPiece()
+        public async Task FinalYearProjectApi_GetPieceInformationByIdAsync_ValidId_ReturnsExpectedPiece()
         {
             // Arrange
             var pieceId = Guid.Empty;

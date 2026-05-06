@@ -20,7 +20,7 @@ namespace FinalYearProject.Audio.Tests.NoteDetectors
         [InlineData("B4", 5)]
         [InlineData("C5", 6)]
         [InlineData("C#5", 7)]
-        public void CalculateNoteSlice_ShouldReturnCorrectNote(string expected, int maxFrequency)
+        public void SimpleNoteDetector_CalculateNoteSlice_ShouldReturnCorrectNote(string expected, int maxFrequency)
         {
             // Arrange
             var tuningScheme = new TuningScheme
